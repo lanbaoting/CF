@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.SeoTile = "安卓游戏_安卓游戏下载_安卓游戏排行_好玩的安卓游戏下载 - A游网";
+    ViewBag.SeoKey = "安卓游戏,安卓游戏,安卓游戏排行榜,安卓游戏下载,好玩的安卓游戏";
+    ViewBag.SeoDesc = "A游网 致力于为广大安卓手机用户提供热门好玩的安卓游戏app无广告安全下载,安卓软件app下载和游戏攻略资讯等信息，同时这里汇集了时下流行的手机游戏排行榜,让您清楚了解什么手机游戏好玩，免费好玩的手机游戏下载尽在A游网。";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+} 
+    <section class="layout">
+        <nav class="nav zm">
+            <ul class="textct">
+                @{
+                    var navigation2List = ViewBag.Navigation2List as List<Entity.Models.Jw_Navigation2>;
+                    if (navigation2List != null)
+                    {
+                        foreach (var m in navigation2List)
+                        {                                                     
+                             <li><a href="@m.LinkAddress" target="_blank">@m.Name</a></li> 
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+        <section class="mg-t10 zm">
+            <article class="banner banner-one fl-lf">
+                <div class="banner-img">
+                    <ul>
+                        @{
+                            var azGameRotationList = ViewBag.AzGameRotationList as List<Entity.Models.Jw_AzGameRotation>;
+                            if (navigation2List != null)
+                            {
+                                foreach (var m in azGameRotationList)
+                                {
+                                    <li><a href="@m.LinkAddress" target="_blank"><img width="520" height="300" src="@m.CoverMap" /><p class="banner-bg"></p><p class="banner-text">@m.Title</p></a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="banner-number"></div>
+            </article>
+            <aside class="w460 fl-lf">
+                <ul>
+                    @{
+                        var azGameRotationRightList = ViewBag.AzGameRotationRightList as List<Entity.Models.Jw_AzGameRotationRight>;
+                        if (azGameRotationRightList != null)
+                        {
+                            foreach (var m in azGameRotationRightList)
+                            {
+                                <li class="position">
+                                    <a href="@m.LinkAddress" target="_blank"><img width="220" height="145" src="~/images/grey.gif" data-original="@m.CoverMap" /><p class="text-link">@m.Title</p></a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </aside>
+        </section>
+        <section class="mg-t10 zm">
+            <article class="w670 boxbg tab-one fl-lf">
+                <header class="mod-hd tab-hd iconbg icon1 position">
+                    <span class="text-pd fl-rt">
+                        @{
+
+                            var azGameClassList = ViewBag.AzGameClassList as List<Entity.Models.Jw_AzGameClass>;
+                            if (azGameClassList != null)
+                            {
+                                int i = 0;
+                                foreach (var m in azGameClassList)
+                                {
+                                    <a href="/azgmcs/@m.Code/" target="_blank">@m.Name</a><i>|</i>
+                                    if (i > 1)
+                                    {
+                                        break;
+                                    }
+                                    i++;
+                                }
+                            }
+                        }
+                        <a href="/azgame/" target="_blank">更多游戏分类</a>
+                    </span>
+                    <h2>游戏推荐</h2>
+                    <ul class="recommend-tab topbg">
+                        <li class="hover">最新</li>
+                        <li>推荐</li>
+                    </ul>
+                </header>
+                <div class="recommend-bd tab-bd">
+                    <article>
+                        <ul class="mod-img-list zm">
+                            @{
+                                var azGameList = ViewBag.AzGameList as List<Entity.ViewModels.AzGame>;
+                                if (azGameList != null)
+                                {
+                                    foreach (var m in azGameList)
+                                    {
+                                        <li>
+                                            <a href="/azgame/@(m.AzGameId).html" class="img-box" target="_blank"><img width="75" height="75" src="~/images/grey.gif" data-original="@m.CoverMap" alt="@m.AzGameName" /><p>@m.AzGameName</p></a>
+                                            <p><a href="/azgmcs/@m.AzGameClassCode/" class="ft-color1" target="_blank">@m.AzGameClassName</a></p>
+                                        </li>
+                                    }
+                                }
+                            }
+                           
+                        </ul>
+                    </article>
+                    <article class="none">
+                        <ul class="mod-img-list zm">
+                            @{
+                                var azGameRecommendList = ViewBag.AzGameRecommendList as List<Entity.ViewModels.AzGameRecommend>;
+                                if (azGameRecommendList != null)
+                                {
+                                    foreach (var m in azGameRecommendList)
+                                    {
+                                        <li>
+                                            <a href="/azgame/@(m.AzGameId).html" class="img-box" target="_blank"><img width="75" height="75" src="~/images/grey.gif" data-original="@m.CoverMap" alt="@m.AzGameName" /><p>@m.AzGameName</p></a>
+                                            <p><a href="/azgame/@m.AzGameClassCode/" class="ft-color1" target="_blank">@m.AzGameClassName</a></p>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+                </div>
+            </article>
+            <aside class="w300 boxbg ranking ranking-addclass fl-rt">
+                <header class="mod-hd iconbg icon2">
+                    <h2>安卓游戏排行</h2>
+                </header>
+                <ul class="zm addclass-one">
+                    @{
+                        var azGameRankingList = ViewBag.AzGameRankingList as List<Entity.ViewModels.AzGameRanking>;
+                        if (azGameRankingList != null)
+                        {
+                            foreach (var m in azGameRankingList)
+                            {                              
+                                float totalNumber = m.Praise + m.BadEvaluation;
+                                float score = 0;
+                                if (totalNumber != 0)
+                                {
+                                    score = (m.Praise / totalNumber);
+                                }
+                                var score3 = (score * 10).ToString("f1");
+
+                                <li class="hover one">
+                                    <em class="score fl-rt">@(score3)分</em><i>1</i><a href="/azgame/@(m.AzGameId).html" target="_blank" class="title">@m.AzGameName</a>
+                                    <a href="/azgame/@(m.AzGameId).html" class="img" target="_blank">
+                                        <p class="img-bg img-box"><img width="65" height="65" src="~/images/grey.gif" data-original="@m.CoverMap" alt="@m.AzGameName" /></p>
+                                        <h3>@m.AzGameName</h3>
+                                        <p>@m.AzGameClassName</p>
+                                        <p class="star-bg star-icon"><em style="width:75%" class="star-icon"></em></p>
+                                        <p class="down iconbg">下载</p>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </aside>
+        </section>
+
+        <section class="boxbg categories mg-t10 zm">
+            <header class="mod-hd iconbg icon3">
+                <span class="text-pd fl-rt">
+                    @{
+                        if (azGameClassList != null)
+                        {
+                            foreach (var m in azGameClassList)
+                            {
+                                <a href="/azgmcs/@m.Code/" target="_blank">@m.Name</a><i>|</i>
+                            }
+                        }
+                    }
+                    <a href="/azgame/" target="_blank">更多游戏分类</a>
+                </span>
+                <h2>热门游戏分类</h2>
+            </header>
+            @{
+                var azGroupGameClassGameList = ViewBag.AzGroupGameClassGameList as List<Entity.ViewModels.AzGroupGameClassGame>;
+
+                if (azGroupGameClassGameList != null)
+                {
+                    foreach (var m in azGroupGameClassGameList)
+                    {
+                        <article class="w300 ranking fl-lf">
+                            <header class="mod-title">
+                                <a href="/azgmcs/@m.AzGameClassCode/" class="more">更多游戏</a>
+                                <h3><em>@m.AzGameClassName</em></h3>
+                            </header>
+                            <ul>
+                                @{
+                                    foreach (var g in m.AzGameList)
+                                    {
+                                        <li class="hover">
+                                            <a href="/azgame/@(g.AzGameId).html" class="img" target="_blank">
+                                                <p class="img-bg img-box"><img width="48" height="48" src="~/images/grey.gif" data-original="@g.CoverMap" alt="@g.AzGameName" /></p>
+                                                <h3>@g.AzGameName</h3>
+                                                <p>@g.GameSize &nbsp;&nbsp;@g.F_CreateDate.ToString("yyyy-MM-dd")</p>
+                                                <p class="down iconbg">下载</p>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </article>
+                    }
+                }
+            }
+        </section>
+        <section class="news-mod mg-t10 zm">
+            @{
+                var azGroupArticleTypeArticleList = ViewBag.AzGroupArticleTypeArticleList as List<Entity.ViewModels.AzGroupArticleTypeArticle>;
+                if (azGroupArticleTypeArticleList != null)
+                {
+                    int j = 3; string classStr = "mg-r10";
+                    foreach (var m in azGroupArticleTypeArticleList)
+                    {
+                        if (j - 2 == azGroupArticleTypeArticleList.Count)
+                        {
+                            classStr = "";
+                        }
+                        else
+                        {
+                            j++;
+                        }
+                        <article class="w320 boxbg @classStr fl-lf">
+                            <header class="mod-hd iconbg icon@(j)">
+                                <a href="/newsclass/@m.ArticleCode/" class="more">更多资讯+</a>
+                                <h2>@m.ArticleTypeName</h2>
+                            </header>
+                            <div class="news-mod-list">
+                                <div class="w270">
+                                    @{
+                                        if (m.ArticleList.Count > 0)
+                                        {
+
+                                            <a href="/news/@(m.ArticleList[0].ArticleId).html" class="position" target="_blank">
+                                                <img width="270" height="150" src="~/images/grey.gif" data-original="@m.ArticleList[0].CoverMap" />
+                                                <p class="text-link2">@m.ArticleList[0].ArticleTitle</p>
+                                            </a>
+                                        }
+                                    }
+                                </div>
+                                <ul class="mod-list">
+                                    @{
+                                        for (int i = 1; i < m.ArticleList.Count; i++)
+                                        {
+                                            <li><span class="fl-rt">@m.ArticleList[i].CreateDate.ToString("MM-dd")</span><a href="/news/@(m.ArticleList[i].ArticleId).html" target="_blank">@m.ArticleList[i].ArticleTitle</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </article>
+                    }
+                }
+            }
+        </section>
+        <section class="links boxbg mg-t10">
+            <header class="fl-lf">
+                <h2>友情链接</h2>
+            </header>
+            <div class="text-pd">
+                @{
+                    var azGameClassLinksList = ViewBag.AzGameClassLinksList as List<Entity.Models.Jw_AzGameClassLinks>;
+                    if (azGameClassLinksList != null)
+                    {
+                        foreach (var m in azGameClassLinksList)
+                        {
+                            if (m.IsNofollow)
+                            {
+                                <a target="_blank" href="@m.LinkAddress" rel="nofollow">@m.Title</a><i></i>
+                            }
+                            else
+                            {
+                                <a target="_blank" href="@m.LinkAddress">@m.Title</a><i></i>
+                            }
+                        }
+                    }
+                }
+            </div>
+        </section>
+    </section>

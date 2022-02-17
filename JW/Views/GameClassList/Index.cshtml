@@ -1,0 +1,252 @@
+﻿@model X.PagedList.IPagedList<Entity.Models.Jw_DjGame>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>动作格斗单机游戏_好玩的动作格斗游戏 - 9尾单机游戏</title>
+    <meta name="keywords" content="动作单机游戏,单机格斗游戏排行榜">
+    <meta name="description" content="9尾单机游戏为玩家们提供各种最新好玩的动作单机游戏,单机格斗游戏排行榜,让您知道2015年什么动作格斗单机游戏更好玩。">
+    <script src="js/mobile.js"></script>
+    <script type="text/javascript">
+        deviceJump.init(
+            { "main": "//gamelist/1_1.html", "wap": "//sjyjzx.cn/gamelist/1_1.html", "wap_3g": "//sjyjzx.cn/gamelist/1_1.html" });
+    </script>
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=//sjyjzx.cn/gamelist/1_1.html">
+    <meta http-equiv="mobile-agent" content="format=html5; url=//sjyjzx.cn/gamelist/1_1.html">
+    <link rel="stylesheet" type="text/css" media="all" href="css/game_1.css" />
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section class="top-bar">
+        <div class="layout ft-yh">
+            <span class="fl-rt"><a href="//" class="icon1 iconbg">设为首页</a><a style="cursor:pointer" class="icon2 iconbg">加入收藏</a></span>
+            <strong>好玩无毒的单机游戏下载大全</strong>
+        </div>
+    </section>
+    <header class="top layout zm">
+        <h1 class="logo fl-lf"><a href="/" title="9尾单机游戏"><img src="picture/logo_1.png" alt="9尾单机游戏"></a></h1>
+        <nav class="top-nav ft-yh fl-rt">
+            <ul>
+                @{
+                    var navigation1List = ViewBag.Navigation1List as List<Entity.Models.Jw_Navigation1>;
+                    if (navigation1List != null)
+                    {
+                        for (int i = 0; i < navigation1List.Count; i++)
+                        {
+                            <li class="nav-icon@(navigation1List[i].Sort)"><a href="@navigation1List[i].LinkAddress">@navigation1List[i].Name</a></li>
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+    </header>
+    <article class="layout ad-ht">
+        <script src="js/top.js" language="JavaScript"></script>
+    </article>
+    <nav class="nav ft-yh layout zm mg-t5">
+        <ul class="textct">
+
+            @{
+                var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_DjGameClass>;
+                int gameClassId = ViewBag.DjGameClass.Id;
+                if (gameClassList != null)
+                {
+                    foreach (var m in gameClassList)
+                    {
+                        if (m.Id == gameClassId)
+                        {
+                            <li class="current"><a href="/game@(m.Code)/">@m.Name</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/game@(m.Code)/">@m.Name</a></li>
+                        }
+                    }
+                }
+            }
+        </ul>
+
+    </nav>
+    @*
+        <section class="layout">
+            <div class="search-bg">
+                <div class="search fl-lf">
+                    <form action=" " method="get" target="_blank">
+                        <input type="text" class="search-input iconbg" placeholder="请输入搜索关键词" name="q" id="q" />
+                        <input type="submit" value="搜 索" class="searchbtn ft-yh" />
+                    </form>
+                </div>
+                <div class="hot-words">
+                    <dl>
+                        <dt class="red">搜索热词：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="" target="_blank">三国志13</a></li>
+                            </ul><p>可盘游戏</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+        <section class="w-958 border game-screening tag-list mg-t10">
+            <header class="screening-mod">
+                <a href="//gamelist/1_0_0_1.html" class="fl-rt game-icon blue ft-yh">重新筛选</a>
+                <h2 class="ft-yh"> @ViewBag.DjGameClass.Name</h2>
+                <span>共有<em class="red">@Model.TotalItemCount</em>个符合条件内容</span>
+            </header>
+            dl>
+                <dt>按语言：</dt>
+                <dd>
+                    <ul>
+                        <li class="current"><a href="">全部<i></i></a></li>
+                        <li><a href="">简体中文<i></i></a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>按大小：</dt>
+                <dd>
+                    <ul>
+                        <li class="current"><a href="">全部<i></i></a></li>
+                        <li><a href="">小于10M<i></i></a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    *@
+
+    @{
+        var gameClassTabList = ViewBag.GameClassTabList as List<Entity.Models.Jw_DjGameClassTab>;
+        var gameClassTabGameList = ViewBag.GetDjGameClassTabGameListList as List<Entity.ViewModels.DjGameClassTabGame>;
+        if (gameClassTabList != null && gameClassTabList.Count > 0 && gameClassTabGameList != null && gameClassTabGameList.Count > 0)
+        {
+            <section class="w-958 border tab-one mg-t10">
+                <header class="ft-yh games-hd tab-hd">
+                    <ul>
+                        @{
+                            string classStr = "class=\"hover\"";
+                            foreach (var m in gameClassTabList)
+                            {
+                                <li @classStr>@m.Title</li>
+                                classStr = "";
+                            }
+                        }
+                    </ul>
+                </header>
+                <div class="tab-bd game-item">
+                    @{
+
+                        foreach (var m in gameClassTabList)
+                        {
+                            <article @classStr>
+                                <ul class="mod-img-list games">
+                                    @{
+                                        var gameClassTabGames = gameClassTabGameList.Where(w => w.DjGameClassTabId == m.Id);
+                                        foreach (var m1 in gameClassTabGames)
+                                        {
+                                            <li>
+                                                <a href="/game/@(m1.DjGameId).html" target="_blank" class="img-box">
+                                                    <img width="120" height="170" src="@m1.CoverMap" data-original="@m1.CoverMap" alt="@m1.Name" title="@m1.Name" />
+                                                    <div class="img-bg"></div>
+                                                    <span class="img-bg-text"><i>@m1.Size</i><em>@m1.LanguageName</em></span>
+                                                    <p>@m1.Name</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </article>
+                            classStr = "class=\"none\"";
+                        }
+                    }
+                </div>
+            </section>
+        }
+
+    }
+
+
+
+    <section class="w-958 border game-item game-list mg-t10">
+        <header class="ft-yh games-hd mod-hd" id="nav">
+            <ul class="fl-rt">
+                <li class="hover">最新游戏</li>
+                <li>人气排序</li>
+                <li>等级排序</li>
+            </ul>
+            <h2>@ViewBag.DjGameClass.Name</h2>
+        </header>
+        <ul class="mod-img-list games">
+            @{
+
+                if (Model != null)
+                {
+                    foreach (var m in Model)
+                    {
+                        <li>
+                            <a href="/game/@(m.Id).html" target="_blank" class="img-box">
+                                <img width="120" height="170" src="@m.CoverMap" data-original="@m.CoverMap" alt="@m.Name" title="@m.Name" />
+                                <div class="img-bg"></div>
+                                <span class="img-bg-text"><i>@m.Size</i><em>@m.LanguageName</em></span>
+                                <p>@m.Name</p>
+                            </a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+
+        <div class="page textct">
+            <div class="page-bd">
+                @Html.PagedListPager(Model, page => page == 1 ? "/game" + ViewBag.DjGameClass.Code + "/" : "/game" + ViewBag.DjGameClass.Code + "/list_" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+            </div>
+        </div>
+
+    </section>
+    <footer id="footer" class="layout textct">
+        <p><a class="blue">广告合作</a><i>|</i><a class="blue">最新更新</a><i>|</i><a class="blue">推荐游戏</a><i>|</i><a class="blue">热门游戏</a><i>|</i><a class="blue">热门标签</a></p>
+        <p><a href="http://beian.miit.gov.cn/" rel="nofollow">辽ICP备17021538号-1</a> 9尾单机游戏 版权所有</p>
+
+    </footer>
+    <script src="js/footer.js"></script>
+    <script language="JavaScript" src="js/listpiao.js"></script>
+    <div style="position:absolute; width:0px; height:0px; z-index:1; display:none">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?43494478edb2dac60a8dae8024041565";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/lazyload.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //点击展开
+            $('.tags-more').click(function () {
+                var _ts = $(this);
+                _ts.toggleClass('tags-on');
+                $('.tags-category dl').toggleClass('tags-auto');
+                _ts.is('.tags-on') ? _ts.text('收缩') : _ts.text('更多')
+            })
+            //TAB选项卡
+            $('.w-958').TabList({
+                Event: 'click'
+            });
+            //延迟加载
+            $(".w-958 img").lazyload({
+                failure_limit: 10,
+                effect: "fadeIn"
+            });
+        })
+    </script>
+</body>
+</html>

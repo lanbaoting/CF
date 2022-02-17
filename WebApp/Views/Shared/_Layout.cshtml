@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>@ViewBag.SeoTile</title>
+    <meta name="keywords" content="@ViewBag.SeoKey">
+    <meta name="description" content="@ViewBag.SeoDesc">
+    @{
+        string url = Context.Request.Scheme + "://" + Context.Request.Host.Value + Context.Request.Path;
+        string pcUrl = url.Replace("m.", "www.");
+    }
+    <meta name="mobile-agent" content="format=html5;url=@pcUrl">
+    <meta name="mobile-agent" content="format=xhtml;url=@pcUrl">
+    <meta name="mobile-agent" content="format=wml;url=@pcUrl">
+    <link rel="stylesheet" href="~/css/webapp.css"> 
+    <script src="~/js/androidGame.js"></script>
+    <script type="text/javascript" src="~/js/swiper.js"></script>  
+</head>
+<body class="box">
+    <header class="header">
+        <div class="logo"><a href="/">A游网</a></div>
+        @*<div class="search">
+                <form action="/" method="get" class="flex" target="_blank">
+                    <input class="search-input" type="text" name="q" value="" placeholder="请输入搜索关键词" />
+                    <input class="search-btn" type="submit" value="搜索" />
+                </form>
+            </div>*@
+        <a href="javascript:void(0)" id="classify" class="icon1">A</a>
+    </header>
+    @RenderBody()
+<footer class="footer textct">
+    <p><span class="text">手机版</span><i>|</i><a href="http://www.sjyjzx.cn">电脑版</a></p> 
+    <p><a href="http://beian.miit.gov.cn/" rel="nofollow">辽ICP备17021538号-1</a> A游网 版权所有</p>
+    <p>监督邮箱：734848595@qq.com</p>
+</footer> 
+    <script type="text/javascript">
+        Zepto(function ($) {
+            //展开收缩
+            $('#classify-one').More({
+                Type: '1',
+                ConHt: '100',
+                Text1: ''
+            });
+        });
+    </script>
+</body>
+</html>

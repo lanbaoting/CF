@@ -1,0 +1,156 @@
+﻿@model X.PagedList.IPagedList<Entity.Models.Jw_Article>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+@{
+    ViewBag.SeoTile = ViewBag.ArticleType.SeoTile;
+    ViewBag.SeoKey = ViewBag.ArticleType.SeoKey;
+    ViewBag.SeoDesc = ViewBag.ArticleType.SeoDesc;
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+} 
+<section class="top-bar">
+    <div class="layout ft-yh">
+        <span class="fl-rt"><span>加入收藏</span></span>
+        <strong>好玩无毒的游戏下载大全</strong>
+    </div>
+</section>
+<header class="top layout zm">
+    <h1 class="logo fl-lf"><a href="/" title="A游网"><img src="~/images/logo.png" alt="A游网"></a></h1>
+    <nav class="top-nav ft-yh fl-rt">
+        <ul>
+            @{
+                var navigation1List = ViewBag.Navigation1List as List<Entity.Models.Jw_Navigation1>;
+                if (navigation1List != null)
+                {
+                    for (int i = 0; i < navigation1List.Count; i++)
+                    {
+                        <li class="nav-icon@(i + 1)"><a href="@navigation1List[i].LinkAddress">@navigation1List[i].Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </nav>
+</header> 
+    <nav class="nav ft-yh layout zm mg-t5">
+        <ul class="textct">
+            <li class="first"><a href="/news/">资讯频道</a></li>
+            @{
+                var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+
+                int articleTypeId = ViewBag.ArticleType.Id;
+
+                if (articleTypeList != null)
+                {
+
+                    foreach (var m in articleTypeList)
+                    {
+                        if (articleTypeId == m.Id)
+                        {
+                            <li class="current"><a href="/newsclass/@(m.Code)/">@m.Name</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/newsclass/@(m.Code)/">@m.Name</a></li>
+                        }
+                    }
+                }
+            }
+        </ul>
+    </nav>
+    <article class="crumb game-icon patch-crumb layout mg-t10 zm">
+        @*<div class="search search-item fl-rt">
+            <form action="//search.html" method="get" target="_blank">
+                <input class="search-input" name="q" id="q" type="text" placeholder="请输入搜索关键词">
+                <input class="searchbtn patch-icon text-indent" type="submit" value="搜 索">
+            </form>
+        </div>*@
+        <span>当前位置：<a href="/">首页</a><i class="game-icon"></i><a href="/news/">游戏资讯</a><i class="game-icon"></i>@ViewBag.ArticleType.Name</span>
+    </article>
+    <section class="layout mg-t10 zm">
+        <article class="w-648 border news-list tag-bd fl-lf">
+            <header class="mod-hd ft-yh">
+                <h2>@ViewBag.ArticleType.Name</h2>
+            </header>
+            <ul class="mod-img-list">
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var m in Model)
+                        {
+                            <li>
+                                <a href="/news/@(m.Id).html"  rel="nofollow" target="_blank" class="img-box fl-lf"><img width="180" height="100" src="@m.CoverMap" alt="@m.ArticleTitle" /></a>
+                                <h3 class="game-icon ft-yh"><a href="/news/@(m.Id).html" target="_blank">@m.ArticleTitle</a></h3>
+                                <p class="mg-t5 ht">@m.SeoDesc</p>
+                                <p class="ht1"><a href="/news/@(m.Id).html" target="_blank" rel="nofollow" class="read game-icon blue fl-rt">阅读全文</a><span class="date">A游网 发表于@(m.CreateDate.ToString("MM-dd HH mm"))</span></p>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+            <div class="page textct">
+                <div class="page-bd">
+                    @Html.PagedListPager(Model, page => page == 1 ? "/newsclass/" + ViewBag.ArticleType.Code + "/" : "/newsclass/" + ViewBag.ArticleType.Code + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                </div>
+            </div>
+        </article>
+        <aside class="w-300 fl-rt">        
+            <section class="hot-photo border mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>热点图文</h2>
+                </header>
+                @{
+                    var hotGraphicsList = ViewBag.HotGraphicsList as List<Entity.ViewModels.HotGraphics>;
+                    if (hotGraphicsList != null)
+                    {
+                        <ul class="mod-img-list mg-Lr10">
+                            @{
+                                var hotGraphicsTop2List = hotGraphicsList.Take(2);
+                                foreach (var m in hotGraphicsTop2List)
+                                {
+                                    <li>
+                                        <h3><a href="/news/@(m.ArticleId).html" class="blue">@m.ArticleTitle</a></h3>
+                                        <a href="/news/@(m.ArticleId).html" rel="nofollow" target="_blank" class="img-box fl-lf">
+                                            <img width="115" height="64" src="@m.CoverMap" alt="@m.ArticleTitle" />
+                                        </a>
+                                        <p>@m.SeoDesc<a href="/news/@(m.ArticleId).html" rel="nofollow" class="ft-color2">[详情]</a></p>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <ul class="mod-list mg-Lr10 li-listbg">
+                            @{
+                                var hotGraphicsSkip2List = hotGraphicsList.Skip(2);
+                                foreach (var m in hotGraphicsSkip2List)
+                                {
+                                    <li><a href="/news/@m.ArticleId/">@m.ArticleTitle</a></li>
+                                }
+                            }
+                        </ul>
+                    }
+                }
+            </section> 
+            <section class="border hot-photo masterpiece mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>热门大作</h2>
+                </header>
+                <ul class="mod-img-list mg-Lr10">
+              
+                    @{
+                        var azGameMainPushList = ViewBag.AzGameMainPushList as List<Entity.ViewModels.AzGameMainPush>;
+                        if (azGameMainPushList != null)
+                        {
+                            foreach (var m in azGameMainPushList)
+                            {
+                                <li>
+                                    <a href="/azgame/@(m.AzGameId).html" target="_blank" class="img-box fl-lf"><img width="85" height="120" src="@m.CoverMap" alt="Pattern" /></a>
+                                    <h3 class="ft-yh"><a href="/azgame/@(m.AzGameId).html">@m.AzGameName</a></h3>
+                                    <p>@m.SeoDesc</p>
+                                    <p class="ht"><a href="/azgame/@(m.AzGameId).html" rel="nofollow" class="down ft-yh fl-rt">下载</a></p>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </section>          
+        </aside>
+    </section>  
+    

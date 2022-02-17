@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.DjGame.SeoTile</title>
+    <meta name="keywords" content="@ViewBag.DjGame.SeoKey">
+    <meta name="description" content="@ViewBag.DjGame.SeoDesc">
+    <script src="js/mobile.js"></script>
+     
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=//sjyjzx.cn/game/30578.html">
+    <meta http-equiv="mobile-agent" content="format=html5; url=//sjyjzx.cn/game/30578.html">
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/danji.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/details_mod.css" />
+
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+    <script type="text/javascript" src="~/js/pc_main_new.js"></script>
+    <!--[if lt IE 9]>
+    <script src="~/js/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <section id="top" class="top-bar">
+        <div class="layout ft-yh">
+            <span class="fl-rt"><a href="" class="icon1 iconbg">设为首页</a><a href="" class="icon2 iconbg">加入收藏</a></span>
+            <strong>@ViewBag.DjGame.Name</strong>
+        </div>
+    </section>
+    <header class="top layout zm">
+        <h2 class="logo fl-lf"><a href="/" title="9尾电脑单机游戏"><img src="picture/logo_1.png" alt="9尾电脑单机游戏"></a></h2>
+        <nav class="top-nav ft-yh fl-rt">
+            <ul>
+                @{
+                    var navigation1List = ViewBag.Navigation1List as List<Entity.Models.Jw_Navigation1>;
+                    if (navigation1List != null)
+                    {
+                        for (int i = 0; i < navigation1List.Count; i++)
+                        {
+                            <li class="nav-icon@(i + 1)"><a href="@navigation1List[i].LinkAddress">@navigation1List[i].Name</a></li>
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+    </header>
+    @*<article class="layout ad-ht" id="show_pc_n1">
+
+        </article>*@
+    <nav class="nav ft-yh layout zm mg-t5">
+        <ul class="textct">
+
+            @{
+                var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_DjGameClass>;
+                int gameClassId = ViewBag.DjGame.DjGameClassId;
+                foreach (var m in gameClassList)
+                {
+                    if (m.Id == gameClassId)
+                    {
+                        <li class="first"><a href="/@m.Code/">@m.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/@m.Code/">@m.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </nav>
+    <article class="crumb game-icon patch-crumb layout mg-t10 zm">
+        @*<div class="w-206 search search-item fl-rt">
+                <form action="//search.html" method="get" target="_blank">
+                    <input class="search-input" name="q" type="text" value="请输入搜索关键词" />
+                    <input class="searchbtn patch-icon text-indent" type="submit" value="搜 索" />
+                </form>
+            </div>*@
+        <span>当前位置：<a href="/">首页</a><i class="game-icon"></i><a href="/gamelist/@(ViewBag.DjGame.DjGameClassId)_1.html">@ViewBag.DjGame.DjGameClassName</a><i class="game-icon"></i><em id="crumb">@ViewBag.DjGame.Name</em></span>
+    </article>
+    <section class="layout mg-t10 clear">
+        <article class="w-740 fl-lf">
+            <section class="border game-details">
+                <header class="mod-hd ft-yh">
+                    <h1 id="title">@ViewBag.DjGame.Name</h1>
+                </header>
+                <div class="pd15 clear">
+                    <article class="w-430 fl-lf position">
+                        <h2 class="score"><span id="score" class="scorebg details-icon ft-yh"></span>共<em id="votes"></em>人投票</h2>
+                        <dl class="zm">
+                            <dt class="img-box fl-lf"><img id="img" width="120" height="170" src="@ViewBag.DjGame.CoverMap" alt="荒野大镖客2" /></dt>
+                            <dd><span>游戏类型：</span>@ViewBag.DjGame.DjGameClassName</dd>
+                            <dd><span>游戏语言：</span>@ViewBag.DjGame.LanguageName</dd>
+                            <dd><span>游戏大小：</span>@ViewBag.DjGame.Size</dd>
+                            <dd><span>更新时间：</span>@ViewBag.DjGame.F_CreateDate</dd>
+                            <!--<dd><span>游戏人气：</span><span id="hits"></span></dd>-->
+                            <dd>
+                                <span>游戏标签：</span>
+                                <a class="blue">射击</a><a class="blue">动作</a><a class="blue">冒险</a>
+                            </dd>
+                        </dl>
+                        <p class="clear">
+                            <span href="" class="game-download fl-rt">游戏大小:<em>@ViewBag.DjGame.Size</em></span>
+                            <span class="evaluate high-opinion details-icon like_or_dislike" action="like">好评：<span id="like_100"></span>%（<span id="like_score"></span>）<span class="evaluate-border"><em class="evaluate-bg like_width"></em></span></span>
+                            <span class="evaluate poor details-icon like_or_dislike" action="dislike">差评：<span id="dislike_100"></span>%（<span id="dislike_score"></span>）<span class="evaluate-border"><em class="evaluate-bg dislike_width"></em></span></span>
+                        </p>
+                    </article>
+                    <aside class="fl-rt">
+                        <p class="details-help details-icon textrt">不知道怎么下载？<a href="//help.html" target="_blank">请点击我</a></p>
+                        <p id="show_pc_n3">
+                            <script>insert.show_pc_n3();</script>
+                        </p>
+                    </aside>
+                </div>
+                <article class="aside-nav fixed-nav ft-yh"><a name="top" href="javascript:void(0)" class="top details-icon">返回顶部</a></article>
+            </section>
+            <section class="details-tab border mg-t10 tab-one">
+                <header class="ft-yh games-hd game-details-hd tab-hd">
+                    <ul>
+                        <li><span>详情</span></li>
+                        @*<li class="hover"><span >补丁（13）</span></li>
+                            <li><span >攻略（187）</span></li>
+                            <li><span >资讯（40）</span></li>*@
+                    </ul>
+                </header>
+                <div class="tab-bd">
+                    <article>
+                        <section class="fixed-box">
+                            <section class="game-details-text fixed-title" id="details">
+                                <h2 class="title">游戏介绍</h2>
+                                <div class="fl-rt table">
+                                    <table>
+                                        <thead>
+                                            <tr><th colspan="2">配置要求</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>操作系统</th>
+                                                <td>Windows XP,Windows Vista,Windows 7,Windows 8</td>
+                                            </tr>
+                                            <tr>
+                                                <th>运行环境</th>
+                                                <td>无特殊需求</td>
+                                            </tr>
+                                            <tr>
+                                                <th>CPU</th>
+                                                <td>Intel Core2 Duo E4600  2.40Hz / AMD Athlon 64 X2 Dual Core 5000+</td>
+                                            </tr>
+                                            <tr>
+                                                <th>内存</th>
+                                                <td>2 GB</td>
+                                            </tr>
+                                            <tr>
+                                                <th>显卡</th>
+                                                <td>GeForce 8800 GT / Radeon HD 3870</td>
+                                            </tr>
+                                            <tr>
+                                                <th>硬盘</th>
+                                                <td>4 GB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @Html.Raw(ViewBag.DjGameDetails.Describe);
+
+                                <style>
+                                    .game-details-text embed {
+                                        width: 498px;
+                                        height: 330px;
+                                    }
+                                </style>
+                            </section>
+                        </section>
+                        @{
+                            var gamePictureList = ViewBag.GamePictureList as List<Entity.Models.Jw_DjGamePictures>;
+                            if (gamePictureList != null && gamePictureList.Count > 0)
+                            {
+                                <section class="fixed-box">
+                                    <section id="screenshot" class="fixed-title mg-t10">
+                                        <h2 class="details-title title1 game-icon ft-yh">游戏截图</h2>
+                                        <article class="img-hd mg-t10 bg">
+                                            <a href="javascript:void(0)" class="prev details-icon text-indent">prev</a>
+                                            <div class="img-big"><div class="img-big-top1"><div class="img-big-top2"><img src="@gamePictureList[0].CoverMap" alt="@gamePictureList[0].Title" /></div></div></div>
+                                            <a href="javascript:void(0)" class="next details-icon text-indent">next</a>
+                                        </article>
+                                        <article id="img-one" class="img-bd bg">
+                                            <div class="box-w">
+                                                <ul id="img-small">
+                                                    @{
+                                                        for (int i = 0; i < gamePictureList.Count; i++)
+                                                        {
+                                                            if (i == 0)
+                                                            {
+                                                                <li class="current"><img width="121" height="76" src="@gamePictureList[0].CoverMap" alt="@gamePictureList[0].Title" /></li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li><img width="121" height="76" src="@gamePictureList[i].CoverMap" alt="@gamePictureList[i].Title" /></li>
+                                                            }
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </section>
+                            }
+                        }
+
+                    </article>
+                    @*<article class="raiders-list none">
+                            <ul class="mod-list mg-Lr15 li-listbg">
+                                <li><span class="fl-rt">06-12</span><a href="" target="_blank">荒野大镖客2十二项修改器</a></li>
+
+                            </ul>
+                        </article>
+                        <article class="raiders-list none">
+                            <ul class="mod-list mg-Lr15 li-listbg">
+                                <li><span class="fl-rt">11-28</span><a href="" target="_blank">荒野大镖客211月28日纳扎尔夫人在哪 11月28日荒野大镖客2纳扎尔夫人位置</a></li>
+
+                            </ul>
+                        </article>
+                        <article class="raiders-list none">
+                            <ul class="mod-list mg-Lr15 li-listbg">
+                                <li><span class="fl-rt">10-29</span><a href="" target="_blank">荒野大镖客2PC版会出吗 荒野大镖客2会有PC版吗</a></li>
+
+                            </ul>
+                        </article>*@
+                </div>
+            </section>
+            <section class="fixed-box down-dn">
+                <section id="download" class="download-tab border mg-t10 tab-two">
+                    <header class="ft-yh games-hd tab-hd fixed-title">
+                        <ul>
+                            <li class="hover"><h2><a href="">下载地址</a></h2></li>
+                            @*<li><span href="">游戏补丁</span></li>*@
+                            <li><span href="">游戏攻略</span></li>
+                            <li><span href="">游戏资讯</span></li>
+                        </ul>
+                    </header>
+                    <div class="tab-bd">
+                        <article>
+                            <section class="down-item zm">
+                                <article class="w-340  fl-lf">
+                                    <script src="js/down.js"></script>
+                                </article>
+                                <aside class="fl-rt">
+                                    <!-- Baidu Button BEGIN -->
+                                    <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+                                    <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "32" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//static/api/js/share.js?cdnversion=' + Math.ceil(new Date() / 3600000)];</script>
+                                    <!-- Baidu Button END -->
+                                    <div class="clear-both" id="show_pc_n5">
+                                        <script>insert.show_pc_n5();</script>
+                                    </div>
+                                </aside>
+                            </section>
+                        </article>
+                        @*<article class="raiders-list none">
+                                <ul class="mod-list mg-Lr15 li-listbg">
+                                    <li><span class="fl-rt">06-12</span><a href="//tool/35923/" target="_blank">荒野大镖客2十二项修改器</a></li>
+
+                                </ul>
+                            </article>*@
+                        <article class="raiders-list none">
+                            <ul class="mod-list mg-Lr15 li-listbg">
+
+                                @{
+                                    var gameArticleList1 = ViewBag.GameArticleList1 as List<Entity.ViewModels.DjGameArticle>;
+                                    if (gameArticleList1 != null)
+                                    {
+                                        foreach (var m in gameArticleList1)
+                                        {
+                                            <li><span class="fl-rt">@m.F_CreateDate.ToString("MM-dd")</span><a href="/news/@(m.ArticleId).html" target="_blank">@m.ArticleTitle</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </article>
+                        <article class="raiders-list none">
+                            <ul class="mod-list mg-Lr15 li-listbg">
+                                @{
+                                    var gameArticleList2 = ViewBag.GameArticleList1 as List<Entity.ViewModels.DjGameArticle>;
+                                    if (gameArticleList2 != null)
+                                    {
+                                        foreach (var m in gameArticleList2)
+                                        {
+                                            <li><span class="fl-rt">@m.F_CreateDate.ToString("MM-dd")</span><a href="/news/@(m.ArticleId).html" target="_blank">@m.ArticleTitle</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </article>
+                    </div>
+                    <section class="description mg-Lr15 zm">
+                        <h3>下载说明</h3>
+                        <p>一、下载游戏建议使用高速下载，下载前建议查看配置要求、游戏说明和网友评论。</p>
+                        <p>二、游戏安装运行的时候出现缺少dll、内存不能读、配置不正确等，请下载对应的单机游戏常用插件运行库。</p>
+                        <p class="ft-color4">资源可能被360等杀毒软件提示，部分报毒与补丁有关。如果你有顾虑怕危害电脑，请谨慎下载。</p>
+                    </section>
+                </section>
+            </section>
+            @*<div id="show_pc_n6">
+                <script>insert.show_pc_n6();</script>
+                </div>*@
+        </article>
+        <aside class="w-210 fl-rt">
+            <section class="fine-game border">
+                @{
+                    var gameRecommendList = ViewBag.GameRecommendList as List<Entity.ViewModels.DjGame>;
+                    if (gameRecommendList != null)
+                    {
+                        <header class="mod-hd ft-yh">
+                            <h2>精品游戏推荐</h2>
+                        </header>
+                        <ul class="mod-img-list games">
+                            @*<div id="show_pc_n13">
+                                   <script>insert.show_pc_n13();</script>
+                                </div>*@
+                            @{
+
+                                foreach (var gameRecommend in gameRecommendList)
+                                {
+                                    <li>
+                                        <a href="/Game/@(gameRecommend.DjGameId).html" target="_blank" class="img-box">
+                                            <img width="120" height="170" src="@gameRecommend.CoverMap" alt="@gameRecommend.Name" />
+                                            <div class="img-bg"></div>
+                                            <span class="img-bg-text"><i>@gameRecommend.Size</i><em class="en">@gameRecommend.LanguageName</em></span>
+                                            <p>@gameRecommend.Name</p>
+                                        </a>
+                                        <p class="details-icon ft-yh">@gameRecommend.DjGameId</p>
+                                    </li>
+                                };
+                            }
+                        </ul>
+                    }
+
+                }
+            </section>
+            <section class="border mg-t10">
+                @{
+                    var gameRankingList = ViewBag.GameRankingList as List<Entity.ViewModels.DjGame>;
+                    string clssName = "";
+                    if (gameRankingList != null)
+                    {
+                        <header class="mod-hd ranking-hd ft-yh">
+                            <h2>游戏排行</h2>
+                        </header>
+                        <article class="ranking-list number-list addclass-one">
+                            <ul>
+                                @{
+                                    for (int i = 0; i < gameRankingList.Count; i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            clssName = "one";
+                                        }
+                                        else if (i == 1)
+                                        {
+                                            clssName = "two";
+                                        }
+                                        if (i == 1)
+                                        {
+                                            clssName = "three";
+                                        }
+                                        else
+                                        {
+                                            clssName = "";
+                                        }
+                                        <li class="@clssName">
+                                            <i>1</i><a href="/Game/@(gameRankingList[i].DjGameId).html" target="_blank" class="title">@gameRecommendList[i].Name</a>
+                                            <div>
+                                                <a href="/Game/@(gameRankingList[i].DjGameId).html" target="_blank" class="fl-lf"><img class="fl-lf" width="60" height="85" src="@gameRankingList[i].CoverMap" alt="@gameRankingList[i].Name"></a>
+                                                <p><span>类型：</span>@gameRankingList[i].DjGameClassName</p>
+                                                <p><span>语言：</span>@gameRankingList[i].LanguageName</p>
+                                                <p><span>大小：</span>@gameRankingList[i].Size</p>
+                                                <p><span>评分：</span><b class="ft-color1">@gameRankingList[i].DjGameId</b></p>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </article>
+                    }
+
+                }
+            </section>
+            <section class="border mg-t10">
+                <header class="mod-hd ranking-hd ft-yh">
+                    <h2>推荐游戏</h2>
+                </header>
+                <script src="js/tjyx.js" type="text/javascript"></script>
+            </section>
+        </aside>
+    </section>
+    @*<article class="layout mg-t10"><div id="show_pc_n7">
+        <script>insert.show_pc_n7();</script></div><div id="show_pc_n12">
+        <script>insert.show_pc_n12();</script></div>
+        </article>*@
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <footer id="footer" class="layout textct">
+        <p><a class="blue">广告合作</a><i>|</i><a class="blue">最新更新</a><i>|</i><a class="blue">推荐游戏</a><i>|</i><a class="blue">热门游戏</a><i>|</i><a class="blue">热门标签</a></p>
+        <p><a href="http://beian.miit.gov.cn/" rel="nofollow">辽ICP备17021538号-1</a> 9尾单机游戏 版权所有</p>
+
+    </footer>
+    <script src="js/footer.js"></script>
+
+    <script type="text/javascript" src="js/public.js"></script>
+    <script language="JavaScript" src="js/api.php"></script>
+    <script type="text/javascript">
+        $(function () {
+            //游戏排行
+            $('.ranking-list').AddClass().find('li:first').mouseenter();
+            //菜单固定
+            $('.aside-nav').FixedNav({
+                FixedBoxHd: '.fixed-title h2:first()'
+            });
+            //TAB选项卡
+            $('.details-tab').TabList({
+                Event: 'click'
+            });
+            $('.download-tab').TabList({
+                ClassName: '.tab-two',
+                Event: 'click'
+            });
+            $('.tab-three').TabList({
+                ClassName: '.tab-three',
+                Event: 'click'
+            });
+            // 文本框默认文字
+            $('.input-name').InputText({
+                ClassName: '.input-name'
+            });
+            $('.textarea').InputText({
+                ClassName: '.textarea'
+            });
+            //预约
+            $('#yuyue-btn dd a').click(function () {
+                $('#yuyue-bg,#yuyue-box').fadeIn(500);
+                $('.yuyue-input').removeClass('yuyue-error');
+                $('.yuyue-tips').text('');
+            });
+            $('#yuyue-bg,.yuyue-close,.yuyue-cancel').click(function () {
+                $('#yuyue-bg,#yuyue-box').fadeOut(500)
+            });
+            $('.yuyue-cancel').click(function () {
+                $('.yuyue-input').val('');
+                $('.yuyue-tips').text('');
+            });
+            $('.yuyue-ok').click(function () {
+                if ($.trim($('.yuyue-input').val()) == '') {
+                    $('.yuyue-tips').text('手机号码不能为空');
+                    $('.yuyue-input').addClass('yuyue-error');
+                } else {
+                    $.ajax({
+                        url: "/index.php?m=content&c=index&a=yuyue",
+                        data: { mid: 1, cid: 30578, tel: $(".yuyue-input").val() },
+                        type: "POST",
+                        dataType: "json"
+                    }).done(function (data) {
+                        if (1 == data.success) {
+                            alert('提交成功');
+                            $('#yuyue-bg,#yuyue-box').fadeOut(500)
+                        } else if (2 == data.success) {
+                            alert('请勿重复提交');
+                            $('#yuyue-bg,#yuyue-box').fadeOut(500)
+                        } else if (3 == data.success) {
+                            alert('服务器繁忙，请稍后再试！');
+                            $('#yuyue-bg,#yuyue-box').fadeOut(500)
+                        }
+                    });
+                    /*if($('.yuyue-tips').is('.yuyue-pass')&&$('.yuyue-input').is('.yuyue-pass')){
+                        alert('提交成功');
+                        $('#yuyue-bg,#yuyue-box').fadeOut(500)
+                    }*/
+                };
+            });
+
+            $('.yuyue-input').keyup(function () {
+                $(this).removeClass('yuyue-error');
+                $('.yuyue-tips').text('');
+            });
+            $('.yuyue-input').blur(function () {
+                if (!(/^1[34578]\d{9}$/.test($(this).val()))) {
+                    $('.yuyue-tips').removeClass('yuyue-pass').text('手机号码格式不正确');
+                    $('.yuyue-input').removeClass('yuyue-pass').addClass('yuyue-error');
+                    return false;
+                } else {
+                    $('.yuyue-input').removeClass('yuyue-error').addClass('yuyue-pass');
+                    $('.yuyue-tips').addClass('yuyue-pass')
+                }
+            });
+            //商务下载统计
+        })
+
+        //第一次加载页面和点评后重新加载分数
+        refresh();
+
+        function refresh() {
+            $.getJSON("//api.php?op=get_vote&modelid=1&id=30578", function (data) {
+                if (1 == data.status) {
+                    $("#like_score").html(data.info.good);
+                    $("#dislike_score").html(data.info.bad);
+                    $("#like_100").html(data.info.good_rate);
+                    $("#dislike_100").html(data.info.bad_rate);
+                    $("#votes").html(data.info.votes);
+                    $("#score").html(data.info.score);
+                    $(".like_width").css("width", data.info.good_rate + "%");
+                    $(".dislike_width").css("width", data.info.bad_rate + "%");
+                };
+            });
+        }
+
+        //进行好评和差评
+        $(".like_or_dislike").click(function () {
+            action = $(this).attr('action');
+            $.getJSON("//api.php?op=get_vote&modelid=1&id=30578&action=" + action, function (data) {
+                if (1 == data.status) {
+                    refresh();
+                } else {
+                    alert(data.msg);
+                }
+            });
+        })
+
+
+        //评论相关
+        function ajaxSubmit(id) {
+            if (id) {
+                $form = $("#form_" + id);
+                username = $("#form_" + id + " #username").val();
+                content = $("#form_" + id + " #comment_content").val();
+                ajaxurl = "//index.php?m=comment&c=index&a=post2&commentid=content_3-30578-1&id=" + id;
+            } else {
+                $form = $("#form");
+                username = $("#form #username").val();
+                content = $("#form #comment_content").val();
+                ajaxurl = "//index.php?m=comment&c=index&a=post2&commentid=content_3-30578-1";
+            }
+
+            $.ajax({
+                type: "POST",
+                url: ajaxurl,
+                beforeSend: function () {
+                    if ('我来说两句...' == content || '' == content) {
+                        alert('请输入评论内容！');
+                        return false;
+                    };
+                },
+                data: { username: username, content: content, id: id }
+            })
+                .done(function (msg) {
+                    alert("评论成功，请等待审核通过才能显示！");
+                    $form.find("#comment_content").val("我来说两句...");
+                    $form.find("#username").val("9尾danji网友");
+                });
+            return false;
+        }
+
+        function support(id, commentid) {
+            $.getJSON('//index.php?m=comment&c=index&a=support&format=jsonp&commentid=' + commentid + '&id=' + id + '&callback=?', function (data) {
+                if (data.status == 1) {
+                    $('#support_' + id).html(parseInt($('#support_' + id).html()) + 1);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+
+        function dis_support(id, commentid) {
+            $.getJSON('//index.php?m=comment&c=index&a=dis_support&format=jsonp&commentid=' + commentid + '&id=' + id + '&callback=?', function (data) {
+                if (data.status == 1) {
+                    $('#dis_support_hot' + id).html(parseInt($('#dis_support_hot' + id).html()) + 1);
+                    $('#dis_support_' + id).html(parseInt($('#dis_support_' + id).html()) + 1);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+
+        function reply(id, commentid, hot) {
+            var str = '<form action="//index.php?m=comment&c=index&a=post2&commentid=content_3-30578-1&id=' + id + '" method="post" id="form_' + id + '" onsubmit="return ajaxSubmit(' + id + ');" ><input type="hidden" name="title" value="%E8%8D%92%E9%87%8E%E5%A4%A7%E9%95%96%E5%AE%A22%E4%B8%AD%E6%96%87%E7%89%88%E4%B8%8B%E8%BD%BD-%E8%8D%92%E9%87%8E%E5%A4%A7%E9%95%96%E5%AE%A22%E4%B8%AD%E7%A0%B4%E8%A7%A3%E4%B8%AD%E6%96%87%E7%89%88"><input type="hidden" name="url" value="%2F%2F/%2Fgame%2F30578.html"><article class="comment-form position"><div><span class="comment-input"><label>昵称：</label><input type="text" id="username" name="username" value="9尾danji网友" class="input-name input-text1" /></span></div><div class="comment-textarea"><textarea class="textarea input-text2" id="comment_content" name="content">我来说两句...</textarea></div><div class="face"><span class="fl-rt"><em class="ft888">（您的评论需要审核后才能显示哦）</em><button class="comment-button" id="comment-button" type="submit">发表评论</button></span><a href="javascript:void(0)" class="comment-face text-indent" title="插入表情">插入表情</a></div></article></form>';
+            if (hot) {
+                $('#reply_hot_' + id).html(str).toggle();
+            } else {
+                $('#reply_' + id).html(str).toggle();
+            }
+        }
+
+        function hide_code() {
+            if ($('#yzmText').data('hide') == 0) {
+                $('#yzm').hide();
+            }
+        }
+
+        $(".reply").click(function () {
+            if ("回复" == $(this).text()) {
+                $(this).text("关闭回复");
+            } else if ("关闭回复" == $(this).text()) {
+                $(this).text("回复");
+            }
+        });
+    </script>
+    <div style="position:absolute; width:0px; height:0px; z-index:1; display:none">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?43494478edb2dac60a8dae8024041565";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+</body>
+</html>

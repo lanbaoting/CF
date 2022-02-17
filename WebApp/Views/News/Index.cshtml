@@ -1,0 +1,116 @@
+﻿@model X.PagedList.IPagedList<Entity.Models.Jw_Article>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+@{
+    ViewBag.SeoTile = ViewBag.Navigation2.SeoTile;
+    ViewBag.SeoKey = ViewBag.Navigation2.SeoKey;
+    ViewBag.SeoDesc = ViewBag.Navigation2.SeoDesc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+ 
+    <section class="top-fixed">        
+        <nav class="nav">
+            @{
+                var navigation2List = ViewBag.Navigation2List as List<Entity.Models.Jw_Navigation2>;
+                if (navigation2List != null)
+                {
+                    foreach (var m in navigation2List)
+                    {
+                        <a href="@m.LinkAddress"><span>@m.Name</span></a>
+                    }                              
+                }
+            }
+        </nav>
+    </section>
+    <section class="top-nav">
+        <section class="bg"></section>
+        <section class="classify">
+            <section id="tab-four" class="tab-list">
+                <header class="tab-hd hd">
+                    <ul>
+                        <li class="on">游戏分类</li>                        
+                    </ul>
+                </header>
+                <div class="bd">
+                    <article>
+                        <ul class="mod-three mod-img-list">
+                            @{
+                                var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_AzGameClass>;
+                                if (gameClassList != null)
+                                {
+                                    foreach (var m in gameClassList)
+                                    {
+                                        <li>
+                                            <a href="/azgmcs/@m.Code/">
+                                                @*<img src="picture/img1.jpg" />*@
+                                                <div class="title">@m.Name</div>
+                                                @*<p><i>2619</i>&nbsp;款</p>*@
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+                    @*<article class="ds-n">
+                        <ul class="classify-two mod-four">
+                            @{                               
+                                if (articleTypeList != null)
+                                {
+                                    foreach (var m in articleTypeList)
+                                    {
+                                        <li><a href="/newsclass/@m.Code/">@m.Name</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>*@
+                </div>
+            </section>
+        </section>
+    </section>
+    <section class="box-fixed">         
+        <section class="box-one box-pd">
+            <section class="classify-three">
+                <ul class="mod-four">                    
+                    @{
+                        var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+                        if (articleTypeList != null)
+                        {
+                            string classStr = "class=\"current\"";
+                            foreach (var m in articleTypeList)
+                            {
+                                <li @classStr><a href="/newsclass/@m.Code/">@m.Name</a></li>
+                                classStr = "";
+                            }
+                        }
+                    }
+                </ul>
+            </section>
+            <section class="mg-t10">
+                <ul class="mod-img-list mod-eight">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var m in Model)
+                            {
+                                <li>
+                                    <a href="/news/@(m.Id).html">
+                                        <img src="~/images/lgImg.gif" data-original="@m.CoverMap" />
+                                        <h3 class="title">@m.ArticleTitle</h3>
+                                        <p>@m.CreateDate.ToString("yyyy-MM-dd")</p>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+                <div class="page">
+                    <div class="page-bd">
+                        @Html.PagedListPager(Model, page => page == 1 ? "/news/" : "/news/" + page + "/", new PagedListRenderOptions { LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", MaximumPageNumbersToDisplay = 0, DisplayLinkToIndividualPages = false, DisplayItemSliceAndTotal = false })
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>

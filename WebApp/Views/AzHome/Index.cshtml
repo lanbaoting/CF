@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.SeoTile = "安卓游戏_安卓游戏下载_安卓游戏排行榜_好玩的安卓游戏下载 - A游网";
+    ViewBag.SeoKey = "安卓游戏,安卓游戏,安卓游戏排行榜,安卓游戏下载,好玩的安卓游戏";
+    ViewBag.SeoDesc = "A游网 致力于为广大安卓手机用户提供热门好玩的安卓游戏app无广告安全下载,安卓软件app下载和游戏攻略资讯等信息，同时这里汇集了时下流行的手机游戏排行榜,让您清楚了解什么手机游戏好玩，免费好玩的手机游戏下载尽在A游网。";   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="top-fixed">
+    <nav class="nav">
+        @{
+            var navigation2List = ViewBag.Navigation2List as List<Entity.Models.Jw_Navigation2>;
+            if (navigation2List != null)
+            {
+                foreach (var m in navigation2List)
+                {
+                    <a href="@m.LinkAddress"><span>@m.Name</span></a>
+                }
+            }
+        }
+    </nav>
+</section>
+<section class="top-nav">
+    <section class="bg"></section>
+    <section class="classify">
+        <section id="tab-four" class="tab-list">
+            <header class="tab-hd hd">
+                <ul>
+                    <li class="on">资讯分类</li>
+                </ul>
+            </header>
+            <div class="bd">
+                <article>
+                    <ul class="classify-two mod-four">
+                        @{
+                            var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+
+                            if (articleTypeList != null)
+                            {
+                                foreach (var m in articleTypeList)
+                                {
+                                    <li><a href="/newsclass/@m.Code/">@m.Name</a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </section>
+</section>
+<section class="box-fixed">
+    <section class="box-one box-pd">
+        <section class="box-one box-pd">
+            <section id="tab-three" class="tab-list classify-one">
+                <div class="bd">
+                    <article class="classify-box">
+                        <div id="classify-one" class="more-con">
+                            <ul class="mod-four more-bd">
+                                @{
+                                    var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_AzGameClass>;
+                                    if (gameClassList != null)
+                                    {
+                                        foreach (var m in gameClassList)
+                                        {
+                                            <li><a href="/azgmcs/@m.Code/">@m.Name</a></li>
+                                          
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+        <section id="tab-one" class="tab-list mg-t10">
+            <header class="tab-hd hd">
+                <ul>
+                    <li class="on">最新游戏</li>
+                    <li>最新资讯</li>
+                </ul>
+            </header>
+            <div class="bd">
+                <article>
+                    <ul class="mod-five mod-img-list">
+                        @{
+                            List<Entity.Models.Jw_AzGame> gameList = ViewBag.GameList as List<Entity.Models.Jw_AzGame>;
+                            foreach (var m in gameList)
+                            {
+                                <li>
+                                    <a href="/azgame/@(m.Id).html">
+                                        <img src="~/images/lgImg.gif" data-original="@m.CoverMap" />
+                                        <h3 class="title">@m.Name</h3>
+                                        <p>@m.Name<em>-</em>@m.Edition</p>
+                                        <p>赞：<i>@m.Praise</i><em>&nbsp;</em>大小：<i>@m.GameSize</i></p>
+                                        <span class="down">详情</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </article>
+                <article class="ds-n">
+                    <ul class="mod-img-list mod-eight">
+                        @{
+                            List<Entity.Models.Jw_Article> articleList = ViewBag.ArticleList as List<Entity.Models.Jw_Article>;
+                            foreach (var m in articleList)
+                            {
+                                <li>
+                                    <a href="/news/@(m.Id).html">
+                                        <img src="~/images/lgImg.gif" data-original="@m.CoverMap" />
+                                        <h3 class="title">@m.ArticleTitle</h3>
+                                        <p>@m.F_CreateDate.ToString("yyyy-MM-dd")</p>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </section>
+</section>
+

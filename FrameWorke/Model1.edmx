@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataCenterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“DataCenter.dbo.Jw_UserVisitLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Jw_UserVisitLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="HasFormContentType" Type="bit" />
+          <Property Name="Host" Type="nvarchar" MaxLength="500" />
+          <Property Name="Method" Type="nvarchar" MaxLength="50" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="Protocol" Type="nvarchar" MaxLength="50" />
+          <Property Name="Scheme" Type="nvarchar" MaxLength="50" />
+          <Property Name="QueryString" Type="varchar(max)" />
+          <Property Name="Accept" Type="nvarchar(max)" />
+          <Property Name="AcceptEncoding" Type="varbinary" MaxLength="50" />
+          <Property Name="AcceptLanguage" Type="varbinary" MaxLength="50" />
+          <Property Name="Connection" Type="nvarchar(max)" />
+          <Property Name="Cookie" Type="varbinary(max)" />
+          <Property Name="UserAgent" Type="varbinary(max)" />
+          <Property Name="UpgradeInsecureRequests" Type="nvarchar(max)" />
+          <Property Name="ExcuteEndTime" Type="datetime" />
+          <Property Name="ExcuteStartTime" Type="datetime" />
+          <Property Name="RequestBody" Type="nvarchar(max)" />
+          <Property Name="ResponseBody" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="DataCenterModelStoreContainer">
+          <EntitySet Name="Jw_UserVisitLog" EntityType="Self.Jw_UserVisitLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Jw_UserVisitLog].[Id] AS [Id], 
+    [Jw_UserVisitLog].[Ip] AS [Ip], 
+    [Jw_UserVisitLog].[HasFormContentType] AS [HasFormContentType], 
+    [Jw_UserVisitLog].[Host] AS [Host], 
+    [Jw_UserVisitLog].[Method] AS [Method], 
+    [Jw_UserVisitLog].[Path] AS [Path], 
+    [Jw_UserVisitLog].[Protocol] AS [Protocol], 
+    [Jw_UserVisitLog].[Scheme] AS [Scheme], 
+    [Jw_UserVisitLog].[QueryString] AS [QueryString], 
+    [Jw_UserVisitLog].[Accept] AS [Accept], 
+    [Jw_UserVisitLog].[AcceptEncoding] AS [AcceptEncoding], 
+    [Jw_UserVisitLog].[AcceptLanguage] AS [AcceptLanguage], 
+    [Jw_UserVisitLog].[Connection] AS [Connection], 
+    [Jw_UserVisitLog].[Cookie] AS [Cookie], 
+    [Jw_UserVisitLog].[UserAgent] AS [UserAgent], 
+    [Jw_UserVisitLog].[UpgradeInsecureRequests] AS [UpgradeInsecureRequests], 
+    [Jw_UserVisitLog].[ExcuteEndTime] AS [ExcuteEndTime], 
+    [Jw_UserVisitLog].[ExcuteStartTime] AS [ExcuteStartTime], 
+    [Jw_UserVisitLog].[RequestBody] AS [RequestBody], 
+    [Jw_UserVisitLog].[ResponseBody] AS [ResponseBody]
+    FROM [dbo].[Jw_UserVisitLog] AS [Jw_UserVisitLog]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataCenterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jw_UserVisitLog" EntityType="DataCenterModel.Jw_UserVisitLog" />
+        </EntityContainer>
+        <EntityType Name="Jw_UserVisitLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HasFormContentType" Type="Boolean" />
+          <Property Name="Host" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Protocol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Scheme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QueryString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Accept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AcceptEncoding" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="AcceptLanguage" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Connection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cookie" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UserAgent" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UpgradeInsecureRequests" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExcuteEndTime" Type="DateTime" Precision="3" />
+          <Property Name="ExcuteStartTime" Type="DateTime" Precision="3" />
+          <Property Name="RequestBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResponseBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataCenterModelStoreContainer" CdmEntityContainer="DataCenterEntities">
+          <EntitySetMapping Name="Jw_UserVisitLog">
+            <EntityTypeMapping TypeName="DataCenterModel.Jw_UserVisitLog">
+              <MappingFragment StoreEntitySet="Jw_UserVisitLog">
+                <ScalarProperty Name="ResponseBody" ColumnName="ResponseBody" />
+                <ScalarProperty Name="RequestBody" ColumnName="RequestBody" />
+                <ScalarProperty Name="ExcuteStartTime" ColumnName="ExcuteStartTime" />
+                <ScalarProperty Name="ExcuteEndTime" ColumnName="ExcuteEndTime" />
+                <ScalarProperty Name="UpgradeInsecureRequests" ColumnName="UpgradeInsecureRequests" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="Cookie" ColumnName="Cookie" />
+                <ScalarProperty Name="Connection" ColumnName="Connection" />
+                <ScalarProperty Name="AcceptLanguage" ColumnName="AcceptLanguage" />
+                <ScalarProperty Name="AcceptEncoding" ColumnName="AcceptEncoding" />
+                <ScalarProperty Name="Accept" ColumnName="Accept" />
+                <ScalarProperty Name="QueryString" ColumnName="QueryString" />
+                <ScalarProperty Name="Scheme" ColumnName="Scheme" />
+                <ScalarProperty Name="Protocol" ColumnName="Protocol" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="HasFormContentType" ColumnName="HasFormContentType" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>@ViewBag.SeoTile</title>
+    <meta name="keywords" content="@ViewBag.SeoKey">
+    <meta name="description" content="@ViewBag.SeoDesc">
+    @{
+        string url = Context.Request.Scheme + "://" + Context.Request.Host.Value + Context.Request.Path;
+        string mUrl = Context.Request.Scheme + "://m." + Context.Request.Host.Value.Replace("www.", "") + Context.Request.Path;
+    }
+    <meta name="mobile-agent" content="format=html5;url=@mUrl">
+    <meta name="mobile-agent" content="format=xhtml;url=@mUrl">
+    <meta name="mobile-agent" content="format=wml;url=@mUrl">
+    <link href="~/css/androidGame.css" rel="stylesheet" />
+    <script src="~/js/require.js"></script>
+    <script src="~/js/androidGame.js"></script> 
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <script>
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.location.href = '@mUrl';
+        }
+    </script>
+</head>
+<body>
+    <section class="top-bar">
+        <div class="layout">
+            <span class="fl-rt"><span class="icon1 iconbg">设为首页</span><span class="icon2 iconbg">加入收藏</span></span>
+            <a href="http://sjyjzx.cn">A游网</a><i>|</i><a href="http://sjyjzx.cn/azgame/">安卓游戏</a><i>|</i><a href="http://www.sjyjzx.cn/news/">游戏新闻</a>
+        </div>
+    </section>
+    <section class="layout">
+        <section class="zm">
+            <h1 class="logo fl-lf"><a href="/" title="A游网"><img width="225" height="55" src="/images/azlogo.png" alt="A游网" /></a></h1>
+            @*<div class="search topbg fl-rt">
+                <form action="//www.sjyjzx.cn/search.html" method="get" target="_blank">
+                    <input class="input fl-lf" name="q" type="text" value="" placeholder="请输入搜索关键词" />
+                    <button class="btn" type="submit">搜索</button>
+                </form>
+            </div>*@
+        </section>
+    </section>
+    @RenderBody()
+    <footer id="tail" class="textct"></footer> 
+    <script src="~/js/tail.js"></script>
+    <div style="position:absolute; width:0px; height:0px; z-index:1; display:none">
+        <script>
+            //var _hmt = _hmt || [];
+            //(function () {
+            //    var hm = document.createElement("script");
+            //    hm.src = "https://hm.baidu.com/hm.js?43494478edb2dac60a8dae8024041565";
+            //    var s = document.getElementsByTagName("script")[0];
+            //    s.parentNode.insertBefore(hm, s);
+            //})();
+        </script>
+    </div>
+</body>
+</html>
+

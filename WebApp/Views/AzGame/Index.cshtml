@@ -1,0 +1,153 @@
+﻿ 
+@{
+    ViewBag.SeoTile = ViewBag.Navigation2.SeoTile;
+    ViewBag.SeoKey = ViewBag.Navigation2.SeoKey;
+    ViewBag.SeoDesc = ViewBag.Navigation2.SeoDesc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+ 
+    <section class="top-fixed">         
+        <nav class="nav">
+            @{
+                var navigation2List = ViewBag.Navigation2List as List<Entity.Models.Jw_Navigation2>;
+                if (navigation2List != null)
+                {
+                    string classStr = "class='on'";
+                    foreach (var m in navigation2List)
+                    {
+                        <a href="@m.LinkAddress" @classStr><span>@m.Name</span></a>
+                        classStr = "";
+                    }
+                }
+            }
+        </nav>
+    </section>
+    <section class="top-nav">
+        <section class="bg"></section>
+        <section class="classify">
+            <section id="tab-four" class="tab-list">
+                <header class="tab-hd hd">
+                    <ul>
+                        @*<li>游戏分类</li>*@
+                        <li  class="on">文章分类</li>
+                    </ul>
+                </header>
+                <div class="bd">
+                    @*<article>
+                        <ul class="mod-three mod-img-list">
+                            @{                           
+                                if (gameClassList != null)
+                                {
+                                    foreach (var m in gameClassList)
+                                    {
+                                        <li>
+                                            <a href="/azgmcs/@m.Code/">
+                                                <img src="@m.Code" />
+                                                <div class="title">@m.Name</div>
+                                                <p><i>2619</i>&nbsp;款</p>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>*@
+                    <article @*class="ds-n"*@>
+                        <ul class="classify-two mod-four">
+                            @{
+                                var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+
+                                if (articleTypeList != null)
+                                {
+                                    foreach (var m in articleTypeList)
+                                    {
+                                        <li><a href="/newsclass/@m.Code/">@m.Name</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </section>
+    <section class="box-fixed">   
+        <section class="box-one box-pd">
+            <section class="classify-three classify-box">
+                <div id="classify-one" class="more-con">
+                    <ul class="mod-four more-bd">
+                        @{
+                            var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_AzGameClass>;
+                            if (gameClassList != null)
+                            {
+                                foreach (var m in gameClassList)
+                                {
+                                    <li><a href="/azgmcs/@m.Code/">@m.Name</a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </section>
+            <section id="tab-one" class="tab-list mg-t10">
+                <header class="tab-hd hd">
+                    <ul>
+                        <li class="on">最新游戏</li>
+                        <li>热门游戏</li>
+                    </ul>
+                </header>
+                <div class="bd">
+                    <article>
+                        <ul class="mod-five mod-img-list">
+                            @{
+                                var azGameList = ViewBag.AzGameList as List<Entity.ViewModels.AzGame>;
+                                if (azGameList != null)
+                                {
+                                    foreach (var m in azGameList)
+                                    {
+                                        <li>
+                                            <a href="/azgame/@(m.AzGameId).html">
+                                                <img src="~/images/grey.gif" original="@m.CoverMap" />
+                                                <h3 class="title">@m.AzGameName</h3>
+                                                <p>@m.AzGameClassName<em>-</em></p>
+                                                <p>赞：<i>2</i><em>-</em>人气：<i>0</i></p>
+                                                <span class="down">详情</span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                          
+                        </ul>
+                    </article>
+                    <article class="ds-n">
+                        <ul class="mod-five mod-img-list">
+                            @{
+                                var azGameRecommendList = ViewBag.AzGameRecommendList as List<Entity.ViewModels.AzGameRecommend>;
+                                if (azGameRecommendList != null)
+                                {
+                                    foreach (var m in azGameRecommendList)
+                                    {
+                                        <li>
+                                            <a href="/azgame/@(m.AzGameId).html">
+                                                <img src="~/images/grey.gif" data-original="@m.CoverMap" />
+                                                <h3 class="title">@m.AzGameName @m.Edition</h3>
+                                                <p>@m.AzGameClassName <em>-</em>@m.Edition</p>
+                                                <p>赞：<i>247</i><em>&nbsp;</em>大小：<i>@m.GameSize</i></p>
+                                                <span class="down">详情</span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </section>
+
+     
+ 
+ 

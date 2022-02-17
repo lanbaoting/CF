@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.SeoTile = ViewBag.Article.SeoTile;
+    ViewBag.SeoKey = ViewBag.Article.SeoKey;
+    ViewBag.SeoDesc = ViewBag.Article.SeoDesc;
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+} 
+    <section class="top-bar news-top">
+        <div class="layout ft-yh">
+            <span class="fl-rt">
+                <a href="/">A游网</a><i>-</i><a href="/azgame/">安卓游戏</a><i>-</i><a href="/news/">资讯</a>
+                @{
+                    var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+                    if (articleTypeList != null)
+                    {
+                        foreach (var m in articleTypeList)
+                        {
+                            <i>-</i> <a href="/newsclass/@(m.Code)/">@m.Name.Substring(2)</a>
+                        }
+                    }
+                }              
+            </span>
+            <strong>@ViewBag.Article.ArticleTitle</strong>
+        </div>
+    </section> 
+    <article class="crumb news-crumb layout zm">
+        <div class="search search-item fl-rt">
+            @*<form action="//so.9尾danji.com/cse/search" method="get" target="_blank">
+                    <input type="hidden" name="s" value="16807474765969尾75852" />
+                    <input type="hidden" name="nsid" value="1" />
+                    <input class="search-input" name="q" type="text" value="请输入搜索关键词">
+                    <input class="searchbtn patch-icon text-indent" type="submit" value="搜 索">
+                </form>*@
+        </div>
+        <a href="/"><div class="news-logo text-indent fl-lf" title="A游网"></div></a>
+        <span>当前位置：<a href="/">首页</a><i class="game-icon"></i><a href="/news/">游戏资讯</a><i class="game-icon"></i><a href="/newsclass/@ViewBag.ArticleType.Code/">@ViewBag.ArticleType.Name</a><i class="game-icon"></i>@ViewBag.Article.ArticleTitle</span>
+    </article>
+    <section class="layout clear">
+        <article class="w-648 border news-details border-t fl-lf inherit">
+            <header class="news-details-hd textct">
+                <h1 class="news-details-title">@ViewBag.Article.ArticleTitle</h1>
+                <p class="news-titbar">发表：@ViewBag.Article.CreateDate.ToString("yyyy-MM-dd")<span>来源：@ViewBag.Article.SourceDisplay</span><span>编辑：@ViewBag.Article.CompileDisplay</span></p>
+            </header>
+            <div class="news-details-bd">
+                @Html.Raw(ViewBag.ArtileDetails.ArticleContent)
+                <style>
+                    .news-details-bd embed {
+                        width: 498px;
+                        height: 330px;
+                    }
+                </style>
+                @{
+                    if (ViewBag.AzGame != null)
+                    {
+                        float praise = (float)ViewBag.AzGame.Praise;
+                        float badEvaluation = (float)ViewBag.AzGame.BadEvaluation;
+                        float totalNumber = praise + badEvaluation;
+
+                        float score = 0;
+                        if (totalNumber != 0)
+                        {
+                            score = (praise / totalNumber);
+                        }
+
+                        var score1 = 1 - score;
+                        var like_width = score * 100 + "%";
+                        var dislike_width = score1 * 100 + "%";
+                        var score3 = (score * 10).ToString("f1");
+
+                        <div class="recommend-one ft-yh border position">
+                            <div class="fl-lf">
+                                <a href="/azgame/@(ViewBag.AzGame.Id).html" rel="nofollow"><img width="120" height="170" src="@ViewBag.AzGame.CoverMap" alt="@ViewBag.AzGame.Name" /></a>
+                            </div>
+                            <div class="w-350 fl-lf">
+                                <h2><a href="/azgame/@(ViewBag.AzGame.Id).html" target="_blank">@ViewBag.AzGame.Name</a></h2>
+                                <div class="w-150 fl-lf">
+                                    <ul>
+                                        <li><span>游戏类型：</span>@ViewBag.AzGame.AzGameClassName</li>
+                                        <li><span>游戏语言：</span>@ViewBag.AzGame.LanguageName</li>
+                                        <li><span>游戏平台：</span><a class="blue">安卓</a></li>
+                                        <li><span>下载次数：</span>@ViewBag.AzGame.DownloadsNumber</li>
+                                        <li><span>游戏大小：</span>@ViewBag.AzGame.GameSize</li>
+                                    </ul>
+                                </div>
+                                <div class="w-200 fl-rt">
+                                    <div class="topic-vote">
+                                        <p><span><a href="javascript:void(0)" id="" class="praise recommend-iconbg1 like_or_dislike" action="like">好玩</a></span><span class="praise-bg"><em class="like_width" style="width:@(like_width)"></em></span><span id="like_score">@ViewBag.AzGame.Praise</span></p>
+                                        <p><span><a href="javascript:void(0)" id="" class="bad recommend-iconbg1 like_or_dislike" action="dislike">坑爹</a></span><span class="bad-bg"><em class="dislike_width" style="width:@(dislike_width)"></em></span><span id="dislike_score">@ViewBag.AzGame.BadEvaluation</span></p>
+                                    </div>
+                                    <div class="recommend-btn"><a href="/azgame/@(ViewBag.AzGame.Id).html" rel="nofollow" target="_blank" class="iconbg5 recommend-iconbg1" rel="nofollow">立即下载</a></div>
+                                </div>
+                            </div>
+                            <div class="w-90 fl-rt">
+                                <p class="vote-score recommend-iconbg1" id="score">@score3</p>
+                                <p class="vote-sum">共<em id="total">@(totalNumber)</em>人投票</p>
+                                @*<p class="recommend-rttext"><a href="javascript:void(0)" class="iconbg3 recommend-iconbg1">加入收藏</a><a href="javascript:void(0)" class="iconbg4 recommend-iconbg1">复制地址</a></p>*@
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="ad-mg"></div>
+            <section class="mg-t10 zm">
+                @{
+                    if (ViewBag.LastArticle != null)
+                    {
+                        <a href="/news/@(ViewBag.LastArticle.Id).html" class="w-304 fl-lf"><em>上一篇：</em>@ViewBag.LastArticle.ArticleTitle</a>
+                    }
+                    if (ViewBag.NextArticle != null)
+                    {
+                        <a href="/news/@(ViewBag.NextArticle.Id).html" class="w-304 fl-lf"><em>下一篇：</em>@ViewBag.NextArticle.ArticleTitle</a>
+                    }
+                }
+            </section>
+
+
+            @{
+                var azGroupArticleTypeArticleList = ViewBag.AzGroupArticleTypeArticleList as List<Entity.ViewModels.AzGroupArticleTypeArticle>;
+                foreach (var azGroupArticleTypeArticle in azGroupArticleTypeArticleList)
+                {
+                    if (azGroupArticleTypeArticle.ArticleCode != null && azGroupArticleTypeArticle.ArticleList.Count() > 0)
+                    {
+                        if (azGroupArticleTypeArticle.ArticleTypeId == ViewBag.Article.ArticleTypeId && azGroupArticleTypeArticle.ArticleList.Count() <= 1)
+                        {
+                            continue;
+                        }
+                        <section class="related-articles mg-t10 zm">
+                            <section class="recommended-articles">
+                                <h2 class="title1 game-icon ft-yh">@azGroupArticleTypeArticle.ArticleTypeName</h2>
+                                <ul class="mod-list li-listbg">
+                                    @{                                                                                
+                                            foreach (var m in azGroupArticleTypeArticle.ArticleList)
+                                            {
+                                                if (ViewBag.Article.Id != m.ArticleId)
+                                                {
+                                                    <li><a href="/news/@(m.ArticleId).html">@m.ArticleTitle</a></li>
+                                                }
+                                            }                                        
+                                    }
+                                </ul>
+                            </section>
+                        </section>
+                    }
+                }
+            }
+
+        </article>
+        <aside class="w-300 fl-rt">         
+            <section class="hot-photo border mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>热点资讯</h2>
+                </header>
+                @{
+                    var hotGraphicsList = ViewBag.HotGraphicsList as List<Entity.ViewModels.HotGraphics>;
+                    if (hotGraphicsList != null)
+                    {
+                        <ul class="mod-img-list mg-Lr10">
+                            @{
+                                var hotGraphicsTop2List = hotGraphicsList.Take(2);
+                                foreach (var m in hotGraphicsTop2List)
+                                {
+                                    <li>
+                                        <h3><a href="/news/@(m.ArticleId).html" class="blue">@m.ArticleTitle</a></h3>
+                                        <a href="/news/@(m.ArticleId).html" target="_blank" class="img-box fl-lf">
+                                            <img width="115" height="64" src="@m.CoverMap" alt="@m.ArticleTitle" />
+                                        </a>
+                                        <p>@m.SeoDesc<a href="/news/@(m.ArticleId).html" class="ft-color2">[详情]</a></p>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <ul class="mod-list mg-Lr10 li-listbg">
+                            @{
+                                var hotGraphicsSkip2List = hotGraphicsList.Skip(2);
+                                foreach (var m in hotGraphicsSkip2List)
+                                {
+                                    <li><a href="/news/@(m.ArticleId).html">@m.ArticleTitle</a></li>
+                                }
+                            }
+                        </ul>
+                    }
+                }
+            </section>
+            <section class="border hot-photo masterpiece mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>游戏推荐</h2>
+                </header>
+                <ul class="mod-img-list mg-Lr10">
+                    @{
+                        var azGameMainPushList = ViewBag.AzGameMainPushList as List<Entity.ViewModels.AzGameMainPush>;
+                        if (azGameMainPushList != null)
+                        {
+                            foreach (var m in azGameMainPushList)
+                            {
+                                <li>
+                                    <a href="/azgame/@(m.AzGameId).html" target="_blank" class="img-box fl-lf"><img width="85" height="120" src="@m.CoverMap" alt="Pattern" /></a>
+                                    <h3 class="ft-yh"><a href="/azgame/@(m.AzGameId).html">@m.AzGameName</a></h3>
+                                    <p>@m.SeoDesc</p>
+                                    <p class="ht"><a href="/azgame/@(m.AzGameId).html" class="down ft-yh fl-rt">下载</a></p>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </section>
+        </aside>
+    </section>    

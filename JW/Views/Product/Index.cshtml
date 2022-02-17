@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.SeoTile = ViewBag.Navigation2.SeoTile;
+    ViewBag.SeoKey = ViewBag.Navigation2.SeoKey;
+    ViewBag.SeoDesc = ViewBag.Navigation2.SeoDesc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+     
+<section class="layout">
+
+    <nav class="nav zm">
+        <ul class="textct">
+            @{
+                var navigation2List = ViewBag.Navigation2List as List<Entity.Models.Jw_Navigation2>;
+                if (navigation2List != null)
+                {
+                    foreach (var m in navigation2List)
+                    {
+                        if (ViewBag.Navigation2.Id == m.Id)
+                        {
+                            <li class="current"><a href="@m.LinkAddress">@m.Name</a><em></em></li>
+                        }
+                        else
+                        {
+                            <li><a href="@m.LinkAddress" target="_blank">@m.Name</a></li>
+                        }
+                    }
+                }
+            }
+        </ul>
+        <p class="subnav boxbg text-pd">
+            @{
+
+                var azGameClassList = ViewBag.AzGameClassList as List<Entity.Models.Jw_AzGameClass>;
+                if (azGameClassList != null)
+                {
+                    foreach (var m in azGameClassList)
+                    {
+                        <a href="/azgmcs/@(m.Code)/" target="_blank">@m.Name</a><i>|</i>
+                    }
+                }
+            }
+        </p>
+    </nav>    
+    <section class="mg-t10">您的位置：<a href="/">A游网</a><i>&nbsp;&gt;&nbsp;</i><a href="/azgame/">安卓游戏</a> > </section>
+    <section id="categories" class="boxbg categories mg-t10 zm">
+        @{
+            var azGroupGameClassGameList = ViewBag.AzGroupGameClassGameList as List<Entity.ViewModels.AzGroupGameClassGame>;
+
+            if (azGroupGameClassGameList != null)
+            {
+                foreach (var m in azGroupGameClassGameList)
+                {
+                    <article class="w300 ranking fl-lf">
+                        <header class="mod-title">
+                            <a href="/azgmcs/@(m.AzGameClassCode)/" class="more">更多游戏+</a>
+                            <h3><em>@m.AzGameClassName</em></h3>
+                        </header>
+                        <ul>
+                            @{
+                                foreach (var g in m.AzGameList)
+                                {
+                                    <li class="hover">
+                                        <a href="/azgame/@(g.AzGameId).html" class="img" target="_blank">
+                                            <p class="img-bg img-box"><img width="48" height="48" src="~/images/grey.gif" data-original="@g.CoverMap" alt="@g.AzGameName" /></p>
+                                            <h3>@g.AzGameName</h3>
+                                            <p>@g.GameSize&nbsp;&nbsp;@g.F_CreateDate.ToString("yyyy-MM-dd")</p>
+                                            <p class="down iconbg">下载</p>
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </article>
+                }
+            }
+        }
+    </section>
+</section>
+ 

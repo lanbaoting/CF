@@ -1,0 +1,212 @@
+﻿@model X.PagedList.IPagedList<Entity.Models.Jw_DjGameTopics>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>游戏业界动态_最新单机游戏业界动态新闻-9尾单机游戏</title>
+    <meta name="keywords" content="业界动态,动态新闻">
+    <meta name="description" content="9尾单机游戏业界动态频道为您提供最新的单机游戏业界动态新闻，是广大单机爱好者了解掌握业界动态最理想的单机基地。">
+    <script src="js/mobile.js"></script>
+    <script type="text/javascript">
+        deviceJump.init(
+            { "main": "//newslist/1/", "wap": "//sjyjzx.cn/newslist/1/", "wap_3g": "//sjyjzx.cn/newslist/1/" });
+    </script>
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=//sjyjzx.cn/newslist/1/">
+    <meta http-equiv="mobile-agent" content="format=html5; url=//sjyjzx.cn/newslist/1/">
+    <link rel="stylesheet" type="text/css" media="all" href="css/game_5.css" />
+    <script type="text/javascript" src="js/pc_main_new.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section class="top-bar">
+        <div class="layout ft-yh">
+            <span class="fl-rt"><a href="/" class="icon1 iconbg">设为首页</a><a href="" class="icon2 iconbg">加入收藏</a></span>
+            <strong>好玩无毒的单机游戏下载大全</strong>
+        </div>
+    </section>
+    <header class="top layout zm">
+        <h1 class="logo fl-lf"><a href="/" title="9尾单机游戏"><img src="picture/logo.png" alt="9尾单机游戏"></a></h1>
+        <nav class="top-nav ft-yh fl-rt">
+            <ul>
+                @{
+                    var navigation1List = ViewBag.Navigation1List as List<Entity.Models.Jw_Navigation1>;
+                    if (navigation1List != null)
+                    {
+                        for (int i = 0; i < navigation1List.Count; i++)
+                        {
+                            <li class="nav-icon@(i + 1)"><a href="@navigation1List[i].LinkAddress">@navigation1List[i].Name</a></li>
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+    </header>
+    @*<article class="layout ad-ht" id="show_news_n1">
+            <script>insert.show_news_n1();</script>
+        </article>*@
+    <nav class="nav ft-yh layout zm mg-t5">
+        <ul class="textct">
+
+            @{
+                var topicTypeList = ViewBag.TopicTypeList as List<Entity.Models.Jw_TopicType>;
+
+                if (topicTypeList != null)
+                {
+
+                    foreach (var m in topicTypeList)
+                    {
+                        if (m.Id == ViewBag.Jw_TopicType.Id)
+                        {
+                            <li class="current"><a href="/type@(m.Code)/">@m.Name</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/type@(m.Code)/">@m.Name</a></li>
+                        }
+                    }
+                }
+            }
+        </ul>
+    </nav>
+    <article class="crumb game-icon patch-crumb layout mg-t10 zm">
+        <div class="search search-item fl-rt">
+            <form action="//search.html" method="get" target="_blank">
+                <input class="search-input" name="q" id="q" type="text" placeholder="请输入搜索关键词">
+                <input class="searchbtn patch-icon text-indent" type="submit" value="搜 索">
+            </form>
+        </div>
+        <span>当前位置：<a href="/">首页</a><i class="game-icon"></i><a href="/">@ViewBag.Jw_TopicType.Name</a></span>
+    </article>
+    <section class="layout mg-t10 zm">
+        <article class="w-648 border news-list tag-bd fl-lf">
+            <header class="mod-hd ft-yh">
+                <h2>@ViewBag.Jw_TopicType.Name</h2>
+            </header>
+            <ul class="mod-img-list">
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var m in Model)
+                        {
+                            <li>
+                                <a href="/topic@(m.Code)/" target="_blank" class="img-box fl-lf"><img width="180" height="100" src="@m.CoverMap" alt="@m.Title" /></a>
+                                <h3 class="game-icon ft-yh"><a href="/topic@(m.Code)/" target="_blank">@m.Title</a></h3>
+                                <p class="mg-t5 ht">@m.SeoDesc</p>
+                                <p class="ht1"><a href="/topic@(m.Code)/" target="_blank" class="read game-icon blue fl-rt">阅读全文</a><span class="date"> 发表于@(m.F_CreateDate.ToString("MM-dd HH mm"))</span></p>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+            <div class="page textct">
+                <div class="page-bd">
+                    @Html.PagedListPager(Model, page => page == 1 ? "/type" + ViewBag.Jw_TopicType.Code + "/ " : "/type" + ViewBag.Jw_TopicType.Code + "/list_" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                </div>
+            </div>
+        </article>
+        <aside class="w-300 fl-rt">
+            @*<article id="show_news_n7">
+                    <script>insert.show_news_n7();</script>
+                </article>*@
+            <section class="hot-photo border mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>热点图文</h2>
+                </header>
+                @{
+                    var hotGraphicsList = ViewBag.HotGraphicsList as List<Entity.ViewModels.HotGraphics>;
+                    if (hotGraphicsList != null)
+                    {
+                        <ul class="mod-img-list mg-Lr10">
+                            @{
+                                var hotGraphicsTop2List = hotGraphicsList.Take(2);
+                                foreach (var m in hotGraphicsTop2List)
+                                {
+                                    <li>
+                                        <h3><a href="/news/@(m.ArticleId).html" class="blue">@m.ArticleTitle</a></h3>
+                                        <a href="/news/@(m.ArticleId).html" target="_blank" class="img-box fl-lf">
+                                            <img width="115" height="64" src="@m.CoverMap" alt="@m.ArticleTitle" />
+                                        </a>
+                                        <p>@m.SeoDesc<a href="/news/@(m.ArticleId).html" class="ft-color2">[详情]</a></p>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <ul class="mod-list mg-Lr10 li-listbg">
+                            @{
+                                var hotGraphicsSkip2List = hotGraphicsList.Skip(2);
+                                foreach (var m in hotGraphicsSkip2List)
+                                {
+                                    <li><a href="/news/@(m.ArticleId).html">@m.ArticleTitle</a></li>
+                                }
+                            }
+                        </ul>
+                    }
+                }
+            </section>
+            @*<article class="mg-t10" id="show_news_n8">
+                    <script>insert.show_news_n8();</script>
+                </article>*@
+            <section class="border hot-photo masterpiece mg-t10">
+                <header class="mod-hd ft-yh">
+                    <h2>热门大作</h2>
+                </header>
+                <ul class="mod-img-list mg-Lr10">
+                    @{
+                        var djHotWorkList = ViewBag.DjHotWorkList as List<Entity.ViewModels.DjHotWork>;
+                        if (djHotWorkList != null)
+                        {
+                            foreach (var m in djHotWorkList)
+                            {
+                                <li>
+                                    <a href="/game/@(m.DjGameId).html" target="_blank" class="img-box fl-lf"><img width="85" height="120" src="@m.Name" alt="Pattern" /></a>
+                                    <h3 class="ft-yh"><a href="/game/@(m.DjGameId).html">@m.Name</a></h3>
+                                    <p>@m.SeoDesc</p>
+                                    <p class="ht"><a href="/game/@(m.DjGameId).html" class="down ft-yh fl-rt">下载</a></p>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </section>
+            @*<article class="mg-t10" id="show_news_n9">
+                    <script>insert.show_news_n9();</script>
+                </article>*@
+        </aside>
+    </section>
+    @*<article class="layout mg-t10" id="show_news_n10">
+            <script>insert.show_news_n10();</script>
+        </article>*@
+    <footer id="footer" class="layout textct">
+        <p><a class="blue">广告合作</a><i>|</i><a class="blue">最新更新</a><i>|</i><a class="blue">推荐游戏</a><i>|</i><a class="blue">热门游戏</a><i>|</i><a class="blue">热门标签</a></p>
+        <p><a href="http://beian.miit.gov.cn/" rel="nofollow">辽ICP备17021538号-1</a> 9尾单机游戏 版权所有</p>
+    </footer>
+    <script src="js/footer.js"></script>
+    <div id="show_news_n14">
+        <script>insert.show_news_n14();</script>
+    </div>
+    <div style="position:absolute; width:0px; height:0px; z-index:1; display:none">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?43494478edb2dac60a8dae8024041565";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.news-list .mod-img-list li').on('mouseenter mouseleave', function () {
+                $(this).toggleClass('bg')
+            })
+        })
+    </script>
+</body>
+</html>

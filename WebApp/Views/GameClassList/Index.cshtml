@@ -1,0 +1,228 @@
+﻿@model X.PagedList.IPagedList<Entity.Models.Jw_DjGame>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>动作格斗单机游戏_好玩的动作格斗游戏 - 9尾单机游戏 - </title>
+    <meta name="keywords" content="动作单机游戏,单机格斗游戏排行榜">
+    <meta name="description" content="9尾单机游戏为玩家们提供各种最新好玩的动作单机游戏,单机格斗游戏排行榜,让您知道2015年什么动作格斗单机游戏更好玩。">
+    <link rel="dns-prefetch" href="//img.9尾danji.com">
+    <link rel="stylesheet" href="~/css/webapp.css">
+    <script src="~/js/zepto.js,webapp.js,slide.js"></script>
+    <script src="~/js/swiper.js"></script>
+    <script type="text/javascript" src="~/js/mobile.js"></script>
+    <script type="text/javascript" src="~/js/mobile_main.js"></script>
+</head>
+<body class="box">
+    <section class="top-fixed">
+        <header class="header">
+            <div class="logo"><a href="//sjyjzx.cn">9尾游戏网</a></div>
+            <div class="search">
+                <form action="//sjyjzx.cn/search.html" method="get" class="flex" target="_blank">
+                    <input class="search-input" type="text" name="q" value="" placeholder="请输入搜索关键词" />
+                    <input class="search-btn" type="submit" value="搜索" />
+                </form>
+            </div>
+            <a href="javascript:void(0)" id="classify" class="icon1">A</a>
+        </header>
+        <nav class="nav">
+            <a href="//sjyjzx.cn/az/game.html" class="on"><span>游戏</span></a>
+            <a href="//sjyjzx.cn/az/soft.html"><span>应用</span></a>
+        </nav>
+    </section>
+    <section class="top-nav">
+        <section class="bg"></section>
+        <section class="classify">
+            <section id="tab-four" class="tab-list">
+                <header class="tab-hd hd">
+                    <ul>
+                        <li class="on">游戏分类</li>
+                        <li>文章分类</li>
+                    </ul>
+                </header>
+                <div class="bd">
+                    <article>
+                        <ul class="mod-three mod-img-list">
+                            @{
+                                var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_DjGameClass>;
+                                if (gameClassList != null)
+                                {
+                                    foreach (var m in gameClassList)
+                                    {
+                                        <li>
+                                            <a href="/@m.Code/">
+                                                <img src="picture/img1.jpg" />
+                                                <div class="title">@m.Name</div>
+                                                <p><i>2619</i>&nbsp;款</p>
+                                            </a>
+                                        </li>
+
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+
+                    <article class="ds-n">
+                        <ul class="classify-two mod-four">
+                            @{
+                                var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+
+                                if (articleTypeList != null)
+                                {
+                                    foreach (var m in articleTypeList)
+                                    {
+                                        <li><a href="/@m.Code/">@m.Name</a></li>
+                                    }
+                                }
+                                <li class="first"><a href="/news/">资讯频道</a></li>
+                            }
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    @{
+        var gameClassTabList = ViewBag.GameClassTabList as List<Entity.Models.Jw_DjGameClassTab>;
+        var gameClassTabGameList = ViewBag.GetDjGameClassTabGameListList as List<Entity.ViewModels.DjGameClassTabGame>;
+        if (gameClassTabList != null && gameClassTabList.Count > 0 && gameClassTabGameList != null && gameClassTabGameList.Count > 0)
+        {
+            <section id="tab-one" class="box-one">
+                <header class="mod-hd hd-one tab-hd hd">
+                    <ul>
+                        @{
+                            string classStr = "class=\"on\"";
+                            foreach (var m in gameClassTabList)
+                            {
+                                <li @classStr>@m.Title</li>
+                                classStr = "";
+                            }
+                        }
+                    </ul>
+                    <h2><i class="ft1">L</i>精彩推荐</h2>
+                </header>
+                <div class="bd">
+                    @{
+                        string classStr2 = "class=\"on\"";
+                        foreach (var m in gameClassTabList)
+                        {
+                            <article @classStr2>
+                                <ul class="mod-one mod-seven">
+                                    @{
+                                        var gameClassTabGames = gameClassTabGameList.Where(w => w.DjGameClassTabId == m.Id);
+                                        foreach (var m1 in gameClassTabGames)
+                                        {
+                                            <li>
+                                                <a href="/game/@(m1.DjGameId).html">
+                                                    <img src="~/images/lgImg.gif" data-original="@m1.CoverMap" />
+                                                    <span>@m1.Name</span>
+                                                    <p class="down">下载</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </article>
+                            classStr2 = "class=\"ds-n\"";
+                        }
+                    }
+                </div>
+            </section>
+        }
+    }
+
+    <section class="box-fixed">
+        <section class="box-one box-pd">
+            <section class="classify-three classify-box">
+                <div id="classify-one" class="more-con">
+                    <ul class="mod-four more-bd">
+                        @{
+                            int gameClassId = ViewBag.DjGameClass.Id;
+                            if (gameClassList != null)
+                            {
+                                foreach (var m in gameClassList)
+                                {
+                                    if (m.Id == gameClassId)
+                                    {
+                                        <li class="on"><a href="/@m.Code/">@m.Name</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/@m.Code/">@m.Name</a></li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </section>
+            <section id="tab-one" class="tab-list mg-t10">
+                <div class="bd">
+                    <article>
+                        <ul class="mod-six mod-img-list">
+
+                            @{
+
+                                if (Model != null)
+                                {
+                                    foreach (var m in Model)
+                                    {
+                                        <li>
+                                            <img src="~/images/lgImg.gif" original="@m.CoverMap" />
+                                            <h3 class="title"><a href="/game/@(m.Id).html">@m.Name</a></h3>
+                                            <p>大小：<i>@m.Size</i></p>
+                                            <p>评分：<i>7.5</i></p>
+                                            <p>语言：<i>@m.LanguageName</i></p>
+                                            <span class="down"><a href="/game/@(m.Id).html">下载</a></span>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <div class="page">
+                            <div class="page-bd">
+                                @Html.PagedListPager(Model, page => page == 1 ? "/" + ViewBag.DjGameClass.Code + "/" : "/" + ViewBag.DjGameClass.Code + "/list_" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                            </div>                            
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+        <div id="ny_bottom_n1">
+            <script>ny_bottom_n1();</script>
+        </div>
+        <footer class="footer textct">
+            <p><span class="text">手机版</span><i>|</i><a href="//www.sjyjzx.cn/gamelist/1_1.html">电脑版</a></p>
+            <p>Copyright <em>©</em>2021 <a href="">www.sjyjzx.cn</a>. All Rights Reserved.</p>
+            <p>监督电话：19尾70045026</p>
+        </footer>
+        <script>
+            //var _hmt = _hmt || [];
+            //setTimeout(function () {
+            //    (function () {
+            //        var hm = document.createElement("script");
+            //        hm.src = "https://hm.baidu.com/hm.js?16a7055cb6fcaf37983ea5ce9尾92d215";
+            //        var s = document.getElementsByTagName("script")[0];
+            //        s.parentNode.insertBefore(hm, s);
+            //    })();
+            //}, 0)
+        </script>
+        <script src="~/js/baidu_js_push.js"></script>
+        <script type="text/javascript">
+            Zepto(function ($) {
+                //展开收缩
+                $('#classify-one').More({
+                    Type: '1',
+                    ConHt: '100',
+                    Text1: ''
+                });
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,4066 @@
+﻿@{ 
+    Layout = null;
+
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>【厂房|厂房出租|厂房出售|厂房网】-商铺搜</title>
+    <meta name="keywords" content="厂房,厂房出租,厂房出售,厂房网" />
+    <meta name="description" content="商铺搜网厂房频道为您提供厂房信息,厂房出租信息,厂房出售信息,在这里有大量的厂房,厂房出租,厂房出售信息供您选择,找厂房，就上商铺搜网。" />
+    <link rel="shortcut icon" href="http://www.shangpusou.com/favicon.ico" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/category.css" />
+    <link rel="stylesheet" href="/css/pagination2.css" />
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.11.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <script type="text/javascript">var current_domain="http://www.shangpusou.com";var current_cityid="0";var current_logfile="mplogin.php";</script>
+
+    <div class="header_top">
+        <div class="top_main w1200 clear">
+            <div class="top_l fl">
+                <div class="city fl">
+                    <div class="city-curr">全国</div>
+                    <dl>
+                        <dt>[</dt>
+                        <dd><a href="http://www.shangpusou.com/changecity.php">切换城市</a></dd>
+                        <dt>]</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="top_r fr">
+                <div class="icon_box fl">
+                    <a href="javascript:;">公众号<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima.gif" alt="公众号">
+                        <p>重要提醒不错过<br>手机操作更简单</p>
+                    </div>
+                </div>
+                <div class="icon_box fl">
+                    <a href="javascript:;">小程序<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima_kf.gif" alt="小程序">
+                        <p>扫码即用，无需下载</p>
+                    </div>
+                </div>
+                <div class="zs fl">
+                    <a href="#" target="_blank">+ 分站加盟</a>
+                </div>
+                <!--             <div class="pon_center fl">
+                                <div class="flex_between pon_click">
+                                    <span>个人中心</span>
+                                    <em class="ico_down"></em>
+                                </div>
+                                <div class="list_box" style="display: none;">
+                                    <a href="#" target="_blank">我的发布</a>
+                                    <a href="#" target="_blank">我的浏览</a>
+                                </div>
+                            </div> -->
+                <div id="mayilogin" class="login fl"><img src="/picture/loading.gif" border="0" align="absmiddle"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ad_topbanner" class="clear"></div>
+
+
+    <div class="header_mind w1200 clear">
+        <div class="logo clear fl">
+            <a href="http://www.shangpusou.com/" title="商铺网" class="fl">
+                <img src="/picture/logo.png" alt="商铺搜" width="148" height="42">
+            </a>
+        </div>
+        <div class="main_r fr">
+            <a href="http://www.shangpusou.com/shangpusou-post.php?catid=3&cityid=0" class="fabu_btn" target="_blank">免费发布</a>
+        </div>
+        <div class="search fr">
+            <form method="get" action="http://www.shangpusou.com/search.php?" id="searchForm" target="_blank">
+                <input name="cityid" type="hidden" value="0">
+                <input type="hidden" id="searchtype" name="mod" value="information" />
+                <div class="input_content clear">
+                    <input type="text" class="fl" value="请输入关键词搜索" name="keywords" id="searchheader" onmouseover="if(this.value==='请输入关键词搜索'){this.value='';}" x-webkit-speech lang="zh-CN" />
+                    <input type="submit" value="搜 索" class="searchheader_submit fl" />
+                </div>
+                <div class="fl search_navurl">
+                    <li><a href="#" style="color:" target="_blank" title="培训学校优转">培训学校优转<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="商铺出租">商铺出租<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="酒店转让">酒店转让<sup class=""></sup></a></li>
+                </div>
+            </form>
+        </div>
+    </div><div class="nav_bg">
+        <div class="nav_main w1200 clear">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a target="_self" id="1" href="/shangpuzhuanrang/">生意转让</a></li>
+                <li><a target="_self" id="2" href="/shangpuzushou/">商铺租售</a></li>
+                <li><a class="li_on" target="_self" id="3" href="/changfang/">厂房</a></li>
+                <li><a target="_self" id="4" href="/cangku/">仓库</a></li>
+                <li><a target="_self" id="5" href="/xiezilou/">写字楼</a></li>
+                <li><a target="_self" id="6" href="/qiuzuqiugou/">找铺</a></li>
+                <li><a target="_self" id="news" href="http://www.shangpusou.com/news/">资讯</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="on_page con_box w1200">
+        <a href="http://www.shangpusou.com/">商铺搜</a> <code> > </code> <a href="http://www.shangpusou.com/changfang/">厂房</a>
+    </div><div class="nav_tab_wrapper">
+        <ul class="house_nav_tab">
+            <li><a href="http://www.shangpusou.com/shangpuzhuanrang/">店铺转让</a></li>
+            <li><a href="http://www.shangpusou.com/shangpuchuzu/">商铺出租</a></li>
+            <li><a href="http://www.shangpusou.com/shangpuchushou/">商铺出售</a></li>
+        </ul>
+        <a href="#" class="bigdata">大数据合作</a>
+    </div>
+    <div class="xz_li w1200">
+        <!-- 根据当前城市获取区域--><div class="select_brand">
+            <span>分站</span>
+            <div class="tab_xz">
+                <div class="a_n">
+                    <a href="#" class="curr">不限</a><a href="http://beijing.shangpusou.com/changfang/">北京</a>
+                    <a href="http://tianjin.shangpusou.com/changfang/">天津</a>
+                    <a href="http://shijiazhuang.shangpusou.com/changfang/">石家庄</a>
+                    <a href="http://shanghai.shangpusou.com/changfang/">上海</a>
+                    <a href="http://nanjing.shangpusou.com/changfang/">南京</a>
+                    <a href="http://hangzhou.shangpusou.com/changfang/">杭州</a>
+                    <a href="http://fuzhou.shangpusou.com/changfang/">福州</a>
+                    <a href="http://xiamen.shangpusou.com/changfang/">厦门</a>
+                    <a href="http://nanchang.shangpusou.com/changfang/">南昌</a>
+                    <a href="http://zhengzhou.shangpusou.com/changfang/">郑州</a>
+                    <a href="http://wuhan.shangpusou.com/changfang/">武汉</a>
+                    <a href="http://changsha.shangpusou.com/changfang/">长沙</a>
+                    <a href="http://guangzhou.shangpusou.com/changfang/">广州</a>
+                    <a href="http://shenzhen.shangpusou.com/changfang/">深圳</a>
+                    <a href="http://chongqing.shangpusou.com/changfang/">重庆</a>
+                    <a href="http://chengdu.shangpusou.com/changfang/">成都</a>
+                    <a href="http://xian.shangpusou.com/changfang/">西安</a>
+                    <a href="http://www.shangpusou.com/changecity.php">更多 &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="select_brand" id="Showfid">
+            <span>分类：</span>
+            <div class="tab_xz">
+
+                <div class="a_n">
+                    <a href="http://www.shangpusou.com/changfang/" class="on" title="厂房">不限</a><a href="http://www.shangpusou.com/changfangchuzu/" title="厂房出租">厂房出租</a>
+                    <a href="http://www.shangpusou.com/changfangchushou/" title="厂房出售">厂房出售</a>
+                    <a href="http://www.shangpusou.com/changfangzhuanrang/" title="厂房转让">厂房转让</a>
+                </div>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>租金：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/rent-1~5000/">5000元/月以下</a>
+                <a href="http://www.shangpusou.com/changfang/rent-5000~8000/">5000-8000元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-8000~10000/">8000-10000元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-10000~15000/">1-1.5万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-15000~20000/">1.5-2万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-20000~50000/">2-5万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-50000~/">5万元/月以上</a>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>面积：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/area-1~20/">20㎡以内</a>
+                <a href="http://www.shangpusou.com/changfang/area-20~50/">20~50㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-50~100/">50~100㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-100~300/">100~300㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-300~500/">300~500㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-500~/">500㎡以上</a>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>身份：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/from-1/">个人</a>
+                <a href="http://www.shangpusou.com/changfang/from-2/">经纪人</a>
+            </div>
+        </div>
+
+
+    </div><div class="h20"></div>
+    <div class="con_box list_nav_tab w1200">
+        <div class="list_nav_tab_l">
+            <a rel="nofollow" href="#" class="on">厂房信息</a>
+        </div>
+        <div class="list_nav_tab_r">
+            友情提示：置顶信息可使成交率提高5倍！<a href="http://www.shangpusou.com/shangpusou-post.php?catid=3&cityid=0" rel="nofollow" target="_blank">免费发布厂房信息&gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="con_box list_wrap w1200">
+        <div class="list_l">
+            <div class="sp_li_box">
+                <ul class="sp_li" id='loadimg'>
+                    <li class='first'>
+                        <h2 class="title">
+                            <a href="/changfangchuzu/6704176.html" title="木门厂转让  环评烤漆房 手续齐全" target="_blank" style=" ">木门厂转让  环评烤漆房 手续齐全</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    许昌-
+                                    长葛-长葛城区
+                                </span>
+                                <i class="split"></i>
+                                <span>河南省许昌市长葛市建设路街道</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>3000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：88万元
+                            </p>
+                        </div>
+
+                        <div class="time">2022-02-02</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="对外出租厂房场地" href="/changfangchuzu/6704114.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20220105/pre_16413649539cftl.jpg' title='对外出租厂房场地' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://xinyang.shangpusou.com/changfangchuzu/f6704114.html" title="对外出租厂房场地" target="_blank" style=" ">对外出租厂房场地</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    信阳-
+                                    淮滨-奥斯卡广场
+                                </span>
+                                <i class="split"></i>
+                                <span>河南省淮滨县新里镇</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>5000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">5000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2022-01-05</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="工厂转让" href="http://guangzhou.shangpusou.com/changfangzhuanrang/f6704112.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20220104/pre_1641275963zh3q4.jpg' title='工厂转让' width="176" height="132">
+                            </a><span class="picNum">1图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://guangzhou.shangpusou.com/changfangzhuanrang/f6704112.html" title="工厂转让" target="_blank" style=" ">工厂转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    广州-
+                                </span>
+                                <i class="split"></i>
+                                <span>广东省广州市白云区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>400㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：60000万元
+                            </p>
+                        </div>
+
+                        <div class="time">2022-01-04</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://dongguan.shangpusou.com/changfangzhuanrang/f6704010.html" title="东莞鞋厂转让" target="_blank" style=" ">东莞鞋厂转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    东莞-
+                                </span>
+                                <i class="split"></i>
+                                <span>东莞厚街河田小学</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>230㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：18万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-12-03</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://yantai.shangpusou.com/changfangchuzu/f6704008.html" title="龙口威龙大道附近厂房出租" target="_blank" style=" ">龙口威龙大道附近厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    烟台-
+                                </span>
+                                <i class="split"></i>
+                                <span>山东省烟台市龙口市</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>2000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">666</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-12-02</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出租出售贵州大型矿石破碎厂" href="http://qiandongnan.shangpusou.com/changfangchuzu/f6704003.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_16382618192mtoj.png' title='出租出售贵州大型矿石破碎厂' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://qiandongnan.shangpusou.com/changfangchuzu/f6704003.html" title="出租出售贵州大型矿石破碎厂" target="_blank" style=" ">出租出售贵州大型矿石破碎厂</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    黔东南-
+                                    凯里-凯里城区
+                                </span>
+                                <i class="split"></i>
+                                <span>凯里市炉山镇苦里井村公路旁</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>4000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-30</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="滁州复创国际产业园低价出售，详情电话咨询" href="http://chuzhou.shangpusou.com/changfangchushou/f6703990.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1638152511tlbk5.jpg' title='滁州复创国际产业园低价出售，详情电话咨询' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://chuzhou.shangpusou.com/changfangchushou/f6703990.html" title="滁州复创国际产业园低价出售，详情电话咨询" target="_blank" style=" ">滁州复创国际产业园低价出售，详情电话咨询</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    滁州-
+                                    琅琊-琅琊城区
+                                </span>
+                                <i class="split"></i>
+                                <span>安徽省滁州市经开区滁州复创国际产业园</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1300㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-29</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出售临沂50年产权厂房，共两层，首层8.1米 低首付 可**" href="http://linyi.shangpusou.com/changfangchushou/f6703988.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1638149744uryev.jpg' title='出售临沂50年产权厂房，共两层，首层8.1米 低首付 可**' width="176" height="132">
+                            </a><span class="picNum">6图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://linyi.shangpusou.com/changfangchushou/f6703988.html" title="出售临沂50年产权厂房，共两层，首层8.1米 低首付 可**" target="_blank" style=" ">出售临沂50年产权厂房，共两层，首层8.1米 低首付 可**</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    临沂-
+                                    河东-凤凰岭
+                                </span>
+                                <i class="split"></i>
+                                <span>临沂市临工路与联邦路交汇</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>2000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-29</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="独门独院钢结构厂房25700平整体出租" href="http://wuxi.shangpusou.com/changfangchuzu/f6703971.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211126/pre_1637936561mjoic.jpg' title='独门独院钢结构厂房25700平整体出租' width="176" height="132">
+                            </a><span class="picNum">1图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://wuxi.shangpusou.com/changfangchuzu/f6703971.html" title="独门独院钢结构厂房25700平整体出租" target="_blank" style=" ">独门独院钢结构厂房25700平整体出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    无锡-
+                                    新吴区-鸿山
+                                </span>
+                                <i class="split"></i>
+                                <span>江苏省无锡市新吴区鸿山街道鸿达路112号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>25700㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">24</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-26</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="清洋工业园五层厂房带电梯出租 先到先得机会不等人" href="http://yantai.shangpusou.com/changfangchuzu/f6703953.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1637828611pvpco.jpg' title='清洋工业园五层厂房带电梯出租 先到先得机会不等人' width="176" height="132">
+                            </a><span class="picNum">6图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://yantai.shangpusou.com/changfangchuzu/f6703953.html" title="清洋工业园五层厂房带电梯出租 先到先得机会不等人" target="_blank" style=" ">清洋工业园五层厂房带电梯出租 先到先得机会不等人</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    烟台-
+                                    福山-清洋
+                                </span>
+                                <i class="split"></i>
+                                <span>烟台市福山区 云龙山路31号 </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1100㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">1375</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-25</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="滨州产业园区标准厂房租售 500平-100000平 免租金返" href="http://binzhou.shangpusou.com/changfangchuzu/f6703951.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_16378252174f6wd.png' title='滨州产业园区标准厂房租售 500平-100000平 免租金返' width="176" height="132">
+                            </a><span class="picNum">6图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://binzhou.shangpusou.com/changfangchuzu/f6703951.html" title="滨州产业园区标准厂房租售 500平-100000平 免租金返" target="_blank" style=" ">滨州产业园区标准厂房租售 500平-100000平 免租金返</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    滨州-
+                                    沾化-沾化城区
+                                </span>
+                                <i class="split"></i>
+                                <span>沾化智能制造产业园</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>5000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-25</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出售标准单层厂房800平，可生产，可环评" href="http://baoding.shangpusou.com/changfangchushou/f6703912.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1637486286tpzjb.jpg' title='出售标准单层厂房800平，可生产，可环评' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://baoding.shangpusou.com/changfangchushou/f6703912.html" title="出售标准单层厂房800平，可生产，可环评" target="_blank" style=" ">出售标准单层厂房800平，可生产，可环评</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    保定-
+                                    涿州市-清凉寺
+                                </span>
+                                <i class="split"></i>
+                                <span>腾飞大街</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>800㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">320</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-21</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出售涿州高新区标准厂房可环评50年产权" href="http://baoding.shangpusou.com/changfangchushou/f6703896.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1637372849iei0m.jpg' title='出售涿州高新区标准厂房可环评50年产权' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://baoding.shangpusou.com/changfangchushou/f6703896.html" title="出售涿州高新区标准厂房可环评50年产权" target="_blank" style=" ">出售涿州高新区标准厂房可环评50年产权</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    保定-
+                                    涿州市-清凉寺
+                                </span>
+                                <i class="split"></i>
+                                <span>腾飞大街西侧</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">400</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-20</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="独门独院工业用地，不限行业可办环评厂房出租" href="http://dongguan.shangpusou.com/changfangchuzu/f6703892.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211119/pre_1637324047vdurb.jpeg' title='独门独院工业用地，不限行业可办环评厂房出租' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://dongguan.shangpusou.com/changfangchuzu/f6703892.html" title="独门独院工业用地，不限行业可办环评厂房出租" target="_blank" style=" ">独门独院工业用地，不限行业可办环评厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    东莞-
+                                </span>
+                                <i class="split"></i>
+                                <span>广东省东莞市还珠沥工业路</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>5600㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">105000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-19</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="可以拥有，何必租赁？北京南涿州高新区正规园区厂房出售" href="http://baoding.shangpusou.com/changfangchushou/f6703883.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1637287169blaf9.jpg' title='可以拥有，何必租赁？北京南涿州高新区正规园区厂房出售' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://baoding.shangpusou.com/changfangchushou/f6703883.html" title="可以拥有，何必租赁？北京南涿州高新区正规园区厂房出售" target="_blank" style=" ">可以拥有，何必租赁？北京南涿州高新区正规园区厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    保定-
+                                    涿州市-清凉寺
+                                </span>
+                                <i class="split"></i>
+                                <span>腾飞大街</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">400</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-19</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="深圳横岗服装厂低价转让" href="http://shenzhen.shangpusou.com/changfangzhuanrang/f6703838.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211115/pre_1636951619c4wvs.jpg' title='深圳横岗服装厂低价转让' width="176" height="132">
+                            </a><span class="picNum">1图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://shenzhen.shangpusou.com/changfangzhuanrang/f6703838.html" title="深圳横岗服装厂低价转让" target="_blank" style=" ">深圳横岗服装厂低价转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    深圳-
+                                    龙岗-横岗
+                                </span>
+                                <i class="split"></i>
+                                <span>排榜富利时路五号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>220㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：7万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-11-15</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="潍坊市潍城区外资企业土地厂房股权转让" href="http://weifang.shangpusou.com/changfangzhuanrang/f6703827.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_16369365224jtxq.jpg' title='潍坊市潍城区外资企业土地厂房股权转让' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangzhuanrang/f6703827.html" title="潍坊市潍城区外资企业土地厂房股权转让" target="_blank" style=" ">潍坊市潍城区外资企业土地厂房股权转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                    潍城-于河街办
+                                </span>
+                                <i class="split"></i>
+                                <span>山东省潍坊市奎文区胜利东街97号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>21624㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：面议
+                            </p>
+                        </div>
+
+                        <div class="time">2021-11-15</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="酒店楼层出租" href="http://beijing.shangpusou.com/changfangchuzu/f6703808.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211111/pre_1636644525hnoc5.jpeg' title='酒店楼层出租' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://beijing.shangpusou.com/changfangchuzu/f6703808.html" title="酒店楼层出租" target="_blank" style=" ">酒店楼层出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    北京-
+                                    丰台-木樨园
+                                </span>
+                                <i class="split"></i>
+                                <span>丰台区木樨园 丰台区服务中心后面一栋楼</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>4000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">450000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-11</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="优质厂房出售总占地面积14亩价格优惠" href="http://chuzhou.shangpusou.com/changfangchushou/f6703800.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1636611553kr0bs.jpg' title='优质厂房出售总占地面积14亩价格优惠' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://chuzhou.shangpusou.com/changfangchushou/f6703800.html" title="优质厂房出售总占地面积14亩价格优惠" target="_blank" style=" ">优质厂房出售总占地面积14亩价格优惠</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    滁州-
+                                    明光-明光城区
+                                </span>
+                                <i class="split"></i>
+                                <span>明光市张八岭镇高分子产业园</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>10000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1600</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-11-11</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="整体转让200平个人加工厂，含业务、设备" href="http://ningbo.shangpusou.com/changfangzhuanrang/f6703793.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1636523534c6shz.jpg' title='整体转让200平个人加工厂，含业务、设备' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://ningbo.shangpusou.com/changfangzhuanrang/f6703793.html" title="整体转让200平个人加工厂，含业务、设备" target="_blank" style=" ">整体转让200平个人加工厂，含业务、设备</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    宁波-
+                                    鄞州-邱隘
+                                </span>
+                                <i class="split"></i>
+                                <span>顺达工业区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span></span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>200㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：50万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-11-10</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://dongguan.shangpusou.com/changfangzhuanrang/f6703765.html" title="带设备整厂转让" target="_blank" style=" ">带设备整厂转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    东莞-
+                                    黄江
+                                </span>
+                                <i class="split"></i>
+                                <span>鸡啼岗街道</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>100㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：31万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-11-07</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出租1300平厂房仓库  高新区纸浆厂内 临港开发区 可环评" href="http://jinan.shangpusou.com/changfangchuzu/f6703707.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1635908216uncmn.png' title='出租1300平厂房仓库  高新区纸浆厂内 临港开发区 可环评' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://jinan.shangpusou.com/changfangchuzu/f6703707.html" title="出租1300平厂房仓库  高新区纸浆厂内 临港开发区 可环评" target="_blank" style=" ">出租1300平厂房仓库  高新区纸浆厂内 临港开发区 可</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    济南-
+                                </span>
+                                <i class="split"></i>
+                                <span>济南市遥墙镇临港开发区温泉路8号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1300㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">21450</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-03</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出租3000平厂房仓库  高新区纸浆厂内 临港开发区 可环评" href="http://jinan.shangpusou.com/changfangchuzu/f6703696.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1635814529phrtp.png' title='出租3000平厂房仓库  高新区纸浆厂内 临港开发区 可环评' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://jinan.shangpusou.com/changfangchuzu/f6703696.html" title="出租3000平厂房仓库  高新区纸浆厂内 临港开发区 可环评" target="_blank" style=" ">出租3000平厂房仓库  高新区纸浆厂内 临港开发区 可</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    济南-
+                                    高新-高新周边
+                                </span>
+                                <i class="split"></i>
+                                <span>济南市遥墙镇临港开发区温泉路8号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>3000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">49500</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-02</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="历城周边500平出租厂房仓库遥墙协和对面纸浆厂普洛斯物流园附" href="http://jinan.shangpusou.com/changfangchuzu/f6703686.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202111/pre_1635749362z0xon.png' title='历城周边500平出租厂房仓库遥墙协和对面纸浆厂普洛斯物流园附' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://jinan.shangpusou.com/changfangchuzu/f6703686.html" title="历城周边500平出租厂房仓库遥墙协和对面纸浆厂普洛斯物流园附" target="_blank" style=" ">历城周边500平出租厂房仓库遥墙协和对面纸浆厂普洛</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    济南-
+                                    济南周边-其他
+                                </span>
+                                <i class="split"></i>
+                                <span>济南市临港开发区温泉路8号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>500㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">8250</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-11-01</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="央子工业厂房对外租售，价格优惠。" href="http://weifang.shangpusou.com/changfangchushou/f6703661.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1635400407mivhh.jpg' title='央子工业厂房对外租售，价格优惠。' width="176" height="132">
+                            </a><span class="picNum">1图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangchushou/f6703661.html" title="央子工业厂房对外租售，价格优惠。" target="_blank" style=" ">央子工业厂房对外租售，价格优惠。</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                    滨海新区-滨海广场
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>2500㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-28</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="成都厂房招商+50年产权+三类工业用地+入住行业宽松" href="http://chengdu.shangpusou.com/changfangchushou/f6703637.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211027/pre_1635297541tukk4.jpeg' title='成都厂房招商+50年产权+三类工业用地+入住行业宽松' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://chengdu.shangpusou.com/changfangchushou/f6703637.html" title="成都厂房招商+50年产权+三类工业用地+入住行业宽松" target="_blank" style=" ">成都厂房招商+50年产权+三类工业用地+入住行业宽松</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    成都-
+                                    成都周边
+                                </span>
+                                <i class="split"></i>
+                                <span>成都周边</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-27</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="潍坊滨海1600平工业厂房出租" href="http://weifang.shangpusou.com/changfangchuzu/f6703593.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_16348824905ngcn.jpg' title='潍坊滨海1600平工业厂房出租' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangchuzu/f6703593.html" title="潍坊滨海1600平工业厂房出租" target="_blank" style=" ">潍坊滨海1600平工业厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1600㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-22</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="今日推荐眉山青神，行业宽松+50年产权" href="http://chengdu.shangpusou.com/changfangchushou/f6703590.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211022/pre_1634868772jbll9.jpeg' title='今日推荐眉山青神，行业宽松+50年产权' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://chengdu.shangpusou.com/changfangchushou/f6703590.html" title="今日推荐眉山青神，行业宽松+50年产权" target="_blank" style=" ">今日推荐眉山青神，行业宽松+50年产权</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    成都-
+                                </span>
+                                <i class="split"></i>
+                                <span>四川省绵阳市盐亭县盐蓬路</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-22</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="厂房出租，交通便利，配套齐全" href="http://jinan.shangpusou.com/changfangchuzu/f6703570.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1634710887kikaa.jpg' title='厂房出租，交通便利，配套齐全' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://jinan.shangpusou.com/changfangchuzu/f6703570.html" title="厂房出租，交通便利，配套齐全" target="_blank" style=" ">厂房出租，交通便利，配套齐全</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    济南-
+                                    济阳-济阳城区
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>18304㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-20</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhenjiang.shangpusou.com/changfangchuzu/f6703567.html" title="江苏虎劲新能源科技有限公司内厂房出租" target="_blank" style=" ">江苏虎劲新能源科技有限公司内厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    镇江-
+                                    丹阳
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">14000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-20</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="潍坊滨海工业厂房出租" href="http://weifang.shangpusou.com/changfangchuzu/f6703557.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1634622434uethc.jpg' title='潍坊滨海工业厂房出租' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangchuzu/f6703557.html" title="潍坊滨海工业厂房出租" target="_blank" style=" ">潍坊滨海工业厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                    滨海新区-滨海广场
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1600㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-19</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="绵阳厂房招商了-（1800一平方）-50年产权。欢迎来电咨询" href="http://mianyang.shangpusou.com/changfangchushou/f6703553.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211019/pre_1634606579mpow2.jpeg' title='绵阳厂房招商了-（1800一平方）-50年产权。欢迎来电咨询' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://mianyang.shangpusou.com/changfangchushou/f6703553.html" title="绵阳厂房招商了-（1800一平方）-50年产权。欢迎来电咨询" target="_blank" style=" ">绵阳厂房招商了-（1800一平方）-50年产权。欢迎来电咨询</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    绵阳-
+                                </span>
+                                <i class="split"></i>
+                                <span>四川省绵阳市盐亭县盐蓬路</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-19</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="电缆桥架工厂转让，附带120万桥架订单，合同在手可正常生产" href="http://shaoxing.shangpusou.com/changfangzhuanrang/f6703549.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211018/pre_16345484471iwm4.jpeg' title='电缆桥架工厂转让，附带120万桥架订单，合同在手可正常生产' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://shaoxing.shangpusou.com/changfangzhuanrang/f6703549.html" title="电缆桥架工厂转让，附带120万桥架订单，合同在手可正常生产" target="_blank" style=" ">电缆桥架工厂转让，附带120万桥架订单，合同在手可正常</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    绍兴-
+                                    上虞-沥海
+                                </span>
+                                <i class="split"></i>
+                                <span>浙江省绍兴市越城区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1200㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：50万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-10-18</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="绵阳厂房出售单价1800+50年产权+行业宽松" href="http://mianyang.shangpusou.com/changfangchushou/f6703541.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211018/pre_1634519822est53.jpeg' title='绵阳厂房出售单价1800+50年产权+行业宽松' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://mianyang.shangpusou.com/changfangchushou/f6703541.html" title="绵阳厂房出售单价1800+50年产权+行业宽松" target="_blank" style=" ">绵阳厂房出售单价1800+50年产权+行业宽松</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    绵阳-
+                                </span>
+                                <i class="split"></i>
+                                <span>四川省绵阳市盐亭县盐蓬路</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1800</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-18</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="绵阳厂房出售（单价1880）+行业宽松+50年产权" href="http://mianyang.shangpusou.com/changfangchushou/f6703501.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20211015/pre_16342608251kjg9.jpeg' title='绵阳厂房出售（单价1880）+行业宽松+50年产权' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://mianyang.shangpusou.com/changfangchushou/f6703501.html" title="绵阳厂房出售（单价1880）+行业宽松+50年产权" target="_blank" style=" ">绵阳厂房出售（单价1880）+行业宽松+50年产权</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    -
+                                </span>
+                                <i class="split"></i>
+                                <span>四川省绵阳市盐亭县盐蓬路</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">1</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-15</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="钢结构厂房 南通稀缺房源 适合生产制造 租金4毛" href="http://nantong.shangpusou.com/changfangchushou/f6703478.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1634192328bxoto.jpg' title='钢结构厂房 南通稀缺房源 适合生产制造 租金4毛' width="176" height="132">
+                            </a><span class="picNum">8图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://nantong.shangpusou.com/changfangchushou/f6703478.html" title="钢结构厂房 南通稀缺房源 适合生产制造 租金4毛" target="_blank" style=" ">钢结构厂房 南通稀缺房源 适合生产制造 租金4毛</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    南通-
+                                    通州-万达广场
+                                </span>
+                                <i class="split"></i>
+                                <span>南通市通州区通州湾示范区乐海大道168号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1905㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">600</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-10-14</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="695平厂房对外出租含3间独立办公室地坪漆已做好空调消防齐全" href="http://liuan.shangpusou.com/changfangchuzu/f6703429.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1633761196v1dvu.jpg' title='695平厂房对外出租含3间独立办公室地坪漆已做好空调消防齐全' width="176" height="132">
+                            </a><span class="picNum">8图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://liuan.shangpusou.com/changfangchuzu/f6703429.html" title="695平厂房对外出租含3间独立办公室地坪漆已做好空调消防齐全" target="_blank" style=" ">695平厂房对外出租含3间独立办公室地坪漆已做好空调</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    六安-
+                                    裕安-光彩大市场
+                                </span>
+                                <i class="split"></i>
+                                <span>六安市裕安区城南镇青网科创园</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>695㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">13</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-09</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="北联电吴四圪堵煤矿厂房出租" href="http://eerduosi.shangpusou.com/changfangchuzu/f6703424.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1633679737efyzt.jpg' title='北联电吴四圪堵煤矿厂房出租' width="176" height="132">
+                            </a><span class="picNum">6图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://eerduosi.shangpusou.com/changfangchuzu/f6703424.html" title="北联电吴四圪堵煤矿厂房出租" target="_blank" style=" ">北联电吴四圪堵煤矿厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    鄂尔多斯-
+                                    达拉特旗-白塔公园
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>0㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-08</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="1200平小厂房出租独院带办公室新装修水电齐全可办环评" href="http://guangzhou.shangpusou.com/changfangchuzu/f6703402.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202110/pre_1633508291ulamg.jpg' title='1200平小厂房出租独院带办公室新装修水电齐全可办环评' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://guangzhou.shangpusou.com/changfangchuzu/f6703402.html" title="1200平小厂房出租独院带办公室新装修水电齐全可办环评" target="_blank" style=" ">1200平小厂房出租独院带办公室新装修水电齐全可办环</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    广州-
+                                    花都
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>2100㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">19</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-10-06</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="广州50亩工业园出售" href="http://guangzhou.shangpusou.com/changfangzhuanrang/f6703356.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20210930/pre_1632972148y86g2.jpeg' title='广州50亩工业园出售' width="176" height="132">
+                            </a><span class="picNum">1图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://guangzhou.shangpusou.com/changfangzhuanrang/f6703356.html" title="广州50亩工业园出售" target="_blank" style=" ">广州50亩工业园出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    广州-
+                                </span>
+                                <i class="split"></i>
+                                <span>广东省广州市番禺区南新大街50号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>33330㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：15000万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-09-30</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="黄冈市红安经济开发区厂房出租或出售" href="http://huanggang.shangpusou.com/changfangchuzu/f6703319.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1632639496av8jl.jpg' title='黄冈市红安经济开发区厂房出租或出售' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://huanggang.shangpusou.com/changfangchuzu/f6703319.html" title="黄冈市红安经济开发区厂房出租或出售" target="_blank" style=" ">黄冈市红安经济开发区厂房出租或出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    黄冈-
+                                    红安-红坪大道
+                                </span>
+                                <i class="split"></i>
+                                <span>湖北省黄冈市红安县二号路12号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>10000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">60000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-26</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="家里拆迁低价急售厂房" href="http://shijiazhuang.shangpusou.com/changfangchushou/f6703292.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/20210924/pre_1632475267ct9vk.jpeg' title='家里拆迁低价急售厂房' width="176" height="132">
+                            </a><span class="picNum">2图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://shijiazhuang.shangpusou.com/changfangchushou/f6703292.html" title="家里拆迁低价急售厂房" target="_blank" style=" ">家里拆迁低价急售厂房</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    石家庄-
+                                </span>
+                                <i class="split"></i>
+                                <span>河北省石家庄市鹿泉区碧水街</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>空置中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>833㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">400</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-09-24</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="厂房转让" href="http://deyang.shangpusou.com/changfangzhuanrang/f6703282.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1632458332zbzzr.jpg' title='厂房转让' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://deyang.shangpusou.com/changfangzhuanrang/f6703282.html" title="厂房转让" target="_blank" style=" ">厂房转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    德阳-
+                                    广汉市
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>640㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：20万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-09-24</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://kunming.shangpusou.com/changfangzhuanrang/f6703281.html" title="厂房低价转让" target="_blank" style="color:red; ">厂房低价转让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    昆明-
+                                    富民
+                                </span>
+                                <i class="split"></i>
+                                <span>云南省昆明市富民县东元生态食品加工园</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1200㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                            <p class="down">
+                                转让费：1万元
+                            </p>
+                        </div>
+
+                        <div class="time">2021-09-24</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="厂房和办公房出租" href="http://shaoxing.shangpusou.com/changfangchuzu/f6703220.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631981697yfscf.jpg' title='厂房和办公房出租' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://shaoxing.shangpusou.com/changfangchuzu/f6703220.html" title="厂房和办公房出租" target="_blank" style=" ">厂房和办公房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    绍兴-
+                                    嵊州
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>700㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">7000</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-19</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="出租朝阳镇九龙大道旁三楼标准厂房，可做厂房、办公、学校等等" href="http://zhangzhou.shangpusou.com/changfangchuzu/f6703212.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631945731bdtco.jpg' title='出租朝阳镇九龙大道旁三楼标准厂房，可做厂房、办公、学校等等' width="176" height="132">
+                            </a><span class="picNum">3图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://zhangzhou.shangpusou.com/changfangchuzu/f6703212.html" title="出租朝阳镇九龙大道旁三楼标准厂房，可做厂房、办公、学校等等" target="_blank" style=" ">出租朝阳镇九龙大道旁三楼标准厂房，可做厂房、办公、</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    漳州-
+                                    龙文-蓝田开发区
+                                </span>
+                                <i class="split"></i>
+                                <span>九龙大道旁，朝阳镇政府对面三楼</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>700㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">12</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-18</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://nantong.shangpusou.com/changfangchushou/f6703162.html" title="海安韩洋附件整栋厂房出租4500平方" target="_blank" style=" ">海安韩洋附件整栋厂房出租4500平方</a>
+                            <em class="rz">已过期</em>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    南通-
+                                    海安-海安其他
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>4500㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">50</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-09-15</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="50年产权 层高8.1米厂房出售" href="http://zhengzhou.shangpusou.com/changfangchushou/f6697314.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_163135600666mdx.jpg' title='50年产权 层高8.1米厂房出售' width="176" height="132">
+                            </a><span class="picNum">3图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6697314.html" title="50年产权 层高8.1米厂房出售" target="_blank" style=" ">50年产权 层高8.1米厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    新密-新密城区
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>经纪人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>1500㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+                                <span class="num">600</span><span class="unit">万元</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-09-11</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="拧包办公，可办公，可仓储。可接、发快递，会客，享受临港**政" href="http://shanghai.shangpusou.com/changfangchuzu/f6697301.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631238319oxnf9.jpg' title='拧包办公，可办公，可仓储。可接、发快递，会客，享受临港**政' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://shanghai.shangpusou.com/changfangchuzu/f6697301.html" title="拧包办公，可办公，可仓储。可接、发快递，会客，享受临港**政" target="_blank" style=" ">拧包办公，可办公，可仓储。可接、发快递，会客，享受临港**</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    上海-
+                                    浦东-临港新城
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>50㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">1600</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-10</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="奥立特电力设备有限公司整体出让" href="http://kunming.shangpusou.com/changfangchushou/f6697297.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631201653b8bkg.png' title='奥立特电力设备有限公司整体出让' width="176" height="132">
+                            </a><span class="picNum">5图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://kunming.shangpusou.com/changfangchushou/f6697297.html" title="奥立特电力设备有限公司整体出让" target="_blank" style=" ">奥立特电力设备有限公司整体出让</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    昆明-
+                                    西山-滇池路片区
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+                        </div>
+
+                        <div class="time">2021-09-09</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="砂石铝矿破碎厂整体出租出售" href="http://qiandongnan.shangpusou.com/changfangchuzu/f6697279.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631094574bmenh.jpg' title='砂石铝矿破碎厂整体出租出售' width="176" height="132">
+                            </a><span class="picNum">4图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://qiandongnan.shangpusou.com/changfangchuzu/f6697279.html" title="砂石铝矿破碎厂整体出租出售" target="_blank" style=" ">砂石铝矿破碎厂整体出租出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    黔东南-
+                                    凯里-凯里城区
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>0㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+
+                                <span class="num">面议</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-08</div>
+                    </li>
+                    <li class=''>
+                        <div class="pic">
+                            <a target="0" title="招募合作经营或独立承包经营（出租）" href="http://beihai.shangpusou.com/changfangchuzu/f6697269.html">
+                                <img class="lazy" src='/picture/nopic.gif' data-imgurl='http://www.shangpusou.com/attachment/information/202109/pre_1631004819ehumq.jpg' title='招募合作经营或独立承包经营（出租）' width="176" height="132">
+                            </a><span class="picNum">3图</span>
+                        </div>
+                        <h2 class="title">
+                            <a href="http://beihai.shangpusou.com/changfangchuzu/f6697269.html" title="招募合作经营或独立承包经营（出租）" target="_blank" style=" ">招募合作经营或独立承包经营（出租）</a>
+                            <em class="rz">已过期</em>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    北海-
+                                    海城
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+                            <p class="up">
+                                <span class="num">999999</span><span class="unit">元/月</span>
+                            </p>
+
+
+
+                        </div>
+
+                        <div class="time">2021-09-07</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://chengdu.shangpusou.com/changfangchushou/f6702997.html" title="有机肥厂出售" target="_blank" style=" ">有机肥厂出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    成都-
+                                    金堂-金堂城区
+                                </span>
+                                <i class="split"></i>
+                                <span>金堂县官仓镇</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-08-03</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://hangzhou.shangpusou.com/changfangchushou/f6701867.html" title="全新厂房出售 政府扶持 环评代办 " target="_blank" style=" ">全新厂房出售 政府扶持 环评代办 </a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    杭州-
+                                    杭州周边-其它
+                                </span>
+                                <i class="split"></i>
+                                <span>德清县乾元镇 </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-06-22</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://hangzhou.shangpusou.com/changfangchushou/f6701845.html" title="杭州周边工业厂房出售现房 独门独院" target="_blank" style=" ">杭州周边工业厂房出售现房 独门独院</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    杭州-
+                                    杭州周边-其它
+                                </span>
+                                <i class="split"></i>
+                                <span>诸暨市陶朱街道</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-06-20</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://shaoxing.shangpusou.com/changfangchushou/f6701844.html" title="诸暨市工业厂房现房出售独门独院" target="_blank" style=" ">诸暨市工业厂房现房出售独门独院</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    绍兴-
+                                    诸暨-诸暨市区
+                                </span>
+                                <i class="split"></i>
+                                <span>诸暨市陶朱街道</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-06-20</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://nantong.shangpusou.com/changfangchushou/f6701660.html" title="如皋市下原镇厂房出售" target="_blank" style=" ">如皋市下原镇厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    南通-
+                                    如皋-如皋其他
+                                </span>
+                                <i class="split"></i>
+                                <span>如皋市下原镇</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-05-31</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://tangshan.shangpusou.com/changfangchushou/f6700453.html" title="高新区火炬大厦厂房出售" target="_blank" style=" ">高新区火炬大厦厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    唐山-
+                                    高新区-火炬大厦
+                                </span>
+                                <i class="split"></i>
+                                <span>高新区京唐智慧港</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-04-28</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://shijiazhuang.shangpusou.com/changfangchushou/f6700401.html" title="鹿泉开发区厂房出租出售｜可环评｜有产权" target="_blank" style=" ">鹿泉开发区厂房出租出售｜可环评｜有产权</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    石家庄-
+                                    鹿泉-鹿泉开发区
+                                </span>
+                                <i class="split"></i>
+                                <span>碧水街81号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-04-23</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://xinxiang.shangpusou.com/changfangchushou/f6700343.html" title="长垣县满村镇创业园独栋三层厂房出售" target="_blank" style=" ">长垣县满村镇创业园独栋三层厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    新乡-
+                                    长垣县-宏力广场
+                                </span>
+                                <i class="split"></i>
+                                <span>新乡市长垣县满村镇创业园独栋三层工业厂房</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-04-14</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://shenyang.shangpusou.com/changfangchushou/f6700235.html" title="沈阳专业护士，上门打针输液，置留针" target="_blank" style=" ">沈阳专业护士，上门打针输液，置留针</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    沈阳-
+                                    和平-太原南街
+                                </span>
+                                <i class="split"></i>
+                                <span>周边市内八区上门</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-04-02</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6700181.html" title="新郑新郑龙湖厂房出售" target="_blank" style=" ">新郑新郑龙湖厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    新郑-新郑龙湖
+                                </span>
+                                <i class="split"></i>
+                                <span>石脑村</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-29</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://chengdu.shangpusou.com/changfangchushou/f6700164.html" title="四川邛崃的酒厂厂房出售或出租等" target="_blank" style=" ">四川邛崃的酒厂厂房出售或出租等</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    成都-
+                                    邛崃市-邛崃城区
+                                </span>
+                                <i class="split"></i>
+                                <span>邛崃南路20公里</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-27</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://hangzhou.shangpusou.com/changfangchushou/f6700055.html" title="临安临安城区厂房11亩出售" target="_blank" style=" ">临安临安城区厂房11亩出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    杭州-
+                                    临安-临安城区
+                                </span>
+                                <i class="split"></i>
+                                <span>玲珑工业区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-17</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangchushou/f6700049.html" title="潍坊市厂房出售，单层9.5米，证件齐全。" target="_blank" style=" ">潍坊市厂房出售，单层9.5米，证件齐全。</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                    滨海新区-滨海广场
+                                </span>
+                                <i class="split"></i>
+                                <span>滨海区珠江西一街</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-17</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://jiaxing.shangpusou.com/changfangchushou/f6699055.html" title="出售新建园区独门独院厂房，代办环评" target="_blank" style=" ">出售新建园区独门独院厂房，代办环评</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    嘉兴-
+                                    平湖-平湖周边
+                                </span>
+                                <i class="split"></i>
+                                <span>嘉兴平湖</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-10</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://hangzhou.shangpusou.com/changfangchushou/f6699054.html" title="出售新建园区厂房，独门独院，代办环评" target="_blank" style=" ">出售新建园区厂房，独门独院，代办环评</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    杭州-
+                                    萧山-临浦
+                                </span>
+                                <i class="split"></i>
+                                <span>萧山浦阳</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-03-10</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://yancheng.shangpusou.com/changfangchushou/f6698831.html" title="盐都盐都城区厂房出售" target="_blank" style=" ">盐都盐都城区厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    盐城-
+                                    盐都-盐都城区
+                                </span>
+                                <i class="split"></i>
+                                <span>马沟</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-17</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchuzu/f6698698.html" title="河南省二七经济开发区马寨镇学院路厂房出租" target="_blank" style=" ">河南省二七经济开发区马寨镇学院路厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-04</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://yancheng.shangpusou.com/changfangchushou/f6698732.html" title="东台其它厂房出售" target="_blank" style=" ">东台其它厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    盐城-
+                                    东台-其它
+                                </span>
+                                <i class="split"></i>
+                                <span>沈灶金星园区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-03</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6698636.html" title="河南省二七经济开发区5000平多层智能厂房出售" target="_blank" style=" ">河南省二七经济开发区5000平多层智能厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-01</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6698551.html" title="河南省二七经济开发区4000平厂房出售" target="_blank" style=" ">河南省二七经济开发区4000平厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-01</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchuzu/f6698568.html" title="二七区马寨镇学院路厂房出租" target="_blank" style=" ">二七区马寨镇学院路厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-01</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6698596.html" title="河南省二七经济技术开发区标准化智能厂房出售" target="_blank" style=" ">河南省二七经济技术开发区标准化智能厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-01</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://weifang.shangpusou.com/changfangchushou/f6698694.html" title="潍坊滨海产业园对外招商！2500平单层独栋厂房独门独院户型可" target="_blank" style=" ">潍坊滨海产业园对外招商！2500平单层独栋厂房独门独院</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    潍坊-
+                                    滨海新区
+                                </span>
+                                <i class="split"></i>
+                                <span>潍坊市滨海新区珠江西一街01077号</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-02-01</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://puyang.shangpusou.com/changfangchushou/f6698641.html" title="濮阳市范县濮城镇工业区防水厂出售转让或招股东" target="_blank" style=" ">濮阳市范县濮城镇工业区防水厂出售转让或招股东</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    濮阳-
+                                    范县-板桥路
+                                </span>
+                                <i class="split"></i>
+                                <span>濮阳市范县濮城镇工业区</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-01-28</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://xinxiang.shangpusou.com/changfangzhuanrang/f6698536.html" title="新乡县厂房转让（出售）" target="_blank" style=" ">新乡县厂房转让（出售）</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    新乡-
+                                    新乡县
+                                </span>
+                                <i class="split"></i>
+                                <span>新乡市外环线胡韦线</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-01-23</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://xinxiang.shangpusou.com/changfangchushou/f6698535.html" title="新乡县万德隆厂房出售" target="_blank" style=" ">新乡县万德隆厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    新乡-
+                                    新乡县
+                                </span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-01-23</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchuzu/f6698534.html" title="河南省二七经济开发区4000平厂房出租" target="_blank" style=" ">河南省二七经济开发区4000平厂房出租</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-01-23</div>
+                    </li>
+                    <li class=''>
+                        <h2 class="title">
+                            <a href="http://zhengzhou.shangpusou.com/changfangchushou/f6698533.html" title="河南二七区经济开发区5000平厂房出售" target="_blank" style=" ">河南二七区经济开发区5000平厂房出售</a>
+                        </h2>
+                        <div class="list_info">
+                            <p class="baseinfo">
+                                <span>
+                                    郑州-
+                                    二七
+                                </span>
+                                <i class="split"></i>
+                                <span>马寨镇振兴路与明晖路交叉口</span>
+
+                            </p>
+                            <p class="baseinfo">
+                                <!--商铺性质-->
+                                <span>营业中</span>
+                                <span>个人</span>
+                            </p>
+                            <p class="baseinfo">
+                            </p>
+                            <!-- 标签处理start -->
+
+                            <p class="tag-wrap">
+                            </p>
+                            <!-- 标签处理end -->
+                        </div>
+                        <div class="area">
+                            <p class="num">
+                                <span>8000㎡</span>
+                            </p>
+                            <p class="down">建筑面积</p>
+                        </div>
+                        <div class="price ">
+
+
+
+                        </div>
+
+                        <div class="time">2021-01-23</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="page pagination2" id="page">
+                <span class=anum>共34131记录</span>  <span class=current>1</span> <a href='http://www.shangpusou.com/changfang/page-2/' title='第2页'>2</a> <a href='http://www.shangpusou.com/changfang/page-3/' title='第3页'>3</a> <a href='http://www.shangpusou.com/changfang/page-4/' title='第4页'>4</a> <a href='http://www.shangpusou.com/changfang/page-5/' title='第5页'>5</a> <a href='http://www.shangpusou.com/changfang/page-6/' title='第6页'>6</a> <a href='http://www.shangpusou.com/changfang/page-7/' title='第7页'>7</a> <a href='http://www.shangpusou.com/changfang/page-8/' title='第8页'>8</a> <a href='http://www.shangpusou.com/changfang/page-9/' title='第9页'>9</a> <a href='http://www.shangpusou.com/changfang/page-10/' title='第10页'>10</a> <a href='http://www.shangpusou.com/changfang/page-427/' title='第427页'>... 427</a><a href='http://www.shangpusou.com/changfang/page-2/' title='第2页'>下一页</a>
+            </div>
+        </div>
+
+        <div class="list_r">
+            <div id="rightRetui">
+                <div class="con_r_box">
+                    <div class="retuihead">推广优惠</div>
+                    <p>
+                        <b>精选推广</b>价格：<span>30</span>元/天<br>
+                        展示位置：PC端首页、PC端列表页右则、PC端详情页右则、移动端首页、小程序首页<br>
+                        <b>置顶推广</b>价格：<span>20</span>元/天<br>
+                        展示位置：PC端频道页左则、手机端频道页、小程序频道页<br>
+                        享全网最高性价比商业地产流量。<br>PC、H5同步展示，流量提升5-8倍。
+                        <a href="http://my.shangpusou.com/vip/index" target="_blank">立即推广</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="ad_intercatdiv"></div><div class="footer_bottom w1200">
+        <div class="m_box footer_bottom_des">
+            <span>频道简介：</span>
+            <p>商铺搜网厂房频道免费为地区的网友提供厂房信息查询和发布服务，是寻找和发布厂房信息的最佳平台；寻找海量厂房信息尽在厂房频道。</p>
+        </div>
+        <div class="index_bottom_main w1200 con">
+            <div id="div_tab_nav" class="index_bottom_header floatclear f14">
+                <a href="javascript:;" class="index_bottom_on">相关推荐</a>            <a href="javascript:;" style="" class="">热门生意转让</a>
+                <a href="javascript:;" style="" class="">热门商铺出租</a>
+                <a href="javascript:;" style="" class="">热门商铺出售</a>
+                <a href="javascript:;" class="">热搜词条</a>
+            </div>
+            <div id="div_tab_content" class="index_bottom_tab_main">
+                <div class="index_bottom_tabbox floatclear" style="display: block;">
+                    <a href='http://beijing.shangpusou.com/changfang/' title="北京厂房" target="_blank">北京厂房</a>
+                    <a href='http://tianjin.shangpusou.com/changfang/' title="天津厂房" target="_blank">天津厂房</a>
+                    <a href='http://shijiazhuang.shangpusou.com/changfang/' title="石家庄厂房" target="_blank">石家庄厂房</a>
+                    <a href='http://shanghai.shangpusou.com/changfang/' title="上海厂房" target="_blank">上海厂房</a>
+                    <a href='http://nanjing.shangpusou.com/changfang/' title="南京厂房" target="_blank">南京厂房</a>
+                    <a href='http://hangzhou.shangpusou.com/changfang/' title="杭州厂房" target="_blank">杭州厂房</a>
+                    <a href='http://fuzhou.shangpusou.com/changfang/' title="福州厂房" target="_blank">福州厂房</a>
+                    <a href='http://xiamen.shangpusou.com/changfang/' title="厦门厂房" target="_blank">厦门厂房</a>
+                    <a href='http://nanchang.shangpusou.com/changfang/' title="南昌厂房" target="_blank">南昌厂房</a>
+                    <a href='http://zhengzhou.shangpusou.com/changfang/' title="郑州厂房" target="_blank">郑州厂房</a>
+                    <a href='http://wuhan.shangpusou.com/changfang/' title="武汉厂房" target="_blank">武汉厂房</a>
+                    <a href='http://changsha.shangpusou.com/changfang/' title="长沙厂房" target="_blank">长沙厂房</a>
+                    <a href='http://guangzhou.shangpusou.com/changfang/' title="广州厂房" target="_blank">广州厂房</a>
+                    <a href='http://shenzhen.shangpusou.com/changfang/' title="深圳厂房" target="_blank">深圳厂房</a>
+                    <a href='http://chongqing.shangpusou.com/changfang/' title="重庆厂房" target="_blank">重庆厂房</a>
+                    <a href='http://chengdu.shangpusou.com/changfang/' title="成都厂房" target="_blank">成都厂房</a>
+                    <a href='http://xian.shangpusou.com/changfang/' title="西安厂房" target="_blank">西安厂房</a>
+                </div>
+
+
+
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuzhuanrang/' title="北京生意转让" target="_blank">北京生意转让</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuzhuanrang/' title="天津生意转让" target="_blank">天津生意转让</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuzhuanrang/' title="石家庄生意转让" target="_blank">石家庄生意转让</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuzhuanrang/' title="上海生意转让" target="_blank">上海生意转让</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuzhuanrang/' title="南京生意转让" target="_blank">南京生意转让</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuzhuanrang/' title="杭州生意转让" target="_blank">杭州生意转让</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuzhuanrang/' title="福州生意转让" target="_blank">福州生意转让</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuzhuanrang/' title="厦门生意转让" target="_blank">厦门生意转让</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuzhuanrang/' title="南昌生意转让" target="_blank">南昌生意转让</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuzhuanrang/' title="郑州生意转让" target="_blank">郑州生意转让</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuzhuanrang/' title="武汉生意转让" target="_blank">武汉生意转让</a>
+                    <a href='http://changsha.shangpusou.com/shangpuzhuanrang/' title="长沙生意转让" target="_blank">长沙生意转让</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuzhuanrang/' title="广州生意转让" target="_blank">广州生意转让</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuzhuanrang/' title="深圳生意转让" target="_blank">深圳生意转让</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuzhuanrang/' title="重庆生意转让" target="_blank">重庆生意转让</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuzhuanrang/' title="成都生意转让" target="_blank">成都生意转让</a>
+                    <a href='http://xian.shangpusou.com/shangpuzhuanrang/' title="西安生意转让" target="_blank">西安生意转让</a>
+                </div>
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuchuzu/' title="北京商铺出租" target="_blank">北京商铺出租</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuchuzu/' title="天津商铺出租" target="_blank">天津商铺出租</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuchuzu/' title="石家庄商铺出租" target="_blank">石家庄商铺出租</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuchuzu/' title="上海商铺出租" target="_blank">上海商铺出租</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuchuzu/' title="南京商铺出租" target="_blank">南京商铺出租</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuchuzu/' title="杭州商铺出租" target="_blank">杭州商铺出租</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuchuzu/' title="福州商铺出租" target="_blank">福州商铺出租</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuchuzu/' title="厦门商铺出租" target="_blank">厦门商铺出租</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuchuzu/' title="南昌商铺出租" target="_blank">南昌商铺出租</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuchuzu/' title="郑州商铺出租" target="_blank">郑州商铺出租</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuchuzu/' title="武汉商铺出租" target="_blank">武汉商铺出租</a>
+                    <a href='http://changsha.shangpusou.com/shangpuchuzu/' title="长沙商铺出租" target="_blank">长沙商铺出租</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuchuzu/' title="广州商铺出租" target="_blank">广州商铺出租</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuchuzu/' title="深圳商铺出租" target="_blank">深圳商铺出租</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuchuzu/' title="重庆商铺出租" target="_blank">重庆商铺出租</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuchuzu/' title="成都商铺出租" target="_blank">成都商铺出租</a>
+                    <a href='http://xian.shangpusou.com/shangpuchuzu/' title="西安商铺出租" target="_blank">西安商铺出租</a>
+                </div>
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuchushou/' title="北京商铺出售" target="_blank">北京商铺出售</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuchushou/' title="天津商铺出售" target="_blank">天津商铺出售</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuchushou/' title="石家庄商铺出售" target="_blank">石家庄商铺出售</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuchushou/' title="上海商铺出售" target="_blank">上海商铺出售</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuchushou/' title="南京商铺出售" target="_blank">南京商铺出售</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuchushou/' title="杭州商铺出售" target="_blank">杭州商铺出售</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuchushou/' title="福州商铺出售" target="_blank">福州商铺出售</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuchushou/' title="厦门商铺出售" target="_blank">厦门商铺出售</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuchushou/' title="南昌商铺出售" target="_blank">南昌商铺出售</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuchushou/' title="郑州商铺出售" target="_blank">郑州商铺出售</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuchushou/' title="武汉商铺出售" target="_blank">武汉商铺出售</a>
+                    <a href='http://changsha.shangpusou.com/shangpuchushou/' title="长沙商铺出售" target="_blank">长沙商铺出售</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuchushou/' title="广州商铺出售" target="_blank">广州商铺出售</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuchushou/' title="深圳商铺出售" target="_blank">深圳商铺出售</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuchushou/' title="重庆商铺出售" target="_blank">重庆商铺出售</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuchushou/' title="成都商铺出售" target="_blank">成都商铺出售</a>
+                    <a href='http://xian.shangpusou.com/shangpuchushou/' title="西安商铺出售" target="_blank">西安商铺出售</a>
+                </div>
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href="http://www.shangpusou.com/entry/177116.html" target="_blank">不锈钢水塔机器转让</a>
+                    <a href="http://www.shangpusou.com/entry/177117.html" target="_blank">转让二手不锈钢水塔设备</a>
+                    <a href="http://www.shangpusou.com/entry/177118.html" target="_blank">转让编织袋二手颗粒机</a>
+                    <a href="http://www.shangpusou.com/entry/177119.html" target="_blank">临沂二手颗粒机转让</a>
+                    <a href="http://www.shangpusou.com/entry/177120.html" target="_blank">淄博生态园出租转让</a>
+                    <a href="http://www.shangpusou.com/entry/177121.html" target="_blank">搜最新青州二手个人车转让</a>
+                    <a href="http://www.shangpusou.com/entry/177122.html" target="_blank">苏州夜市摊位出租转让</a>
+                    <a href="http://www.shangpusou.com/entry/177123.html" target="_blank">华硕夜市店铺转让</a>
+                    <a href="http://www.shangpusou.com/entry/177124.html" target="_blank">苏州店面房出租或转让</a>
+                    <a href="http://www.shangpusou.com/entry/177125.html" target="_blank">最近艾坦转让</a>
+                    <a href="http://www.shangpusou.com/entry/177126.html" target="_blank">合肥门面出租或转让</a>
+                    <a href="http://www.shangpusou.com/entry/177127.html" target="_blank">康强网口腔牙科设备转让</a>
+                    <a href="http://www.shangpusou.com/entry/177128.html" target="_blank">合肥诊所转让三证齐全</a>
+                    <a href="http://www.shangpusou.com/entry/177129.html" target="_blank">转让法人中介</a>
+                    <a href="http://www.shangpusou.com/entry/177130.html" target="_blank">二手普通车床6180转让</a>
+                    <a href="http://www.shangpusou.com/entry/177131.html" target="_blank">急转让3米车床</a>
+                    <a href="http://www.shangpusou.com/entry/177132.html" target="_blank">海安县生意转让</a>
+                    <a href="http://www.shangpusou.com/entry/177133.html" target="_blank">个人转让腻子喷涂机</a>
+                    <a href="http://www.shangpusou.com/entry/177134.html" target="_blank">合肥快捷宾馆转让信息</a>
+                    <a href="http://www.shangpusou.com/entry/177135.html" target="_blank">合肥个人宾馆转让信息</a>
+                    <a href="http://www.shangpusou.com/entry/177136.html" target="_blank">合肥蜀山宾馆转让</a>
+                    <a href="http://www.shangpusou.com/entry/177137.html" target="_blank">合肥经开区宾馆转让</a>
+                    <a href="http://www.shangpusou.com/entry/177138.html" target="_blank">合肥大学城宾馆转让</a>
+                    <a href="http://www.shangpusou.com/entry/177139.html" target="_blank">银行股权转让对储户有什么影响</a>
+                    <a href="http://www.shangpusou.com/entry/177140.html" target="_blank">合肥个人二手货车转让</a>
+                    <a href="http://www.shangpusou.com/entry/177141.html" target="_blank">粤a车牌能否转让</a>
+                    <a href="http://www.shangpusou.com/entry/177142.html" target="_blank">南京市幼儿园转让出租</a>
+                    <a href="http://www.shangpusou.com/entry/177143.html" target="_blank">股权回购和股权转让</a>
+                    <a href="http://www.shangpusou.com/entry/177144.html" target="_blank">淘宝皇冠店铺转让多少钱</a>
+                    <a href="http://www.shangpusou.com/entry/177145.html" target="_blank">宿迁赶集生意转让</a>
+                </div>
+            </div>
+        </div>
+        <div class="m_box footer_bottom_des">
+            <span>友情链接：</span>
+            <p>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $('.index_bottom_tab_content .index_bottom_tabbox').eq(0).show()
+    $('#div_tab_content  .index_bottom_tabbox').eq(0).show()
+
+    $('.index_bottom_tab_main').show()
+    $('.index_bottom_tab_main .index_bottom_btn a').each(function (index2) {
+        $(this).hover(function () {
+            $(this).siblings('a').removeClass('index_bottom_btn_on')
+            $(this).addClass('index_bottom_btn_on')
+            $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children().hide()
+            $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children('.index_bottom_tabbox').eq(index2).show()
+        })
+    })
+
+    $('#div_tab_nav a').each(function (index2) {
+        $(this).hover(function () {
+            $(this).siblings('a').removeClass('index_bottom_on')
+            $(this).addClass('index_bottom_on')
+            $('#div_tab_content div').hide()
+            $('#div_tab_content div').eq(index2).show()
+        })
+    })
+
+    </script>
+    <script type="text/javascript">loadDefault(["hover_bg","loadimg"]);</script><div id="ad_footerbanner"></div>
+    <div style="display: none" id="ad_none">
+    </div>
+
+
+    <div class="footer">
+        <div class="footer_common">
+            <div class="footer_common_link">
+                <a href="http://www.shangpusou.com/aboutus.html" rel="nofollow" target="_blank">网站简介</a>
+                <a href="http://www.shangpusou.com/aboutus-id-2.html" rel="nofollow" target="_blank">广告服务</a>
+                <a href="http://www.shangpusou.com/aboutus-id-3.html" rel="nofollow" target="_blank">联系我们</a>
+                <a href="http://www.shangpusou.com/faq.html" rel="nofollow" target="_blank">网站帮助</a>
+                <a href="http://www.shangpusou.com/friendlink.html" rel="nofollow" target="_blank">友情链接</a>
+                <a href="http://www.shangpusou.com/announce.html" rel="nofollow" target="_blank">网站公告</a>
+                <a href="http://www.shangpusou.com/sitemap.html" rel="nofollow" target="_blank">网站地图</a>
+            </div>
+            <div class="footer_common_con">
+                <p>
+                    Copyright &copy; 商铺搜版权所有. 本站所有信息均归商铺搜网用户所发，严禁转载。 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">湘ICP备2021013894号</a>
+                    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?27390b4003f337546042d1a4ea519aff";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+                    </script>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">loadDefault(["addiv",'shangpusou',"mayilogin"]);</script>
+</body>
+</html>

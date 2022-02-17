@@ -1,0 +1,289 @@
+﻿@{
+    ViewBag.SeoTile = ViewBag.AzGame.SeoTile;
+    ViewBag.SeoKey = ViewBag.AzGame.SeoKey;
+    ViewBag.SeoDesc = ViewBag.AzGame.SeoDesc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/game9video.css" rel="stylesheet" />
+<script src="~/js/search-video.v1.min.js"></script>
+ 
+
+<style>
+    .top-img {
+        height: auto;
+        padding: 0 0 5px 0;
+        background: none
+    }
+
+    .top-img .mod-one li {
+        width: 20%;
+        margin: 5px 0 0 0
+    }
+</style>
+ 
+    <section class="top-nav">
+        <section class="bg"></section>
+        <section class="classify">
+            <section id="tab-four" class="tab-list">
+                <header class="tab-hd hd">
+                    <ul>
+                        <li class="on">游戏分类</li>
+                        <li>文章分类</li>
+                    </ul>
+                </header>
+                <div class="bd">
+                    <article>
+                        <ul class="mod-three mod-img-list">
+                            @{
+                                var gameClassList = ViewBag.GameClassList as List<Entity.Models.Jw_AzGameClass>;
+                                if (gameClassList != null)
+                                {
+                                    foreach (var m in gameClassList)
+                                    {
+                                        <li>
+                                            <a href="/azgmcs/@(m.Code)/">                                                
+                                                <div class="title">@m.Name</div>                                            
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </article>
+
+                    <article class="ds-n">
+                        <ul class="classify-two mod-four">
+                            @{
+                                var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
+                                if (articleTypeList != null)
+                                {
+                                    foreach (var m in articleTypeList)
+                                    {
+                                        <li><a href="/newsclass/@m.Code/">@m.Name</a></li>
+                                    }
+                                }                             
+                            }
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    <section class="box-fixed">
+        <section class="box-one">
+            <header class="crumb">
+                <a href="/">首页</a><i>&gt;</i><a href="/azgmcs/@ViewBag.GameClass.Code/">@ViewBag.AzGame.AzGameClassName</a><i>&gt;</i>
+                @ViewBag.AzGame.Name
+            </header>
+            <section class="box-pd">
+                <section class="game-details-hd">
+                    <ul class="mod-nine mod-img-list">
+                        <li id="info">
+                            <img id="img" src=" @ViewBag.AzGame.CoverMap">
+                            <h1 class="title" id="title"> @ViewBag.AzGame.Name</h1>
+                            <p><span>大小：@ViewBag.AzGame.GameSize </span><span class="mg">语言：@ViewBag.AzGame.LanguageName</span></p>
+                            <p class="text1"><span>官方版</span><span>安全</span><span>无广告</span><span>联网</span></p>
+                            <div id="btns" class="now-down"><span id="down-btn-new"> <a rel="nofollow" href="@ViewBag.AzGame.DownloadAddress">安卓版下载</a> </span><span></span></div>                
+                        </li>
+                    </ul>
+                </section>
+
+                @{
+                    var gameVideoList = ViewBag.GameVideoList as List<Entity.Models.Jw_AzGameVideo>;
+                    if (gameVideoList != null)
+                    {
+                        <div class="mg-t10 pic-dn">                                   
+                            <header class="mod-hd hd-two hd-three">
+                                <h2>@(ViewBag.AzGame.Name)视频</h2>
+                            </header>
+                            <div class="soft-screenshot img-one">
+                                <div class="details-bd">
+                                    @{
+                                        foreach (var m in gameVideoList)
+                                        {
+                                            <section id="down-video">
+                                                <div id="down-video-box">
+                                                </div>
+                                            </section>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <section class="mg-t10 pos-r">
+                    <header class="mod-hd hd-two hd-three">
+                        <h2>游戏介绍</h2>
+                    </header>                     
+                    <div id="img-one" class="banner mg-t10">
+                        <div class="bd">
+                            <ul id="details-pic">
+                                @{
+                                    var pictureList = ViewBag.GamePictureList as List<Entity.Models.Jw_AzGamePictures>;
+                                    if (pictureList != null)
+                                    {
+                                        foreach (var m in pictureList)
+                                        {
+                                            <li><span><img src="@m.CoverMap" alt="@m.Title" /></span></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="hd ds-n">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <div id="details-ht" class="more-con zm">
+                        <div class="details-bd more-bd" id="details">
+                            @Html.Raw(ViewBag.AzGameDetails.Describe)
+                        </div>                  
+                    </div>
+                </section>
+                @{
+                    var azGroupArticleTypeArticleList = ViewBag.AzGroupArticleTypeArticleList as List<Entity.ViewModels.AzGroupArticleTypeArticle>;
+
+                    foreach (var azGroupArticleTypeArticle in azGroupArticleTypeArticleList)
+                    {
+                        if (azGroupArticleTypeArticle.ArticleCode != null && azGroupArticleTypeArticle.ArticleList.Count() > 0)
+                        {
+                            <section class="mg-t10">
+                                <header class="mod-hd hd-two hd-three"><h2>@azGroupArticleTypeArticle.ArticleTypeName</h2></header>
+                                <div id="top-img" class="top-img mg-t10" style="overflow:hidden;">
+                                    <ul class="mod-one">
+                                        @{
+                                            foreach (var m in azGroupArticleTypeArticle.ArticleList)
+                                            {
+                                                <li><a href="/news/@(m.ArticleId).html"><img src="@m.CoverMap" alt="@m.ArticleTitle"><span>@m.ArticleTitle</span></a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </section>
+                        }
+                    }
+                }
+            </section>
+ 
+        </section>
+        <section class="box-one">
+            <header class="mod-hd hd-two hd-three">
+                <h2>热门手游推荐</h2>
+            </header>
+            <div class="box-pd">
+                <ul class="mod-ten">
+                    @{
+                        List<Entity.Models.Jw_AzGame> gameList = ViewBag.GameList as List<Entity.Models.Jw_AzGame>;
+
+                        if (gameList != null)
+                        {
+
+                            for (int i = 0; i < 4; i++)
+                            {
+
+                                if (i >= gameList.Count)
+                                {
+                                    break;
+                                }
+                                <li>
+                                    <a href="/azgame/@(gameList[i].Id).html">
+                                        <img src="@gameList[i].CoverMap" alt="@gameList[i].Name" />
+                                        <span>@gameList[i].Name</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+                <ul class="mod-ten">
+                    @{
+                        if (gameList != null)
+                        {
+                            for (int i = 4; i < 8; i++)
+                            {
+                                if (i >= gameList.Count)
+                                {
+                                    break;
+                                }
+                                <li>
+                                    <a href="/azgame/@(gameList[i].Id).html">
+                                        <img src="@gameList[i].CoverMap" alt="@gameList[i].Name" />
+                                        <span>@gameList[i].Name</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </section>   
+    </section>
+
+ 
+
+    <script>
+            var wifi = true;
+            var ua = window.navigator.userAgent;
+            var con = window.navigator.connection;
+            // 如果是微信
+            if (/MicroMessenger/.test(ua)) {
+                // 如果是微信6.0以上版本，用UA来判断
+                if (/NetType/.test(ua)) {
+                    if (ua.search('WIFI') == -1) {
+                        wifi = false;
+                    }
+                    // 如果是微信6.0以下版本，调用微信私有接口WeixinJSBridge
+                } else {
+                    document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {
+                        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                            if (e.err_msg != "network_type:wifi") {
+                                wifi = false;
+                            }
+                        });
+                    });
+                }
+                // 如果支持navigator.connection
+            } else if (con) {
+                var network = con.type || con.effectiveType;
+                if (network != "wifi" && network != "2" && network != "unknown") {
+                    wifi = false;
+                }
+            }
+
+            @{
+                
+
+
+                string srcs = "";
+                string poster = "";
+
+                if (gameVideoList != null && gameVideoList.Count() > 0)
+                {
+                    srcs = string.Join("','", gameVideoList.Select(s => s.VideoAddress));
+                    poster = gameVideoList[0].CoverMap;
+                }
+            }
+            if ("@srcs" != "") {
+                if (ua.indexOf('swan-baiduboxapp') > -1 && browser.versions.ios) { //ios下的百度小程序 屏蔽视频
+                } else {
+                    $('#down-video').show();
+                        var player = new searchVideo({
+                        id: 'down-video-box',
+                            src: ['@srcs'],
+                            controls: true,
+                            poster: "@poster",
+                            autoplay: wifi,
+                            width: window.screen.width,
+                            height: window.screen.width * (9 / 16),
+                            muted: true
+                    });
+                }
+            }
+    </script>
+
+ 

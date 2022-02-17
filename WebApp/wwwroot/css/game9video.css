@@ -1,0 +1,659 @@
+﻿@charset "UTF-8";
+
+fieldset, img {
+    border: 0
+}
+
+html, legend {
+    color: #000
+}
+
+*, body {
+    -webkit-tap-highlight-color: transparent
+}
+
+.cf:after, .cf:before, q:after, q:before {
+    content: ''
+}
+
+.p-Editor-icon, body[data-wk=wkios] {
+    cursor: pointer
+}
+
+html {
+    background: #fff;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+* {
+    -webkit-touch-callout: none
+}
+
+img {
+    vertical-align: top;
+    max-width: 100%
+}
+
+address, caption, cite, code, dfn, em, i, strong, th, var {
+    font-style: normal;
+    font-weight: 400
+}
+
+ol, ul {
+    list-style: none
+}
+
+caption, th {
+    text-align: left
+}
+
+.p-Editor-icon, .p-Editor-warn {
+    position: relative;
+    text-align: center;
+    z-index: 1000
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 400
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit
+}
+
+body, button, input, textarea {
+    font-family: "Droid Sans Fallback","微软雅黑",Arial,sans-serif
+}
+
+button, input, textarea {
+    outline: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    -webkit-appearance: none
+}
+
+.cf:after, .cf:before {
+    display: table;
+    line-height: 0
+}
+
+.p-Editor-icon, .p-Editor-warn .t {
+    font-weight: 700;
+    color: #fff;
+    line-height: 2
+}
+
+.cf:after {
+    clear: both
+}
+
+.hide {
+    display: none !important
+}
+
+.inshow {
+    display: block !important
+}
+
+.img-bg {
+    display: block;
+    width: 100%
+}
+
+.p-Editor-icon {
+    display: block;
+    background-color: rgba(0,0,0,.7);
+    width: auto;
+    border-top: 1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    font-size: 13px;
+    padding: 5px 0
+}
+
+.p-Editor-warn {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    font-size: 12px
+}
+
+    .p-Editor-warn .t {
+        font-size: 14px;
+        background: rgba(0,0,0,.7);
+        padding: 7px
+    }
+
+body[data-global-env=server] .p-Editor-icon, body[data-global-env=server] .p-Editor-warn {
+    display: none
+}
+
+@charset "UTF-8";
+
+.section__title {
+    margin-bottom: .24rem;
+    font-family: PingFangSC-Semibold;
+    font-size: .36rem;
+    color: #222426;
+    letter-spacing: 0
+}
+
+.padding-ctl {
+    padding: 0 .32rem
+}
+
+.game__banner__wrapper {
+    position: relative;
+    max-width: 100%;
+    width: 7.2rem;
+    height: 4rem;
+    margin-bottom: .24rem;
+    overflow: hidden
+}
+
+    .game__banner__wrapper .banner-img {
+        position: relative;
+        display: block;
+        margin: 0 auto
+    }
+
+        .game__banner__wrapper .banner-img.vertical {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: 0 -1rem
+        }
+
+        .game__banner__wrapper .banner-img.horizontal {
+            width: 100%
+        }
+
+    .game__banner__wrapper .video-cover-img {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10
+    }
+
+    .game__banner__wrapper .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 12;
+        width: .9rem;
+        height: .9rem;
+        background: url(../images/video_play_btn.png) no-repeat;
+        background-size: 100%
+    }
+
+    .game__banner__wrapper .video-layer {
+        width: 100%;
+        margin: 0 auto
+    }
+
+        .game__banner__wrapper .video-layer video {
+            display: block;
+            margin: 0 auto
+        }
+
+            .game__banner__wrapper .video-layer video.vertical {
+                width: 4rem;
+                height: 4rem
+            }
+
+            .game__banner__wrapper .video-layer video.horizontal {
+                width: 100%
+            }
+
+    .game__banner__wrapper .banner-bg {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        filter: blur(6px)
+    }
+
+.game__info__wrapper {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: .36rem
+}
+
+    .game__info__wrapper .game__icon, .game__info__wrapper .game__icon__standby {
+        width: 1.68rem;
+        height: 1.68rem;
+        border-radius: .24rem;
+        overflow: hidden
+    }
+
+        .game__info__wrapper .game__icon img, .game__info__wrapper .game__icon__standby img {
+            width: 100%;
+            height: 100%
+        }
+
+    .game__info__wrapper .game__content {
+        flex: 1;
+        margin-left: .24rem
+    }
+
+        .game__info__wrapper .game__content .game__name {
+            display: flex;
+            display: -webkit-flex;
+            -webkit-justify-content: left;
+            justify-content: left;
+            -webkit-align-items: center;
+            align-items: center;
+            font-family: PingFangSC-Semibold;
+            font-size: .4rem;
+            color: #222426
+        }
+
+        .game__info__wrapper .game__content .game__base__info {
+            padding-top: .08rem
+        }
+
+            .game__info__wrapper .game__content .game__base__info .game__oneword {
+                overflow: hidden;
+                line-height: 0
+            }
+
+                .game__info__wrapper .game__content .game__base__info .game__oneword p {
+                    position: relative;
+                    margin-bottom: .16rem;
+                    padding: 0 .32rem;
+                    display: inline-block;
+                    max-width: 90%;
+                    font-family: PingFangSC-Regular;
+                    font-size: .26rem;
+                    color: #222426;
+                    text-align: center;
+                    line-height: .38rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap
+                }
+
+            .game__info__wrapper .game__content .game__base__info .game__tags, .game__info__wrapper .game__content .game__base__info .game__updatetime {
+                font-family: PingFangSC-Regular;
+                font-size: .24rem;
+                color: #91949尾;
+                line-height: .34rem
+            }
+
+            .game__info__wrapper .game__content .game__base__info .game__oneword p:after, .game__info__wrapper .game__content .game__base__info .game__oneword p:before {
+                content: '';
+                position: absolute;
+                width: .16rem;
+                height: .123rem;
+                background-repeat: no-repeat;
+                background-size: 100%
+            }
+
+            .game__info__wrapper .game__content .game__base__info .game__oneword p:before {
+                left: 0;
+                background-image: url(../images/quotes_up_s.png)
+            }
+
+            .game__info__wrapper .game__content .game__base__info .game__oneword p:after {
+                right: 0;
+                background-image: url(../images/quotes_down_s.png)
+            }
+
+            .game__info__wrapper .game__content .game__base__info .game__tags {
+                display: block;
+                margin-bottom: .08rem
+            }
+
+                .game__info__wrapper .game__content .game__base__info .game__tags .tag {
+                    display: inline-block
+                }
+
+                    .game__info__wrapper .game__content .game__base__info .game__tags .tag:last-child:after {
+                        display: none
+                    }
+
+                    .game__info__wrapper .game__content .game__base__info .game__tags .tag:after {
+                        content: '·';
+                        display: inline-block;
+                        padding: 0 .05rem
+                    }
+
+.game__devinfo__wrapper .game__devinf__title {
+    position: relative;
+    padding: .2rem .16rem .22rem .56rem;
+    font-family: PingFangSC-Semibold;
+    font-size: .28rem;
+    color: #222426;
+    letter-spacing: 0
+}
+
+    .game__devinfo__wrapper .game__devinf__title:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: .36rem;
+        height: .36rem;
+        background: url(../images/devsay_icon.png) no-repeat;
+        background-size: 100%
+    }
+
+    .game__devinfo__wrapper .game__devinf__title:after {
+        content: '';
+        position: absolute;
+        right: .16rem;
+        width: .46rem;
+        height: .46rem;
+        background: url(../images/icon_quotes_down_l.png) no-repeat;
+        background-size: 100%
+    }
+
+.game__devinfo__wrapper .game__devinfo__container {
+    margin-bottom: .48rem;
+    padding: .08rem .24rem .24rem;
+    border-radius: .16rem;
+    background: rgba(255,134,37,.08)
+}
+
+    .game__devinfo__wrapper .game__devinfo__container .desc {
+        font-family: PingFangSC-Regular;
+        font-size: .26rem;
+        color: #45474D;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: .44rem
+    }
+
+        .game__devinfo__wrapper .game__devinfo__container .desc.ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical
+        }
+
+    .game__devinfo__wrapper .game__devinfo__container .toggle__btn {
+        display: block;
+        width: 100%;
+        background: #fff;
+        margin-top: .1rem;
+        font-family: PingFangSC-Regular;
+        font-size: .24rem;
+        color: #F67B29;
+        letter-spacing: 0;
+        text-align: right;
+        text-decoration: none
+    }
+
+.game__fivepic__wrapper {
+    margin-bottom: .48rem
+}
+
+    .game__fivepic__wrapper .game__fivepic__container {
+        overflow-x: auto;
+        overflow-y: hidden
+    }
+
+    .game__fivepic__wrapper .game__fivepic__list .game__fivepic__item {
+        float: left;
+        margin-right: .2rem;
+        border-radius: .16rem;
+        overflow: hidden
+    }
+
+        .game__fivepic__wrapper .game__fivepic__list .game__fivepic__item.veritcal {
+            width: 2.4rem;
+            height: 4.26rem
+        }
+
+        .game__fivepic__wrapper .game__fivepic__list .game__fivepic__item.horizontal {
+            width: 4.26rem;
+            height: 2.4rem
+        }
+
+        .game__fivepic__wrapper .game__fivepic__list .game__fivepic__item img {
+            width: 100%;
+            height: 100%
+        }
+
+.preview__pic__wrapper {
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9尾9;
+    background: rgba(0,0,0,.5)
+}
+
+    .preview__pic__wrapper .preview__pic__container {
+        position: relative;
+        min-height: 100%
+    }
+
+    .preview__pic__wrapper .preview__pic__body {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%)
+    }
+
+    .preview__pic__wrapper .swiper-pagination-bullets {
+        text-align: center
+    }
+
+        .preview__pic__wrapper .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 .1rem
+        }
+
+    .preview__pic__wrapper .swiper-slide img {
+        display: block;
+        width: 75%;
+        margin: 0 auto
+    }
+
+    .preview__pic__wrapper .swiper-container {
+        z-index: 9尾9
+    }
+
+.game__desc__wrapper {
+    margin-bottom: .48rem
+}
+
+    .game__desc__wrapper .desc {
+        font-family: PingFangSC-Regular;
+        font-size: .26rem;
+        color: #666;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: .44rem
+    }
+
+        .game__desc__wrapper .desc.ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical
+        }
+
+    .game__desc__wrapper .toggle__btn {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        margin-top: .1rem;
+        z-index: 100;
+        display: block;
+        text-decoration: none;
+        font-family: PingFangSC-Regular;
+        font-size: .24rem;
+        color: #F67B29;
+        letter-spacing: 0;
+        text-align: right
+    }
+
+.game__bigevent__wrapper .game__bigevent__list {
+    font-family: PingFangSC-Regular;
+    font-size: .26rem;
+    color: #F67B29;
+    letter-spacing: 0
+}
+
+    .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item {
+        position: relative;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-justify-content: left;
+        justify-content: left;
+        -webkit-align-items: center;
+        align-items: center
+    }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item::before {
+            content: '';
+            position: absolute;
+            left: .24rem;
+            width: .03rem;
+            height: 100%;
+            background: #EDEDED
+        }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item .vertical-circle {
+            width: .13rem;
+            height: .13rem;
+            position: absolute;
+            top: .24rem;
+            left: .17rem;
+            border: .03rem solid #666;
+            background: #fff;
+            border-radius: 50%
+        }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item .content {
+            flex: 1;
+            margin: 0 0 .32rem .48rem;
+            padding: .14rem .2rem;
+            background: #F8F8F8;
+            border-radius: .45rem;
+            font-family: PingFangSC-Regular;
+            font-size: .26rem;
+            color: #616366;
+            letter-spacing: 0
+        }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item:first-child .vertical-circle {
+            border-color: #F67B29
+        }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item:first-child .content {
+            background: #FFF5E5;
+            color: #F67B29
+        }
+
+        .game__bigevent__wrapper .game__bigevent__list .game__bigevent__item:last-child .content {
+            margin-bottom: 0
+        }
+
+.game__download__wrapper--floor {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: .01rem #ddd solid;
+    background: #fff;
+    z-index: 900
+}
+
+.game__download__wrapper .game__download__standby {
+    margin: .14rem auto;
+    width: 6rem;
+    height: .8rem
+}
+
+.game__download__wrapper .download-icon {
+    display: inline-block;
+    width: .38rem;
+    height: .38rem;
+    background: url(../images/download_bt_icon.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle
+}
+
+.game__download__wrapper .game__download__btn {
+    margin: .14rem auto;
+    width: 6rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: .26rem;
+    border-radius: .08rem;
+    letter-spacing: 0;
+    color: #fff;
+    background-image: linear-gradient(-134deg,#FF7F2A 0,#FF5244 100%)
+}
+
+.game__download__wrapper .game__download__btn--wait {
+    background-image: linear-gradient(-134deg,#D1D1D1 0,#BDBDBD 100%)
+}
+
+.wx-folder-bg {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9尾9;
+    background: rgba(0,0,0,.5)
+}
+
+    .wx-folder-bg .img {
+        text-align: right
+    }
+
+    .wx-folder-bg img {
+        width: 4rem
+    }
+
+.normal-cont {
+    color: #fff
+}

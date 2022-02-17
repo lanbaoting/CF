@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.SeoTile</title>
+    <meta name="keywords" content="@ViewBag.SeoKey">
+    <meta name="description" content="@ViewBag.SeoDesc">
+    @{
+        string url = Context.Request.Scheme + "://" + Context.Request.Host.Value + Context.Request.Path;
+        string mUrl = Context.Request.Scheme + "://m." + Context.Request.Host.Value.Replace("www.", "") + Context.Request.Path;
+    }
+    <meta name="mobile-agent" content="format=html5;url=@mUrl">
+    <meta name="mobile-agent" content="format=xhtml;url=@mUrl">
+    <meta name="mobile-agent" content="format=wml;url=@mUrl">
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/game.css" /> 
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <script>
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.location.href = '@mUrl';
+        }
+    </script>
+</head>
+<body>
+    @RenderBody()
+    <footer id="tail" class="layout textct">
+        @*<p><a class="blue">广告合作</a><i>|</i><a class="blue">最新更新</a><i>|</i><a class="blue">推荐游戏</a><i>|</i><a class="blue">热门游戏</a><i>|</i><a class="blue">热门标签</a></p>*@
+    
+    </footer>
+    <script src="~/js/tail.js"></script>
+    <div style="position:absolute; width:0px; height:0px; z-index:1; display:none">
+        @*<script>
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "https://hm.baidu.com/hm.js?43494478edb2dac60a8dae8024041565";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+            </script>*@
+    </div>
+    <script type="text/javascript" src="~/js/jquery.js"></script> 
+    <script type="text/javascript">
+        $(function () {
+            $('.news-list .mod-img-list li').on('mouseenter mouseleave', function () {
+                $(this).toggleClass('bg')
+            })
+        })
+    </script>
+</body>
+</html>
