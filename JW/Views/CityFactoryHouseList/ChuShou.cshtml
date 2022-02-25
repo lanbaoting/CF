@@ -1,0 +1,501 @@
+﻿@{
+    Layout = null;
+}
+@model X.PagedList.IPagedList<Entity.Models.Cf_FactoryHouse>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Core.Common
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>【厂房|厂房出租|厂房出售|厂房网】-商铺搜</title>
+    <meta name="keywords" content="厂房,厂房出租,厂房出售,厂房网" />
+    <meta name="description" content="商铺搜网厂房频道为您提供厂房信息,厂房出租信息,厂房出售信息,在这里有大量的厂房,厂房出租,厂房出售信息供您选择,找厂房，就上商铺搜网。" />
+    <link rel="shortcut icon" href="http://www.shangpusou.com/favicon.ico" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/category.css" />
+    <link rel="stylesheet" href="/css/pagination2.css" />
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.11.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <script type="text/javascript">var current_domain = "http://www.shangpusou.com"; var current_cityid = "0"; var current_logfile = "mplogin.php";</script>
+
+    <div class="header_top">
+        <div class="top_main w1200 clear">
+            <div class="top_l fl">
+                <div class="city fl">
+                    <div class="city-curr">全国</div>
+                    <dl>
+                        <dt>[</dt>
+                        <dd><a href="http://www.shangpusou.com/changecity.php">切换城市</a></dd>
+                        <dt>]</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="top_r fr">
+                <div class="icon_box fl">
+                    <a href="javascript:;">公众号<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima.gif" alt="公众号" />
+                        <p>重要提醒不错过<br />手机操作更简单</p>
+                    </div>
+                </div>
+                <div class="icon_box fl">
+                    <a href="javascript:;">小程序<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima_kf.gif" alt="小程序" />
+                        <p>扫码即用，无需下载</p>
+                    </div>
+                </div>
+                <div class="zs fl">
+                    <a href="#" target="_blank">+ 分站加盟</a>
+                </div>
+                <!--             <div class="pon_center fl">
+                                <div class="flex_between pon_click">
+                                    <span>个人中心</span>
+                                    <em class="ico_down"></em>
+                                </div>
+                                <div class="list_box" style="display: none;">
+                                    <a href="#" target="_blank">我的发布</a>
+                                    <a href="#" target="_blank">我的浏览</a>
+                                </div>
+                            </div> -->
+                <div id="mayilogin" class="login fl"><img src="/picture/loading.gif" border="0" align="absmiddle" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ad_topbanner" class="clear"></div>
+
+
+    <div class="header_mind w1200 clear">
+        <div class="logo clear fl">
+            <a href="http://www.shangpusou.com/" title="商铺网" class="fl">
+                <img src="/picture/logo.png" alt="商铺搜" width="148" height="42" />
+            </a>
+        </div>
+        <div class="main_r fr">
+            <a href="http://www.shangpusou.com/shangpusou-post.php?catid=3&cityid=0" class="fabu_btn" target="_blank">免费发布</a>
+        </div>
+        <div class="search fr">
+            <form method="get" action="http://www.shangpusou.com/search.php?" id="searchForm" target="_blank">
+                <input name="cityid" type="hidden" value="0" />
+                <input type="hidden" id="searchtype" name="mod" value="information" />
+                <div class="input_content clear">
+                    <input type="text" class="fl" value="请输入关键词搜索" name="keywords" id="searchheader" onmouseover="if(this.value==='请输入关键词搜索'){this.value='';}" x-webkit-speech=x-webkit-speech lang="zh-CN" />
+                    <input type="submit" value="搜 索" class="searchheader_submit fl" />
+                </div>
+                <div class="fl search_navurl">
+                    <li><a href="#" style="color:" target="_blank" title="培训学校优转">培训学校优转<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="商铺出租">商铺出租<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="酒店转让">酒店转让<sup class=""></sup></a></li>
+                </div>
+            </form>
+        </div>
+    </div><div class="nav_bg">
+        <div class="nav_main w1200 clear">
+            <ul>
+
+
+                @{
+                    var navigationList = ViewBag.NavigationList as List<Entity.Models.Cf_Navigation>;
+                    if (navigationList != null)
+                    {
+                        string navigationTarget = "";
+
+                        foreach (var m in navigationList)
+                        {
+                            if (m.LinkAddress.Contains(ViewBag.Path))
+                            {
+                                <li><a @(navigationTarget) href="@m.LinkAddress" class="li_on">@m.Title</a></li>
+                            }
+                            else
+                            {
+                                <li><a @(navigationTarget) href="@m.LinkAddress">@m.Title</a></li>
+                            }
+                            navigationTarget = "target=\"_self\"";
+                        }
+                    }
+                }
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="on_page con_box w1200">
+        <a href="http://www.shangpusou.com/">商铺搜</a> <code> > </code> <a href="http://www.shangpusou.com/changfang/">厂房</a>
+    </div><div class="nav_tab_wrapper">
+        <ul class="house_nav_tab">
+            <li><a href="http://www.shangpusou.com/shangpuzhuanrang/">店铺转让</a></li>
+            <li><a href="http://www.shangpusou.com/shangpuchuzu/">商铺出租</a></li>
+            <li><a href="http://www.shangpusou.com/shangpuchushou/">商铺出售</a></li>
+        </ul>
+        <a href="#" class="bigdata">大数据合作</a>
+    </div>
+    <div class="xz_li w1200">
+        <!-- 根据当前城市获取区域--><div class="select_brand">
+            <span>分站</span>
+            <div class="tab_xz">
+                <div class="a_n">
+                    <a href="#" class="curr">不限</a>
+                    <a href="http://beijing.shangpusou.com/changfang/">北京</a>
+                    <a href="http://tianjin.shangpusou.com/changfang/">天津</a>
+                    <a href="http://shijiazhuang.shangpusou.com/changfang/">石家庄</a>
+                    <a href="http://shanghai.shangpusou.com/changfang/">上海</a>
+                    <a href="http://chengdu.shangpusou.com/changfang/">成都</a>
+                    <a href="http://xian.shangpusou.com/changfang/">西安</a>
+                    <a href="http://www.shangpusou.com/changecity.php">更多 &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="select_brand" id="Showfid">
+            <span>分类：</span>
+            <div class="tab_xz">
+
+                <div class="a_n">
+                    <a href="http://www.shangpusou.com/changfang/" class="on" title="厂房">不限</a><a href="http://www.shangpusou.com/changfangchuzu/" title="厂房出租">厂房出租</a>
+                    <a href="http://www.shangpusou.com/changfangchushou/" title="厂房出售">厂房出售</a>
+                    <a href="http://www.shangpusou.com/changfangzhuanrang/" title="厂房转让">厂房转让</a>
+                </div>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>租金：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/rent-1~5000/">5000元/月以下</a>
+                <a href="http://www.shangpusou.com/changfang/rent-5000~8000/">5000-8000元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-8000~10000/">8000-10000元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-10000~15000/">1-1.5万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-15000~20000/">1.5-2万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-20000~50000/">2-5万元/月</a>
+                <a href="http://www.shangpusou.com/changfang/rent-50000~/">5万元/月以上</a>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>面积：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/area-1~20/">20㎡以内</a>
+                <a href="http://www.shangpusou.com/changfang/area-20~50/">20~50㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-50~100/">50~100㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-100~300/">100~300㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-300~500/">300~500㎡</a>
+                <a href="http://www.shangpusou.com/changfang/area-500~/">500㎡以上</a>
+            </div>
+        </div>
+        <div class="select_brand">
+            <span>身份：</span>
+            <div class="a_n" id="xz_2">
+                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
+                <a href="http://www.shangpusou.com/changfang/from-1/">个人</a>
+                <a href="http://www.shangpusou.com/changfang/from-2/">经纪人</a>
+            </div>
+        </div>
+
+
+    </div><div class="h20"></div>
+    <div class="con_box list_nav_tab w1200">
+        <div class="list_nav_tab_l">
+            <a rel="nofollow" href="#" class="on">厂房信息</a>
+        </div>
+        <div class="list_nav_tab_r">
+            友情提示：置顶信息可使成交率提高5倍！<a href="http://www.shangpusou.com/shangpusou-post.php?catid=3&cityid=0" rel="nofollow" target="_blank">免费发布厂房信息&gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="con_box list_wrap w1200">
+        <div class="list_l">
+            <div class="sp_li_box">
+                <ul class="sp_li" id='loadimg'>
+                    @{
+                        if (Model != null)
+                        {
+                            string listClass = "class=\"first\"";
+                            foreach (var m in Model)
+                            {
+                                <li>
+                                    @{
+                                        if (!string.IsNullOrEmpty(m.CoverMap))
+                                        {
+                                            <div class="pic">
+                                                <a target="0" title="@m.HousingName" href="/changfangchuzu/@(m.Id).html">
+                                                    <img class="lazy" src='/picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.HousingName' width="176" height="132" />
+                                                </a><span class="picNum">2图</span>
+                                            </div>
+                                        }
+                                    }
+                                    <h2 class="title">
+                                        <a href="/changfangchuzu/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
+                                    </h2>
+                                    <div class="list_info">
+                                        <p class="baseinfo">
+                                            <span>
+                                                信阳-
+                                                淮滨-奥斯卡广场
+                                            </span>
+                                            <i class="split"></i>
+                                            <span>河南省淮滨县新里镇</span>
+                                        </p>
+                                        <p class="baseinfo">
+                                            <!--商铺性质-->
+                                            <span>营业中</span>
+                                            <span>个人</span>
+                                        </p>
+                                        <p class="baseinfo">
+                                        </p>
+                                        <!-- 标签处理start -->
+
+                                        <p class="tag-wrap">
+                                        </p>
+                                        <!-- 标签处理end -->
+                                    </div>
+                                    <div class="area">
+                                        <p class="num">
+                                            <span>@(m.HousingArea)㎡</span>
+                                        </p>
+                                        <p class="down">建筑面积</p>
+                                    </div>
+                                    <div class="price ">
+                                        <p class="up">
+                                            <span class="num">@m.UnitPrice</span><span class="unit">元/月</span>
+                                        </p>
+                                    </div>
+                                    <div class="time">@(m.F_CreateDate)</div>
+                                </li>
+                                listClass = "";
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="page pagination2" id="page">                
+                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchuzu/" + "/" : "/changfangchuzu/" + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+            </div>
+        </div>
+
+        <div class="list_r">
+            <div id="rightRetui">
+                <div class="con_r_box">
+                    <div class="retuihead">推广优惠</div>
+                    <p>
+                        <b>精选推广</b>价格：<span>30</span>元/天<br />
+                        展示位置：PC端首页、PC端列表页右则、PC端详情页右则、移动端首页、小程序首页<br />
+                        <b>置顶推广</b>价格：<span>20</span>元/天<br />
+                        展示位置：PC端频道页左则、手机端频道页、小程序频道页<br />
+                        享全网最高性价比商业地产流量。<br />PC、H5同步展示，流量提升5-8倍。
+                        <a href="http://my.shangpusou.com/vip/index" target="_blank">立即推广</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="ad_intercatdiv"></div><div class="footer_bottom w1200">
+        <div class="m_box footer_bottom_des">
+            <span>频道简介：</span>
+            <p>商铺搜网厂房频道免费为地区的网友提供厂房信息查询和发布服务，是寻找和发布厂房信息的最佳平台；寻找海量厂房信息尽在厂房频道。</p>
+        </div>
+        <div class="index_bottom_main w1200 con">
+            <div id="div_tab_nav" class="index_bottom_header floatclear f14">
+                <a href="javascript:;" class="index_bottom_on">相关推荐</a>            <a href="javascript:;" style="" class="">热门生意转让</a>
+                <a href="javascript:;" style="" class="">热门商铺出租</a>
+                <a href="javascript:;" style="" class="">热门商铺出售</a>
+                <a href="javascript:;" class="">热搜词条</a>
+            </div>
+            <div id="div_tab_content" class="index_bottom_tab_main">
+                <div class="index_bottom_tabbox floatclear" style="display: block;">
+                    <a href='http://beijing.shangpusou.com/changfang/' title="北京厂房" target="_blank">北京厂房</a>
+                    <a href='http://tianjin.shangpusou.com/changfang/' title="天津厂房" target="_blank">天津厂房</a>
+                    <a href='http://shijiazhuang.shangpusou.com/changfang/' title="石家庄厂房" target="_blank">石家庄厂房</a>
+                    <a href='http://shanghai.shangpusou.com/changfang/' title="上海厂房" target="_blank">上海厂房</a>
+                    <a href='http://nanjing.shangpusou.com/changfang/' title="南京厂房" target="_blank">南京厂房</a>
+                    <a href='http://hangzhou.shangpusou.com/changfang/' title="杭州厂房" target="_blank">杭州厂房</a>
+                    <a href='http://fuzhou.shangpusou.com/changfang/' title="福州厂房" target="_blank">福州厂房</a>
+                    <a href='http://xiamen.shangpusou.com/changfang/' title="厦门厂房" target="_blank">厦门厂房</a>
+                    <a href='http://nanchang.shangpusou.com/changfang/' title="南昌厂房" target="_blank">南昌厂房</a>
+                    <a href='http://zhengzhou.shangpusou.com/changfang/' title="郑州厂房" target="_blank">郑州厂房</a>
+                    <a href='http://wuhan.shangpusou.com/changfang/' title="武汉厂房" target="_blank">武汉厂房</a>
+                    <a href='http://changsha.shangpusou.com/changfang/' title="长沙厂房" target="_blank">长沙厂房</a>
+                    <a href='http://guangzhou.shangpusou.com/changfang/' title="广州厂房" target="_blank">广州厂房</a>
+                    <a href='http://shenzhen.shangpusou.com/changfang/' title="深圳厂房" target="_blank">深圳厂房</a>
+                    <a href='http://chongqing.shangpusou.com/changfang/' title="重庆厂房" target="_blank">重庆厂房</a>
+                    <a href='http://chengdu.shangpusou.com/changfang/' title="成都厂房" target="_blank">成都厂房</a>
+                    <a href='http://xian.shangpusou.com/changfang/' title="西安厂房" target="_blank">西安厂房</a>
+                </div>
+
+
+
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuzhuanrang/' title="北京生意转让" target="_blank">北京生意转让</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuzhuanrang/' title="天津生意转让" target="_blank">天津生意转让</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuzhuanrang/' title="石家庄生意转让" target="_blank">石家庄生意转让</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuzhuanrang/' title="上海生意转让" target="_blank">上海生意转让</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuzhuanrang/' title="南京生意转让" target="_blank">南京生意转让</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuzhuanrang/' title="杭州生意转让" target="_blank">杭州生意转让</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuzhuanrang/' title="福州生意转让" target="_blank">福州生意转让</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuzhuanrang/' title="厦门生意转让" target="_blank">厦门生意转让</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuzhuanrang/' title="南昌生意转让" target="_blank">南昌生意转让</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuzhuanrang/' title="郑州生意转让" target="_blank">郑州生意转让</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuzhuanrang/' title="武汉生意转让" target="_blank">武汉生意转让</a>
+                    <a href='http://changsha.shangpusou.com/shangpuzhuanrang/' title="长沙生意转让" target="_blank">长沙生意转让</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuzhuanrang/' title="广州生意转让" target="_blank">广州生意转让</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuzhuanrang/' title="深圳生意转让" target="_blank">深圳生意转让</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuzhuanrang/' title="重庆生意转让" target="_blank">重庆生意转让</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuzhuanrang/' title="成都生意转让" target="_blank">成都生意转让</a>
+                    <a href='http://xian.shangpusou.com/shangpuzhuanrang/' title="西安生意转让" target="_blank">西安生意转让</a>
+                </div>
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuchuzu/' title="北京商铺出租" target="_blank">北京商铺出租</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuchuzu/' title="天津商铺出租" target="_blank">天津商铺出租</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuchuzu/' title="石家庄商铺出租" target="_blank">石家庄商铺出租</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuchuzu/' title="上海商铺出租" target="_blank">上海商铺出租</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuchuzu/' title="南京商铺出租" target="_blank">南京商铺出租</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuchuzu/' title="杭州商铺出租" target="_blank">杭州商铺出租</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuchuzu/' title="福州商铺出租" target="_blank">福州商铺出租</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuchuzu/' title="厦门商铺出租" target="_blank">厦门商铺出租</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuchuzu/' title="南昌商铺出租" target="_blank">南昌商铺出租</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuchuzu/' title="郑州商铺出租" target="_blank">郑州商铺出租</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuchuzu/' title="武汉商铺出租" target="_blank">武汉商铺出租</a>
+                    <a href='http://changsha.shangpusou.com/shangpuchuzu/' title="长沙商铺出租" target="_blank">长沙商铺出租</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuchuzu/' title="广州商铺出租" target="_blank">广州商铺出租</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuchuzu/' title="深圳商铺出租" target="_blank">深圳商铺出租</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuchuzu/' title="重庆商铺出租" target="_blank">重庆商铺出租</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuchuzu/' title="成都商铺出租" target="_blank">成都商铺出租</a>
+                    <a href='http://xian.shangpusou.com/shangpuchuzu/' title="西安商铺出租" target="_blank">西安商铺出租</a>
+                </div>
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href='http://beijing.shangpusou.com/shangpuchushou/' title="北京商铺出售" target="_blank">北京商铺出售</a>
+                    <a href='http://tianjin.shangpusou.com/shangpuchushou/' title="天津商铺出售" target="_blank">天津商铺出售</a>
+                    <a href='http://shijiazhuang.shangpusou.com/shangpuchushou/' title="石家庄商铺出售" target="_blank">石家庄商铺出售</a>
+                    <a href='http://shanghai.shangpusou.com/shangpuchushou/' title="上海商铺出售" target="_blank">上海商铺出售</a>
+                    <a href='http://nanjing.shangpusou.com/shangpuchushou/' title="南京商铺出售" target="_blank">南京商铺出售</a>
+                    <a href='http://hangzhou.shangpusou.com/shangpuchushou/' title="杭州商铺出售" target="_blank">杭州商铺出售</a>
+                    <a href='http://fuzhou.shangpusou.com/shangpuchushou/' title="福州商铺出售" target="_blank">福州商铺出售</a>
+                    <a href='http://xiamen.shangpusou.com/shangpuchushou/' title="厦门商铺出售" target="_blank">厦门商铺出售</a>
+                    <a href='http://nanchang.shangpusou.com/shangpuchushou/' title="南昌商铺出售" target="_blank">南昌商铺出售</a>
+                    <a href='http://zhengzhou.shangpusou.com/shangpuchushou/' title="郑州商铺出售" target="_blank">郑州商铺出售</a>
+                    <a href='http://wuhan.shangpusou.com/shangpuchushou/' title="武汉商铺出售" target="_blank">武汉商铺出售</a>
+                    <a href='http://changsha.shangpusou.com/shangpuchushou/' title="长沙商铺出售" target="_blank">长沙商铺出售</a>
+                    <a href='http://guangzhou.shangpusou.com/shangpuchushou/' title="广州商铺出售" target="_blank">广州商铺出售</a>
+                    <a href='http://shenzhen.shangpusou.com/shangpuchushou/' title="深圳商铺出售" target="_blank">深圳商铺出售</a>
+                    <a href='http://chongqing.shangpusou.com/shangpuchushou/' title="重庆商铺出售" target="_blank">重庆商铺出售</a>
+                    <a href='http://chengdu.shangpusou.com/shangpuchushou/' title="成都商铺出售" target="_blank">成都商铺出售</a>
+                    <a href='http://xian.shangpusou.com/shangpuchushou/' title="西安商铺出售" target="_blank">西安商铺出售</a>
+                </div>
+
+
+                <div class="index_bottom_tabbox floatclear" style="display: none;">
+                    <a href="http://www.shangpusou.com/entry/212317.html" target="_blank">职工股份转让流程</a>
+                    <a href="http://www.shangpusou.com/entry/212318.html" target="_blank">公司股份转让交多少税</a>
+                    <a href="http://www.shangpusou.com/entry/212319.html" target="_blank">公司股份转让要缴哪些税</a>
+                    <a href="http://www.shangpusou.com/entry/212320.html" target="_blank">法人股份转让要交哪些税</a>
+                    <a href="http://www.shangpusou.com/entry/212321.html" target="_blank">转让公司股权需要交什么税</a>
+                    <a href="http://www.shangpusou.com/entry/212322.html" target="_blank">股权转让预披露与正式披露</a>
+                    <a href="http://www.shangpusou.com/entry/212323.html" target="_blank">公司股权份额转让系统</a>
+                    <a href="http://www.shangpusou.com/entry/212324.html" target="_blank">公司内部股份转让</a>
+                    <a href="http://www.shangpusou.com/entry/212325.html" target="_blank">公司股东股权内部转让</a>
+                    <a href="http://www.shangpusou.com/entry/212326.html" target="_blank">股份公司股权内部转让</a>
+                    <a href="http://www.shangpusou.com/entry/212327.html" target="_blank">股权内部转让协议无效</a>
+                    <a href="http://www.shangpusou.com/entry/212328.html" target="_blank">股权内部转让需要其他股东同意吗</a>
+                    <a href="http://www.shangpusou.com/entry/212329.html" target="_blank">出售与股权转让的区别</a>
+                    <a href="http://www.shangpusou.com/entry/212330.html" target="_blank">股东未实缴出资转让股权</a>
+                    <a href="http://www.shangpusou.com/entry/212331.html" target="_blank">股权出资转让</a>
+                    <a href="http://www.shangpusou.com/entry/212332.html" target="_blank">一人公司分割转让全部股权</a>
+                    <a href="http://www.shangpusou.com/entry/212333.html" target="_blank">股权转让是何时取得股权</a>
+                    <a href="http://www.shangpusou.com/entry/212334.html" target="_blank">股东变更属于股权转让吗</a>
+                    <a href="http://www.shangpusou.com/entry/212335.html" target="_blank">股权转让变更表怎么填</a>
+                    <a href="http://www.shangpusou.com/entry/212336.html" target="_blank">股权转让印花税需要什么资料</a>
+                    <a href="http://www.shangpusou.com/entry/212337.html" target="_blank">股权转让如何交印花税</a>
+                    <a href="http://www.shangpusou.com/entry/212338.html" target="_blank">转让股票的印花税税率</a>
+                    <a href="http://www.shangpusou.com/entry/212339.html" target="_blank">股权转让地税办理流程</a>
+                    <a href="http://www.shangpusou.com/entry/212340.html" target="_blank">股东会关于股权转让的决议</a>
+                    <a href="http://www.shangpusou.com/entry/212341.html" target="_blank">股东股权转让股东会决议</a>
+                    <a href="http://www.shangpusou.com/entry/212342.html" target="_blank">股权转让提交财务报表</a>
+                    <a href="http://www.shangpusou.com/entry/212343.html" target="_blank">股权转让回购</a>
+                    <a href="http://www.shangpusou.com/entry/212344.html" target="_blank">股权如何转让与回购</a>
+                    <a href="http://www.shangpusou.com/entry/212345.html" target="_blank">股权转让协议约定回购</a>
+                    <a href="http://www.shangpusou.com/entry/212346.html" target="_blank">以股权增资算不算股权转让</a>
+                </div>
+            </div>
+        </div>
+        <div class="m_box footer_bottom_des">
+            <span>友情链接：</span>
+            <p>
+            </p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $('.index_bottom_tab_content .index_bottom_tabbox').eq(0).show()
+        $('#div_tab_content  .index_bottom_tabbox').eq(0).show()
+
+        $('.index_bottom_tab_main').show()
+        $('.index_bottom_tab_main .index_bottom_btn a').each(function (index2) {
+            $(this).hover(function () {
+                $(this).siblings('a').removeClass('index_bottom_btn_on')
+                $(this).addClass('index_bottom_btn_on')
+                $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children().hide()
+                $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children('.index_bottom_tabbox').eq(index2).show()
+            })
+        })
+
+        $('#div_tab_nav a').each(function (index2) {
+            $(this).hover(function () {
+                $(this).siblings('a').removeClass('index_bottom_on')
+                $(this).addClass('index_bottom_on')
+                $('#div_tab_content div').hide()
+                $('#div_tab_content div').eq(index2).show()
+            })
+        })
+
+    </script>
+    <script type="text/javascript">loadDefault(["hover_bg", "loadimg"]);</script><div id="ad_footerbanner"></div>
+    <div style="display: none" id="ad_none">
+    </div>
+
+
+    <div class="footer">
+        <div class="footer_common">
+            <div class="footer_common_link">
+                <a href="http://www.shangpusou.com/aboutus.html" rel="nofollow" target="_blank">网站简介</a>
+                <a href="http://www.shangpusou.com/aboutus-id-2.html" rel="nofollow" target="_blank">广告服务</a>
+                <a href="http://www.shangpusou.com/aboutus-id-3.html" rel="nofollow" target="_blank">联系我们</a>
+                <a href="http://www.shangpusou.com/faq.html" rel="nofollow" target="_blank">网站帮助</a>
+                <a href="http://www.shangpusou.com/friendlink.html" rel="nofollow" target="_blank">友情链接</a>
+                <a href="http://www.shangpusou.com/announce.html" rel="nofollow" target="_blank">网站公告</a>
+                <a href="http://www.shangpusou.com/sitemap.html" rel="nofollow" target="_blank">网站地图</a>
+            </div>
+            <div class="footer_common_con">
+                <p>
+                    Copyright &copy; 商铺搜版权所有. 本站所有信息均归商铺搜网用户所发，严禁转载。 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">湘ICP备2021013894号</a>
+                    <script>
+                        var _hmt = _hmt || [];
+                        (function () {
+                            var hm = document.createElement("script");
+                            hm.src = "https://hm.baidu.com/hm.js?27390b4003f337546042d1a4ea519aff";
+                            var s = document.getElementsByTagName("script")[0];
+                            s.parentNode.insertBefore(hm, s);
+                        })();
+                    </script>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">loadDefault(["addiv", 'shangpusou', "mayilogin"]);</script>
+</body>
+</html>

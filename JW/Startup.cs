@@ -119,6 +119,8 @@ namespace JW
                     controller = "News",
                     action = "Index"
                 });
+
+
                 endpoints.MapControllerRoute("news", "/news/{param1}/", new
                 {
                     controller = "News",
@@ -160,10 +162,10 @@ namespace JW
                     constraints = new { param1 = @"^\d+" }
                 });
 
-                endpoints.MapControllerRoute("FactoryHouseList", "/changfang/", new
+                endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/", new
                 {
                     controller = "FactoryHouseList",
-                    action = "Index",
+                    action = "ChuShou",
                     constraints = new { param1 = @"^\w+" }
                 });
 

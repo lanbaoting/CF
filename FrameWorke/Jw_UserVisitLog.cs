@@ -15,24 +15,43 @@ namespace FrameWorke
     public partial class Jw_UserVisitLog
     {
         public string Id { get; set; }
-        public string Ip { get; set; }
-        public Nullable<bool> HasFormContentType { get; set; }
-        public string Host { get; set; }
-        public string Method { get; set; }
-        public string Path { get; set; }
-        public string Protocol { get; set; }
-        public string Scheme { get; set; }
-        public string QueryString { get; set; }
-        public string Accept { get; set; }
-        public byte[] AcceptEncoding { get; set; }
-        public byte[] AcceptLanguage { get; set; }
-        public string Connection { get; set; }
-        public byte[] Cookie { get; set; }
-        public byte[] UserAgent { get; set; }
-        public string UpgradeInsecureRequests { get; set; }
-        public Nullable<System.DateTime> ExcuteEndTime { get; set; }
-        public Nullable<System.DateTime> ExcuteStartTime { get; set; }
-        public string RequestBody { get; set; }
-        public string ResponseBody { get; set; }
+        public string UserHostAddress { get; set; }
+        public string UserHostName { get; set; }
+        public string UrlAbsoluteUri { get; set; }
+        public string PhysicalPath { get; set; }
+        public string UserAgent { get; set; }
+        public string HttpMethod { get; set; }
+        public string UserLanguages { get; set; }
+        public string UrlHost { get; set; }
+        public string UrlPort { get; set; }
+        public Nullable<int> TotalBytes { get; set; }
+        public Nullable<int> ContentLength { get; set; }
+        public string IsLocal { get; set; }
+        public string BrowserType { get; set; }
+        public string BrowserVersion { get; set; }
+        public string BrowserPlatform { get; set; }
+        public string BrowserBeta { get; set; }
+        public string BrowserActiveXControls { get; set; }
+        public string BrowserCookies { get; set; }
+        public string BrowserCrawler { get; set; }
+        public string BrowserJavaScript { get; set; }
+        public string BrowserSupportsXmlHttp { get; set; }
+        public string BrowserInputType { get; set; }
+        public Nullable<int> BrowserScreenPixelsWidth { get; set; }
+        public Nullable<int> BrowserScreenPixelsHeight { get; set; }
+        public string UrlReferrerAbsoluteUri { get; set; }
+        public string UrlReferrerAbsoluteUriDecode { get; set; }
+        public string UrlReferrerHostName { get; set; }
+        public string CanCombineFormsInDeck { get; set; }
+        public string IsMobileDevice { get; set; }
+        public string MobileDeviceManufacturer { get; set; }
+        public string MobileDeviceModel { get; set; }
+        public Nullable<int> NumberOfSoftkeys { get; set; }
+        public string ContentEncoding { get; set; }
+        public Nullable<int> ScreenBitDepth { get; set; }
+        public string Website { get; set; }
+        public string WebCookies { get; set; }
+        public Nullable<System.DateTime> VisitTime { get; set; }
+        public Nullable<int> AnalysisState { get; set; }
     }
 }

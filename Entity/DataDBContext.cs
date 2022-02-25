@@ -76,5 +76,13 @@ namespace Entity
         public virtual DbSet<Jw_AzGameMainPush> Jw_AzGameMainPush { get; set; }
         public virtual DbSet<Jw_AzGameRelatedGame> Jw_AzGameRelatedGame { get; set; }
 
+
+        public virtual DbSet<Cf_Navigation> Cf_Navigation { get; set; }
+        public virtual DbSet<Cf_FactoryHouse> Cf_FactoryHouse { get; set; }
+        public virtual DbSet<Cf_CitySiteRangeSearch> Cf_CitySiteRangeSearch { get; set; }
+        public virtual DbSet<Cf_Area> Cf_Area { get; set; }
+        public virtual DbSet<Cf_ConditionalGroup> Cf_ConditionalGroup { get; set; }
+
+
     }
 }

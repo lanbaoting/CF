@@ -1,0 +1,297 @@
+﻿ 
+
+    .list_nav_tab_r a {
+        font-size: 12px;
+        line-height: 35px;
+        color: #517a99
+    }
+
+.con_box .list_l {
+    width: 920px;
+    float: left;
+    overflow: hidden
+}
+
+    .con_box .list_l .list_nav_tab p span {
+        color: #555666
+    }
+
+    .con_box .list_l .list_nav_tab p a:hover {
+        text-decoration: underline
+    }
+
+.sp_li_box {
+    overflow: hidden;
+    background: #fff
+}
+
+.list_info {
+    float: left
+}
+
+    .list_info p {
+        line-height: 22px
+    }
+
+    .list_info .baseinfo {
+        margin-top: 2px;
+        color: #666
+    }
+
+        .list_info .baseinfo span {
+            margin-right: 5px
+        }
+
+        .list_info .baseinfo i.split {
+            width: 1px;
+            height: 12px;
+            margin: 0 11px;
+            line-height: 12px;
+            vertical-align: top;
+            background: #e3e3e3;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+    .list_info .tag-wrap {
+        font-size: 0;
+        margin-top: 10px
+    }
+
+        .list_info .tag-wrap span {
+            font-size: 12px;
+            margin-right: 8px
+        }
+
+        .list_info .tag-wrap .tag {
+            color: #517a99;
+            padding: 4px 10px;
+            background: rgba(81,122,153,.1)
+        }
+
+        .list_info .tag-wrap .tag0, .list_info .tag-wrap .tag4, .list_info .tag-wrap .tag8 {
+            color: #517a99;
+            padding: 4px 10px;
+            background: rgba(81,122,153,.1)
+        }
+
+        .list_info .tag-wrap .tag1, .list_info .tag-wrap .tag5, .list_info .tag-wrap .tag9 {
+            color: #ff8062;
+            padding: 4px 10px;
+            background: rgba(255,128,98,.1)
+        }
+
+        .list_info .tag-wrap .tag10, .list_info .tag-wrap .tag2, .list_info .tag-wrap .tag6 {
+            color: #8e9bdd;
+            padding: 4px 10px;
+            background: rgba(142,155,221,.1)
+        }
+
+        .list_info .tag-wrap .tag11, .list_info .tag-wrap .tag3, .list_info .tag-wrap .tag7 {
+            color: #f1a82a;
+            padding: 4px 10px;
+            background: rgba(241,168,42,.1)
+        }
+
+.sp_li .title .cj, .sp_li .title .jjr, .sp_li .title .rz, .sp_li .title .tg {
+    display: inline-block;
+    height: 20px;
+    padding: 0 4px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center
+}
+
+.sp_li .title .jjr {
+    color: #ec5524
+}
+
+.sp_li .title .rz {
+    color: #2aa1e0
+}
+
+.sp_li .title .tg {
+    background: #e6454a;
+    color: #fff
+}
+
+.sp_li .title .cj {
+    color: #ec5524
+}
+
+.sp_li_box .sp_li li {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    padding: 20px 0;
+    border-top: 1px solid #f3f3f3;
+    position: relative
+}
+
+    .sp_li_box .sp_li li:hover {
+        background: #f5f5f5
+    }
+
+    .sp_li_box .sp_li li.first {
+        border: none
+    }
+
+    .sp_li_box .sp_li li .pic {
+        display: block;
+        float: left;
+        width: 176px;
+        height: 132px;
+        overflow: hidden;
+        position: relative;
+        margin-right: 20px
+    }
+
+        .sp_li_box .sp_li li .pic img {
+            display: block;
+            width: 176px;
+            height: 132px
+        }
+
+        .sp_li_box .sp_li li .pic .picNum {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 4px 8px;
+            color: #fff;
+            background: #000;
+            -moz-opacity: .5;
+            opacity: .5
+        }
+
+.sp_li li .title {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 18px;
+    width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700
+}
+
+    .sp_li li .title a {
+        color: #555666
+    }
+
+        .sp_li li .title a:hover {
+            color: #e6454a
+        }
+
+        .sp_li li .title a:active {
+            color: #999
+        }
+
+.sp_li .area {
+    position: absolute;
+    bottom: 51px;
+    text-align: center;
+    right: 201px
+}
+
+    .sp_li .area .num span {
+        font-size: 18px;
+        letter-spacing: 0
+    }
+
+    .sp_li .area .num {
+        color: #555666
+    }
+
+        .sp_li .area .num .unit {
+            font-size: 14px
+        }
+
+    .sp_li .area .down {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #999
+    }
+
+.sp_li .time {
+    float: right;
+    margin-right: 15px;   
+    color: #555666;
+    position: inherit
+}
+
+.sp_li .ad {
+    font-size: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    width: 32px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px
+}
+
+.sp_li .price {
+    position: absolute;
+    right: 0;
+    width: 181px;
+    text-align: center
+}
+
+    .sp_li .price .up {
+        color: #e6454a;
+        font-size: 0;
+    }
+
+        .sp_li .price .up .num {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .sp_li .price .up .unit {
+            font-size: 14px;
+            vertical-align: 1px;
+            color: #e6454a;
+        }
+
+    .sp_li .price .down {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #555666;
+    }
+
+    .sp_li .price .sum {
+        color: #e6454a;
+        position: relative;
+        width: 181px;
+        white-space: normal;
+        word-wrap: break-word;
+        word-break: break-all;
+        margin-bottom: 3px
+    }
+
+        .sp_li .price .sum b {
+            font-size: 24px;
+            display: inline-block;
+            vertical-align: bottom;
+            font-weight: 500
+        }
+
+        .sp_li .price .sum span {
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: bottom;
+            margin-bottom: 3px
+        }
+
+    .sp_li .price .unit {
+        font-size: 12px;
+        color: #777
+    }
+
+.sp_li li:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    display: block
+}

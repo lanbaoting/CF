@@ -5,56 +5,157 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DataCenterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cf_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="AreaCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QuickQuery" Type="nvarchar" MaxLength="200" />
+          <Property Name="SimpleSpelling" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Layer" Type="int" />
+          <Property Name="SortCode" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_CreateUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyDate" Type="datetime2" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyUserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cf_CitySiteRangeSearch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="ConditionalGroupId" Type="int" Nullable="false" />
+          <Property Name="WebTypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SeoKey" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SeoDesc" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_CreateUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyDate" Type="datetime2" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyUserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cf_ConditionalGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_CreateUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyDate" Type="datetime2" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="F_ModifyUserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“DataCenter.dbo.Jw_UserVisitLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+警告 6002: 表/视图“ChangFang.dbo.Jw_UserVisitLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Jw_UserVisitLog">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ip" Type="nvarchar" MaxLength="50" />
-          <Property Name="HasFormContentType" Type="bit" />
-          <Property Name="Host" Type="nvarchar" MaxLength="500" />
-          <Property Name="Method" Type="nvarchar" MaxLength="50" />
-          <Property Name="Path" Type="nvarchar(max)" />
-          <Property Name="Protocol" Type="nvarchar" MaxLength="50" />
-          <Property Name="Scheme" Type="nvarchar" MaxLength="50" />
-          <Property Name="QueryString" Type="varchar(max)" />
-          <Property Name="Accept" Type="nvarchar(max)" />
-          <Property Name="AcceptEncoding" Type="varbinary" MaxLength="50" />
-          <Property Name="AcceptLanguage" Type="varbinary" MaxLength="50" />
-          <Property Name="Connection" Type="nvarchar(max)" />
-          <Property Name="Cookie" Type="varbinary(max)" />
-          <Property Name="UserAgent" Type="varbinary(max)" />
-          <Property Name="UpgradeInsecureRequests" Type="nvarchar(max)" />
-          <Property Name="ExcuteEndTime" Type="datetime" />
-          <Property Name="ExcuteStartTime" Type="datetime" />
-          <Property Name="RequestBody" Type="nvarchar(max)" />
-          <Property Name="ResponseBody" Type="nvarchar(max)" />
+          <Property Name="UserHostAddress" Type="varchar" MaxLength="20" />
+          <Property Name="UserHostName" Type="varchar" MaxLength="20" />
+          <Property Name="UrlAbsoluteUri" Type="varchar" MaxLength="1600" />
+          <Property Name="PhysicalPath" Type="varchar" MaxLength="500" />
+          <Property Name="UserAgent" Type="varchar" MaxLength="1000" />
+          <Property Name="HttpMethod" Type="varchar" MaxLength="4" />
+          <Property Name="UserLanguages" Type="varchar" MaxLength="20" />
+          <Property Name="UrlHost" Type="varchar" MaxLength="100" />
+          <Property Name="UrlPort" Type="varchar" MaxLength="10" />
+          <Property Name="TotalBytes" Type="int" />
+          <Property Name="ContentLength" Type="int" />
+          <Property Name="IsLocal" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserType" Type="varchar" MaxLength="30" />
+          <Property Name="BrowserVersion" Type="varchar" MaxLength="20" />
+          <Property Name="BrowserPlatform" Type="varchar" MaxLength="20" />
+          <Property Name="BrowserBeta" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserActiveXControls" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserCookies" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserCrawler" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserJavaScript" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserSupportsXmlHttp" Type="varchar" MaxLength="5" />
+          <Property Name="BrowserInputType" Type="varchar" MaxLength="30" />
+          <Property Name="BrowserScreenPixelsWidth" Type="int" />
+          <Property Name="BrowserScreenPixelsHeight" Type="int" />
+          <Property Name="UrlReferrerAbsoluteUri" Type="varchar" MaxLength="1600" />
+          <Property Name="UrlReferrerAbsoluteUriDecode" Type="varchar" MaxLength="1600" />
+          <Property Name="UrlReferrerHostName" Type="varchar" MaxLength="100" />
+          <Property Name="CanCombineFormsInDeck" Type="varchar" MaxLength="5" />
+          <Property Name="IsMobileDevice" Type="varchar" MaxLength="5" />
+          <Property Name="MobileDeviceManufacturer" Type="varchar" MaxLength="30" />
+          <Property Name="MobileDeviceModel" Type="varchar" MaxLength="30" />
+          <Property Name="NumberOfSoftkeys" Type="int" />
+          <Property Name="ContentEncoding" Type="varchar" MaxLength="10" />
+          <Property Name="ScreenBitDepth" Type="int" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+          <Property Name="WebCookies" Type="varchar" MaxLength="80" />
+          <Property Name="VisitTime" Type="datetime" />
+          <Property Name="AnalysisState" Type="int" />
         </EntityType>
         <EntityContainer Name="DataCenterModelStoreContainer">
+          <EntitySet Name="Cf_Area" EntityType="Self.Cf_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cf_CitySiteRangeSearch" EntityType="Self.Cf_CitySiteRangeSearch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cf_ConditionalGroup" EntityType="Self.Cf_ConditionalGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jw_UserVisitLog" EntityType="Self.Jw_UserVisitLog" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Jw_UserVisitLog].[Id] AS [Id], 
-    [Jw_UserVisitLog].[Ip] AS [Ip], 
-    [Jw_UserVisitLog].[HasFormContentType] AS [HasFormContentType], 
-    [Jw_UserVisitLog].[Host] AS [Host], 
-    [Jw_UserVisitLog].[Method] AS [Method], 
-    [Jw_UserVisitLog].[Path] AS [Path], 
-    [Jw_UserVisitLog].[Protocol] AS [Protocol], 
-    [Jw_UserVisitLog].[Scheme] AS [Scheme], 
-    [Jw_UserVisitLog].[QueryString] AS [QueryString], 
-    [Jw_UserVisitLog].[Accept] AS [Accept], 
-    [Jw_UserVisitLog].[AcceptEncoding] AS [AcceptEncoding], 
-    [Jw_UserVisitLog].[AcceptLanguage] AS [AcceptLanguage], 
-    [Jw_UserVisitLog].[Connection] AS [Connection], 
-    [Jw_UserVisitLog].[Cookie] AS [Cookie], 
+    [Jw_UserVisitLog].[UserHostAddress] AS [UserHostAddress], 
+    [Jw_UserVisitLog].[UserHostName] AS [UserHostName], 
+    [Jw_UserVisitLog].[UrlAbsoluteUri] AS [UrlAbsoluteUri], 
+    [Jw_UserVisitLog].[PhysicalPath] AS [PhysicalPath], 
     [Jw_UserVisitLog].[UserAgent] AS [UserAgent], 
-    [Jw_UserVisitLog].[UpgradeInsecureRequests] AS [UpgradeInsecureRequests], 
-    [Jw_UserVisitLog].[ExcuteEndTime] AS [ExcuteEndTime], 
-    [Jw_UserVisitLog].[ExcuteStartTime] AS [ExcuteStartTime], 
-    [Jw_UserVisitLog].[RequestBody] AS [RequestBody], 
-    [Jw_UserVisitLog].[ResponseBody] AS [ResponseBody]
+    [Jw_UserVisitLog].[HttpMethod] AS [HttpMethod], 
+    [Jw_UserVisitLog].[UserLanguages] AS [UserLanguages], 
+    [Jw_UserVisitLog].[UrlHost] AS [UrlHost], 
+    [Jw_UserVisitLog].[UrlPort] AS [UrlPort], 
+    [Jw_UserVisitLog].[TotalBytes] AS [TotalBytes], 
+    [Jw_UserVisitLog].[ContentLength] AS [ContentLength], 
+    [Jw_UserVisitLog].[IsLocal] AS [IsLocal], 
+    [Jw_UserVisitLog].[BrowserType] AS [BrowserType], 
+    [Jw_UserVisitLog].[BrowserVersion] AS [BrowserVersion], 
+    [Jw_UserVisitLog].[BrowserPlatform] AS [BrowserPlatform], 
+    [Jw_UserVisitLog].[BrowserBeta] AS [BrowserBeta], 
+    [Jw_UserVisitLog].[BrowserActiveXControls] AS [BrowserActiveXControls], 
+    [Jw_UserVisitLog].[BrowserCookies] AS [BrowserCookies], 
+    [Jw_UserVisitLog].[BrowserCrawler] AS [BrowserCrawler], 
+    [Jw_UserVisitLog].[BrowserJavaScript] AS [BrowserJavaScript], 
+    [Jw_UserVisitLog].[BrowserSupportsXmlHttp] AS [BrowserSupportsXmlHttp], 
+    [Jw_UserVisitLog].[BrowserInputType] AS [BrowserInputType], 
+    [Jw_UserVisitLog].[BrowserScreenPixelsWidth] AS [BrowserScreenPixelsWidth], 
+    [Jw_UserVisitLog].[BrowserScreenPixelsHeight] AS [BrowserScreenPixelsHeight], 
+    [Jw_UserVisitLog].[UrlReferrerAbsoluteUri] AS [UrlReferrerAbsoluteUri], 
+    [Jw_UserVisitLog].[UrlReferrerAbsoluteUriDecode] AS [UrlReferrerAbsoluteUriDecode], 
+    [Jw_UserVisitLog].[UrlReferrerHostName] AS [UrlReferrerHostName], 
+    [Jw_UserVisitLog].[CanCombineFormsInDeck] AS [CanCombineFormsInDeck], 
+    [Jw_UserVisitLog].[IsMobileDevice] AS [IsMobileDevice], 
+    [Jw_UserVisitLog].[MobileDeviceManufacturer] AS [MobileDeviceManufacturer], 
+    [Jw_UserVisitLog].[MobileDeviceModel] AS [MobileDeviceModel], 
+    [Jw_UserVisitLog].[NumberOfSoftkeys] AS [NumberOfSoftkeys], 
+    [Jw_UserVisitLog].[ContentEncoding] AS [ContentEncoding], 
+    [Jw_UserVisitLog].[ScreenBitDepth] AS [ScreenBitDepth], 
+    [Jw_UserVisitLog].[Website] AS [Website], 
+    [Jw_UserVisitLog].[WebCookies] AS [WebCookies], 
+    [Jw_UserVisitLog].[VisitTime] AS [VisitTime], 
+    [Jw_UserVisitLog].[AnalysisState] AS [AnalysisState]
     FROM [dbo].[Jw_UserVisitLog] AS [Jw_UserVisitLog]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -64,31 +165,113 @@
       <Schema Namespace="DataCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DataCenterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Jw_UserVisitLog" EntityType="DataCenterModel.Jw_UserVisitLog" />
+          <EntitySet Name="Cf_Area" EntityType="DataCenterModel.Cf_Area" />
+          <EntitySet Name="Cf_CitySiteRangeSearch" EntityType="DataCenterModel.Cf_CitySiteRangeSearch" />
+          <EntitySet Name="Cf_ConditionalGroup" EntityType="DataCenterModel.Cf_ConditionalGroup" />
         </EntityContainer>
         <EntityType Name="Jw_UserVisitLog">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HasFormContentType" Type="Boolean" />
-          <Property Name="Host" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Protocol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Scheme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QueryString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Accept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AcceptEncoding" Type="Binary" MaxLength="50" FixedLength="false" />
-          <Property Name="AcceptLanguage" Type="Binary" MaxLength="50" FixedLength="false" />
-          <Property Name="Connection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Cookie" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="UserAgent" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="UpgradeInsecureRequests" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ExcuteEndTime" Type="DateTime" Precision="3" />
-          <Property Name="ExcuteStartTime" Type="DateTime" Precision="3" />
-          <Property Name="RequestBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ResponseBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserHostAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserHostName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UrlAbsoluteUri" Type="String" MaxLength="1600" FixedLength="false" Unicode="false" />
+          <Property Name="PhysicalPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UserAgent" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="HttpMethod" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="UserLanguages" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UrlHost" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UrlPort" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TotalBytes" Type="Int32" />
+          <Property Name="ContentLength" Type="Int32" />
+          <Property Name="IsLocal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserVersion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserPlatform" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserBeta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserActiveXControls" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserCookies" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserCrawler" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserJavaScript" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserSupportsXmlHttp" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserInputType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserScreenPixelsWidth" Type="Int32" />
+          <Property Name="BrowserScreenPixelsHeight" Type="Int32" />
+          <Property Name="UrlReferrerAbsoluteUri" Type="String" MaxLength="1600" FixedLength="false" Unicode="false" />
+          <Property Name="UrlReferrerAbsoluteUriDecode" Type="String" MaxLength="1600" FixedLength="false" Unicode="false" />
+          <Property Name="UrlReferrerHostName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CanCombineFormsInDeck" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="IsMobileDevice" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MobileDeviceManufacturer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MobileDeviceModel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfSoftkeys" Type="Int32" />
+          <Property Name="ContentEncoding" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ScreenBitDepth" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WebCookies" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="VisitTime" Type="DateTime" Precision="3" />
+          <Property Name="AnalysisState" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cf_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="AreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuickQuery" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SimpleSpelling" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Layer" Type="Int32" />
+          <Property Name="SortCode" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyDate" Type="DateTime" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cf_CitySiteRangeSearch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="ConditionalGroupId" Type="Int32" Nullable="false" />
+          <Property Name="WebTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="SeoTitle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SeoKey" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDesc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyDate" Type="DateTime" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cf_ConditionalGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyDate" Type="DateTime" Precision="7" />
+          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -99,25 +282,107 @@
           <EntitySetMapping Name="Jw_UserVisitLog">
             <EntityTypeMapping TypeName="DataCenterModel.Jw_UserVisitLog">
               <MappingFragment StoreEntitySet="Jw_UserVisitLog">
-                <ScalarProperty Name="ResponseBody" ColumnName="ResponseBody" />
-                <ScalarProperty Name="RequestBody" ColumnName="RequestBody" />
-                <ScalarProperty Name="ExcuteStartTime" ColumnName="ExcuteStartTime" />
-                <ScalarProperty Name="ExcuteEndTime" ColumnName="ExcuteEndTime" />
-                <ScalarProperty Name="UpgradeInsecureRequests" ColumnName="UpgradeInsecureRequests" />
+                <ScalarProperty Name="AnalysisState" ColumnName="AnalysisState" />
+                <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+                <ScalarProperty Name="WebCookies" ColumnName="WebCookies" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="ScreenBitDepth" ColumnName="ScreenBitDepth" />
+                <ScalarProperty Name="ContentEncoding" ColumnName="ContentEncoding" />
+                <ScalarProperty Name="NumberOfSoftkeys" ColumnName="NumberOfSoftkeys" />
+                <ScalarProperty Name="MobileDeviceModel" ColumnName="MobileDeviceModel" />
+                <ScalarProperty Name="MobileDeviceManufacturer" ColumnName="MobileDeviceManufacturer" />
+                <ScalarProperty Name="IsMobileDevice" ColumnName="IsMobileDevice" />
+                <ScalarProperty Name="CanCombineFormsInDeck" ColumnName="CanCombineFormsInDeck" />
+                <ScalarProperty Name="UrlReferrerHostName" ColumnName="UrlReferrerHostName" />
+                <ScalarProperty Name="UrlReferrerAbsoluteUriDecode" ColumnName="UrlReferrerAbsoluteUriDecode" />
+                <ScalarProperty Name="UrlReferrerAbsoluteUri" ColumnName="UrlReferrerAbsoluteUri" />
+                <ScalarProperty Name="BrowserScreenPixelsHeight" ColumnName="BrowserScreenPixelsHeight" />
+                <ScalarProperty Name="BrowserScreenPixelsWidth" ColumnName="BrowserScreenPixelsWidth" />
+                <ScalarProperty Name="BrowserInputType" ColumnName="BrowserInputType" />
+                <ScalarProperty Name="BrowserSupportsXmlHttp" ColumnName="BrowserSupportsXmlHttp" />
+                <ScalarProperty Name="BrowserJavaScript" ColumnName="BrowserJavaScript" />
+                <ScalarProperty Name="BrowserCrawler" ColumnName="BrowserCrawler" />
+                <ScalarProperty Name="BrowserCookies" ColumnName="BrowserCookies" />
+                <ScalarProperty Name="BrowserActiveXControls" ColumnName="BrowserActiveXControls" />
+                <ScalarProperty Name="BrowserBeta" ColumnName="BrowserBeta" />
+                <ScalarProperty Name="BrowserPlatform" ColumnName="BrowserPlatform" />
+                <ScalarProperty Name="BrowserVersion" ColumnName="BrowserVersion" />
+                <ScalarProperty Name="BrowserType" ColumnName="BrowserType" />
+                <ScalarProperty Name="IsLocal" ColumnName="IsLocal" />
+                <ScalarProperty Name="ContentLength" ColumnName="ContentLength" />
+                <ScalarProperty Name="TotalBytes" ColumnName="TotalBytes" />
+                <ScalarProperty Name="UrlPort" ColumnName="UrlPort" />
+                <ScalarProperty Name="UrlHost" ColumnName="UrlHost" />
+                <ScalarProperty Name="UserLanguages" ColumnName="UserLanguages" />
+                <ScalarProperty Name="HttpMethod" ColumnName="HttpMethod" />
                 <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
-                <ScalarProperty Name="Cookie" ColumnName="Cookie" />
-                <ScalarProperty Name="Connection" ColumnName="Connection" />
-                <ScalarProperty Name="AcceptLanguage" ColumnName="AcceptLanguage" />
-                <ScalarProperty Name="AcceptEncoding" ColumnName="AcceptEncoding" />
-                <ScalarProperty Name="Accept" ColumnName="Accept" />
-                <ScalarProperty Name="QueryString" ColumnName="QueryString" />
-                <ScalarProperty Name="Scheme" ColumnName="Scheme" />
-                <ScalarProperty Name="Protocol" ColumnName="Protocol" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="Method" ColumnName="Method" />
-                <ScalarProperty Name="Host" ColumnName="Host" />
-                <ScalarProperty Name="HasFormContentType" ColumnName="HasFormContentType" />
-                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="PhysicalPath" ColumnName="PhysicalPath" />
+                <ScalarProperty Name="UrlAbsoluteUri" ColumnName="UrlAbsoluteUri" />
+                <ScalarProperty Name="UserHostName" ColumnName="UserHostName" />
+                <ScalarProperty Name="UserHostAddress" ColumnName="UserHostAddress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cf_Area">
+            <EntityTypeMapping TypeName="DataCenterModel.Cf_Area">
+              <MappingFragment StoreEntitySet="Cf_Area">
+                <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
+                <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
+                <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
+                <ScalarProperty Name="F_CreateUserName" ColumnName="F_CreateUserName" />
+                <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
+                <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+                <ScalarProperty Name="Layer" ColumnName="Layer" />
+                <ScalarProperty Name="SimpleSpelling" ColumnName="SimpleSpelling" />
+                <ScalarProperty Name="QuickQuery" ColumnName="QuickQuery" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cf_CitySiteRangeSearch">
+            <EntityTypeMapping TypeName="DataCenterModel.Cf_CitySiteRangeSearch">
+              <MappingFragment StoreEntitySet="Cf_CitySiteRangeSearch">
+                <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
+                <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
+                <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
+                <ScalarProperty Name="F_CreateUserName" ColumnName="F_CreateUserName" />
+                <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
+                <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
+                <ScalarProperty Name="SeoDesc" ColumnName="SeoDesc" />
+                <ScalarProperty Name="SeoKey" ColumnName="SeoKey" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WebTypeId" ColumnName="WebTypeId" />
+                <ScalarProperty Name="ConditionalGroupId" ColumnName="ConditionalGroupId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cf_ConditionalGroup">
+            <EntityTypeMapping TypeName="DataCenterModel.Cf_ConditionalGroup">
+              <MappingFragment StoreEntitySet="Cf_ConditionalGroup">
+                <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
+                <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
+                <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
+                <ScalarProperty Name="F_CreateUserName" ColumnName="F_CreateUserName" />
+                <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
+                <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

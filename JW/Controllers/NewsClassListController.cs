@@ -20,10 +20,10 @@ namespace JW.Controllers
             string[] strArr = path.Split("/");
             string typeCode = strArr[2];
 
-            if (path.Contains("list"))
+            if (path.Contains(".html"))
             {
 
-                string paramsStr = path.Split('_').LastOrDefault().Replace(".html", "");
+                string paramsStr = path.Split('/').LastOrDefault().Replace(".html", "");
 
                 if (!int.TryParse(paramsStr, out pageNumber))
                 {

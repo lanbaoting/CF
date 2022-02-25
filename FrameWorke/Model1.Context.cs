@@ -26,5 +26,8 @@ namespace FrameWorke
         }
     
         public virtual DbSet<Jw_UserVisitLog> Jw_UserVisitLog { get; set; }
+        public virtual DbSet<Cf_Area> Cf_Area { get; set; }
+        public virtual DbSet<Cf_CitySiteRangeSearch> Cf_CitySiteRangeSearch { get; set; }
+        public virtual DbSet<Cf_ConditionalGroup> Cf_ConditionalGroup { get; set; }
     }
 }

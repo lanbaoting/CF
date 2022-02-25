@@ -1,156 +1,287 @@
-﻿@model X.PagedList.IPagedList<Entity.Models.Jw_Article>
+﻿@{
+    Layout = null;
+}
+
+@model X.PagedList.IPagedList<Entity.Models.Jw_Article>
 @using X.PagedList.Mvc.Core;
 @using X.PagedList.Mvc.Core.Common
-@{
-    ViewBag.SeoTile = ViewBag.ArticleType.SeoTile;
-    ViewBag.SeoKey = ViewBag.ArticleType.SeoKey;
-    ViewBag.SeoDesc = ViewBag.ArticleType.SeoDesc;
-    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
-} 
-<section class="top-bar">
-    <div class="layout ft-yh">
-        <span class="fl-rt"><span>加入收藏</span></span>
-        <strong>好玩无毒的游戏下载大全</strong>
-    </div>
-</section>
-<header class="top layout zm">
-    <h1 class="logo fl-lf"><a href="/" title="A游网"><img src="~/images/logo.png" alt="A游网"></a></h1>
-    <nav class="top-nav ft-yh fl-rt">
-        <ul>
-            @{
-                var navigation1List = ViewBag.Navigation1List as List<Entity.Models.Jw_Navigation1>;
-                if (navigation1List != null)
-                {
-                    for (int i = 0; i < navigation1List.Count; i++)
-                    {
-                        <li class="nav-icon@(i + 1)"><a href="@navigation1List[i].LinkAddress">@navigation1List[i].Name</a></li>
-                    }
-                }
-            }
-        </ul>
-    </nav>
-</header> 
-    <nav class="nav ft-yh layout zm mg-t5">
-        <ul class="textct">
-            <li class="first"><a href="/news/">资讯频道</a></li>
-            @{
-                var articleTypeList = ViewBag.ArticleTypeList as List<Entity.Models.Jw_ArticleType>;
 
-                int articleTypeId = ViewBag.ArticleType.Id;
 
-                if (articleTypeList != null)
-                {
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>装修_资讯-商铺搜网</title>
+    <meta name="keywords" content="装修" />
+    <meta name="description" content="装修" />
+    <link rel="shortcut icon" href="http://www.shangpusou.com/favicon.ico" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="http://www.shangpusou.com/template/default/css/style.css" />
+    <link rel="stylesheet" href="/css/newstyle.css" /> 
+    <link href="~/css/newsList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/pagination2.css" />
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.11.min.js" type="text/javascript"></script>
+</head>
 
-                    foreach (var m in articleTypeList)
-                    {
-                        if (articleTypeId == m.Id)
-                        {
-                            <li class="current"><a href="/newsclass/@(m.Code)/">@m.Name</a></li>
-                        }
-                        else
-                        {
-                            <li><a href="/newsclass/@(m.Code)/">@m.Name</a></li>
-                        }
-                    }
-                }
-            }
-        </ul>
-    </nav>
-    <article class="crumb game-icon patch-crumb layout mg-t10 zm">
-        @*<div class="search search-item fl-rt">
-            <form action="//search.html" method="get" target="_blank">
-                <input class="search-input" name="q" id="q" type="text" placeholder="请输入搜索关键词">
-                <input class="searchbtn patch-icon text-indent" type="submit" value="搜 索">
-            </form>
-        </div>*@
-        <span>当前位置：<a href="/">首页</a><i class="game-icon"></i><a href="/news/">游戏资讯</a><i class="game-icon"></i>@ViewBag.ArticleType.Name</span>
-    </article>
-    <section class="layout mg-t10 zm">
-        <article class="w-648 border news-list tag-bd fl-lf">
-            <header class="mod-hd ft-yh">
-                <h2>@ViewBag.ArticleType.Name</h2>
-            </header>
-            <ul class="mod-img-list">
-                @{
-                    if (Model != null)
-                    {
-                        foreach (var m in Model)
-                        {
-                            <li>
-                                <a href="/news/@(m.Id).html"  rel="nofollow" target="_blank" class="img-box fl-lf"><img width="180" height="100" src="@m.CoverMap" alt="@m.ArticleTitle" /></a>
-                                <h3 class="game-icon ft-yh"><a href="/news/@(m.Id).html" target="_blank">@m.ArticleTitle</a></h3>
-                                <p class="mg-t5 ht">@m.SeoDesc</p>
-                                <p class="ht1"><a href="/news/@(m.Id).html" target="_blank" rel="nofollow" class="read game-icon blue fl-rt">阅读全文</a><span class="date">A游网 发表于@(m.CreateDate.ToString("MM-dd HH mm"))</span></p>
-                            </li>
-                        }
-                    }
-                }
-            </ul>
-            <div class="page textct">
-                <div class="page-bd">
-                    @Html.PagedListPager(Model, page => page == 1 ? "/newsclass/" + ViewBag.ArticleType.Code + "/" : "/newsclass/" + ViewBag.ArticleType.Code + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+<body class="bodybgred0 headstyle_normal red full">
+    <script type="text/javascript">var current_domain = "http://www.shangpusou.com"; var current_cityid = "0"; var current_logfile = "mplogin.php";</script>
+
+    <div class="header_top">
+        <div class="top_main w1200 clear">
+            <div class="top_l fl">
+                <div class="city fl">
+                    <div class="city-curr">全国</div>
+                    <dl>
+                        <dt>[</dt>
+                        <dd><a href="http://www.shangpusou.com/changecity.php">切换城市</a></dd>
+                        <dt>]</dt>
+                    </dl>
                 </div>
             </div>
-        </article>
-        <aside class="w-300 fl-rt">        
-            <section class="hot-photo border mg-t10">
-                <header class="mod-hd ft-yh">
-                    <h2>热点图文</h2>
-                </header>
-                @{
-                    var hotGraphicsList = ViewBag.HotGraphicsList as List<Entity.ViewModels.HotGraphics>;
-                    if (hotGraphicsList != null)
-                    {
-                        <ul class="mod-img-list mg-Lr10">
+            <div class="top_r fr">
+                <div class="icon_box fl">
+                    <a href="javascript:;">公众号<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima.gif" alt="公众号" />
+                        <p>重要提醒不错过<br />手机操作更简单</p>
+                    </div>
+                </div>
+                <div class="icon_box fl">
+                    <a href="javascript:;">小程序<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima_kf.gif" alt="小程序" />
+                        <p>扫码即用，无需下载</p>
+                    </div>
+                </div>
+                <div class="zs fl">
+                    <a href="#" target="_blank">+ 分站加盟</a>
+                </div>
+                <!--             <div class="pon_center fl">
+                                <div class="flex_between pon_click">
+                                    <span>个人中心</span>
+                                    <em class="ico_down"></em>
+                                </div>
+                                <div class="list_box" style="display: none;">
+                                    <a href="#" target="_blank">我的发布</a>
+                                    <a href="#" target="_blank">我的浏览</a>
+                                </div>
+                            </div> -->
+                <div id="mayilogin" class="login fl"><img src="/picture/loading.gif" border="0" align="absmiddle" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ad_topbanner" class="clear"></div>
+
+
+    <div class="header_mind w1200 clear">
+        <div class="logo clear fl">
+            <a href="http://www.shangpusou.com/" title="商铺网" class="fl">
+                <img src="/picture/logo.png" alt="商铺搜" width="148" height="42" />
+            </a>
+        </div>
+        <div class="main_r fr">
+            <a href="http://www.shangpusou.com/shangpusou-post.php?catid=4&cityid=0" class="fabu_btn" target="_blank">免费发布</a>
+        </div>
+        <div class="search fr">
+            <form method="get" action="http://www.shangpusou.com/search.php?" id="searchForm" target="_blank">
+                <input name="cityid" type="hidden" value="0" />
+                <input type="hidden" id="searchtype" name="mod" value="information" />
+                <div class="input_content clear">
+                    <input type="text" class="fl" value="请输入关键词搜索" name="keywords" id="searchheader" onmouseover="if(this.value==='请输入关键词搜索'){this.value='';}" x-webkit-speech=x-webkit-speech lang="zh-CN" />
+                    <input type="submit" value="搜 索" class="searchheader_submit fl" />
+                </div>
+                <div class="fl search_navurl">
+                    <li><a href="#" style="color:" target="_blank" title="培训学校优转">培训学校优转<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="商铺出租">商铺出租<sup class=""></sup></a></li>
+                    <li><a href="#" style="color:" target="_blank" title="酒店转让">酒店转让<sup class=""></sup></a></li>
+                </div>
+            </form>
+        </div>
+    </div><div class="daohang_con2">
+        <div class="daohang2">
+            <ul>
+                <li><a href="http://www.shangpusou.com/" id="index">首页</a></li>
+                <li><a target="_self" id="1" href="http://www.shangpusou.com//shangpuzhuanrang/"><font color="">生意转让</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="2" href="http://www.shangpusou.com//shangpuzushou/"><font color="">商铺租售</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="3" href="http://www.shangpusou.com//changfang/"><font color="">厂房</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="4" href="http://www.shangpusou.com//cangku/"><font color="">仓库</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="5" href="http://www.shangpusou.com//xiezilou/"><font color="">写字楼</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="6" href="http://www.shangpusou.com//qiuzuqiugou/"><font color="">找铺</font><sup class=""></sup></a></li>
+                <li><a target="_self" id="news" href="http://www.shangpusou.com/http://www.shangpusou.com/news/"><font color="">资讯</font><sup class=""></sup></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--<div class="body1000">-->
+    <div id="ad_header"></div>
+    <div class="clearfix"></div>
+    <div class="clear"></div>
+    <div class="body1000">
+        <div class="location"><a href="http://www.shangpusou.com/">商铺搜</a> <code>></code> <a href="http://www.shangpusou.com/news/.html">热点资讯</a> <code> > </code> <a href="http://www.shangpusou.com/news/catid_4.html">装修</a></div>
+        <div class="clear"></div>
+        <div class="column">
+            <div class="col1">
+                <div class="list_module">
+
+
+
+
+                    @*<div class="nowlist">
+
+
+                <li><span class="title"><a href="http://www.shangpusou.com/news/1368.html" class="title" target="_blank">咖啡馆装修设计 咖啡厅装修效果图</a></span><span class="time">1970-01-01</span></li>
+                <li><span class="title"><a href="http://www.shangpusou.com/news/1018.html" class="title" target="_blank">现代水果店装修效果以及水果店装修过程中需要注意的事项</a></span><span class="time">1970-01-01</span></li>
+
+
+                <li style="background:none"></li>
+
+            </ul>
+        </div>*@
+
+
+
+                    <div class="sp_li_box" style="margin: 10px 30px 10px 15px">
+                        <ul class="sp_li" id='loadimg'>
                             @{
-                                var hotGraphicsTop2List = hotGraphicsList.Take(2);
-                                foreach (var m in hotGraphicsTop2List)
+                                if (Model != null)
                                 {
-                                    <li>
-                                        <h3><a href="/news/@(m.ArticleId).html" class="blue">@m.ArticleTitle</a></h3>
-                                        <a href="/news/@(m.ArticleId).html" rel="nofollow" target="_blank" class="img-box fl-lf">
-                                            <img width="115" height="64" src="@m.CoverMap" alt="@m.ArticleTitle" />
-                                        </a>
-                                        <p>@m.SeoDesc<a href="/news/@(m.ArticleId).html" rel="nofollow" class="ft-color2">[详情]</a></p>
-                                    </li>
+
+                                    string listClass = "class=\"first\"";
+                                    foreach (var m in Model)
+                                    {
+                                        <li @(listClass)>
+                                            @{
+                                                if (!string.IsNullOrEmpty(m.CoverMap))
+                                                {
+                                                    <div class="pic">
+                                                        <a target="0" title="@m.ArticleTitle" href="/news/@(m.Id).html">
+                                                            <img class="lazy" src='/picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.ArticleTitle' width="176" height="132" />
+                                                        </a>
+                                                    </div>
+                                                }
+                                            }
+                                            <h2 class="title">
+                                                <a href="/news/@(m.Id).html" title="@m.ArticleTitle" target="_blank" style=" ">@m.ArticleTitle</a>
+                                            </h2>
+                                            <div class="list_info" style="width:600px">
+                                                <p class="baseinfo">
+                                                    <span>
+                                                        信阳-淮滨-奥斯卡广场
+                                                    </span>
+                                                    <i class="split"></i>
+                                                    <span>@m.SeoDesc</span>
+                                                </p>
+                                            </div>
+                                            <div class="time">@m.CreateDate.ToString("yyyy-MM-dd")</div>
+                                        </li>
+
+                                        listClass = "";
+                                    }
                                 }
                             }
                         </ul>
-                        <ul class="mod-list mg-Lr10 li-listbg">
-                            @{
-                                var hotGraphicsSkip2List = hotGraphicsList.Skip(2);
-                                foreach (var m in hotGraphicsSkip2List)
-                                {
-                                    <li><a href="/news/@m.ArticleId/">@m.ArticleTitle</a></li>
-                                }
-                            }
+                    </div>
+                    <div class="pagination2">
+                        @Html.PagedListPager(Model, page => page == 1 ? "/newsclass/" + ViewBag.ArticleType.Code + "/" : "/newsclass/" + ViewBag.ArticleType.Code + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })                        
+                    </div>                    
+                </div>
+            </div><div class="col2">
+                <div class="searchnews">
+                    <form action="http://www.shangpusou.com/search.php" method="get" target="_blank">
+                        <input name="mod" value="news" type="hidden" />
+                        <input name="cityid" value="0" type="hidden" />
+                        <input name="keywords" value="" type="text" class="input" />
+                        <input type="submit" class="submit" value="搜文章" />
+                    </form>
+                </div>
+                <div class="clear"></div>
+                <div class="information">
+                    <ul>
+                        <li><a href="http://hangzhou.shangpusou.com/canguan/f6704238.html" title="餐饮店铺转让" target="_blank" style=" ">餐饮店铺转让</a></li>
+                        <li><a href="http://yancheng.shangpusou.com/canguan/f6704237.html" title="旺铺急转" target="_blank" style=" ">旺铺急转</a></li>
+                        <li><a href="http://changsha.shangpusou.com/shangpuchuzu/f6704236.html" title="中海阅溪府头铺直租" target="_blank" style=" ">中海阅溪府头铺直租</a></li>
+                        <li><a href="http://hengyang.shangpusou.com/youeryuan/f6704235.html" title="盈利性幼儿园和房产整体打包低价急售转让" target="_blank" style=" ">盈利性幼儿园和房产整体打包低价急售转让</a></li>
+                        <li><a href="http://ningbo.shangpusou.com/youeryuan/f6704234.html" title="宁波余姚市区幼儿园转让" target="_blank" style=" ">宁波余姚市区幼儿园转让</a></li>
+                        <li><a href="http://zhengzhou.shangpusou.com/kuaicandian/f6704233.html" title="曼哈顿cbd商圈70平轻食外卖店转让" target="_blank" style=" ">曼哈顿cbd商圈70平轻食外卖店转让</a></li>
+                        <li><a href="http://huizhou.shangpusou.com/canguan/f6704232.html" title="旅游区景点转让，设备齐全，入手即可营业" target="_blank" style=" ">旅游区景点转让，设备齐全，入手即可营业</a></li>
+                        <li><a href="http://changsha.shangpusou.com/shangpuchuzu/f6704231.html" title="中海阅麓山拐角铺" target="_blank" style=" ">中海阅麓山拐角铺</a></li>
+                        <li><a href="http://kunming.shangpusou.com/canguan/f6704229.html" title="官渡区盈利中火锅店转让" target="_blank" style=" ">官渡区盈利中火锅店转让</a></li>
+                        <li><a href="http://xuzhou.shangpusou.com/shangpuchuzu/f6704228.html" title="新城区工程学院旁星尚广场旺铺转让" target="_blank" style=" ">新城区工程学院旁星尚广场旺铺转让</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="imgnews">
+                    <ul>
+                        <li><a href="http://www.shangpusou.com/news/2729.html"><img src="/picture/20201216011255je8jg0.jpg" alt="警惕房产销售猫腻：收取未予标明价款属变相涨价" /></a><br /><a href="http://www.shangpusou.com/news/2729.html" title="警惕房产销售猫腻：收取未予标明价款属变相涨价" style="color:red">警惕房产销售猫腻：收取未</a></li>
+                        <li><a href="http://www.shangpusou.com/news/2714.html"><img src="/picture/55166675de3445c5a0719920e25f3897.jpg" alt="央行降准:房企缓解资金压力 增加房贷利率下调的可能" /></a><br /><a href="http://www.shangpusou.com/news/2714.html" title="央行降准:房企缓解资金压力 增加房贷利率下调的可能" style="color:red">央行降准:房企缓解资金</a></li>
+                        <li><a href="http://www.shangpusou.com/news/2715.html"><img src="/picture/e613b797f4fb49d9b43873f993534db1.jpg" alt="装修一定要懂得验房，这里有验房知识" /></a><br /><a href="http://www.shangpusou.com/news/2715.html" title="装修一定要懂得验房，这里有验房知识" style="color:red">装修一定要懂得验房，这里</a></li>
+                        <li><a href="http://www.shangpusou.com/news/2716.html"><img src="/picture/781c10471b274e5092226343c689a42b.jpg" alt="开年8000亿元降准“礼包”将惠及谁？" /></a><br /><a href="http://www.shangpusou.com/news/2716.html" title="开年8000亿元降准“礼包”将惠及谁？" style="color:red">开年8000亿元降准“礼包</a></li>
+                        <li><a href="http://www.shangpusou.com/news/2717.html"><img src="/picture/0334066aa4ca461caa2596c70d3d5e72.jpg" alt="北京拟注销251家房企资质 信托和租赁同迎严监管时代" /></a><br /><a href="http://www.shangpusou.com/news/2717.html" title="北京拟注销251家房企资质 信托和租赁同迎严监管时代" style="color:red">北京拟注销251家房企资</a></li>
+                        <li><a href="http://www.shangpusou.com/news/2719.html"><img src="/picture/52ebcad8d30a4f9f928d747b785cb960.jpg" alt="LPR来了 房贷会降吗？" /></a><br /><a href="http://www.shangpusou.com/news/2719.html" title="LPR来了 房贷会降吗？" style="color:red">LPR来了 房贷会降吗？</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="hotread">
+                    <div class="hd">热门阅读排行</div>
+                    <div class="list">
+                        <ul>
+                            <li><a href="http://www.shangpusou.com/news/1.html" title="招商地产董事长" 被架空"=被架空" 贺建亚成第一责"=贺建亚成第一责" style="color:red;">招商地产董事长"被架空" 贺建亚成第一责</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1086.html" title="开冷饮店流程是什么？开冷饮店设备清单,开冷饮店需要多少钱？" style="color:red;">开冷饮店流程是什么？开冷饮店设备清单,开冷饮店需要多少钱？</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1024.html" title="女白领弃万元月薪投资10万元开米粉店" style="color:red;">女白领弃万元月薪投资10万元开米粉店</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1019.html" title="开水果店的流程,开个水果店需要作哪些准备" style="color:red;">开水果店的流程,开个水果店需要作哪些准备</a></li>
+                            <li><a href="http://www.shangpusou.com/news/19.html" title="商铺投资回报率多少最适合投资？商铺投资回报率如何计算？" style="color:red;">商铺投资回报率多少最适合投资？商铺投资回报率如何计算？</a></li>
+                            <li><a href="http://www.shangpusou.com/news/2732.html" title="商业地产大数据合作说明" style="color:red;">商业地产大数据合作说明</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1510.html" title="公司门口摆放石雕狮子应注意哪些风水问题？" style="color:red;">公司门口摆放石雕狮子应注意哪些风水问题？</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1372.html" title="商铺投资回报率如何计算？ &nbsp;  商铺投资回报率多少" style="color:red;">商铺投资回报率如何计算？ &nbsp;  商铺投资回报率多少</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1020.html" title="大学生丁齐全开3D打印社月入1.5万" style="color:red;">大学生丁齐全开3D打印社月入1.5万</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1469.html" title="商铺信息如何才能在左边展示" style="color:red;">商铺信息如何才能在左边展示</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1507.html" title="北京讨论控制商住房市场 分析称限制在售及存量交易可能性小" style="color:red;">北京讨论控制商住房市场 分析称限制在售及存量交易可能性小</a></li>
+                            <li><a href="http://www.shangpusou.com/news/17.html" title="商铺投资回报率如何算 流行的商铺回报率是馅饼还是陷阱？" style="color:red;">商铺投资回报率如何算 流行的商铺回报率是馅饼还是陷阱？</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1383.html" title="旺财门面风水 什么样的门面风水才旺财" style="color:red;">旺财门面风水 什么样的门面风水才旺财</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1508.html" title="店铺里的发财树怎么养才能招财？" style="color:red;">店铺里的发财树怎么养才能招财？</a></li>
+                            <li><a href="http://www.shangpusou.com/news/1072.html" title="开办单位内部食堂需要什么条件和手续" style="color:red;">开办单位内部食堂需要什么条件和手续</a></li>
                         </ul>
-                    }
-                }
-            </section> 
-            <section class="border hot-photo masterpiece mg-t10">
-                <header class="mod-hd ft-yh">
-                    <h2>热门大作</h2>
-                </header>
-                <ul class="mod-img-list mg-Lr10">
-              
-                    @{
-                        var azGameMainPushList = ViewBag.AzGameMainPushList as List<Entity.ViewModels.AzGameMainPush>;
-                        if (azGameMainPushList != null)
-                        {
-                            foreach (var m in azGameMainPushList)
-                            {
-                                <li>
-                                    <a href="/azgame/@(m.AzGameId).html" target="_blank" class="img-box fl-lf"><img width="85" height="120" src="@m.CoverMap" alt="Pattern" /></a>
-                                    <h3 class="ft-yh"><a href="/azgame/@(m.AzGameId).html">@m.AzGameName</a></h3>
-                                    <p>@m.SeoDesc</p>
-                                    <p class="ht"><a href="/azgame/@(m.AzGameId).html" rel="nofollow" class="down ft-yh fl-rt">下载</a></p>
-                                </li>
-                            }
-                        }
-                    }
-                </ul>
-            </section>          
-        </aside>
-    </section>  
-    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div><div id="ad_footerbanner"></div>
+        <div style="display: none" id="ad_none">
+        </div>
+
+
+        <div class="footer">
+            <div class="footer_common">
+                <div class="footer_common_link">
+                    <a href="http://www.shangpusou.com/aboutus.html" rel="nofollow" target="_blank">网站简介</a>
+                    <a href="http://www.shangpusou.com/aboutus-id-2.html" rel="nofollow" target="_blank">广告服务</a>
+                    <a href="http://www.shangpusou.com/aboutus-id-3.html" rel="nofollow" target="_blank">联系我们</a>
+                    <a href="http://www.shangpusou.com/faq.html" rel="nofollow" target="_blank">网站帮助</a>
+                    <a href="http://www.shangpusou.com/friendlink.html" rel="nofollow" target="_blank">友情链接</a>
+                    <a href="http://www.shangpusou.com/announce.html" rel="nofollow" target="_blank">网站公告</a>
+                    <a href="http://www.shangpusou.com/sitemap.html" rel="nofollow" target="_blank">网站地图</a>
+                </div>
+                <div class="footer_common_con">
+                    <p>
+                        Copyright &copy; 商铺搜版权所有. 本站所有信息均归商铺搜网用户所发，严禁转载。 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">湘ICP备2021013894号</a>
+                        <script>
+                            var _hmt = _hmt || [];
+                            (function () {
+                                var hm = document.createElement("script");
+                                hm.src = "https://hm.baidu.com/hm.js?27390b4003f337546042d1a4ea519aff";
+                                var s = document.getElementsByTagName("script")[0];
+                                s.parentNode.insertBefore(hm, s);
+                            })();
+                        </script>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">loadDefault(["addiv", 'shangpusou', "mayilogin"]);</script>
+    </div>
+</body>
+</html>

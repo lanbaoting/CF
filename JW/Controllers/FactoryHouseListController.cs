@@ -11,60 +11,59 @@ namespace JW.Controllers
     public class FactoryHouseListController : BaseController
     {
 
-        public IActionResult Index()
+        public IActionResult ChuShou()
         {
 
-            //int pageNumber;
-            //string gameClassCode = GetRouteName(Request.Path, 1);
+            //一级导航
+            Cf_NavigationService navigationService = new Cf_NavigationService();
+            var navigationList = navigationService.GetNavigationList(1);
+            ViewBag.NavigationList = navigationList;
+
+            ViewBag.Path = HttpContext.Request.Path;
+
+            int pageNumber;
+            //  string gameClassCode = GetRouteName(Request.Path, 1);
+
+            // 区域
+            Cf_AreaService areaService = new Cf_AreaService();
+            var areaList = areaService.GetAreaList(1);
+            ViewBag.AreaList = areaList;
+
+    
+
+            //条件
+            Cf_CitySiteRangeSearchService citySiteRangeSearchService = new Cf_CitySiteRangeSearchService();
+            var citySiteRangeSearchList = citySiteRangeSearchService.GetCitySiteRangeSearchList(1,2);
+            ViewBag.CitySiteRangeSearchList = citySiteRangeSearchList;
 
 
 
-            //if (Request.Path.ToString().ToLower().Contains(".html"))
-            //{
-            //    string paramsStr = GetParams(Request.Path);
+            if (Request.Path.ToString().ToLower().Contains(".html"))
+            {
+                string paramsStr = GetParams(Request.Path);
 
-            //    if (!int.TryParse(paramsStr, out pageNumber))
-            //    {
-            //        return PageNotFound();
-            //    }
-            //}
-            //else {
+                if (!int.TryParse(paramsStr, out pageNumber))
+                {
+                    return PageNotFound();
+                }
+            }
+            else
+            {
+                pageNumber = 1;
+            }
 
-            //    pageNumber = 1;
-            //}
 
 
 
-            ////一级导航
-            //Jw_Navigation2Service navigation2Service = new Jw_Navigation2Service();
-            //var navigation2List = navigation2Service.GetNavigation2ByNavigation1IdList(8);
-            //ViewBag.Navigation2List = navigation2List;
+            //游戏分页列表
+            Cf_FactoryHouseService factoryHouseService = new Cf_FactoryHouseService();
+            var houseData = factoryHouseService.GetPageFactoryHouse("");
 
-            ////导航
-            //var navigation2 = navigation2List.FirstOrDefault(w => Request.QueryString.ToString().Contains(w.LinkAddress));
-            //if (navigation2 == null) {
-            //    navigation2 = navigation2List.FirstOrDefault();
-            //}
+            var m = houseData.ToPagedList(pageNumber, 20);
 
-            //ViewBag.Navigation2 = navigation2;
+            return View(m);
 
-            ////全部安卓游戏分类
-            //Jw_AzGameClassService azGameClassService = new Jw_AzGameClassService();
-            //var azGameClassList = azGameClassService.GetAzGameClassList();           
-            //ViewBag.AzGameClassList = azGameClassList;
-
-            //var azGameClass = azGameClassList.FirstOrDefault(w => w.Code == gameClassCode);
-            //ViewBag.AzGameClass = azGameClass;
-
-            ////游戏分页列表
-            //Jw_AzGameService azGameService = new Jw_AzGameService();
-            //var gameData = azGameService.GetPageGameList(azGameClass.Id);
-
-            //var m = gameData.ToPagedList(pageNumber, 18);
-
-            //return View(m);
-
-            return View();
+          
 
 
         }
