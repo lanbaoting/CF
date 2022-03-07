@@ -155,7 +155,7 @@ namespace JW
                 });
 
 
-                endpoints.MapControllerRoute("FactoryHouseDetails", "/changfangchuzu/{param1}.html", new
+                endpoints.MapControllerRoute("FactoryHouseDetails", "/changfang/{param1}.html", new
                 {
                     controller = "FactoryHouseDetails",
                     action = "Index",
@@ -165,9 +165,17 @@ namespace JW
                 endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/", new
                 {
                     controller = "FactoryHouseList",
-                    action = "ChuShou",
-                    constraints = new { param1 = @"^\w+" }
+                    action = "ChuShou"              
                 });
+
+                endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/{param1}/", new
+                {
+                    controller = "FactoryHouseList",
+                    action = "ChuShou",
+                    constraints = new { param1 = @"\d+" }
+                });
+
+
 
                 endpoints.MapControllerRoute("AzGameClassList", "/azgmcs/{param1}/{param2}.html", new
                 {

@@ -6,9 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="086d05b07bc14c70aecb14510a4a7e87" Name="Diagram1" ZoomLevel="84">
         <EntityTypeShape EntityType="DataCenterModel.Jw_UserVisitLog" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DataCenterModel.Cf_Area" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DataCenterModel.Cf_CitySiteRangeSearch" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DataCenterModel.Cf_ConditionalGroup" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DataCenterModel.Cf_FactoryHouseDictionary" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DataCenterModel.Cf_FactoryHouseDetials" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

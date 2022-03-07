@@ -14,20 +14,35 @@ namespace JW.Controllers
         public IActionResult Index()
         {
 
-            //string paramStr = GetParams(Request.Path);
-            //int gameId;
-            //if (!int.TryParse(paramStr, out gameId))
-            //{
-            //    return PageNotFound();
-            //}
-            ////获取游戏基础信息
-            //Jw_AzGameService azGameService = new Jw_AzGameService();
-            //var azGame = azGameService.GetAzGameById(gameId);
-            //if (azGame == null)
-            //{
-            //    return PageNotFound();
-            //}
-            //ViewBag.AzGame = azGame;
+            string paramStr = GetParams(Request.Path);
+            int factoryHouseId;
+            if (!int.TryParse(paramStr, out factoryHouseId))
+            {
+                return PageNotFound();
+            }
+      
+
+            Cf_FactoryHouseService factoryHouseService = new Cf_FactoryHouseService();
+            var factoryHouse = factoryHouseService.GetFactoryHouse(factoryHouseId);
+
+            if (factoryHouse == null)
+            {
+                return PageNotFound();
+            }
+            ViewBag.FactoryHouse = factoryHouse;
+
+
+             
+            Cf_FactoryHouseDetailsService factoryHouseDetailsService = new Cf_FactoryHouseDetailsService();
+            var factoryHouseDetials = factoryHouseDetailsService.GetFactoryHouseDetials(factoryHouseId);
+            ViewBag.FactoryHouseDetials = factoryHouseDetials;
+
+
+
+            ////图片
+            //Jw_AzGamePicturesService azGamePicturesService = new Jw_AzGamePicturesService();
+            //ViewBag.GamePictureList = azGamePicturesService.GetAzGamePictureList(gameId);
+
 
 
             ////一级导航

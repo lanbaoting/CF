@@ -223,14 +223,14 @@
                                         if (!string.IsNullOrEmpty(m.CoverMap))
                                         {
                                             <div class="pic">
-                                                <a target="0" title="@m.HousingName" href="/changfangchuzu/@(m.Id).html">
+                                                <a target="0" title="@m.HousingName" href="/changfang/@(m.Id).html">
                                                     <img class="lazy" src='/picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.HousingName' width="176" height="132" />
                                                 </a><span class="picNum">2图</span>
                                             </div>
                                         }
                                     }
                                     <h2 class="title">
-                                        <a href="/changfangchuzu/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
+                                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
                                     </h2>
                                     <div class="list_info">
                                         <p class="baseinfo">
@@ -274,7 +274,7 @@
                 </ul>
             </div>
             <div class="page pagination2" id="page">                
-                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchuzu/" + "/" : "/changfangchuzu/" + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchuzu/": "/changfangchuzu/" + page + "/", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
             </div>
         </div>
 

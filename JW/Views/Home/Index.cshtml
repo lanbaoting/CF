@@ -224,123 +224,56 @@
 
     <div class="w1200 con con_4">
         <div class="min">
-            <div class="con_bt"><h3>按行业找店铺</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多北京商铺转让信息&gt;&gt;</a></div>
+            <div class="con_bt"><h3>按结构找厂房</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多北京商铺转让信息&gt;&gt;</a></div>
             <div class="tab">
                 <ul class="title" id="ul_typeshopinfo">
-                    <li typeid="1" class="first on">餐饮美食</li>
-                    <li typeid="2" class="">百货超市</li>
-                    <li typeid="3" class="">生活服务</li>
-                    <li typeid="4" class="">服饰鞋包</li>              
+                    @{
+
+                        var dictionarysLeiBies = ViewBag.DictionarysLeiBies as List<Entity.Models.Cf_FactoryHouseDictionary>;
+
+                        int i = 0;
+                        foreach (var m in dictionarysLeiBies)
+                        {
+                            i++;
+                            if (i == 0)
+                            {
+                                <li typeid="@i" class="first on">@m.Name</li>
+                            }
+                            else
+                            {
+                                <li typeid="@i" >@m.Name</li>
+                            }
+                        }
+                   }        
                 </ul>
                 <div class="tab_con">
-                    <div class="icontent div_typeshopinfo" typeid="1" style="display: block;">
-                        <ul class="list">
-                            <li><span class="areaname"><a href="kuaicandian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/kuaicandian/f6704142.html" title="美食城档口。经营五年老店。客源稳定。无转让费。" target="_blank" style=" ">美食城档口。经营五年老店。客源稳定。无</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/canguan/f6703738.html" title="测试一下测试一下测试一下23" target="_blank" style=" ">测试一下测试一下测试一下23</a><span class="price">转让费 <em>12</em>万元</span></li>
-                            <li><span class="areaname"><a href="xiaochidian/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/xiaochidian/f6703576.html" title="燃气免费！地铁旁有外摆区可24小时营业小吃店转让" target="_blank" style=" ">燃气免费！地铁旁有外摆区可24小时营业小吃</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-0/" target="_blank"></a></span><a href="http://beijing.shangpusou.com/canguan/f6703574.html" title="安贞附近餐厅转让" target="_blank" style=" ">安贞附近餐厅转让</a><span class="price">转让费 <em>100</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/canguan/f6703463.html" title="餐饮饭店转让" target="_blank" style=" ">餐饮饭店转让</a><span class="price">转让费 <em>32</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/canguan/f6700057.html" title="海淀北航大运村底商招租早餐" target="_blank" style=" ">海淀北航大运村底商招租早餐</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="xiaochidian/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/xiaochidian/f6700207.html" title="昌平昌平周边小吃店转让" target="_blank" style=" ">昌平昌平周边小吃店转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="xiaochidian/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/xiaochidian/f6700336.html" title="大兴亦庄早餐车招租" target="_blank" style=" ">大兴亦庄早餐车招租</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="xiaochidian/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/xiaochidian/f6700347.html" title="大兴亦庄小吃店转让" target="_blank" style=" ">大兴亦庄小吃店转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/canguan/f6700446.html" title="通州马驹桥餐馆转让" target="_blank" style=" ">通州马驹桥餐馆转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-340/" target="_blank">顺义</a></span><a href="http://beijing.shangpusou.com/canguan/f6700466.html" title="顺义后沙峪熟食店转让" target="_blank" style=" ">顺义后沙峪熟食店转让</a><span class="price">转让费 <em>12</em>万元</span></li>
-                            <li><span class="areaname"><a href="tianpindian/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/tianpindian/f6701656.html" title="长辛店/云岗/甜品店/面包店/转让（执照齐全设备齐全）" target="_blank" style=" ">长辛店/云岗/甜品店/面包店/转让（执照齐全</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/canguan/f6701759.html" title="大兴林校路餐馆转让" target="_blank" style=" ">大兴林校路餐馆转让</a><span class="price">转让费 <em>30</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-340/" target="_blank">顺义</a></span><a href="http://beijing.shangpusou.com/canguan/f6701821.html" title="顺义石园餐馆转让" target="_blank" style=" ">顺义石园餐馆转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="lengyindian/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/lengyindian/f6701837.html" title="通州次渠一品粥老店转让" target="_blank" style=" ">通州次渠一品粥老店转让</a><span class="price">转让费 <em>18</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-337/" target="_blank">房山</a></span><a href="http://beijing.shangpusou.com/canguan/f6701949.html" title="房山房山周边餐馆转让" target="_blank" style=" ">房山房山周边餐馆转让</a><span class="price">转让费 <em>15</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/canguan/f6703093.html" title="海淀餐馆转让，优质店铺，盈利中" target="_blank" style=" ">海淀餐馆转让，优质店铺，盈利中</a><span class="price">转让费 <em>25</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/canguan/f6697239.html" title="丰台马家堡餐馆急转" target="_blank" style=" ">丰台马家堡餐馆急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-343/" target="_blank">怀柔</a></span><a href="http://beijing.shangpusou.com/canguan/f6693745.html" title="怀柔怀柔周边餐馆转让" target="_blank" style=" ">怀柔怀柔周边餐馆转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/canguan/f6698690.html" title="霄云路精装修居酒屋转让证照齐全" target="_blank" style=" ">霄云路精装修居酒屋转让证照齐全</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-343/" target="_blank">怀柔</a></span><a href="http://beijing.shangpusou.com/canguan/f6698348.html" title="白河湾风景区临国道餐饮出租" target="_blank" style=" ">白河湾风景区临国道餐饮出租</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="kuaicandian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/kuaicandian/f6698131.html" title="朝阳来广营盈利外卖一品生煎转让" target="_blank" style=" ">朝阳来广营盈利外卖一品生煎转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/canguan/f6697779.html" title="房东直租可餐饮无转让费" target="_blank" style=" ">房东直租可餐饮无转让费</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="kuaicandian/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/kuaicandian/f6697570.html" title="海淀上地办公集中区快餐店转让" target="_blank" style=" ">海淀上地办公集中区快餐店转让</a><span class="price">转让费 <em>20</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/canguan/f6694402.html" title="大兴亦庄餐馆急转" target="_blank" style=" ">大兴亦庄餐馆急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/canguan/f6694080.html" title="朝阳十里堡餐馆急转" target="_blank" style=" ">朝阳十里堡餐馆急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="xiaochidian/areaid-337/" target="_blank">房山</a></span><a href="http://beijing.shangpusou.com/xiaochidian/f6693918.html" title="房山燕山早点店转让" target="_blank" style=" ">房山燕山早点店转让</a><span class="price">转让费 <em>14</em>万元</span></li>
-                            <li><span class="areaname"><a href="shitang/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/shitang/f6693308.html" title="朝阳酒仙桥食堂转让" target="_blank" style=" ">朝阳酒仙桥食堂转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/canguan/f6693306.html" title="大兴大兴周边餐馆急转" target="_blank" style=" ">大兴大兴周边餐馆急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="canguan/areaid-337/" target="_blank">房山</a></span><a href="http://beijing.shangpusou.com/canguan/f6693014.html" title="房山房山城关餐馆转让" target="_blank" style=" ">房山房山城关餐馆转让</a><span class="price">转让费 <em>面议</em></span></li>
 
-                        </ul>
-                        <h4 class="more"><a href="/jiulou/" title="更多北京餐饮美食转让信息">更多北京餐饮美食转让信息&gt;&gt;</a></h4>
-                    </div>
-                    <div class="icontent div_typeshopinfo" typeid="2" style="display: none;">
-                        <ul class="list">
-                            <li><span class="areaname"><a href="bianlidian/areaid-0/" target="_blank"></a></span><a href="http://beijing.shangpusou.com/bianlidian/f6703706.html" title="六年老店转让" target="_blank" style=" ">六年老店转让</a><span class="price">转让费 <em>40</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6703307.html" title="生活超市" target="_blank" style=" ">生活超市</a><span class="price">转让费 <em>45</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-0/" target="_blank"></a></span><a href="http://beijing.shangpusou.com/chaoshi/f6703238.html" title="北京朝阳金盏商业街超市转让" target="_blank" style=" ">北京朝阳金盏商业街超市转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6700052.html" title="大兴大兴周边超市转让" target="_blank" style=" ">大兴大兴周边超市转让</a><span class="price">转让费 <em>25</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-333/" target="_blank">西城</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6700242.html" title="超市招租大肉主食熟食水产" target="_blank" style=" ">超市招租大肉主食熟食水产</a><span class="price">转让费 <em>666</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-11371/" target="_blank">密云</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6701608.html" title="密云密云周边超市" target="_blank" style=" ">密云密云周边超市</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6701794.html" title="昌平百善超市转让" target="_blank" style=" ">昌平百善超市转让</a><span class="price">转让费 <em>22</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6697274.html" title="丰台临街底商招租" target="_blank" style=" ">丰台临街底商招租</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6693378.html" title="朝阳常营盈利超市转让" target="_blank" style=" ">朝阳常营盈利超市转让</a><span class="price">转让费 <em>23</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6693374.html" title="（个人转）七里庄地铁口临街1000平旺铺 核心区域 人流量大" target="_blank" style=" ">（个人转）七里庄地铁口临街1000平旺铺 核心</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6693237.html" title="通州果园超市急转" target="_blank" style=" ">通州果园超市急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="bianlidian/areaid-332/" target="_blank">东城</a></span><a href="http://beijing.shangpusou.com/bianlidian/f6691566.html" title="东城东四便利店急转" target="_blank" style=" ">东城东四便利店急转</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6690731.html" title="营业额三千五超市便利店转让" target="_blank" style=" ">营业额三千五超市便利店转让</a><span class="price">转让费 <em>16</em>万元</span></li>
-                            <li><span class="areaname"><a href="bianlidian/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/bianlidian/f6690047.html" title="昌平东小口便利店转让" target="_blank" style=" ">昌平东小口便利店转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="huazhuangpindian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/huazhuangpindian/f6683523.html" title="朝阳十八里店化妆品店转让" target="_blank" style=" ">朝阳十八里店化妆品店转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="huazhuangpindian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/huazhuangpindian/f6683522.html" title="朝阳十八里店化妆品店美甲转让，证照齐全，五年老店，客源稳定，" target="_blank" style=" ">朝阳十八里店化妆品店美甲转让，证照齐全，五</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="bianlidian/areaid-336/" target="_blank">石景山</a></span><a href="http://beijing.shangpusou.com/bianlidian/f6553883.html" title="石景山体育场西街社区24小时便利店转让" target="_blank" style=" ">石景山体育场西街社区24小时便利店转让</a><span class="price">转让费 <em>25</em>万元</span></li>
-                            <li><span class="areaname"><a href="xiaomaibu/areaid-336/" target="_blank">石景山</a></span><a href="http://beijing.shangpusou.com/xiaomaibu/f6428009.html" title="发布十年老店稳定客源烟酒超市" target="_blank" style=" ">发布十年老店稳定客源烟酒超市</a><span class="price">转让费 <em>3</em>万元</span></li>
-                            <li><span class="areaname"><a href="xiaomaibu/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/xiaomaibu/f6428003.html" title="马驹桥兴华小区内部小超市" target="_blank" style=" ">马驹桥兴华小区内部小超市</a><span class="price">转让费 <em>6</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6381429.html" title="经营八年的小区内超市加水站转让" target="_blank" style=" ">经营八年的小区内超市加水站转让</a><span class="price">转让费 <em>15</em>万元</span></li>
-                            <li><span class="areaname"><a href="bianlidian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/bianlidian/f6381407.html" title="北京欧来可便利店转让24k便利店" target="_blank" style=" ">北京欧来可便利店转让24k便利店</a><span class="price">转让费 <em>9</em>万元</span></li>
-                            <li><span class="areaname"><a href="gongyipindian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/gongyipindian/f6371412.html" title="转让朝阳区安贞华联超市店铺" target="_blank" style=" ">转让朝阳区安贞华联超市店铺</a><span class="price">转让费 <em>1</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganhuozahuodian/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/ganhuozahuodian/f6371411.html" title="大型超市入口店面转让" target="_blank" style=" ">大型超市入口店面转让</a><span class="price">转让费 <em>6</em>万元</span></li>
-                            <li><span class="areaname"><a href="huazhuangpindian/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/huazhuangpindian/f6346865.html" title="繁华商业街中心街位置经营化妆品" target="_blank" style=" ">繁华商业街中心街位置经营化妆品</a><span class="price">转让费 <em>2</em>万元</span></li>
-                            <li><span class="areaname"><a href="jingpindian/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/jingpindian/f6341102.html" title="干果水果零食旺铺转让" target="_blank" style=" ">干果水果零食旺铺转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-332/" target="_blank">东城</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6334178.html" title="10年老店出租转让" target="_blank" style=" ">10年老店出租转让</a><span class="price">转让费 <em>28</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-512/" target="_blank">北京周边</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6331289.html" title="北京周边廊坊超市转让" target="_blank" style=" ">北京周边廊坊超市转让</a><span class="price">转让费 <em>11</em>万元</span></li>
-                            <li><span class="areaname"><a href="yanjiuchayedian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/yanjiuchayedian/f6325193.html" title="十里河茶叶茶具食杂店转让" target="_blank" style=" ">十里河茶叶茶具食杂店转让</a><span class="price">转让费 <em>1</em>万元</span></li>
-                            <li><span class="areaname"><a href="jingpindian/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/jingpindian/f6314683.html" title="盈利中生鲜超市转让" target="_blank" style=" ">盈利中生鲜超市转让</a><span class="price">转让费 <em>1</em>万元</span></li>
-                            <li><span class="areaname"><a href="chaoshi/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/chaoshi/f6314682.html" title="盈利中生鲜超市急转急转" target="_blank" style=" ">盈利中生鲜超市急转急转</a><span class="price">转让费 <em>28</em>万元</span></li>
 
-                        </ul>
-                        <h4 class="more"><a href="/baihuo/" title="更多北京百货超市转让信息">更多北京百货超市转让信息&gt;&gt;</a></h4>
-                    </div>
-                    <div class="icontent div_typeshopinfo" typeid="3" style="display: none;">
-                        <ul class="list">
-                            <li><span class="areaname"><a href="songshuisongqidian/areaid-0/" target="_blank"></a></span><a href="http://beijing.shangpusou.com/songshuisongqidian/f6703592.html" title="水站转让" target="_blank" style=" ">水站转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="caipiaodian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/caipiaodian/f5492019.html" title="常营丽景园底商转让紧挨着草房地铁站" target="_blank" style=" ">常营丽景园底商转让紧挨着草房地铁站</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="caipiaodian/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/caipiaodian/f5492868.html" title="海淀区西三旗临街彩票站门店生意体彩、福彩齐全转让" target="_blank" style=" ">海淀区西三旗临街彩票站门店生意体彩、福</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="huadianshuizu/areaid-333/" target="_blank">西城</a></span><a href="http://beijing.shangpusou.com/huadianshuizu/f6698899.html" title="西二环附近花店低价转让" target="_blank" style=" ">西二环附近花店低价转让</a><span class="price">转让费 <em>面议</em></span></li>
-                            <li><span class="areaname"><a href="gonghuachaoshi/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/gonghuachaoshi/f6699003.html" title="朝阳石各庄有水站转让" target="_blank" style=" ">朝阳石各庄有水站转让</a><span class="price">转让费 <em>12</em>万元</span></li>
-                            <li><span class="areaname"><a href="dazifuyin/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/dazifuyin/f6696471.html" title="朝阳孙河打字复印转让" target="_blank" style=" ">朝阳孙河打字复印转让</a><span class="price">转让费 <em>12</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6697115.html" title="昌平回龙观干洗店转让" target="_blank" style=" ">昌平回龙观干洗店转让</a><span class="price">转让费 <em>12</em>万元</span></li>
-                            <li><span class="areaname"><a href="songshuisongqidian/areaid-330/" target="_blank">海淀</a></span><a href="http://beijing.shangpusou.com/songshuisongqidian/f6698289.html" title="西北旺北清路快递驿站转让" target="_blank" style=" ">西北旺北清路快递驿站转让</a><span class="price">转让费 <em>7</em>万元</span></li>
-                            <li><span class="areaname"><a href="caipiaodian/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/caipiaodian/f6698320.html" title="通州张家湾彩票店转让" target="_blank" style=" ">通州张家湾彩票店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="dazifuyin/areaid-333/" target="_blank">西城</a></span><a href="http://beijing.shangpusou.com/dazifuyin/f6693733.html" title="西城月坛打字复印急转" target="_blank" style=" ">西城月坛打字复印急转</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="gonghuachaoshi/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/gonghuachaoshi/f6691300.html" title="朝阳区国航大厦报刊亭转让" target="_blank" style=" ">朝阳区国航大厦报刊亭转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6690516.html" title="朝阳双桥干洗店转让" target="_blank" style=" ">朝阳双桥干洗店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="zhaoxiangguan/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/zhaoxiangguan/f6690473.html" title="昌平南口照相馆转让、招合作、招租" target="_blank" style=" ">昌平南口照相馆转让、招合作、招租</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6689928.html" title="朝阳双桥塔营物美干洗店转让" target="_blank" style=" ">朝阳双桥塔营物美干洗店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6689843.html" title="朝阳双桥干洗店转让" target="_blank" style=" ">朝阳双桥干洗店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chongwudian/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/chongwudian/f6689208.html" title="大兴亦庄宠物店转让" target="_blank" style=" ">大兴亦庄宠物店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="hunshasheyingdian/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/hunshasheyingdian/f6689175.html" title="丰台刘家窑婚纱摄影店转让" target="_blank" style=" ">丰台刘家窑婚纱摄影店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chongwudian/areaid-340/" target="_blank">顺义</a></span><a href="http://beijing.shangpusou.com/chongwudian/f6688255.html" title="顺义别墅区底商宠物店转让东方太阳城" target="_blank" style=" ">顺义别墅区底商宠物店转让东方太阳城</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-340/" target="_blank">顺义</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6688069.html" title="顺义后沙峪干洗店一0转让费" target="_blank" style=" ">顺义后沙峪干洗店一0转让费</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="zhaoxiangguan/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/zhaoxiangguan/f6626510.html" title="诚信转让 丰台区古装摄影成熟店" target="_blank" style=" ">诚信转让 丰台区古装摄影成熟店</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-340/" target="_blank">顺义</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6603108.html" title="顺义顺义城区干洗店转让" target="_blank" style=" ">顺义顺义城区干洗店转让</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chongwudian/areaid-336/" target="_blank">石景山</a></span><a href="http://beijing.shangpusou.com/chongwudian/f6375452.html" title="旺铺转租经常在外地出差" target="_blank" style=" ">旺铺转租经常在外地出差</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6367087.html" title="旺铺干洗店转让急急急" target="_blank" style=" ">旺铺干洗店转让急急急</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="chongwudian/areaid-336/" target="_blank">石景山</a></span><a href="http://beijing.shangpusou.com/chongwudian/f6356567.html" title="转让石景山区优质宠物店转让稳定客流及会员" target="_blank" style=" ">转让石景山区优质宠物店转让稳定客流及会</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-338/" target="_blank">大兴</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6325196.html" title="翰皇皮具护理5年老店品牌升级翰诺" target="_blank" style=" ">翰皇皮具护理5年老店品牌升级翰诺</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-335/" target="_blank">丰台</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6325184.html" title="生意稳定店子多忙不过来" target="_blank" style=" ">生意稳定店子多忙不过来</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="zhaoxiangguan/areaid-339/" target="_blank">通州</a></span><a href="http://beijing.shangpusou.com/zhaoxiangguan/f6319031.html" title="通州宋庄摄影棚转租可住人" target="_blank" style=" ">通州宋庄摄影棚转租可住人</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="huadianshuizu/areaid-341/" target="_blank">昌平</a></span><a href="http://beijing.shangpusou.com/huadianshuizu/f6319030.html" title="鲜花店转让多年老店生意稳定" target="_blank" style=" ">鲜花店转让多年老店生意稳定</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="ganxidian/areaid-337/" target="_blank">房山</a></span><a href="http://beijing.shangpusou.com/ganxidian/f6314685.html" title="北京房山良乡干洗店转让或者出租" target="_blank" style=" ">北京房山良乡干洗店转让或者出租</a><span class="price">转让费 <em>10</em>万元</span></li>
-                            <li><span class="areaname"><a href="songshuisongqidian/areaid-331/" target="_blank">朝阳</a></span><a href="http://beijing.shangpusou.com/songshuisongqidian/f6299026.html" title="高碑店便民水站低价转让客源稳定" target="_blank" style=" ">高碑店便民水站低价转让客源稳定</a><span class="price">转让费 <em>10</em>万元</span></li>
+                    @{
 
-                        </ul>
-                        <h4 class="more"><a href="/shenghuo/" title="更多北京生活服务转让信息">更多北京生活服务转让信息&gt;&gt;</a></h4>
-                    </div>             
+                        var factoryHouseCategoryHouseList = ViewBag.FactoryHouseCategoryHouseList as List<Entity.ViewModels.GroupFactoryHouseDictionaryHouse>;
+
+                        i = 0;
+                        string style = "block";
+                        foreach (var m in dictionarysLeiBies)
+                        {
+
+                            i++;
+                            <div class="icontent div_typeshopinfo" typeid="@i" style="display:@style;">
+                                <ul class="list">
+                                    @{
+                                        var factoryHouseDictionaryHouseLeiBies = factoryHouseCategoryHouseList.FirstOrDefault(w => w.FactoryHouseDictionaryId == m.Id);
+                                        foreach (var h in factoryHouseDictionaryHouseLeiBies.FactoryHouseList) 
+                                        { 
+                                          <li><span class="areaname"><a href="/changfang/@(h.Id).html" target="_blank">@h.HousingName</a></span><a href="/changfang/@(h.Id).html" title="@h.HousingName" target="_blank" style=" ">@h.HousingName</a><span class="price">单价 <em>@(h.UnitPrice==null? "面议" : h.UnitPrice.ToString())</em></span></li>    
+                                        }
+                                    }                                                                        
+                                </ul>
+                                <h4 class="more"><a href="/jiulou/" title="更多北京餐饮美食转让信息">更多北京餐饮美食转让信息&gt;&gt;</a></h4>
+                            </div>
+                           style = "none";
+                        }
+                    }
                 </div>
             </div>
         </div>
@@ -354,19 +287,19 @@
         <ul class="pic_list_tel">
             @{ 
                 var factoryHouseChuShouList =  ViewBag.FactoryHouseChuShouList as List<Entity.Models.Cf_FactoryHouse>;
-                foreach (var m in factoryHouseChuShouList) { 
+                foreach (var m in factoryHouseChuShouList) {
                         <li>
-                            <a href="/changfangchushou/@(m.Id).html" title="@m.HousingName" target="_blank">
+                            <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
                                 <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
                             </a>
                             <div class="con_bt_p">
-                                <h4><a href="/changfangchushou/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
+                                <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
                                 <div class="con_bt_p_mx">
                                     <div class="fl"> <span>@m.UnitPrice</span> 元/平 </div>
                                     <div class="fr">@m.HousingArea 平</div>
                                 </div>
                                 <div class="con_bt_p_mx">
-                                    <div class="fl">@m.F_CreateDate.ToString("yyyy-MM-dd")</div>
+                                    <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
                                     <div class="fr">570人已浏览</div>
                                 </div>
                             </div>
@@ -383,16 +316,16 @@
     <div class="w1200 con con_6">
         <div class="con_bt"><h3>北京商厂房出租</h3><a class="more" href="/shangpuchushou/" title="最新商厂房出租信息">更多&gt;&gt;</a></div>
         <ul class="pic_list_tel">     
-            @{
+            @*@{
                 var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
                 foreach (var m in factoryHouseChuZuList)
                 {
                     <li>
-                        <a href="/changfangchushou/@(m.Id).html" title="@m.HousingName" target="_blank">
+                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
                             <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
                         </a>
                         <div class="con_bt_p">
-                            <h4><a href="/changfangchushou/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
+                            <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
                             <div class="con_bt_p_mx">
                                 <div class="fl"> <span>@m.HousingRent</span> 元/月 </div>
                                 <div class="fr">@m.HousingArea 平</div>
@@ -404,7 +337,7 @@
                         </div>
                     </li>
                 }
-            }
+            }*@
         </ul>
     </div>
 

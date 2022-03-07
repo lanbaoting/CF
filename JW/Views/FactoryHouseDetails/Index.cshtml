@@ -196,15 +196,164 @@
                 <div class="info_box_l_miaoshu">
                     <h3><em></em>描述</h3>
                     <div class="info_box_l_miaoshu_con">
-                        北京丰台区南三环外200米距离&nbsp;周边商圈功能齐全&nbsp;交通方便地铁站5分钟距离&nbsp;有停车场<br>联系我时，请说是在商铺搜看到的，谢谢！
+                        @Html.Raw(ViewBag.FactoryHouseDetials.FactoryHouseContent) ;
+
+
+                         <br/>联系我时，请说是在商铺搜看到的，谢谢！
+                    </div>
+                </div>
+                <div class="info_box_l_miaoshu">
+                    <h3><em></em>配套</h3>
+                    <div class="info_box_l_miaoshu_con">
+                        <ul class="peitao_icon">
+                            @{
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ShouJia))
+                                {
+                                    <li>售价：@(ViewBag.FactoryHouseDetials.ShouJia)元/m²</li>
+                                    <li>售价--：@(ViewBag.FactoryHouse.UnitPrice)元/m²</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.QuYu))
+                                {
+                                    <li>区域：@(ViewBag.FactoryHouseDetials.QuYu)</li>
+                                    <li>市：@(ViewBag.FactoryHouse.CityName)</li>
+                                    <li>区：@(ViewBag.FactoryHouse.DistrictName)</li>
+                                    <li>街：@(ViewBag.FactoryHouse.StreetName)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.DiZhi))
+                                {
+                                    <li>地址：@(ViewBag.FactoryHouseDetials.DiZhi)</li>
+                                    <li>地址：@(ViewBag.FactoryHouse.FullAddress)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChangFangLeiXing))
+                                {
+                                    <li>厂房类型：@(ViewBag.FactoryHouseDetials.ChangFangLeiXing)</li>
+                                    <li>厂房类型：@(ViewBag.FactoryHouse.TransactionModeId)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.LianXiRen))
+                                {
+                                    <li>联系人：@(ViewBag.FactoryHouseDetials.LianXiRen)</li>
+                                    <li>联系人：@(ViewBag.FactoryHouse.ContactsName)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.LianXiRenShenFen))
+                                {
+                                    <li>身份：@(ViewBag.FactoryHouseDetials.LianXiRenShenFen)</li>
+                                    <li>身份：@(ViewBag.FactoryHouse.ContactsTypeId)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.LianXiRenShouJi))
+                                {
+                                    <li>联系方式：<img src="@("https://sy.99cfw.com")@(ViewBag.FactoryHouseDetials.LianXiRenShouJi)" /></li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChangFangLeiBie))
+                                {
+                                    <li>厂房类别：@(ViewBag.FactoryHouseDetials.ChangFangLeiBie)</li>
+                                    <li>厂房类别：@(ViewBag.FactoryHouse.HousingtypeId)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.JianZhuJieGou))
+                                {
+                                    <li>建筑结构：@(ViewBag.FactoryHouseDetials.JianZhuJieGou)</li>
+                                    <li>建筑结构：@(ViewBag.FactoryHouse.HousingStructureId)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KuaDu))
+                                {
+                                    <li>跨度：@(ViewBag.FactoryHouseDetials.KuaDu)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.DuYuan))
+                                {
+                                    <li>独院：@(ViewBag.FactoryHouseDetials.DuYuan)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ZhanDiMianJi))
+                                {
+                                    <li>占地面积：@(ViewBag.FactoryHouseDetials.ZhanDiMianJi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChangFangMianJi))
+                                {
+                                    <li>厂房面积：@(ViewBag.FactoryHouseDetials.ChangFangMianJi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.MianJi))
+                                {
+                                    <li>面积：@(ViewBag.FactoryHouseDetials.MianJi)</li>
+                                    <li>面积--：@(ViewBag.FactoryHouse.HousingArea)m²</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.BanGongMianJi))
+                                {
+                                    <li>办公面积：@(ViewBag.FactoryHouseDetials.BanGongMianJi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.SuSheMianJi))
+                                {
+                                    <li>宿舍面积：@(ViewBag.FactoryHouseDetials.SuSheMianJi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KongDiMianJi))
+                                {
+                                    <li>空地面积：@(ViewBag.FactoryHouseDetials.KongDiMianJi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.CengGao))
+                                {
+                                    <li>层高：@(ViewBag.FactoryHouseDetials.CengGao)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XianPeiDian))
+                                {
+                                    <li>现配电：@(ViewBag.FactoryHouseDetials.XianPeiDian)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KePeiDian))
+                                {
+                                    <li>可配电：@(ViewBag.FactoryHouseDetials.KePeiDian)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XinJiuChengDu))
+                                {
+                                    <li>新旧程度：@(ViewBag.FactoryHouseDetials.XinJiuChengDu)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChanQuan))
+                                {
+                                    <li>产权：@(ViewBag.FactoryHouseDetials.ChanQuan)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XingChe))
+                                {
+                                    <li>行车：@(ViewBag.FactoryHouseDetials.XingChe)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.DianTi))
+                                {
+                                    <li>电梯：@(ViewBag.FactoryHouseDetials.DianTi)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ShiHeHangYe))
+                                {
+                                    <li>适合行业：@(ViewBag.FactoryHouseDetials.ShiHeHangYe)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChangFangTeSe))
+                                {
+                                    <li>厂房特色：@(ViewBag.FactoryHouseDetials.ChangFangTeSe)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XiaoFang))
+                                {
+                                    <li>消防：@(ViewBag.FactoryHouseDetials.XiaoFang)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ShiJian))
+                                {
+                                    <li>时间：@(ViewBag.FactoryHouseDetials.ShiJian)</li>
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.CengShu))
+                                {
+                                    <li>层数：@(ViewBag.FactoryHouseDetials.CengShu)</li>
+                                    <li>层数：@(ViewBag.FactoryHouse.FloorTypeId)</li>
+
+                                }
+                                if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.LianXiRenQq))
+                                {
+                                    <li>QQ：@(ViewBag.FactoryHouseDetials.LianXiRenQq)</li>
+                                }
+                            }
+
+
+
+                            @*<li><i></i>中央空调</li>*@
+                        </ul>
                     </div>
                 </div>
                 <div class="info_box_l_miaoshu">
                     <h3><em></em>图片</h3>
                     <div class="info_box_l_miaoshu_con">
                         <ul class="general-pic-list" style="height: auto;">
-                            <a href="/picture/1636644525hnoc5.jpeg" target="_blank"><img src="/picture/1636644525hnoc5.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租"></a>
-                            <a href="/picture/1636644525se3pg.jpeg" target="_blank"><img src="/picture/1636644525se3pg.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租"></a>
+                            <a href="/picture/1636644525hnoc5.jpeg" target="_blank"><img src="/picture/1636644525hnoc5.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租" /></a>
+                            <a href="/picture/1636644525se3pg.jpeg" target="_blank"><img src="/picture/1636644525se3pg.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租" /></a>
                         </ul>
                     </div>
                 </div>
@@ -218,7 +367,7 @@
                             <li>
                                 <div class="pic">
                                     <a href="http://beijing.shangpusou.com/changfangchuzu/f6697046.html">
-                                        <img src="/picture/nopic.gif" onerror="this.src='/Images/nopic.gif'" alt="通州永乐店厂房出租 联东U谷产业园" target="_blank">
+                                        <img src="/picture/nopic.gif" onerror="this.src='/Images/nopic.gif'" alt="通州永乐店厂房出租 联东U谷产业园" target="_blank" />
                                     </a>
                                 </div>
                                 <p class="bt"><a href="http://beijing.shangpusou.com/changfangchuzu/f6697046.html" title="通州永乐店厂房出租 联东U谷产业园" target="_blank">通州永乐店厂房出租 </a></p>
@@ -227,13 +376,13 @@
                             <li>
                                 <div class="pic">
                                     <a href="http://beijing.shangpusou.com/changfangchuzu/f6695307.html">
-                                        <img src="/picture/nopic.gif" onerror="this.src='/Images/nopic.gif'" alt="朝阳区体育文化园2200平场地出租" target="_blank">
+                                        <img src="/picture/nopic.gif" onerror="this.src='/Images/nopic.gif'" alt="朝阳区体育文化园2200平场地出租" target="_blank" />
                                     </a>
                                 </div>
                                 <p class="bt"><a href="http://beijing.shangpusou.com/changfangchuzu/f6695307.html" title="朝阳区体育文化园2200平场地出租" target="_blank">朝阳区体育文化园2200</a></p>
                                 <p class="price">转让费：面议  <span class="area">2200㎡</span></p>
                             </li>
-                       
+
 
                         </ul>
                     </div>

@@ -81,8 +81,10 @@ namespace Entity
         public virtual DbSet<Cf_FactoryHouse> Cf_FactoryHouse { get; set; }
         public virtual DbSet<Cf_CitySiteRangeSearch> Cf_CitySiteRangeSearch { get; set; }
         public virtual DbSet<Cf_Area> Cf_Area { get; set; }
-        public virtual DbSet<Cf_ConditionalGroup> Cf_ConditionalGroup { get; set; }
-
-
+        public virtual DbSet<Cf_FactoryHouseDictionary> Cf_FactoryHouseDictionary { get; set; }
+        public virtual DbSet<Cf_FactoryHouseDetials> Cf_FactoryHouseDetials { get; set; }
+        public virtual DbSet<Cf_FactoryHouseFeature> Cf_FactoryHouseFeature { get; set; }
+        public virtual DbSet<Cf_FactoryHousePictures> Cf_FactoryHousePictures { get; set; }
+        public virtual DbSet<Cf_FactoryHouseCategory> Cf_FactoryHouseCategory { get; set; }
     }
 }

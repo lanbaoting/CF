@@ -8,24 +8,21 @@ using System.Linq;
 
 namespace Bll.Service
 {
-    public class Cf_FactoryHouseService : BaseService
+    public class Cf_FactoryHouseFeatureService : BaseService
     {
 
 
 
-      
-        /// <summary>
-        /// 
+        /// <summary>       
+        ///  通过主键获取文章
         /// </summary>
-        /// <param name="articleId"></param>
         /// <returns></returns>
-        public Cf_FactoryHouse GetFactoryHouse(int articleId)
+        public List<Cf_FactoryHouseFeature> GetFactoryHouseFeatureList(int factoryHouseId)
         {
             try
             {
-                var factoryHouse = Context.Cf_FactoryHouse.FirstOrDefault(w =>w.IsEnable && w.Id == articleId);
-                factoryHouse = Context.Cf_FactoryHouse.FirstOrDefault(w => w.Id == articleId);
-                return factoryHouse;
+                var list = Context.Cf_FactoryHouseFeature.Where(w => w.FactoryHouseId == factoryHouseId).ToList();
+                return list;
             }
             catch (Exception e)
             {
@@ -64,8 +61,8 @@ namespace Bll.Service
             try
             {
                 var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable);
-                  list = Context.Cf_FactoryHouse;
-                list = list.OrderByDescending(w => w.F_CreateDate);
+
+                list = list.OrderByDescending(w => w.ReleaseTime);
 
 
                 return list;
@@ -82,99 +79,18 @@ namespace Bll.Service
         /// </summary>
         /// <param name="topCount"></param>
         /// <returns></returns>
-        public List<GroupFactoryHouseDictionaryHouse> GetFactoryHouseCategoryHouseList(List<int> ids, List<int> dictionaryIds ,int topCount)
+        public List<Cf_FactoryHouse> GetFactoryHouseList( int topCount,int transactionModeId)
         {
             try
             {
-                
-                var factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable && !ids.Contains(w.Id));
-               
-                
-                List<GroupFactoryHouseDictionaryHouse> data = new List<GroupFactoryHouseDictionaryHouse>();
-                foreach (var id in dictionaryIds)
-                {
-                    var factoryHouseIds = Context.Cf_FactoryHouseCategory.Where(w => w.FactoryHouseDictionaryId == id && !ids.Contains(w.FactoryHouseId.Value)).Take(topCount).Select(s=>s.FactoryHouseId.Value).ToList();
-                    var rows = factoryHouses.Where(w => factoryHouseIds.Contains(w.Id)).ToList();                   
-                    data.Add(new GroupFactoryHouseDictionaryHouse
-                    {
-                        FactoryHouseDictionaryId = id,
-                        FactoryHouseList = rows
-                    });
-                     ids.AddRange(factoryHouseIds);
-                    factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable && !ids.Contains(w.Id));
-                }
-
-                return data;
-
-
+                var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable && w.TransactionModeId == transactionModeId ).OrderByDescending(s => s.F_CreateDate).Take(topCount).ToList();
+                return list;
             }
             catch (Exception e)
             {
                 return null;
             }
         }
-
-
-
-
-        /// <summary>
-        /// 前几条
-        /// </summary>
-        /// <param name="topCount"></param>
-        /// <returns></returns>
-        public List<GroupFactoryHouseDictionaryHouse> GetFloorTypeFactoryHouseList(IEnumerable<int> ids, IEnumerable<int> dictionaryIds, int topCount)
-        {
-            try
-            {
-
-                var factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable && !ids.Contains(w.Id));
-            
- 
-                List<GroupFactoryHouseDictionaryHouse> data = new List<GroupFactoryHouseDictionaryHouse>();
-                foreach (var id in dictionaryIds)
-                {
-                    var rows = factoryHouses.Where(w => w.FloorTypeId == id).Take(topCount).ToList();
-                    data.Add(new GroupFactoryHouseDictionaryHouse
-                    {
-                        FactoryHouseDictionaryId = id,
-                        FactoryHouseList = rows
-                    });
-                }
-
-
-                return data;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-
-
-
-        /// <summary>
-        /// 前几条
-        /// </summary>
-        /// <param name="topCount"></param>
-        /// <returns></returns>
-        public List<Cf_FactoryHouse> GetFactoryHouseList(int topCount, int transactionModeId)
-        {
-            try
-            {
-                var list = Context.Cf_FactoryHouse.Where(w=>w.IsEnable ==true && w.TransactionModeId == transactionModeId).OrderByDescending(o=>o.ReleaseTime).Take(topCount);
-               
-                return list.ToList();
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-
-
-
 
 
         /// <summary>

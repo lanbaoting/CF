@@ -5,58 +5,61 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DataCenterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Cf_Area">
+        <EntityType Name="Cf_FactoryHouseDetials">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AreaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactoryHouseId" Type="int" Nullable="false" />
+          <Property Name="FactoryHouseContent" Type="ntext" Nullable="false" />
+          <Property Name="TailContent" Type="nvarchar" MaxLength="300" />
+          <Property Name="QuYu" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DiZhi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ChangFangLeiXing" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LianXiRen" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LianXiRenShenFen" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LianXiRenShouJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ChangFangLeiBie" Type="nvarchar" MaxLength="2000" />
+          <Property Name="JianZhuJieGou" Type="nvarchar" MaxLength="2000" />
+          <Property Name="KuaDu" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DuYuan" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ZhanDiMianJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ChangFangMianJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="BanGongMianJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SuSheMianJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="KongDiMianJi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CengGao" Type="nvarchar" MaxLength="2000" />
+          <Property Name="XianPeiDian" Type="nvarchar" MaxLength="2000" />
+          <Property Name="KePeiDian" Type="nvarchar" MaxLength="2000" />
+          <Property Name="XinJiuChengDu" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ChanQuan" Type="nvarchar" MaxLength="2000" />
+          <Property Name="XingChe" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DianTi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ShiHeHangYe" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ChangFangTeSe" Type="nvarchar" MaxLength="2000" />
+          <Property Name="XiaoFang" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ShiJian" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LianXiRenQq" Type="nvarchar" MaxLength="2000" />
+          <Property Name="F_CreateDate" Type="datetime" />
+          <Property Name="F_CreateUserId" Type="varchar" MaxLength="50" />
+          <Property Name="F_CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="F_ModifyDate" Type="datetime" />
+          <Property Name="F_ModifyUserId" Type="varchar" MaxLength="50" />
+          <Property Name="F_ModifyUserName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cf_FactoryHouseDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParentId" Type="int" />
-          <Property Name="AreaCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="AreaName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="QuickQuery" Type="nvarchar" MaxLength="200" />
-          <Property Name="SimpleSpelling" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Layer" Type="int" />
-          <Property Name="SortCode" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
-          <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_CreateUserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_ModifyDate" Type="datetime2" Precision="7" />
-          <Property Name="F_ModifyUserId" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_ModifyUserName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Cf_CitySiteRangeSearch">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AreaId" Type="int" Nullable="false" />
-          <Property Name="ConditionalGroupId" Type="int" Nullable="false" />
-          <Property Name="WebTypeId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Sort" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="SeoTitle" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="SeoKey" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="SeoDesc" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
-          <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_CreateUserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_ModifyDate" Type="datetime2" Precision="7" />
-          <Property Name="F_ModifyUserId" Type="nvarchar" MaxLength="50" />
-          <Property Name="F_ModifyUserName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Cf_ConditionalGroup">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AreaId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="SeoKey" Type="nvarchar" MaxLength="500" />
+          <Property Name="SeoDesc" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsEnable" Type="bit" Nullable="false" />
           <Property Name="F_CreateDate" Type="datetime2" Precision="7" />
           <Property Name="F_CreateUserId" Type="nvarchar" MaxLength="50" />
@@ -112,9 +115,8 @@
           <Property Name="AnalysisState" Type="int" />
         </EntityType>
         <EntityContainer Name="DataCenterModelStoreContainer">
-          <EntitySet Name="Cf_Area" EntityType="Self.Cf_Area" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cf_CitySiteRangeSearch" EntityType="Self.Cf_CitySiteRangeSearch" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cf_ConditionalGroup" EntityType="Self.Cf_ConditionalGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cf_FactoryHouseDetials" EntityType="Self.Cf_FactoryHouseDetials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cf_FactoryHouseDictionary" EntityType="Self.Cf_FactoryHouseDictionary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jw_UserVisitLog" EntityType="Self.Jw_UserVisitLog" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Jw_UserVisitLog].[Id] AS [Id], 
@@ -165,9 +167,8 @@
       <Schema Namespace="DataCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DataCenterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Jw_UserVisitLog" EntityType="DataCenterModel.Jw_UserVisitLog" />
-          <EntitySet Name="Cf_Area" EntityType="DataCenterModel.Cf_Area" />
-          <EntitySet Name="Cf_CitySiteRangeSearch" EntityType="DataCenterModel.Cf_CitySiteRangeSearch" />
-          <EntitySet Name="Cf_ConditionalGroup" EntityType="DataCenterModel.Cf_ConditionalGroup" />
+          <EntitySet Name="Cf_FactoryHouseDictionary" EntityType="DataCenterModel.Cf_FactoryHouseDictionary" />
+          <EntitySet Name="Cf_FactoryHouseDetials" EntityType="DataCenterModel.Cf_FactoryHouseDetials" />
         </EntityContainer>
         <EntityType Name="Jw_UserVisitLog">
           <Key>
@@ -213,19 +214,19 @@
           <Property Name="VisitTime" Type="DateTime" Precision="3" />
           <Property Name="AnalysisState" Type="Int32" />
         </EntityType>
-        <EntityType Name="Cf_Area">
+        <EntityType Name="Cf_FactoryHouseDictionary">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ParentId" Type="Int32" />
-          <Property Name="AreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AreaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QuickQuery" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="SimpleSpelling" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Layer" Type="Int32" />
-          <Property Name="SortCode" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="SeoTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SeoKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IsEnable" Type="Boolean" Nullable="false" />
           <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
           <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -234,44 +235,47 @@
           <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Cf_CitySiteRangeSearch">
+        <EntityType Name="Cf_FactoryHouseDetials">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AreaId" Type="Int32" Nullable="false" />
-          <Property Name="ConditionalGroupId" Type="Int32" Nullable="false" />
-          <Property Name="WebTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sort" Type="Int32" Nullable="false" />
-          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
-          <Property Name="SeoTitle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SeoKey" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SeoDesc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
-          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_ModifyDate" Type="DateTime" Precision="7" />
-          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Cf_ConditionalGroup">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AreaId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sort" Type="Int32" Nullable="false" />
-          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
-          <Property Name="F_CreateDate" Type="DateTime" Precision="7" />
-          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_ModifyDate" Type="DateTime" Precision="7" />
-          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryHouseId" Type="Int32" Nullable="false" />
+          <Property Name="FactoryHouseContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TailContent" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="QuYu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DiZhi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ChangFangLeiXing" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LianXiRen" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LianXiRenShenFen" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LianXiRenShouJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ChangFangLeiBie" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="JianZhuJieGou" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="KuaDu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DuYuan" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ZhanDiMianJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ChangFangMianJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="BanGongMianJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SuSheMianJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="KongDiMianJi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CengGao" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="XianPeiDian" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="KePeiDian" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="XinJiuChengDu" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ChanQuan" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="XingChe" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DianTi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ShiHeHangYe" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ChangFangTeSe" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="XiaoFang" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJian" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LianXiRenQq" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="F_CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="F_CreateUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="F_ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -324,9 +328,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cf_Area">
-            <EntityTypeMapping TypeName="DataCenterModel.Cf_Area">
-              <MappingFragment StoreEntitySet="Cf_Area">
+          <EntitySetMapping Name="Cf_FactoryHouseDictionary">
+            <EntityTypeMapping TypeName="DataCenterModel.Cf_FactoryHouseDictionary">
+              <MappingFragment StoreEntitySet="Cf_FactoryHouseDictionary">
                 <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
                 <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
                 <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
@@ -334,55 +338,57 @@
                 <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
                 <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
                 <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
-                <ScalarProperty Name="Layer" ColumnName="Layer" />
-                <ScalarProperty Name="SimpleSpelling" ColumnName="SimpleSpelling" />
-                <ScalarProperty Name="QuickQuery" ColumnName="QuickQuery" />
-                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
-                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Cf_CitySiteRangeSearch">
-            <EntityTypeMapping TypeName="DataCenterModel.Cf_CitySiteRangeSearch">
-              <MappingFragment StoreEntitySet="Cf_CitySiteRangeSearch">
-                <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
-                <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
-                <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
-                <ScalarProperty Name="F_CreateUserName" ColumnName="F_CreateUserName" />
-                <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
-                <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
                 <ScalarProperty Name="SeoDesc" ColumnName="SeoDesc" />
                 <ScalarProperty Name="SeoKey" ColumnName="SeoKey" />
                 <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
                 <ScalarProperty Name="Sort" ColumnName="Sort" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="WebTypeId" ColumnName="WebTypeId" />
-                <ScalarProperty Name="ConditionalGroupId" ColumnName="ConditionalGroupId" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cf_ConditionalGroup">
-            <EntityTypeMapping TypeName="DataCenterModel.Cf_ConditionalGroup">
-              <MappingFragment StoreEntitySet="Cf_ConditionalGroup">
+          <EntitySetMapping Name="Cf_FactoryHouseDetials">
+            <EntityTypeMapping TypeName="DataCenterModel.Cf_FactoryHouseDetials">
+              <MappingFragment StoreEntitySet="Cf_FactoryHouseDetials">
                 <ScalarProperty Name="F_ModifyUserName" ColumnName="F_ModifyUserName" />
                 <ScalarProperty Name="F_ModifyUserId" ColumnName="F_ModifyUserId" />
                 <ScalarProperty Name="F_ModifyDate" ColumnName="F_ModifyDate" />
                 <ScalarProperty Name="F_CreateUserName" ColumnName="F_CreateUserName" />
                 <ScalarProperty Name="F_CreateUserId" ColumnName="F_CreateUserId" />
                 <ScalarProperty Name="F_CreateDate" ColumnName="F_CreateDate" />
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-                <ScalarProperty Name="Sort" ColumnName="Sort" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="LianXiRenQq" ColumnName="LianXiRenQq" />
+                <ScalarProperty Name="ShiJian" ColumnName="ShiJian" />
+                <ScalarProperty Name="XiaoFang" ColumnName="XiaoFang" />
+                <ScalarProperty Name="ChangFangTeSe" ColumnName="ChangFangTeSe" />
+                <ScalarProperty Name="ShiHeHangYe" ColumnName="ShiHeHangYe" />
+                <ScalarProperty Name="DianTi" ColumnName="DianTi" />
+                <ScalarProperty Name="XingChe" ColumnName="XingChe" />
+                <ScalarProperty Name="ChanQuan" ColumnName="ChanQuan" />
+                <ScalarProperty Name="XinJiuChengDu" ColumnName="XinJiuChengDu" />
+                <ScalarProperty Name="KePeiDian" ColumnName="KePeiDian" />
+                <ScalarProperty Name="XianPeiDian" ColumnName="XianPeiDian" />
+                <ScalarProperty Name="CengGao" ColumnName="CengGao" />
+                <ScalarProperty Name="KongDiMianJi" ColumnName="KongDiMianJi" />
+                <ScalarProperty Name="SuSheMianJi" ColumnName="SuSheMianJi" />
+                <ScalarProperty Name="BanGongMianJi" ColumnName="BanGongMianJi" />
+                <ScalarProperty Name="ChangFangMianJi" ColumnName="ChangFangMianJi" />
+                <ScalarProperty Name="ZhanDiMianJi" ColumnName="ZhanDiMianJi" />
+                <ScalarProperty Name="DuYuan" ColumnName="DuYuan" />
+                <ScalarProperty Name="KuaDu" ColumnName="KuaDu" />
+                <ScalarProperty Name="JianZhuJieGou" ColumnName="JianZhuJieGou" />
+                <ScalarProperty Name="ChangFangLeiBie" ColumnName="ChangFangLeiBie" />
+                <ScalarProperty Name="LianXiRenShouJi" ColumnName="LianXiRenShouJi" />
+                <ScalarProperty Name="LianXiRenShenFen" ColumnName="LianXiRenShenFen" />
+                <ScalarProperty Name="LianXiRen" ColumnName="LianXiRen" />
+                <ScalarProperty Name="ChangFangLeiXing" ColumnName="ChangFangLeiXing" />
+                <ScalarProperty Name="DiZhi" ColumnName="DiZhi" />
+                <ScalarProperty Name="QuYu" ColumnName="QuYu" />
+                <ScalarProperty Name="TailContent" ColumnName="TailContent" />
+                <ScalarProperty Name="FactoryHouseContent" ColumnName="FactoryHouseContent" />
+                <ScalarProperty Name="FactoryHouseId" ColumnName="FactoryHouseId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

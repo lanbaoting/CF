@@ -50,13 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cf_Area.cs">
+    <Compile Include="Cf_FactoryHouseDetials.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cf_CitySiteRangeSearch.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cf_ConditionalGroup.cs">
+    <Compile Include="Cf_FactoryHouseDictionary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
