@@ -116,32 +116,32 @@ namespace JW
                 });
                 endpoints.MapControllerRoute("news", "/news/", new
                 {
-                    controller = "News",
+                    controller = "news",
                     action = "Index"
                 });
 
 
                 endpoints.MapControllerRoute("news", "/news/{param1}/", new
                 {
-                    controller = "News",
+                    controller = "news",
                     action = "Index",
                     constraints = new { param1 = @"^\d+" }
                 });
 
 
-                endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/", new
-                {
-                    controller = "NewsClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+" }
-                });
+                //endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/", new
+                //{
+                //    controller = "NewsClassList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+" }
+                //});
 
-                endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/{param2}.html", new
-                {
-                    controller = "NewsClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+", param2 = @"\d+" }
-                });
+                //endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/{param2}.html", new
+                //{
+                //    controller = "NewsClassList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+", param2 = @"\d+" }
+                //});
 
 
 

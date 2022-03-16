@@ -134,74 +134,60 @@
         </ul>
         <a href="#" class="bigdata">大数据合作</a>
     </div>
-    <div class="xz_li w1200">
-        <!-- 根据当前城市获取区域--><div class="select_brand">
-            <span>分站</span>
-            <div class="tab_xz">
-                <div class="a_n">
-                    <a href="#" class="curr">不限</a>
-                    <a href="http://beijing.shangpusou.com/changfang/">北京</a>
-                    <a href="http://tianjin.shangpusou.com/changfang/">天津</a>
-                    <a href="http://shijiazhuang.shangpusou.com/changfang/">石家庄</a>
-                    <a href="http://shanghai.shangpusou.com/changfang/">上海</a>
-                    <a href="http://chengdu.shangpusou.com/changfang/">成都</a>
-                    <a href="http://xian.shangpusou.com/changfang/">西安</a>
-                    <a href="http://www.shangpusou.com/changecity.php">更多 &raquo;</a>
-                </div>
-            </div>
-        </div>
+          <div class="xz_li w1200">
+              <!-- 根据当前城市获取区域--><div class="select_brand">
+                  <span>分站</span>
+                  <div class="tab_xz">
+                      <div class="a_n">
+                          <a href="#" class="curr">不限</a>                         
+                          @{
+                              var areaList = ViewBag.AreaList as List<Entity.Models.Cf_Area>;
+                              if (areaList != null)
+                              {
+                                  foreach (var m in areaList)
+                                  {
+                                      <a href="/@m.FullPinYin/changfangchushou/">@m.AreaName</a>
+                                  }
+                              }
+                          }
+                      </div>
+                  </div>
+              </div>
 
 
-        <div class="select_brand" id="Showfid">
-            <span>分类：</span>
-            <div class="tab_xz">
+               
+              @{
 
-                <div class="a_n">
-                    <a href="http://www.shangpusou.com/changfang/" class="on" title="厂房">不限</a><a href="http://www.shangpusou.com/changfangchuzu/" title="厂房出租">厂房出租</a>
-                    <a href="http://www.shangpusou.com/changfangchushou/" title="厂房出售">厂房出售</a>
-                    <a href="http://www.shangpusou.com/changfangzhuanrang/" title="厂房转让">厂房转让</a>
-                </div>
-            </div>
-        </div>
-        <div class="select_brand">
-            <span>租金：</span>
-            <div class="a_n" id="xz_2">
-                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
-                <a href="http://www.shangpusou.com/changfang/rent-1~5000/">5000元/月以下</a>
-                <a href="http://www.shangpusou.com/changfang/rent-5000~8000/">5000-8000元/月</a>
-                <a href="http://www.shangpusou.com/changfang/rent-8000~10000/">8000-10000元/月</a>
-                <a href="http://www.shangpusou.com/changfang/rent-10000~15000/">1-1.5万元/月</a>
-                <a href="http://www.shangpusou.com/changfang/rent-15000~20000/">1.5-2万元/月</a>
-                <a href="http://www.shangpusou.com/changfang/rent-20000~50000/">2-5万元/月</a>
-                <a href="http://www.shangpusou.com/changfang/rent-50000~/">5万元/月以上</a>
-            </div>
-        </div>
-        <div class="select_brand">
-            <span>面积：</span>
-            <div class="a_n" id="xz_2">
-                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
-                <a href="http://www.shangpusou.com/changfang/area-1~20/">20㎡以内</a>
-                <a href="http://www.shangpusou.com/changfang/area-20~50/">20~50㎡</a>
-                <a href="http://www.shangpusou.com/changfang/area-50~100/">50~100㎡</a>
-                <a href="http://www.shangpusou.com/changfang/area-100~300/">100~300㎡</a>
-                <a href="http://www.shangpusou.com/changfang/area-300~500/">300~500㎡</a>
-                <a href="http://www.shangpusou.com/changfang/area-500~/">500㎡以上</a>
-            </div>
-        </div>
-        <div class="select_brand">
-            <span>身份：</span>
-            <div class="a_n" id="xz_2">
-                <a href="http://www.shangpusou.com/changfang/" class="on">不限</a>
-                <a href="http://www.shangpusou.com/changfang/from-1/">个人</a>
-                <a href="http://www.shangpusou.com/changfang/from-2/">经纪人</a>
-            </div>
-        </div>
+                  var citySiteRangeSearchList = ViewBag.CitySiteRangeSearchList as List<Entity.Models.Cf_CitySiteRangeSearch>;
 
+                  var conditionalGroupList = citySiteRangeSearchList.Where(w=>w.ParentId==0);
 
-    </div><div class="h20"></div>
+                  if (conditionalGroupList != null && citySiteRangeSearchList != null)
+                  {
+                      foreach (var m in conditionalGroupList)
+                      {
+                          <div class="select_brand">
+                              <span>@m.Name：</span>
+                              <div class="a_n" id="xz_2">
+                                  <a href="/changfangchushou/" class="on">不限</a>
+                                  @{
+                                      var groupRangeSearchList = citySiteRangeSearchList.Where(w => w.ParentId == m.Id).OrderBy(s => s.Sort);
+                                      foreach (var m2 in groupRangeSearchList)
+                                      {
+                                          <a href="/@m2.FactoryHouseDictionaryId/">@m2.Name</a>
+                                      }
+                                  }
+                              </div>
+                          </div>
+                      }
+                  }
+              }
+
+          </div>
+    <div class="h20"></div>
     <div class="con_box list_nav_tab w1200">
         <div class="list_nav_tab_l">
-            <a rel="nofollow" href="#" class="on">厂房信息</a>
+            <span  class="on">厂房信息</span>
         </div>
         <div class="list_nav_tab_r">
             友情提示：置顶信息可使成交率提高5倍！<a href="http://www.shangpusou.com/shangpusou-post.php?catid=3&cityid=0" rel="nofollow" target="_blank">免费发布厂房信息&gt;&gt;</a>
@@ -223,14 +209,14 @@
                                         if (!string.IsNullOrEmpty(m.CoverMap))
                                         {
                                             <div class="pic">
-                                                <a target="0" title="@m.HousingName" href="/changfang/@(m.Id).html">
+                                                <a target="0" title="@m.HousingName" href="/changfangchuzu/@(m.Id).html">
                                                     <img class="lazy" src='/picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.HousingName' width="176" height="132" />
                                                 </a><span class="picNum">2图</span>
                                             </div>
                                         }
                                     }
                                     <h2 class="title">
-                                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
+                                        <a href="/changfangchuzu/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
                                     </h2>
                                     <div class="list_info">
                                         <p class="baseinfo">
@@ -274,7 +260,7 @@
                 </ul>
             </div>
             <div class="page pagination2" id="page">                
-                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchuzu/": "/changfangchuzu/" + page + "/", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchuzu/" + "/" : "/changfangchuzu/" + "/" + page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
             </div>
         </div>
 

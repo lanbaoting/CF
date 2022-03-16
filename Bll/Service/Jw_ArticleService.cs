@@ -137,6 +137,30 @@ namespace Bll.Service
         }
 
 
+        /// <summary>
+        /// 前几条
+        /// </summary>
+        /// <param name="topCount"></param>
+        /// <returns></returns>
+        public List<Jw_Article> GetReadingRankingArticleList(int topCount)
+        {
+            try
+            {
+                var list = Context.Jw_Article.Where(w => w.IsEnable).OrderByDescending(o => o.Pageviews).Take(topCount).ToList();
+                return list;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
+
+
+
+
+
         /// <summary>       
         ///  下一篇
         /// </summary>

@@ -51,15 +51,15 @@
                     <a href="#" target="_blank">+ 分站加盟</a>
                 </div>
                 <div class="pon_center fl">
-                <div class="flex_between pon_click">
-                    <span>个人中心</span>
-                    <em class="ico_down"></em>
+                    <div class="flex_between pon_click">
+                        <span>个人中心</span>
+                        <em class="ico_down"></em>
+                    </div>
+                    <div class="list_box" style="display: none;">
+                        <a href="#" target="_blank">我的发布</a>
+                        <a href="#" target="_blank">我的浏览</a>
+                    </div>
                 </div>
-                <div class="list_box" style="display: none;">
-                    <a href="#" target="_blank">我的发布</a>
-                    <a href="#" target="_blank">我的浏览</a>
-                </div>
-            </div> 
                 <div id="mayilogin" class="login fl"><img src="picture/loading.gif" border="0" align="absmiddle" /></div>
             </div>
         </div>
@@ -95,7 +95,7 @@
     </div><div class="nav_bg">
         <div class="nav_main w1200 clear">
             <ul>
-     
+
                 @{
                     var navigationList = ViewBag.NavigationList as List<Entity.Models.Cf_Navigation>;
                     if (navigationList != null)
@@ -118,11 +118,11 @@
                             {
                                 if (m.Title == "首页")
                                 {
-                                    <li><a href="@m.LinkAddress" >@m.Title</a></li>
+                                    <li><a href="@m.LinkAddress">@m.Title</a></li>
                                 }
                                 else
                                 {
-                                    <li><a target="_self" href="@m.LinkAddress" >@m.Title</a></li>
+                                    <li><a target="_self" href="@m.LinkAddress">@m.Title</a></li>
                                 }
                             }
                         }
@@ -136,32 +136,36 @@
         <div class="tab tab_l">
             <ul class="title" id="ul_typeregion">
                 <li class="first on">厂房</li>
-             
-             
-             
                 <li class="">写字楼</li>
             </ul><div class="tab_con" id="div_tab_con">
                 <div class="icontent active">
                     <ol>
-                        <li class="ys1"><a href='shangpuzhuanrang/areaid-330/' title="海淀生意转让">海淀</a><a href='shangpuzhuanrang/areaid-11371/' title="密云生意转让">密云</a><a href='shangpuzhuanrang/areaid-346/' title="门头沟生意转让">门头沟</a><a href='shangpuzhuanrang/areaid-345/' title="平谷生意转让">平谷</a><a href='shangpuzhuanrang/areaid-343/' title="怀柔生意转让">怀柔</a><a href='shangpuzhuanrang/areaid-341/' title="昌平生意转让">昌平</a><a href='shangpuzhuanrang/areaid-340/' title="顺义生意转让">顺义</a><a href='shangpuzhuanrang/areaid-339/' title="通州生意转让">通州</a><a href='shangpuzhuanrang/areaid-338/' title="大兴生意转让">大兴</a><a href='shangpuzhuanrang/areaid-337/' title="房山生意转让">房山</a><a href='shangpuzhuanrang/areaid-336/' title="石景山生意转让">石景山</a><a href='shangpuzhuanrang/areaid-335/' title="丰台生意转让">丰台</a><a href='shangpuzhuanrang/areaid-333/' title="西城生意转让">西城</a><a href='shangpuzhuanrang/areaid-332/' title="东城生意转让">东城</a><a href='shangpuzhuanrang/areaid-331/' title="朝阳生意转让">朝阳</a><a href='shangpuzhuanrang/areaid-11372/' title="延庆生意转让">延庆</a><a href='shangpuzhuanrang/areaid-512/' title="北京周边生意转让">北京周边</a></li>
+                        <li class="ys1">
+                            @{
+                                var areaList = ViewBag.AreaList as List<Entity.Models.Cf_Area>;
+                                if (areaList != null)
+                                {
+                                    foreach (var m in areaList)
+                                    {
+                                        <a href='/Area@(m.AreaName)/' title="@m.AreaName">@(m.AreaName)厂房</a>
+                                    }
+                                }
+                            }
+                        </li>
                         <li class="ys2">
-                            <a href="jiulou/">餐饮美食</a>
-                            <a href="baihuo/">百货超市</a>
-                            <a href="shenghuo/">生活服务</a>
-                            <a href="fushi/">服饰鞋包</a>
-                            <a href="yiyao/">医药保健</a>
-                            <a href="qixiu/">汽修美容</a>
-                            <a href="xiuxian/">休闲娱乐</a>
-                            <a href="lvguanbinguan/">酒店宾馆</a>
-                            <a href="meirong/">美容美发</a>
-                            <a href="jiaoyu/">教育培训</a>
-                            <a href="jiaju/">家居建材</a>
-                            <a href="dianzi/">电器通讯</a>
-                            <a href="qita/">其他</a>
-
+                            @{
+                                var teseHousingList = ViewBag.TeseHousingList as List<Entity.Models.Cf_FactoryHouseDictionary>;
+                                if (teseHousingList != null)
+                                {
+                                    foreach (var m in teseHousingList)
+                                    {
+                                        <a href='/Area@(m.Code)/' title="@m.Name">@(m.Name)厂房 </a>
+                                    }
+                                }
+                            }
                         </li>
                     </ol>
-                </div>                                               
+                </div>
                 <div class="icontent ">
                     <ol>
                         <li class="ys1"><a href='xiezilou/areaid-330/' title="海淀写字楼">海淀</a><a href='xiezilou/areaid-11371/' title="密云写字楼">密云</a><a href='xiezilou/areaid-346/' title="门头沟写字楼">门头沟</a><a href='xiezilou/areaid-345/' title="平谷写字楼">平谷</a><a href='xiezilou/areaid-343/' title="怀柔写字楼">怀柔</a><a href='xiezilou/areaid-341/' title="昌平写字楼">昌平</a><a href='xiezilou/areaid-340/' title="顺义写字楼">顺义</a><a href='xiezilou/areaid-339/' title="通州写字楼">通州</a><a href='xiezilou/areaid-338/' title="大兴写字楼">大兴</a><a href='xiezilou/areaid-337/' title="房山写字楼">房山</a><a href='xiezilou/areaid-336/' title="石景山写字楼">石景山</a><a href='xiezilou/areaid-335/' title="丰台写字楼">丰台</a><a href='xiezilou/areaid-333/' title="西城写字楼">西城</a><a href='xiezilou/areaid-332/' title="东城写字楼">东城</a><a href='xiezilou/areaid-331/' title="朝阳写字楼">朝阳</a><a href='xiezilou/areaid-11372/' title="延庆写字楼">延庆</a><a href='xiezilou/areaid-512/' title="北京周边写字楼">北京周边</a></li>
@@ -177,34 +181,53 @@
         <div class="tab_r">
             <div id="tab1">
                 <ul>
-                    <li onmouseover="setTab(1,0)" class="now">热点资讯</li>
-                    <li onmouseover="setTab(1,1)">网站公告</li>
-                    <li onmouseover="setTab(1,2)">寻店找铺</li>
+                    <li onmouseover="setTab(1,0)" class="now">厂房求购</li>
+                    <li onmouseover="setTab(1,1)">厂房求组</li>
+                    <li onmouseover="setTab(1,2)">热点资讯</li>
                 </ul>
             </div>
             <div class="clearfix"></div>
             <div id="tablist1">
                 <div class="tablist block corp">
                     <ul>
-                        <li><span class="title"><a target="_blank" href="http://www.shangpusou.com/news/1.html" title="招商地产董事长" 被架空"=被架空" 贺建亚成第一责"=贺建亚成第一责">招商地产董事长&quot;被架空&quot; 贺建亚成第一责</a></span><span class="time">[11-19]</span></li>
-                        <li><span class="title"><a target="_blank" href="http://www.shangpusou.com/news/2731.html" title="疫情对楼市影响几何？中指院：市场量价都存在下调压力">疫情对楼市影响几何？中指院：市场量价都存在下调</a></span><span class="time">[09-29]</span></li>
-                        <li><span class="title"><a target="_blank" href="http://www.shangpusou.com/news/2730.html" title="置业指南：房屋买卖合同需要公证吗？">置业指南：房屋买卖合同需要公证吗？</a></span><span class="time">[09-29]</span></li>
-                        <li><span class="title"><a target="_blank" href="http://www.shangpusou.com/news/2718.html" title="教你几个能快速除去新家装修味道的巧招">教你几个能快速除去新家装修味道的巧招</a></span><span class="time">[09-07]</span></li>
-                        <li><span class="title"><a target="_blank" href="http://www.shangpusou.com/news/1086.html" title="开冷饮店流程是什么？开冷饮店设备清单,开冷饮店需要多少钱？">开冷饮店流程是什么？开冷饮店设备清单,开冷饮</a></span><span class="time">[09-06]</span></li>
+                        @{
+                            var articleList = ViewBag.ArticleList as List<Entity.Models.Jw_Article>;
+                            if (articleList != null)
+                            {
+                                foreach (var m in articleList)
+                                {
+                                    <li><span class="title"><a target="_blank" href="@m.ArticleTitle" title=">@m.ArticleTitle">@m.ArticleTitle</a></span><span class="time">@m.F_CreateDate.ToString("MM-dd")</span></li>
+                                }
+                            }
+                        }
                     </ul>
                 </div>
                 <div class="tablist none announce">
                     <ul>
-                        <li><span class="title"><a style="color:" title="新版系统切换中，不影响信息发布与展示" href="http://www.shangpusou.com/announce.html#1" target="_blank">新版系统切换中，不影响信息发布与展示</a></span><span class="time">[09-09]</span></li>
+                        @{
+                           
+                            if (articleList != null)
+                            {
+                                foreach (var m in articleList)
+                                {
+                                    <li><span class="title"><a target="_blank" href="@m.ArticleTitle" title=">@m.ArticleTitle">@m.ArticleTitle</a></span><span class="time">@m.F_CreateDate.ToString("MM-dd")</span></li>
+                                }
+                            }
+                        }
                     </ul>
                 </div>
                 <div class="tablist none announce">
                     <ul>
-                        <li><span class="title"><a style="color:" title="寻求接手幼儿园" href="http://beijing.shangpusou.com/qiuzuqiugou/f6701935.html" target="_blank">寻求接手幼儿园</a></span><span class="time">[09-16]</span></li>
-                        <li><span class="title"><a style="color:" title="房山良乡百货超市急需" href="http://beijing.shangpusou.com/qiuzuqiugou/f6693673.html" target="_blank">房山良乡百货超市急需</a></span><span class="time">[08-20]</span></li>
-                        <li><span class="title"><a style="color:" title="朝阳石佛营百货超市急需" href="http://beijing.shangpusou.com/qiuzuqiugou/f6693428.html" target="_blank">朝阳石佛营百货超市急需</a></span><span class="time">[08-04]</span></li>
-                        <li><span class="title"><a style="color:" title="青岛塑料防渗排水板凸片排水板供应" href="http://beijing.shangpusou.com/qiuzuqiugou/f6692676.html" target="_blank">青岛塑料防渗排水板凸片排水板供应</a></span><span class="time">[07-10]</span></li>
-                        <li><span class="title"><a style="color:" title="海淀瑜伽馆转让" href="http://beijing.shangpusou.com/qiuzuqiugou/f6690471.html" target="_blank">海淀瑜伽馆转让</a></span><span class="time">[06-01]</span></li>
+                        @{
+                          
+                            if (articleList != null)
+                            {
+                                foreach (var m in articleList)
+                                {
+                                    <li><span class="title"><a target="_blank" href="@m.ArticleTitle" title=">@m.ArticleTitle">@m.ArticleTitle</a></span><span class="time">@m.F_CreateDate.ToString("MM-dd")</span></li>
+                                }
+                            }
+                        }                       
                     </ul>
                 </div>
             </div>
@@ -214,25 +237,76 @@
 
 
 
-
-
     <div id="ad_header"></div>
 
 
-
+    <div class="w1200 con con_5">
+        <div class="con_bt"><h3>北京厂房出售</h3><a class="more" href="/shangpuchuzu/" title="更多北京厂房出售信息">更多&gt;&gt;</a></div>
+        <ul class="pic_list_tel">
+            @{
+                var factoryHouseChuShouList = ViewBag.FactoryHouseChuShouList as List<Entity.Models.Cf_FactoryHouse>;
+                foreach (var m in factoryHouseChuShouList)
+                {
+                    <li>
+                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
+                            <img class="lazy" src="m.CoverMap" alt="@m.HousingName" width="226" height="170" />
+                        </a>
+                        <div class="con_bt_p">
+                            <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
+                            <div class="con_bt_p_mx">
+                                <div class="fl"> <span>@m.UnitPrice</span> 元/平 </div>
+                                <div class="fr">@m.HousingArea 平</div>
+                            </div>
+                            <div class="con_bt_p_mx">
+                                <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
+                                <div class="fr">570人已浏览</div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="w1200 con con_6">
+        <div class="con_bt"><h3>北京商厂房出租</h3><a class="more" href="/shangpuchushou/" title="最新商厂房出租信息">更多&gt;&gt;</a></div>
+        <ul class="pic_list_tel">
+            @{
+                var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
+                foreach (var m in factoryHouseChuZuList)
+                {
+                    <li>
+                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
+                            <img class="lazy" src="@@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
+                        </a>
+                        <div class="con_bt_p">
+                            <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
+                            <div class="con_bt_p_mx">
+                                <div class="fl"> <span>@m.HousingRent</span> 元/月 </div>
+                                <div class="fr">@m.HousingArea 平</div>
+                            </div>
+                            <div class="con_bt_p_mx">
+                                <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
+                                <div class="fr">570人已浏览</div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
 
 
     <div class="w1200 con con_4">
         <div class="min">
-            <div class="con_bt"><h3>按结构找厂房</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多北京商铺转让信息&gt;&gt;</a></div>
+            <div class="con_bt"><h3>按结类别找厂房</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多北京厂房信息&gt;&gt;</a></div>
             <div class="tab">
                 <ul class="title" id="ul_typeshopinfo">
                     @{
 
-                        var dictionarysLeiBies = ViewBag.DictionarysLeiBies as List<Entity.Models.Cf_FactoryHouseDictionary>;
+                        var dictionarysJieGous = ViewBag.DictionarysJieGous as List<Entity.Models.Cf_FactoryHouseDictionary>;
 
                         int i = 0;
-                        foreach (var m in dictionarysLeiBies)
+                        foreach (var m in dictionarysJieGous)
                         {
                             i++;
                             if (i == 0)
@@ -241,37 +315,42 @@
                             }
                             else
                             {
-                                <li typeid="@i" >@m.Name</li>
+                                <li typeid="@i">@m.Name</li>
                             }
                         }
-                   }        
+
+
+
+                    }
                 </ul>
                 <div class="tab_con">
-
-
                     @{
-
-                        var factoryHouseCategoryHouseList = ViewBag.FactoryHouseCategoryHouseList as List<Entity.ViewModels.GroupFactoryHouseDictionaryHouse>;
-
+                        var housingStructureHouseList = ViewBag.HousingStructureHouseList as List<Entity.ViewModels.GroupFactoryHouseDictionaryHouse>;
                         i = 0;
                         string style = "block";
-                        foreach (var m in dictionarysLeiBies)
+                        foreach (var m in housingStructureHouseList)
                         {
 
                             i++;
                             <div class="icontent div_typeshopinfo" typeid="@i" style="display:@style;">
                                 <ul class="list">
                                     @{
-                                        var factoryHouseDictionaryHouseLeiBies = factoryHouseCategoryHouseList.FirstOrDefault(w => w.FactoryHouseDictionaryId == m.Id);
-                                        foreach (var h in factoryHouseDictionaryHouseLeiBies.FactoryHouseList) 
-                                        { 
-                                          <li><span class="areaname"><a href="/changfang/@(h.Id).html" target="_blank">@h.HousingName</a></span><a href="/changfang/@(h.Id).html" title="@h.HousingName" target="_blank" style=" ">@h.HousingName</a><span class="price">单价 <em>@(h.UnitPrice==null? "面议" : h.UnitPrice.ToString())</em></span></li>    
+
+                                        foreach (var h in m.FactoryHouseList)
+                                        {
+                                            <li>
+                                                <span class="areaname">
+                                                    <a href="/changfang/@(h.Id).html" target="_blank">@h.DistrictName</a>
+                                                </span>
+                                                <a href="/changfang/@(h.Id).html" title="@h.HousingName" target="_blank" style=" ">@h.HousingName</a>
+                                                <span class="price">单价 <em>@(h.UnitPrice==null? "面议" : h.UnitPrice.ToString())</em></span>
+                                            </li>
                                         }
-                                    }                                                                        
+                                    }
                                 </ul>
-                                <h4 class="more"><a href="/jiulou/" title="更多北京餐饮美食转让信息">更多北京餐饮美食转让信息&gt;&gt;</a></h4>
+                                <h4 class="more"><a href="/jiulou/" title="@m.FactoryHouseDictionaryName">更多@(m.FactoryHouseDictionaryName)信息 &gt;&gt;</a></h4>
                             </div>
-                           style = "none";
+                            style = "none";
                         }
                     }
                 </div>
@@ -282,111 +361,59 @@
 
 
 
-    <div class="w1200 con con_5">
-        <div class="con_bt"><h3>北京厂房出售</h3><a class="more" href="/shangpuchuzu/" title="更多北京厂房出售信息">更多&gt;&gt;</a></div>
-        <ul class="pic_list_tel">
-            @{ 
-                var factoryHouseChuShouList =  ViewBag.FactoryHouseChuShouList as List<Entity.Models.Cf_FactoryHouse>;
-                foreach (var m in factoryHouseChuShouList) {
-                        <li>
-                            <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
-                                <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
-                            </a>
-                            <div class="con_bt_p">
-                                <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
-                                <div class="con_bt_p_mx">
-                                    <div class="fl"> <span>@m.UnitPrice</span> 元/平 </div>
-                                    <div class="fr">@m.HousingArea 平</div>
-                                </div>
-                                <div class="con_bt_p_mx">
-                                    <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
-                                    <div class="fr">570人已浏览</div>
-                                </div>
-                            </div>
-                        </li>
-                }
-            } 
-        </ul>
-    </div>
 
 
 
 
 
-    <div class="w1200 con con_6">
-        <div class="con_bt"><h3>北京商厂房出租</h3><a class="more" href="/shangpuchushou/" title="最新商厂房出租信息">更多&gt;&gt;</a></div>
-        <ul class="pic_list_tel">     
-            @*@{
-                var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
-                foreach (var m in factoryHouseChuZuList)
-                {
-                    <li>
-                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
-                            <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
-                        </a>
-                        <div class="con_bt_p">
-                            <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
-                            <div class="con_bt_p_mx">
-                                <div class="fl"> <span>@m.HousingRent</span> 元/月 </div>
-                                <div class="fr">@m.HousingArea 平</div>
-                            </div>
-                            <div class="con_bt_p_mx">
-                                <div class="fl">@m.F_CreateDate.ToString("yyyy-MM-dd")</div>
-                                <div class="fr">570人已浏览</div>
-                            </div>
-                        </div>
-                    </li>
-                }
-            }*@
-        </ul>
-    </div>
+
 
     <div class="con_7 w1200 con">
-        <div class="l">
-            <div class="con_bt_2"><h3><a href="/cangku/" title="最新北京仓库租售信息">北京仓库信息</a></h3></div>
-            <ul class="list">
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6703945.html" target="_blank" style="" title="公司直租，大小都有，价格便宜">公司直租，大小都有，价格便宜</a><span><em>1</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6703938.html" target="_blank" style="" title="专业仓储  一立方自助仓  环境好 不潮湿">专业仓储  一立方自助仓  环境好 不潮湿</a><span><em>1</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6703925.html" target="_blank" style="" title="正规仓库出租24小时监控随时存取可开**">正规仓库出租24小时监控随时存取可开**</a><span><em>1</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6703807.html" target="_blank" style="" title="朝阳区金盏乡东窑村库房出租">朝阳区金盏乡东窑村库房出租</a><span><em>40000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6703748.html" target="_blank" style="" title="图书托管第三方物流">图书托管第三方物流</a><span><em>15000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6698463.html" target="_blank" style="" title="朝阳国贸仓库出租家具寄放_行李物品寄存迷你考拉仓">朝阳国贸仓库出租家具寄放_行李物品寄存</a><span><em>15000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6698372.html" target="_blank" style="" title="仓库出租_附近库房出租_行李寄存_小面积仓库_迷你考拉仓">仓库出租_附近库房出租_行李寄存_小面积</a><span><em>15000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6693019.html" target="_blank" style="" title="通州张家湾仓库出租">通州张家湾仓库出租</a><span><em>10000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuchuzu/" target="_blank">仓库出租</a></span> <a href="http://beijing.shangpusou.com/cangkuchuzu/f6690280.html" target="_blank" style="" title="房山琉璃河仓库出租">房山琉璃河仓库出租</a><span><em>460</em> ㎡</span> </li>
-                <li><span class="catname"><a href="cangkuzhuanrang/" target="_blank">仓库转让</a></span> <a href="http://beijing.shangpusou.com/cangkuzhuanrang/f6682215.html" target="_blank" style="" title="个人房子，当仓库办公均可">个人房子，当仓库办公均可</a><span><em>1500</em> ㎡</span> </li>
-            </ul>
-        </div>
-        <div class="m">
-            <div class="con_bt_2"><h3><a href="/changfang/" title="最新北京厂房租售信息">北京厂房信息</a></h3></div>
-            <ul class="list">
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6703808.html" target="_blank" style="" title="酒店楼层出租">酒店楼层出租</a><span><em>4000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6697046.html" target="_blank" style="" title="通州永乐店厂房出租 联东U谷产业园">通州永乐店厂房出租 联东U谷产业园</a><span><em>1200</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6695307.html" target="_blank" style="" title="朝阳区体育文化园2200平场地出租">朝阳区体育文化园2200平场地出租</a><span><em>2200</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6689674.html" target="_blank" style="" title="北京有环评排污燃气的食品厂房出租面积可分">北京有环评排污燃气的食品厂房出租面积可</a><span><em>3600</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangzhuanrang/" target="_blank">厂房转让</a></span> <a href="http://beijing.shangpusou.com/changfangzhuanrang/f6689673.html" target="_blank" style="" title="北京食品厂房出租有燃气环评排污">北京食品厂房出租有燃气环评排污</a><span><em>7000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6689672.html" target="_blank" style="" title="北京周边食品厂房出租有环评燃气排污">北京周边食品厂房出租有环评燃气排污</a><span><em>4000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6688416.html" target="_blank" style="" title="通州永乐店食品园厂房出租可分割环评排污">通州永乐店食品园厂房出租可分割环评排污</a><span><em>2700</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6688415.html" target="_blank" style="" title="北京周边廊坊食品园厂房出租可环评排污生产注册">北京周边廊坊食品园厂房出租可环评排污生</a><span><em>6600</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6688414.html" target="_blank" style="" title="大兴亦庄西区食品厂房出租可环评排污办照">大兴亦庄西区食品厂房出租可环评排污办照</a><span><em>3000</em> ㎡</span> </li>
-                <li><span class="catname"><a href="changfangchuzu/" target="_blank">厂房出租</a></span> <a href="http://beijing.shangpusou.com/changfangchuzu/f6688022.html" target="_blank" style="" title="北京周边食品厂房出租能环评排污以及SC认证">北京周边食品厂房出租能环评排污以及SC认</a><span><em>1900</em> ㎡</span> </li>
-            </ul>
-        </div>
-        <div class="r">
-            <div class="con_bt_2"><h3><a href="/xiezilou/" title="最新北京写字楼信息">北京写字楼信息</a></h3></div>
-            <ul class="list">
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6704092.html" target="_blank" style="" title="三面采光，中间楼层。户型方正。">三面采光，中间楼层。户型方正。</a><span><em>550</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6704070.html" target="_blank" style="" title="主语国际中心整层写字楼出售，地铁6号、9号线白石桥站上盖">主语国际中心整层写字楼出售，地铁6号、9号</a><span><em>1300</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchuzu/" target="_blank">写字楼出租</a></span> <a href="http://beijing.shangpusou.com/xiezilouchuzu/f6703916.html" target="_blank" style="" title="国企自持房源出租新街口积水潭附近750平可分租">国企自持房源出租新街口积水潭附近750平</a><span><em>251</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6703473.html" target="_blank" style="" title="世茂工三，自持办公室出售。">世茂工三，自持办公室出售。</a><span><em>550</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchuzu/" target="_blank">写字楼出租</a></span> <a href="http://beijing.shangpusou.com/xiezilouchuzu/f6703341.html" target="_blank" style="" title="北京长远天地办公楼出租">北京长远天地办公楼出租</a><span><em>272</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6700441.html" target="_blank" style="" title="北京周边燕郊写字楼出售">北京周边燕郊写字楼出售</a><span><em>272</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6701958.html" target="_blank" style="" title="朝阳望京写字楼出售">朝阳望京写字楼出售</a><span><em>272</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchushou/" target="_blank">写字楼出售</a></span> <a href="http://beijing.shangpusou.com/xiezilouchushou/f6697293.html" target="_blank" style="" title="建外SOHO写字楼出售">建外SOHO写字楼出售</a><span><em>135</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchuzu/" target="_blank">写字楼出租</a></span> <a href="http://beijing.shangpusou.com/xiezilouchuzu/f6696576.html" target="_blank" style="" title="北四环非中介特价办公室出租 可注册大小面积均有 预订可享受折">北四环非中介特价办公室出租 可注册大小</a><span><em>12</em> ㎡</span> </li>
-                <li><span class="catname"><a href="xiezilouchuzu/" target="_blank">写字楼出租</a></span> <a href="http://beijing.shangpusou.com/xiezilouchuzu/f6696081.html" target="_blank" style="" title="朝阳大望路写字楼出租一对一注册 可核查落税控">朝阳大望路写字楼出租一对一注册 可核查</a><span><em>20</em> ㎡</span> </li>
-            </ul>
-        </div>
+        @{
+            var factoryHouseDictionaryHouseList = ViewBag.FloorTypeFactoryHouseList as List<Entity.ViewModels.GroupFactoryHouseDictionaryHouse>;
+            string[] classAee = new[] { "l", "m", "r" };
+            for (var x = 0; x < factoryHouseDictionaryHouseList.Count; x++)
+            {
+                if (x > 2)
+                {
+                    break;
+                }
+                <div class="@classAee[x]">
+                    <div class="con_bt_2"><h3><a href="/cangku/" title="@factoryHouseDictionaryHouseList[x].FactoryHouseDictionaryName">@factoryHouseDictionaryHouseList[x].FactoryHouseDictionaryName</a></h3></div>
+                    <ul class="list">
+                        @{
+                            foreach (var m in factoryHouseDictionaryHouseList[x].FactoryHouseList)
+                            {
+
+                                <li>
+                                    <span class="catname">
+                                        @{
+                                            var dic = dictionarysJieGous.Find(w => w.Id == m.HousingStructureId);
+                                            if (dic != null)
+                                            {
+                                                <a href="cangkuchuzu/" target="_blank">@dic.Name</a>
+                                            }
+                                        }
+                                    </span>
+                                    <a href="/changfang/@(m.Id).html" target="_blank" style="width: 245px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" title="@(m.HousingName)">@(m.HousingName)</a>
+                                    @{
+                                        if (m.TransactionModeId == 109)
+                                        {
+                                            <span><em>@(m.HousingRent == null? "": m.HousingRent.ToString())</em> 元/月</span>
+                                        }
+                                        else
+                                        {
+                                            <span><em>@(m.UnitPrice == null ? "" : m.UnitPrice.ToString())</em> 元/㎡</span>
+                                        }
+                                    }
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            }
+
+        }
     </div>
 
 

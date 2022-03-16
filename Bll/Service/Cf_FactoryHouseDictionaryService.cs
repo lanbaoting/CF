@@ -45,6 +45,17 @@ namespace Bll.Service
         /// 通过边号获取字典
         /// </summary>
         /// <returns></returns>
+        public List<Cf_FactoryHouseDictionary> GetFactoryHouseDictionaryListByIds(List<int> ids)
+        {
+            var factoryHouseDictionarys = Context.Cf_FactoryHouseDictionary.Where(w => w.IsEnable && ids.Contains(w.Id));
+            return factoryHouseDictionarys.ToList();
+        }
+
+
+        /// <summary>
+        /// 通过边号获取字典
+        /// </summary>
+        /// <returns></returns>
         public List<Cf_FactoryHouseDictionary> GetDictionaryByParentId(int parentId)
         {
             var list = Context.Cf_FactoryHouseDictionary.Where(w => w.IsEnable && w.ParentId == parentId).OrderBy(s=>s.Sort).ToList();

@@ -27,13 +27,15 @@ namespace JW.Controllers
                 }                
             }
 
-            //一级导航
-            Jw_Navigation1Service navigation1Service = new Jw_Navigation1Service();
-            var navigation1List = navigation1Service.GetNavigation1List();
-            ViewBag.Navigation1List = navigation1List;
+            Cf_NavigationService navigationService = new Cf_NavigationService();
+            Cf_FactoryHouseDictionaryService factoryHouseDictionaryService = new Cf_FactoryHouseDictionaryService();
+            Cf_FactoryHouseService factoryHouseService = new Cf_FactoryHouseService();
+            Cf_AreaService areaService = new Cf_AreaService();
+            //导航
+            var navigationList = navigationService.GetNavigationList(1);
+            ViewBag.NavigationList = navigationList;
+            ViewBag.Path = HttpContext.Request.Path;
 
-            var navigation1 = navigation1List.FirstOrDefault(w => w.Id == 5);
-            ViewBag.Navigation1 = navigation1;
 
 
             //获取全部文章分类
@@ -46,13 +48,18 @@ namespace JW.Controllers
             var articleData = articleService.GetPageArticleList();
             var m1 = articleData.ToPagedList(pageNumber,20);
 
-            //热点图文
-            Jw_HotGraphicsService hotGraphicsService = new Jw_HotGraphicsService();
-            ViewBag.HotGraphicsList = hotGraphicsService.GeHotGraphicsList();
 
-            //热门大作
-            Jw_AzGameMainPushService azGameMainPushService = new Jw_AzGameMainPushService();
-            ViewBag.AzGameMainPushList = azGameMainPushService.GetAzGameMainPushList();
+            //厂房出售信息
+            var factoryHouseChuShouList = factoryHouseService.GetFactoryHouseList(10, 101);
+            ViewBag.FactoryHouseChuShouList = factoryHouseChuShouList;
+
+            //厂房出租信息
+            var factoryHouseChuZuList = factoryHouseService.GetFactoryHouseList(10, 143);
+            ViewBag.FactoryHouseChuZuList = factoryHouseChuShouList;
+ 
+            ViewBag.ReadingRankingArticleList = articleService.GetReadingRankingArticleList(20);
+
+
 
 
 

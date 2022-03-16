@@ -59,12 +59,37 @@ namespace Bll.Service
         ///  获取全部文章的分页列表
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Cf_FactoryHouse> GetPageFactoryHouse(string queryString)
+        public IQueryable<Cf_FactoryHouse> GetPageFactoryHouse(int cityId ,int? districtId, List<Cf_FactoryHouseDictionary> dics)
         {
             try
             {
                 var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable);
-                  list = Context.Cf_FactoryHouse;
+                if (districtId > 0)
+                {
+                    list = list.Where(w => w.DistrictId == districtId);
+                }
+                else if (cityId > 0)
+                {
+                    list = list.Where(w => w.CityId == cityId);
+                }
+
+                foreach (var dic in dics) {
+
+                    if (dic.ParentId == 1) 
+                    {
+                        list = list.Where(w => w.ContactsTypeId == dic.Id);
+                    }
+                    else if (dic.ParentId == 3)
+                    {
+                        list = list.Where(w => w.HousingStructureId == dic.Id);
+                    }
+                    else if (dic.ParentId == 5)
+                    {
+                        list = list.Where(w => w.FloorTypeId == dic.Id);
+                    }
+
+                }
+
                 list = list.OrderByDescending(w => w.F_CreateDate);
 
 
@@ -88,12 +113,12 @@ namespace Bll.Service
             {
                 
                 var factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable && !ids.Contains(w.Id));
-               
-                
+
+                var categoryFactoryHouses = Context.Cf_FactoryHouseCategory.Where(w => !ids.Contains(w.FactoryHouseId.Value));
                 List<GroupFactoryHouseDictionaryHouse> data = new List<GroupFactoryHouseDictionaryHouse>();
                 foreach (var id in dictionaryIds)
                 {
-                    var factoryHouseIds = Context.Cf_FactoryHouseCategory.Where(w => w.FactoryHouseDictionaryId == id && !ids.Contains(w.FactoryHouseId.Value)).Take(topCount).Select(s=>s.FactoryHouseId.Value).ToList();
+                    var factoryHouseIds = categoryFactoryHouses.Where(w => w.FactoryHouseDictionaryId == id).Take(topCount).Select(s=>s.FactoryHouseId.Value).ToList();
                     var rows = factoryHouses.Where(w => factoryHouseIds.Contains(w.Id)).ToList();                   
                     data.Add(new GroupFactoryHouseDictionaryHouse
                     {
@@ -101,12 +126,46 @@ namespace Bll.Service
                         FactoryHouseList = rows
                     });
                      ids.AddRange(factoryHouseIds);
-                    factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable && !ids.Contains(w.Id));
+                    categoryFactoryHouses = Context.Cf_FactoryHouseCategory.Where(w => !ids.Contains(w.FactoryHouseId.Value)); ;
                 }
 
                 return data;
 
 
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// 前几条
+        /// </summary>
+        /// <param name="topCount"></param>
+        /// <returns></returns>
+        public List<GroupFactoryHouseDictionaryHouse> GetHousingStructureHouseList(List<int> ids, IEnumerable<int> dictionaryIds, int topCount)
+        {
+            try
+            {
+ 
+                List<GroupFactoryHouseDictionaryHouse> data = new List<GroupFactoryHouseDictionaryHouse>();
+                foreach (var id in dictionaryIds)
+                {
+                    var rows = Context.Cf_FactoryHouse.Where(w => w.HousingStructureId == id && !ids.Contains(w.Id)).Take(topCount).ToList();
+                    ids.AddRange(rows.Select(s=>s.Id));
+                    data.Add(new GroupFactoryHouseDictionaryHouse
+                    {
+                        FactoryHouseDictionaryId = id,
+                        FactoryHouseList = rows
+                    });
+                }
+
+
+                return data;
             }
             catch (Exception e)
             {

@@ -26,6 +26,7 @@ namespace Entity.Models
         public string SourceName { get; set; }       
         public string SourceDisplay { get; set; }
         public string SourceAddress { get; set; }
+        public int? Pageviews { get; set; }
         public int Sort { get; set; }
         public string SeoTile { get; set; }
         public string SeoKey { get; set; }
