@@ -21,15 +21,15 @@
 .jubao_content li span{font-size:14px;color:#333;margin-left:5px}
 
 
-.house_basic{display:inline-block;width:100%}
+.house_basic{display:inline-block;width:100%;height:550px}
 
 
 
 
 
-.zoombox{width:450px;height:440px;}
-.zoompic{margin-left:auto;margin-right:auto;width:450px;height:360px;background:url(../images2/loading.gif) no-repeat 50% 50%;text-align:center}
-.zoompic img{width:450px;height:360px}
+.zoombox{width:600px;height:460px;}
+.zoompic{margin-left:auto;margin-right:auto;width:600px;height:460px;background:url(../images2/loading.gif) no-repeat 50% 50%;text-align:center}
+.zoompic img{width:600px;height:460px}
 
 .sliderbox{height:80px;overflow:hidden;margin:6px 0 0}
 .sliderbox .arrow-btn{margin-top:13px;width:38px;height:45px;background:url(../images2/arrow-btn.png) no-repeat}
@@ -43,7 +43,7 @@
 .sliderbox .sliderr li img{border:solid 2px #dfdfdf;width:58px;height:55px}
 .sliderbox .sliderr li.currentt img{border:solid 2px #ff6900}
 
-.house_basic_right{width:720px;border-top:1px solid #f3f3f3}
+.house_basic_right{border-top:1px solid #f3f3f3}
 .house_basic_middle{width:100%;border-top:1px solid #f3f3f3;margin-bottom: 20px;margin-bottom: 30px;}
 .house_desc_item{width:460px}
 .house_desc_item_money{line-height:100px;height:100px}
@@ -86,8 +86,8 @@
 .middewm{margin-left:40px;width:300px;margin-top: 40px;}
 .house_detail{width:100%;border-top:1px solid #f3f3f3;overflow:hidden}
 .house_detail_left{width:920px;float:left;font-size:14px}
-.house_detail_right{width: 260px;float: right;}
-.info_box_l_miaoshu{overflow:hidden;margin-top:40px}
+.house_detail_right{width: 260px;float: right; margin-top:23px}
+.info_box_l_miaoshu{overflow:hidden;margin-top:10px}
 .info_box_l_miaoshu h3{font-size:22px;color:#000;display:inline;line-height:20px;vertical-align:top}
 .info_box_l_miaoshu h3 a{float:right;font-size:12px;padding-right:18px}
 .info_box_l_miaoshu em{display:inline-block;opacity:.2;background:#ff552e;border-radius:1px;width:4px;height:20px;margin-right:14px}

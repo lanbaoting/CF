@@ -17,23 +17,59 @@ namespace JW.Controllers
             Cf_NavigationService navigationService = new Cf_NavigationService();
             Cf_FactoryHouseDictionaryService factoryHouseDictionaryService = new Cf_FactoryHouseDictionaryService();
             Cf_FactoryHouseService factoryHouseService = new Cf_FactoryHouseService();
-            Cf_AreaService areaService = new Cf_AreaService();
-            //导航
-            var navigationList = navigationService.GetNavigationList(1);
-            ViewBag.NavigationList = navigationList;
-            ViewBag.Path = HttpContext.Request.Path;
+            Cf_CitySiteRangeSearchService citySiteRangeSearchService = new Cf_CitySiteRangeSearchService();
 
+            string url = HttpContext.Request.Path.ToString().ToLower();
+            ViewBag.Path = url;
 
-            //区域            
-            var areaList = areaService.GetAreaList(2);
-            ViewBag.AreaList = areaList;
-
+            string[] strs = url.Split('/');
+            string areaCode = "";
+            if (strs.Length > 2){
+                areaCode = strs[strs.Length - 2];
+            }else {
+                areaCode = "shenyang";
+            }           
             
+           
             //字典根节点
-            var parenteDictionarys = factoryHouseDictionaryService.GetFactoryHouseDictionaryListByCodes(new List<string>() { "louceng", "tese", "jiegou" });
+            var parenteDictionarys = factoryHouseDictionaryService.GetFactoryHouseDictionaryListByCodes(new List<string>() { "louceng", "tese", "jiegou" , areaCode });
+
             //字典二级节点
             var dictionaryIds = parenteDictionarys.Select(s => s.Id).ToList();
             var dictionarys = factoryHouseDictionaryService.GetFactoryHouseDictionaryListByParentIds(dictionaryIds);
+
+            //城市
+            var area = parenteDictionarys.Find(w=>w.Code == areaCode) ;         
+            area.Code = area.Code == "shenyang" ? "": "/" + area.Code;
+            ViewBag.Area = area;
+
+
+            //城市导航集合
+            var navigationList = navigationService.GetNavigationList(area.Id);
+            ViewBag.NavigationList = navigationList;
+
+            //城市导航
+            var navigation = navigationList.Find(w => url.Contains(w.LinkAddress));
+            ViewBag.Navigation = navigation;
+ 
+            //区域                     
+            var areaList = dictionarys.Where(w=>w.ParentId == area.Id).ToList();
+            ViewBag.AreaList = areaList;
+            //省份
+            var parentArea = factoryHouseDictionaryService.GetFactoryHouseDictionaryListById(area.ParentId.Value);
+            ViewBag.ParentArea = parentArea;
+
+            //区域查询条件数量
+            var citySiteRangeSearchCount = citySiteRangeSearchService.GetCitySiteRangeSearchCount(area.Id, 2, 0);
+            ViewBag.CitySiteRangeSearchCount = citySiteRangeSearchCount;
+
+
+
+
+
+
+
+
 
 
             //特色
@@ -48,7 +84,7 @@ namespace JW.Controllers
 
             //厂房出租信息
             var factoryHouseChuZuList = factoryHouseService.GetFactoryHouseList(10, 143);
-            ViewBag.FactoryHouseChuZuList = factoryHouseChuShouList;
+            ViewBag.FactoryHouseChuZuList = factoryHouseChuZuList;
 
         
             var ids1 = factoryHouseChuShouList.Select(s => s.Id).ToList();

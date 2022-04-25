@@ -19,6 +19,15 @@ namespace Bll.Service
             return list;
         }
 
+        /// <summary>
+        /// 获取实体
+        /// </summary>
+        /// <returns></returns>
+        public Cf_Area GetArea(int id)
+        {
+            var area = Context.Cf_Area.FirstOrDefault(w => w.IsEnable && w.Id == id);
+            return area;
+        }
 
     }
 }

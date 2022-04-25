@@ -72,10 +72,7 @@
             </div>
         </div>
     </div>
-
     <div id="ad_topbanner" class="clear"></div>
-
-
     <div class="header_mind w1200 clear">
         <div class="logo clear fl">
             <a href="http://shenyang.shangpusou.com/" title="沈阳商铺网" class="fl">
@@ -103,7 +100,6 @@
     </div><div class="nav_bg">
         <div class="nav_main w1200 clear">
             <ul>
-
                 @{
                     var navigationList = ViewBag.NavigationList as List<Entity.Models.Cf_Navigation>;
                     if (navigationList != null)
@@ -123,102 +119,48 @@
                             navigationTarget = "_self";
                         }
                     }
-                }
-
-              
+                }              
             </ul>
         </div>
     </div>
 
-    <div class="on_page con_box w1200">
-        <a href="http://shenyang.shangpusou.com/">沈阳商铺搜</a> <code> > </code> <a href="http://shenyang.shangpusou.com/shangpuzushou/">沈阳商铺租售</a>
-    </div><div class="nav_tab_wrapper">
+          <div class="on_page con_box w1200">
+              <a href="@ViewBag.Area.Code/">@(ViewBag.Area.Name)数字厂房网</a> <code> > </code> <a href="@(ViewBag.Area.Code)/chushou/">@(ViewBag.Area.Name)厂房出售</a>
+          </div>
+    @*<div class="nav_tab_wrapper">
         <ul class="house_nav_tab">
             <li><a href="http://shenyang.shangpusou.com/shangpuzhuanrang/">店铺转让</a></li>
             <li><a href="http://shenyang.shangpusou.com/shangpuchuzu/">商铺出租</a></li>
             <li><a href="http://shenyang.shangpusou.com/shangpuchushou/">商铺出售</a></li>
         </ul>
         <a href="#" class="bigdata">大数据合作</a>
-    </div>
+    </div>*@
           <div class="xz_li w1200">
-              <!-- 根据当前城市获取区域-->
-              <div class="select_brand">
-                  <span>区域：</span>
-                  <div class="tab_xz">
-                      <div class="a_n">
+              <!-- 根据当前城市获取区域-->              
+              @{
+                  List<int> urlDicPramArr = ViewBag.UrlDicPramArr as List<int>;
+                  var areaList = ViewBag.AreaList as List<Entity.Models.Cf_Area>;
 
-                          @{
-                              List<int> urlPramArr = ViewBag.UrlPramArr as List<int>;
-                              var areaList = ViewBag.AreaList as List<Entity.Models.Cf_Area>;
-                    
-                              var citySiteRangeSearchList = ViewBag.CitySiteRangeSearchList as List<Entity.Models.Cf_CitySiteRangeSearch>;
+                  var citySiteRangeSearchList = ViewBag.CitySiteRangeSearchList as List<Entity.Models.Cf_CitySiteRangeSearch>;
+
+                  //参数类别
+                  var conditionalGroupList = citySiteRangeSearchList.Where(w => w.ParentId == 0).ToList();
 
 
-                              //参数类别
-                              var conditionalGroupList = citySiteRangeSearchList.Where(w => w.ParentId == 0).ToList();
+                  string pageUrl = "";
 
+                  if (urlDicPramArr.Count == 0)
+                  {
+                      pageUrl = "".PadRight(conditionalGroupList.Count, '0').Replace("0", "_0");
+                  }
+                  else
+                  {
+                      pageUrl = "_" + ViewBag.UrlPramStr;
+                  }
 
-                              int cityId = 0;
+                  //地址栏参数
+                  var urlPramArrRangeSearchList = citySiteRangeSearchList.Where(w => urlDicPramArr.Contains(w.FactoryHouseDictionaryId)).ToList();
 
-                              int pageNumber = 1;
-                              var urlDicPramArr = urlPramArr;
-                              string pageUrl = "";
-
-
-                              if (urlPramArr.Count > 0)
-                              {
-                                  urlDicPramArr = urlPramArr.Skip(1).Take(urlPramArr.Count() - 2).ToList();
-                                  pageNumber = urlPramArr.Last();
-                                  cityId = urlPramArr[0];
-                                  pageUrl = urlPramArr[0].ToString();
-                                  for (int i = 1; i < urlPramArr.Count-1; i++)
-                                  {
-                                      pageUrl += "_" + urlPramArr[i];
-                                  }
-                              }
-                              else {
-                                  pageUrl = 0 + "".PadRight(conditionalGroupList.Count, '0').Replace("0", "_0");
-                              }
-
-                              //地址栏参数
-                              var urlPramArrRangeSearchList = citySiteRangeSearchList.Where(w => urlDicPramArr.Contains(w.FactoryHouseDictionaryId)).ToList();
-
-
-
-
-
-
-                              string params1 = "";
-
-                              foreach (var m in conditionalGroupList)
-                              {
-
-                                  var urlPramArrRangeSearch = urlPramArrRangeSearchList.FirstOrDefault(w => w.ParentId == m.Id);
-                                  if (urlPramArrRangeSearch == null)
-                                  {
-                                      params1 += "_0";
-                                  }
-                                  else
-                                  {
-                                      params1 += "_" + urlPramArrRangeSearch.FactoryHouseDictionaryId;
-                                  }
-                              }
-
-                              params1 += "_" + pageNumber;
-
-                              <a href="/changfangchushou/0@(params1).html" class="on" title="沈阳厂房出售">不限</a>
-                              if (areaList != null)
-                              {
-                                  foreach (var m in areaList)
-                                  {
-                                      <a href="/changfangchushou/@m.Id@(params1).html">@m.AreaName</a>
-                                  }
-                              }
-                          }
-                      </div>
-                  </div>
-              </div>
-              @{                
                   if (conditionalGroupList != null && citySiteRangeSearchList != null)
                   {
                       foreach (var m in conditionalGroupList)
@@ -226,7 +168,6 @@
                           <div class="select_brand">
                               <span>@m.Name：</span>
                               <div class="a_n" id="xz_2">
-
                                   @{
                                       var groupRangeSearchList = citySiteRangeSearchList.Where(w => w.ParentId == m.Id).OrderBy(s => s.Sort).ToList();
 
@@ -250,9 +191,17 @@
                                               }
                                           }
                                       }
-                                      params2 += "_" + pageNumber;
 
-                                      <a href="/changfangchushou/@cityId@(params2).html" class="on">不限</a>
+                                      string className = "";
+                                      if (!groupRangeSearchList.Any(w=>urlDicPramArr.Contains(w.FactoryHouseDictionaryId)))
+                                      {
+                                           className = "class=on";
+                                      }
+                                      
+                                      params2 += "_1";
+
+                                      <a href="/chushou@(params2).html" @className >不限</a>
+
                                       foreach (var m2 in groupRangeSearchList)
                                       {
 
@@ -276,17 +225,22 @@
                                                   }
                                               }
                                           }
-                                          params3 += "_" + pageNumber;
-                                          <a href="/changfangchushou/@cityId@(params3).html">@m2.Name</a>
+                                          className = "";
+                                          if (urlDicPramArr.Any(w=>w == m2.FactoryHouseDictionaryId))
+                                          {
+                                             className = "class=on";
+                                          }
+                                          params3 += "_1";
+                                          <a href="/chushou@(params3).html" @className >@m2.Name</a>
                                       }
                                   }
                               </div>
                           </div>
                       }
                   }
-              }  
-          </div><div class="h20"></div>
-
+              }
+          </div>
+    <div class="h20"></div>
     <div class="con_box list_nav_tab w1200">
         <div class="list_nav_tab_l">
             <a rel="nofollow" href="#" class="on">沈阳商铺租售信息</a>
@@ -295,40 +249,35 @@
             友情提示：置顶信息可使成交率提高5倍！<a href="http://www.shangpusou.com/shangpusou-post.php?catid=2&cityid=37" rel="nofollow" target="_blank">免费发布沈阳商铺租售信息&gt;&gt;</a>
         </div>
     </div>
-
     <div class="con_box list_wrap w1200">
         <div class="list_l">
             <div class="sp_li_box">
                 <ul class="sp_li" id='loadimg'>
-
-
-
                     @{
                         if (Model != null)
-                        {
-                            string listClassName = "first";
+                        {                           
                             foreach (var m in Model)
                             {
                                 <li class='first'>
                                     <div class="pic">
-                                        <a target="0" title="@m.HousingName" href="http://shenyang.shangpusou.com/shangpuchuzu/f6703675.html">
+                                        <a target="0" title="@m.HousingName" href="/changfang/@(m.Id).html">
                                             <img class="lazy" src='picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.HousingName' width="176" height="132" />
-                                        </a><span class="picNum">2图</span>
+                                        </a><span class="picNum">@m.Pageviews</span>
                                     </div>
                                     <h2 class="title">
-                                        <a href="http://shenyang.shangpusou.com/shangpuchuzu/f6703675.html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
+                                        <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
                                     </h2>
                                     <div class="list_info">
                                         <p class="baseinfo">
-                                            <span>111111111111 </span>
+                                            <span>@m.FullAddress </span>
+                                        </p>
+                                        <p class="baseinfo">
+                                            @m.FloorTypeName  @m.HousingStructureName
                                         </p>
                                         <p class="baseinfo">
                                             <!--商铺性质-->
-                                            <span>营业中</span>
-                                            <span>个人</span>
-                                        </p>
-                                        <p class="baseinfo">
-                                            222222
+                                            <span>身份</span>
+                                            <span>@m.ContactsTypeName</span>
                                         </p>
                                         <!-- 标签处理start -->
                                         <p class="tag-wrap">
@@ -338,71 +287,30 @@
                                     </div>
                                     <div class="area">
                                         <p class="num">
-                                            <span>75000㎡</span>
+                                            <span>@m.HousingArea ㎡</span>
                                         </p>
                                         <p class="down">建筑面积</p>
                                     </div>
                                     <div class="price ">
                                         <p class="up">
-                                            <span class="num">面议</span>
+                                            <span class="num"> @(m.UnitPrice == null ? "面议" : m.UnitPrice.ToString()) /㎡ </span>
                                         </p>
-                                    </div>
-                                    <div class="time">2021-10-30</div>
-                                </li>
-
-                                <li>
-                                    <div class="pic">
-                                        <a target="0" title="@m.HousingName" href="http://shenyang.shangpusou.com/shangpuchuzu/f6703675.html">
-                                            <img class="lazy" src='picture/nopic.gif' data-imgurl='@m.CoverMap' title='@m.HousingName' width="176" height="132" />
-                                        </a><span class="picNum">2图</span>
-                                    </div>
-                                    <h2 class="title">
-                                        <a href="http://shenyang.shangpusou.com/shangpuchuzu/f6703675.html" title="@m.HousingName" target="_blank" style=" ">@m.HousingName</a>
-                                    </h2>
-                                    <div class="list_info">
-                                        <p class="baseinfo">
-                                            <span>111111111111 </span>
-                                        </p>
-                                        <p class="baseinfo">
-                                            <!--商铺性质-->
-                                            <span>营业中</span>
-                                            <span>个人</span>
-                                        </p>
-                                        <p class="baseinfo">
-                                            222222
-                                        </p>
-                                        <!-- 标签处理start -->
-                                        <p class="tag-wrap">
-                                            <span class=tag>外摆区</span><span class=tag>可明火</span><span class=tag>380V</span><span class=tag>管煤</span><span class=tag>排污</span>
-                                        </p>
-                                        <!-- 标签处理end -->
-                                    </div>
-                                    <div class="area">
-                                        <p class="num">
-                                            <span>75000㎡</span>
-                                        </p>
-                                        <p class="down">建筑面积</p>
-                                    </div>
-                                    <div class="price ">
-                                        <p class="up">
-                                            <span class="num">面议</span>
-                                        </p>
-                                    </div>
-                                    <div class="time">2021-10-30</div>
-                                </li>
+                                    </div>                                    
+                                    <div class="time"> @(m.ReleaseTime == null ? m.F_CreateDate.Value.ToString("yyyy-MM-dd") : m.ReleaseTime.Value.ToString("yyyy-MM-dd")) </div>
+                                </li>                                 
                             }
                         }
                     }
                 </ul>
             </div>
             <div class="page pagination2" id="page">                                                              
-                @Html.PagedListPager(Model, page => page == 1 ? "/changfangchushou/" : "/changfangchushou/" + pageUrl +"_"+ page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 5, DisplayItemSliceAndTotal = false })
+                @Html.PagedListPager(Model, page => page == 1 ? "/chushou/" : "/chushou" + pageUrl +"_"+ page + ".html", new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", MaximumPageNumbersToDisplay = 3, DisplayItemSliceAndTotal = false })
             </div>
         </div>
 
         <div class="list_r">
             <div id="rightRetui">
-                <div class="con_r_box">
+                @*<div class="con_r_box">
                     <div class="retuihead">推广优惠</div>
                     <p>
                         <b>精选推广</b>价格：<span>30</span>元/天<br />
@@ -412,7 +320,37 @@
                         享全网最高性价比商业地产流量。<br />PC、H5同步展示，流量提升5-8倍。
                         <a href="http://my.shangpusou.com/vip/index" target="_blank">立即推广</a>
                     </p>
-                </div>
+                </div>*@
+                <ul class="jg-recommend-list">
+                    @{
+                        var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
+                        foreach (var m in factoryHouseChuZuList)
+                        {                             
+                            <li class="jg-house">
+                                <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
+                                    <div class="pic-wrap">
+                                        <img src="@m.CoverMap" style="display: inline;" />
+                                        <div class="cf">
+                                            <span class="name">@m.ContactsTypeName</span>
+                                            <span class="phone">@m.ContactsName</span>
+                                        </div>
+                                        <em title="精选推广">精选</em>
+                                    </div>
+                                    <div class="detail-info">
+                                        <h3>@m.HousingStructureName @m.FloorTypeName</h3>
+                                        <div class="house-type">
+                                            @m.FullAddress <span class="area"></span>
+                                        </div>
+                                        <div class="price">
+                                            <span>租金：@(m.HousingRent == null ? "面议" : m.HousingRent.ToString()+"/月")</span>
+                                            <span>面积：@m.HousingArea m²</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
             </div>
 
         </div>

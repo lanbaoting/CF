@@ -20,6 +20,18 @@ namespace Bll.Service
             return factoryHouseDictionary;
         }
 
+
+        /// <summary>
+        /// 通过边号获取字典
+        /// </summary>
+        /// <returns></returns>
+        public Cf_FactoryHouseDictionary GetDictionaryById(int id)
+        {
+            var factoryHouseDictionary = Context.Cf_FactoryHouseDictionary.FirstOrDefault(w =>  w.Id == id);
+            return factoryHouseDictionary;
+        }
+
+
         /// <summary>
         /// 通过边号获取字典
         /// </summary>
@@ -51,6 +63,15 @@ namespace Bll.Service
             return factoryHouseDictionarys.ToList();
         }
 
+        /// <summary>
+        /// 通过边号获取字典
+        /// </summary>
+        /// <returns></returns>
+        public Cf_FactoryHouseDictionary GetFactoryHouseDictionaryListById(int id)
+        {
+            var factoryHouseDictionary = Context.Cf_FactoryHouseDictionary.FirstOrDefault(w => w.IsEnable && id == w.Id);
+            return factoryHouseDictionary;
+        }
 
         /// <summary>
         /// 通过边号获取字典

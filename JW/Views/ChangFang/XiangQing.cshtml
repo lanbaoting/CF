@@ -1,0 +1,659 @@
+﻿@{
+    Layout = null;
+
+}
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>酒店楼层出租 - 商铺搜</title>
+    <meta name="keywords" content="租金450000元/月,面积4000㎡,身份个人,酒店楼层出租" />
+    <meta name="description" content="北京丰台区南三环外200米距离周边商圈功能齐全交通方便地铁站5分钟距离有停车场" />
+    <link rel="shortcut icon" href="http://www.shangpusou.com/favicon.ico" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/information.css" />
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.11.min.js" type="text/javascript"></script>
+    <link href="~/css/902a399.css" rel="stylesheet" />
+    <link href="~/css/f0d208f.css" rel="stylesheet" />
+</head>
+<body>
+    <script type="text/javascript">var current_domain = "http://www.shangpusou.com"; var current_cityid = "1"; var current_logfile = "mplogin.php";</script>
+    <div class="header_top">
+        <div class="top_main w1200 clear">
+            <div class="top_l fl">
+                <div class="city fl">
+                    <div class="city-curr">北京</div>
+                    <dl>
+                        <dt>[</dt>
+                        <dd><a href='http://tianjin.shangpusou.com/'>天津</a></dd>
+                        <dd><a href='http://shanghai.shangpusou.com/'>上海</a></dd>
+                        <dd><a href='http://chongqing.shangpusou.com/'>重庆</a></dd>
+                        <dd><a href="http://www.shangpusou.com/changecity.php">切换城市</a></dd>
+                        <dt>]</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="top_r fr">
+                <div class="icon_box fl">
+                    <a href="javascript:;">公众号<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima.gif" alt="公众号" />
+                        <p>重要提醒不错过<br />手机操作更简单</p>
+                    </div>
+                </div>
+                <div class="icon_box fl">
+                    <a href="javascript:;">小程序<em class="ico_down"></em></a>
+                    <div class="icon_box_img">
+                        <img src="/picture/erweima_kf.gif" alt="小程序" />
+                        <p>扫码即用，无需下载</p>
+                    </div>
+                </div>
+                <div class="zs fl">
+                    <a href="#" target="_blank">+ 分站加盟</a>
+                </div>
+                <!--             <div class="pon_center fl">
+                                <div class="flex_between pon_click">
+                                    <span>个人中心</span>
+                                    <em class="ico_down"></em>
+                                </div>
+                                <div class="list_box" style="display: none;">
+                                    <a href="#" target="_blank">我的发布</a>
+                                    <a href="#" target="_blank">我的浏览</a>
+                                </div>
+                            </div> -->
+                <div id="mayilogin" class="login fl"><img src="/picture/loading.gif" border="0" align="absmiddle" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ad_topbanner" class="clear"></div>
+
+
+    <div class="header_mind w1200 clear">
+        <div class="logo clear fl">
+            <a href="@ViewBag.Area.Code/" title="@(ViewBag.Area.Name)数字厂房网" class="fl">
+                <img src="/picture/logo.png" alt="数字厂房网" width="148" height="42" />
+            </a>
+        </div>
+        <div class="main_r fr">
+            <a href="http://www.shangpusou.com/shangpusou-post.php?catid=&cityid=1" class="fabu_btn" target="_blank">免费发布</a>
+        </div>
+        @*<div class="search fr">
+                <form method="get" action="http://www.shangpusou.com/search.php?" id="searchForm" target="_blank">
+                    <input name="cityid" type="hidden" value="1" />
+                    <input type="hidden" id="searchtype" name="mod" value="information" />
+                    <div class="input_content clear">
+                        <input type="text" class="fl" value="请输入关键词搜索" name="keywords" id="searchheader" onmouseover="if(this.value==='请输入关键词搜索'){this.value='';}" x-webkit-speech=x-webkit-speech lang="zh-CN" />
+                        <input type="submit" value="搜 索" class="searchheader_submit fl" />
+                    </div>
+                    <div class="fl search_navurl">
+                        <li><a href="#" style="color:" target="_blank" title="培训学校优转">培训学校优转<sup class=""></sup></a></li>
+                        <li><a href="#" style="color:" target="_blank" title="商铺出租">商铺出租<sup class=""></sup></a></li>
+                        <li><a href="#" style="color:" target="_blank" title="酒店转让">酒店转让<sup class=""></sup></a></li>
+                    </div>
+                </form>
+            </div>*@
+    </div><div class="on_page  w1200">
+        <a href="@ViewBag.Area.Code/">@(ViewBag.Area.Name)厂房网</a> <code> > </code>
+        @{
+            string transactionMode = "";
+              string price = "";          
+            if (ViewBag.FactoryHouse.TransactionModeId == 101)
+            {
+                transactionMode = "chushou";
+                 price = ViewBag.FactoryHouse.UnitPrice == null ? "面议" : ViewBag.FactoryHouse.UnitPrice + "元";
+                <a href="@ViewBag.Area.Code/chushou/">@(ViewBag.Area.Name)厂房出售</a>
+            }
+            else
+            {
+                transactionMode = "chuzu";
+                price = ViewBag.FactoryHouse.HousingRent == null ? "面议" : ViewBag.FactoryHouse.HousingRent + "元";
+                <a href="@ViewBag.Area.Code/chuzu/">@(ViewBag.Area.Name)厂房出租</a>
+            }
+        }
+    </div>
+    <div class="main_wrap  info_box w1200">
+        <div class="house_head">
+            <div class="house_title fl">
+                <h1>@ViewBag.FactoryHouse.HousingName</h1>
+                <p><em>更新于@(ViewBag.FactoryHouse.F_CreateDate)</em><em>浏览量<font id="hit">@ViewBag.FactoryHouse.Pageviews</font></em> <em>来源：</em></p>
+            </div>
+            <div class="house_title_edit fr">
+                <div class="sc fl"><span><a rel="nofollow" href="javascript:void(0);" onclick="setbg('收藏信息',538,300,'http://www.shangpusou.com/box.php?part=shoucang&infoid=6703808')"><em>&#xe655;</em>收藏</a></span></div>
+                <div class="jubao fl"><span><a href="javascript:void(0);" onclick="setbg('举报信息',480,400,'http://www.shangpusou.com/box.php?part=report&id=6703808&infotitle=酒店楼层出租');"><em>&#xe711;</em>举报</a></span></div>
+            </div>
+        </div>
+        <!-- 有图详情 -->
+
+        <div class="house_basic">
+            <div class="extra fl">
+                <div class="zoombox">
+                    @{
+                        var factoryHousePicturesList = ViewBag.FactoryHousePicturesList as List<Entity.Models.Cf_FactoryHousePictures>;
+
+                        if (factoryHousePicturesList != null && factoryHousePicturesList.Count > 0)
+                        {
+                            <div class="zoompic"><img src="@factoryHousePicturesList[0].PictureSource" title=">@ViewBag.FactoryHouse.HousingName" alt=">@ViewBag.FactoryHouse.HousingName" /></div>
+                        }
+                    }
+                    <div class="clear"></div>
+                    <div class="clear"></div>
+                    <div class="sliderbox">
+                        <div id="btn-left" class="arrow-btn dasabled"></div>
+                        <div class="sliderr" id="thumbnail">
+                            <ul>
+                                @{
+                                    if (factoryHousePicturesList != null)
+                                    {
+                                        foreach (var m in factoryHousePicturesList)
+                                        {
+                                            <li class="currentt"><a href="@m.PictureSource" target="_blank"><img onerror="/picture/nopic.gif" src="@m.PictureSource" width="43" height="37" alt="酒店楼层出租" title="酒店楼层出租" /></a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div id="btn-right" class="arrow-btn "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="house_basic_right fr">
+                <div class="main-content-right">
+                    @{                                                           
+                                        <h2 class="main-price">
+                                            <strong>@price</strong>/平
+                                            @{
+
+                                                if (ViewBag.FactoryHouse.IndustryList != null)
+                                                {
+                                                    <span>适合行业</span>
+                                                    JArray jArray = (JArray)JsonConvert.DeserializeObject(ViewBag.FactoryHouse.IndustryList);
+                                                    foreach (var tese in jArray)
+                                                    {
+                                                        if (ViewBag.FactoryHouse.TransactionModeId == 101)
+                                                        {
+                                                            <a title="" class="right-desc" href="/@(transactionMode)_@(tese["Id"])_1.html">@tese["Name"]</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a title="" class="right-desc" href="/@(transactionMode)_@(tese["Id"])_1.html">@tese["Name"]</a>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </h2>
+
+                    }
+                    <ul class="main-advantage">
+                        <li><p class="main-advantage-title unit"> @ViewBag.FactoryHouse.HousingArea ㎡</p> <p class="main-advantage-label">面积</p></li>
+                        @{
+
+                            var citySiteRangeSearchIds = ViewBag.CitySiteRangeSearchIds as List<List<int>>;
+
+                            if (citySiteRangeSearchIds != null)
+                            {
+                                string paramFloorTypeIdStr = "";
+                                string paramHousingStructureIdStr = "";
+                                foreach (var m in citySiteRangeSearchIds)
+                                {
+
+                                    if (ViewBag.FactoryHouse.FloorTypeId != null)
+                                    {
+                                        if (m.Any(s => s == ViewBag.FactoryHouse.FloorTypeId))
+                                        {
+                                            paramFloorTypeIdStr += "_" + ViewBag.FactoryHouse.FloorTypeId;
+                                        }
+                                        else
+                                        {
+                                            paramFloorTypeIdStr += "_0";
+                                        }
+                                    }
+
+                                    if (ViewBag.FactoryHouse.HousingStructureId != null)
+                                    {
+                                        if (m.Any(s => s == ViewBag.FactoryHouse.HousingStructureId))
+                                        {
+                                            paramHousingStructureIdStr += "_" + ViewBag.FactoryHouse.HousingStructureId;
+                                        }
+                                        else
+                                        {
+                                            paramHousingStructureIdStr += "_0";
+                                        }
+                                    }
+                                }
+
+                                if (ViewBag.FactoryHouse.FloorTypeId != null)
+                                {
+                                    <li><p class="main-advantage-title"><a href="/@transactionMode@(paramFloorTypeIdStr)_1.html">@ViewBag.FactoryHouse.FloorTypeName</a></p> <p class="main-advantage-label">楼层</p></li>
+                                }
+                                if (ViewBag.FactoryHouse.HousingStructureId != null)
+                                {
+                                    <li><p class="main-advantage-title"><a href="/@transactionMode@(paramHousingStructureIdStr)_1.html">@ViewBag.FactoryHouse.HousingStructureName</a></p> <p class="main-advantage-label">结构</p></li>
+                                }
+
+                                <li>
+                                    <p class="main-advantage-title">
+                                        @{
+                                            if (ViewBag.FactoryHouse.CategoryList != null)
+                                            {
+                                                JArray jArray = (JArray)JsonConvert.DeserializeObject(ViewBag.FactoryHouse.CategoryList);//jsonArrayText必须是带[]数组格式字符串
+                                                foreach (var category in jArray)
+                                                {
+                                                    string paramStr = "";
+                                                    int id = (int)category["Id"];
+                                                    foreach (var m in citySiteRangeSearchIds)
+                                                    {
+                                                        if (m.Any(s => s == id))
+                                                        {
+                                                            paramStr += "_" + id;
+                                                        }
+                                                        else
+                                                        {
+                                                            paramStr += "_0";
+                                                        }
+                                                    }
+                                                    <a href="/@transactionMode@(paramStr)_1.html">@category["Name"]</a>
+                                                }
+                                            }
+                                        }
+                                    </p>
+                                    @{
+
+                                        if (ViewBag.FactoryHouse.CategoryList != null)
+                                        {
+                                            <p class="main-advantage-label">类型</p>
+                                        }
+
+                                    }
+
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <div class="main-desc">
+                        <div class="main-desc-row">
+                            <span class="main-desc-label">区域位置</span>
+                            <p class="main-desc-text hot">
+                                <a title="" class="main-desc-text-name disable">@ViewBag.FactoryHouseDetials.QuYu</a>
+                            </p>
+                        </div>
+                        <div class="main-desc-row">
+                            <span class="main-desc-label">厂房新旧</span>
+                            <p class="main-desc-text hot">
+                                <a title="" class="main-desc-text-name disable">@ViewBag.FactoryHouseDetials.XinJiuChengDu</a>
+                            </p>
+                        </div>
+                        <div class="main-desc-row no-margin">
+                            <span class="main-desc-label">厂房地址</span>
+                            <p class="main-desc-text">@ViewBag.FactoryHouse.FullAddress</p>
+                        </div>
+                    </div>
+                    <div class="main-consultant">
+                        <div class="main-consultant">
+                            <div class="main-wrapper">
+                                <img alt="" src="  " class="main-avatar" /> <div class="main-info">
+                                    <a title="" href="http://s152708.s.zhaoshang800.com/" target="_blank" class="main-info-name">
+                                        @(ViewBag.FactoryHouse.ContactsName)(@(ViewBag.FactoryHouseDetials.LianXiRenShenFen))
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAAA0VXHyAAABrElEQVQ4EX1Sv0tbURT+vrxYxUKgWNzcOhohaaEdKqYQdCtUQZfiUCct1KGU/gUdOrgKHdzUTaGlgoqFdKpLohhHt06C1kEJSF48nvfuOzePJvrg8p33/Tj33vcOcccj9fEhNK+XYrmn9yPzu3+7WZkmRYQ4KL8AWnPKv4VIb6yT14qrQLCCwt4+SbFc3ECqY5tKPAYxDMEjE7sicaGeY9XO+PT3ZDYxvYnR9+0adaTbYNQc1sDeI2y6xQwgfSmh4Wo+UN7n1PTfQ/5AcTCHIPPEKxl+0uM+RJbP9ZrnntfCd/KkyBROrhxP3EC4wELlm9RKzxBiW3cf8N6uDUwNGGp4lsXKmhyWXqIlWyrlTDbsPEGiMP/rVMs13bms4e9a91soje4bEP/SpNVSe/Va65+6OsNJxjUQ/rGQoVRLMzpIG36YTDBMMq5BELiRNfGy8Q6U9fTvMsljkvGjrMddhtzMe8P9xbL+1veRpT0HBfkAcuP+nKqRp8hF8/kGZCVEoTSNDL+oq2WGNioXaeqJvYngr9A26s2Pynk0w8/KTST8DnqyXzmyV0/7ovoWpft2oDSLXsAAAAAASUVORK5CYII=" alt="" />
+                                    </a> <p class="main-info-text">房源由我维护，了解房源在线留言</p> <p class="main-phone"><span>4008800002转6540</span></p>
+                                </div>
+                            </div> <div class="main-contact"><a title="" href="" class="message">在线留言</a> <a title="" href="" class="order">预约看厂</a></div> <div class="main-qrcode qrcodeDiv"><div class="main-qrcode-container is-qrcode"><div class="main-qrcode-wrapper"><img src="https://img.cdn.zhaoshang800.com/image/2021/08/11/defac6f4-3d0f-4ffd-89ef-4d15abc5a781.png" alt="二维码" class="main-qrcode-img" /></div></div> <p class="main-qrcode-text">微信扫码拨号</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="house_detail">
+            <div class="house_detail_left">
+                <div class="info_box_l_miaoshu">
+                    <div id="detailsLeft" class="details-left">
+                        <section class="details-section">
+                            <div class="details-section-title base-info">
+                                <h2>基本信息</h2>
+                                <button title="">咨询顾问</button>
+                            </div>
+                            <ul class="details-info-list two-col">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.CengGao))
+                                    {
+                                        <li><label>厂房层高</label> <span>@(ViewBag.FactoryHouseDetials.CengGao)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.CengShu))
+                                    {
+                                        <li><label>厂房层数</label> <span>@(ViewBag.FactoryHouseDetials.CengShu)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KuaDu))
+                                    {
+                                        <li><label>柱网跨度</label> <span>@(ViewBag.FactoryHouseDetials.KuaDu)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ZhanDiMianJi))
+                                    {
+                                        <li><label>占地面积</label> <span>@(ViewBag.FactoryHouseDetials.ZhanDiMianJi)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.BanGongMianJi))
+                                    {
+                                        <li><label>办公面积</label> <span>@(ViewBag.FactoryHouseDetials.BanGongMianJi)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.SuSheMianJi))
+                                    {
+                                        <li><label>宿舍面积</label> <span>@(ViewBag.FactoryHouseDetials.SuSheMianJi)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KongDiMianJi))
+                                    {
+                                        <li><label>空地面积</label> <span>@(ViewBag.FactoryHouseDetials.KongDiMianJi)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XianPeiDian))
+                                    {
+                                        <li><label>当前配电</label> <span>@(ViewBag.FactoryHouseDetials.XianPeiDian)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.KePeiDian))
+                                    {
+                                        <li><label>可以面积</label> <span>@(ViewBag.FactoryHouseDetials.KePeiDian)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.DuYuan))
+                                    {
+                                        <li><label>是否独院</label> <span>@(ViewBag.FactoryHouseDetials.DuYuan)</span></li>
+                                    }
+
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.DianTi))
+                                    {
+                                        <li><label>有无电梯</label> <span>@(ViewBag.FactoryHouseDetials.DianTi)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XingChe))
+                                    {
+                                        <li><label>行车出入</label> <span>@(ViewBag.FactoryHouseDetials.XingChe)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.ChanQuan))
+                                    {
+                                        <li><label>有无产权</label> <span>@(ViewBag.FactoryHouseDetials.ChanQuan)</span></li>
+                                    }
+                                    if (!string.IsNullOrEmpty(ViewBag.FactoryHouseDetials.XiaoFang))
+                                    {
+                                        <li><label>有无消防</label> <span>@(ViewBag.FactoryHouseDetials.XiaoFang)</span></li>
+                                    }
+                                }
+                            </ul>
+                        </section>
+                        <section class="details-section">
+                            <div class="details-section-title plant-features">
+                                <h2>厂房特色</h2>
+                                <button title="">咨询顾问</button>
+                            </div>
+                            <div class="details-section-content">
+                                <ul class="tags">
+                                    @{
+ 
+                                        if (ViewBag.FactoryHouse.FeatureList != null)
+                                        {                                             
+                                            JArray jArray = (JArray)JsonConvert.DeserializeObject(ViewBag.FactoryHouse.FeatureList);
+                                            foreach (var tese in jArray)
+                                            {
+                                                if (ViewBag.FactoryHouse.TransactionModeId == 101)
+                                                {
+                                                    <li><a href="/tese@(transactionMode)_@(tese["Id"])_1.html">@tese["Name"]</a></li>
+                                                }
+                                                else
+                                                {
+                                                    <li><a href="/tese@(transactionMode)_@(tese["Id"]))_1.html">@tese["Name"]</a></li>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </ul>
+                                <div class="details-info-desc">
+                                    @Html.Raw(ViewBag.FactoryHouseDetials.FactoryHouseContent)
+                                </div>
+                                <p class="details-info-desc-contact">联系我时，请说明是在<span>中工招商网</span>看到的，谢谢！</p>
+                            </div>
+                        </section>
+                        <section class="details-section">
+                            <div class="details-section-title plant-pic">
+                                <h2>实勘图片</h2> <button title="">咨询顾问</button>
+                            </div>
+                            <div class="details-picture-wrapper">
+                                <div id="realImages" class="details-picture-list">
+
+                                    @{
+                                        if (factoryHousePicturesList != null)
+                                        {
+                                            foreach (var m in factoryHousePicturesList)
+                                            {
+                                                <div data-index="0" class="details-picture-item"><img title="观 贴" alt="观图片0" class="details-picture-img" data-src=" " src="@m.PictureSource" lazy="loaded" /></div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </section>
+                        <section class="details-section">
+                            <div class="details-section-title plant-source"><h2>同类房源</h2> <button title="">咨询顾问</button></div>
+                            <div class="details-section-content">
+                                <ul class="resource-list">
+                                    @{
+                                        var factoryHouseList = ViewBag.FactoryHouseList as List<Entity.Models.Cf_FactoryHouse>;
+                                        foreach (var m in factoryHouseList)
+                                        {
+                                            <li class="resource-list-item">
+                                                <div class="re-list-img-wrapper">
+                                                    <img alt="" title="  " class="re-list-img" src="@m.CoverMap" lazy="loaded" />
+                                                </div> <div class="re-list-container">
+                                                    <div class="re-list-content">
+                                                        <div class="re-list-desc">
+                                                            <p class="re-list-desc-address">@m.HousingName</p>
+                                                            <p class="re-list-desc-hot span-line">
+                                                                <span>@m.HousingArea ㎡</span> <span>@m.FloorTypeName</span> <span>@m.HousingStructureName</span> <!----> <span>@m.HousingStructureName</span>
+                                                            </p> <div class="re-list-desc-tags"><span>国道附近</span><span>精装修</span><span>工业园</span></div>
+                                                        </div>
+                                                        <div class="re-list-price">
+                                                            @{
+                                                                if (m.TransactionModeId == 101)
+                                                                {
+                                                                    <p class="re-list-price-text">@(m.UnitPrice == null ? "售价：面议" : m.UnitPrice + "/平")</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p class="re-list-price-text">@(m.HousingRent == null ? "租金：面议" : m.HousingRent + "/月")</p>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <script type="text/javascript" src="js2/comment.php"></script>
+                <div class="maincon cfix">
+                </div>
+                <div class="info_box_l_miaoshu">
+                    <h3><em></em>猜你喜欢 <a href="http://beijing.shangpusou.com/changfangchuzu/">更多信息&gt;&gt;</a></h3>
+                    <div class="scroll_x">
+                        <ul>
+                            @{
+                                var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
+                                foreach (var m in factoryHouseChuZuList)
+                                {
+                                    <li>
+                                        <div class="pic">
+                                            <a href="@ViewBag.Area.Code/changfang_@(m.Id).html" rel="nofollow" title="@m.HousingName">
+                                                <img src="@m.CoverMap" onerror="this.src='/Images/nopic.gif'" alt="@m.HousingName" target="_blank" />
+                                            </a>
+                                        </div>
+                                        <p class="bt"><a href="@ViewBag.Area.Code/changfang_@(m.Id).html" title="@m.HousingName" target="_blank" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 100%;display: inline-block;">@m.HousingName </a></p>
+                                        @{
+                                            if (m.HousingRent == null)
+                                            {
+                                                <p class="price">租金：面议  <span class="area">@m.HousingArea㎡</span></p>
+                                            }
+                                            else
+                                            {
+                                                <p class="price">租金：@m.HousingRent/月 <span class="area">@m.HousingArea㎡</span></p>
+                                            }
+                                        }
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="house_detail_right">
+                <div id="rightRetui">
+                    <div class="con_r_box">
+                        <div class="retuihead">推荐房源</div>
+                        <p>
+                            <b>精选推广</b>价格：<span>30</span>元/天<br />
+
+                            <a href="http://my.shangpusou.com/vip/index" target="_blank">立即推广</a>
+                        </p>
+                        <div id="formContainer" class="form">
+                            <form class="el-form">
+                                <div class="el-form-item is-required">
+                                    <div class="el-form-item__content">
+                                        <div class="el-input el-input--suffix">
+                                            <input type="text" autocomplete="off" placeholder="请输入手机号码（隐私保密更安全）" class="el-input__inner" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-form-item is-required">
+                                    <!----><div class="el-form-item__content">
+                                        <div class="el-textarea">
+                                            <textarea autocomplete="off" class="el-textarea__inner" style="min-height: 44px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <button type="button" class="form-submit">提交</button>
+                        </div>
+                    </div>
+                    <ul class="jg-recommend-list">
+                        @{
+                            var factoryHouseChuShouList = ViewBag.FactoryHouseChuShouList as List<Entity.Models.Cf_FactoryHouse>;
+                            foreach (var m in factoryHouseChuShouList)
+                            {
+                                <li class="jg-house">
+                                    <a href="http://dongguan.shangpusou.com/zhaoxiangguan/f6704216.html" title="东莞市虎门镇广告摄影工作室转让" target="_blank">
+                                        <div class="pic-wrap">
+                                            <img src="@m.CoverMap" style="display: inline;" />
+                                            <div class="cf">
+                                                <span class="name">@m.ContactsName</span>
+                                                <span class="phone">@m.FullAddress</span>
+                                            </div>
+                                            <em title="精选推广">精选</em>
+                                        </div>
+                                        <div class="detail-info">
+                                            <h3>@m.HousingName</h3>
+                                            <div class="house-type">
+                                                虎门 <span class="area">200m²</span>
+                                            </div>
+                                            <div class="price">
+                                                <span>租金：2000元/月</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><div class="footer_bottom w1200">
+        <div class="index_bottom_main w1200 con">
+            <div id="div_tab_nav" class="index_bottom_header floatclear f14">
+                <a href="javascript:;" class="index_bottom_on">热门区域厂房出售</a>
+                <a href="javascript:;" class="">热门区域厂房出租</a>
+
+            </div>
+            <div id="div_tab_content" class="index_bottom_tab_main">
+
+                <div class="index_bottom_tabbox floatclear" style="display: block;">
+                    <a href='http://beijing.shangpusou.com/changfangchuzu/' title="北京厂房出租转让" target="_blank">北京厂房出租转让</a>
+                    <a href='http://beijing.shangpusou.com/changfangchushou/' title="北京厂房出售转让" target="_blank">北京厂房出售转让</a>
+                    <a href='http://beijing.shangpusou.com/changfangzhuanrang/' title="北京厂房转让转让" target="_blank">北京厂房转让转让</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.index_bottom_tab_content .index_bottom_tabbox').eq(0).show()
+        $('#div_tab_content  .index_bottom_tabbox').eq(0).show()
+
+        $('.index_bottom_tab_main').show()
+        $('.index_bottom_tab_main .index_bottom_btn a').each(function (index2) {
+            $(this).hover(function () {
+                $(this).siblings('a').removeClass('index_bottom_btn_on')
+                $(this).addClass('index_bottom_btn_on')
+                $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children().hide()
+                $(this).parent('.index_bottom_btn').siblings('.index_bottom_tab_content').children('.index_bottom_tabbox').eq(index2).show()
+            })
+        })
+
+        $('#div_tab_nav a').each(function (index2) {
+            $(this).hover(function () {
+                $(this).siblings('a').removeClass('index_bottom_on')
+                $(this).addClass('index_bottom_on')
+                $('#div_tab_content div').hide()
+                $('#div_tab_content div').eq(index2).show()
+            })
+        })
+
+
+
+
+    </script><div id="ad_footerbanner"></div>
+    <div style="display: none" id="ad_none">
+    </div>
+
+
+    <div class="footer">
+        <div class="footer_common">
+            <div class="footer_common_link">
+                <a href="http://www.shangpusou.com/aboutus.html" rel="nofollow" target="_blank">网站简介</a>
+                <a href="http://www.shangpusou.com/aboutus-id-2.html" rel="nofollow" target="_blank">广告服务</a>
+                <a href="http://www.shangpusou.com/aboutus-id-3.html" rel="nofollow" target="_blank">联系我们</a>
+                <a href="http://www.shangpusou.com/faq.html" rel="nofollow" target="_blank">网站帮助</a>
+                <a href="http://www.shangpusou.com/friendlink.html" rel="nofollow" target="_blank">友情链接</a>
+                <a href="http://www.shangpusou.com/announce.html" rel="nofollow" target="_blank">网站公告</a>
+                <a href="http://www.shangpusou.com/sitemap.html" rel="nofollow" target="_blank">网站地图</a>
+            </div>
+            <div class="footer_common_con">
+                <p>
+                    Copyright &copy; 商铺搜版权所有. 本站所有信息均归商铺搜网用户所发，严禁转载。 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">湘ICP备2021013894号</a>
+                    <script>
+                        var _hmt = _hmt || [];
+                        (function () {
+                            var hm = document.createElement("script");
+                            hm.src = "https://hm.baidu.com/hm.js?27390b4003f337546042d1a4ea519aff";
+                            var s = document.getElementsByTagName("script")[0];
+                            s.parentNode.insertBefore(hm, s);
+                        })();
+                    </script>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">loadDefault(["addiv", 'shangpusou', "mayilogin"]);</script>
+</body>
+</html>
+<script src="js2/messagebox.js" type="text/javascript"></script>
+<script type="text/javascript">loadDefault(['slider', 'info']);</script>

@@ -96,10 +96,10 @@
     <div class="main_wrap  info_box w1200">
         <div class="house_head">
             <div class="house_title fl">
-                <h1>酒店楼层出租</h1>
-                <p><em>更新于2021-11-11</em><em><font id="hit"></font>人已浏览</em><em>信息编号：6703808</em><em>来源：</em></p>
+                <h1>@ViewBag.FactoryHouse.HousingName</h1>
+                <p><em>更新于@(ViewBag.FactoryHouse.F_CreateDate)</em><em>浏览量<font id="hit">@ViewBag.FactoryHouse.Pageviews</font></em> <em>来源：</em></p>
             </div>
-            <div class="house_title_edit fr">
+            <div class="house_title_edit fr">               
                 <div class="sc fl"><span><a rel="nofollow" href="javascript:void(0);" onclick="setbg('收藏信息',538,300,'http://www.shangpusou.com/box.php?part=shoucang&infoid=6703808')"><em>&#xe655;</em>收藏</a></span></div>
                 <div class="jubao fl"><span><a href="javascript:void(0);" onclick="setbg('举报信息',480,400,'http://www.shangpusou.com/box.php?part=report&id=6703808&infotitle=酒店楼层出租');"><em>&#xe711;</em>举报</a></span></div>
             </div>
@@ -109,15 +109,32 @@
         <div class="house_basic">
             <div class="extra fl">
                 <div class="zoombox">
-                    <div class="zoompic"><img src="/picture/pre_1636644525hnoc5.jpeg" title="酒店楼层出租" alt="酒店楼层出租" /></div>
+                    @{
+                        var factoryHousePicturesList = ViewBag.FactoryHousePicturesList as List<Entity.Models.Cf_FactoryHousePictures>;
+
+                        if (factoryHousePicturesList != null && factoryHousePicturesList.Count > 0)
+                        {
+                            <div class="zoompic"><img src="@factoryHousePicturesList[0].PictureSource" title="酒店楼层出租" alt="酒店楼层出租" /></div>
+                        }
+                    }
                     <div class="clear"></div>
                     <div class="clear"></div>
                     <div class="sliderbox">
                         <div id="btn-left" class="arrow-btn dasabled"></div>
                         <div class="sliderr" id="thumbnail">
                             <ul>
-                                <li class="currentt"><a href="/picture/1636644525hnoc5.jpeg" target="_blank"><img onerror="/picture/nopic.gif" src="/picture/pre_1636644525hnoc5.jpeg" width="43" height="37" alt="酒店楼层出租" title="酒店楼层出租" /></a></li>
-                                <li><a href="/picture/1636644525se3pg.jpeg" target="_blank"><img onerror="/picture/nopic.gif" src="/picture/pre_1636644525se3pg.jpeg" width="43" height="37" alt="酒店楼层出租" title="酒店楼层出租" /></a></li>
+
+                                @{
+
+
+                                    if (factoryHousePicturesList != null)
+                                    {
+                                        foreach (var m in factoryHousePicturesList)
+                                        {
+                                            <li class="currentt"><a href="@m.PictureSource" target="_blank"><img onerror="/picture/nopic.gif" src="@m.PictureSource" width="43" height="37" alt="酒店楼层出租" title="酒店楼层出租" /></a></li>
+                                        }
+                                    }
+                                }
                             </ul>
                         </div>
                         <div id="btn-right" class="arrow-btn "></div>
@@ -127,36 +144,57 @@
             <div class="house_basic_right fr">
                 <div class="house_desc_item fl">
                     <p class="house_desc_item_money">
-                        <span class="house_desc_item_money_num">450000</span><span class="house_desc_item_money_unit">元/月</span>
+
+                        @{
+                            if (ViewBag.FactoryHouse.TransactionModeId == 101)
+                            {
+
+                                if (ViewBag.FactoryHouse.UnitPrice ==  null)
+                                {
+                                    <span class="house_desc_item_money_num">面议</span><span class="house_desc_item_money_unit"></span>
+                                }
+                                else
+                                {
+                                    <span class="house_desc_item_money_num">@ViewBag.FactoryHouse.UnitPrice</span><span class="house_desc_item_money_unit">元/月</span>
+                                }
+                            }
+                            else
+                            {
+                                if (ViewBag.FactoryHouse.HousingRent == null)
+                                {
+                                    <span class="house_desc_item_money_num">面议</span><span class="house_desc_item_money_unit"></span>
+                                }
+                                else
+                                {
+                                    <span class="house_desc_item_money_num">@ViewBag.FactoryHouse.HousingRent</span><span class="house_desc_item_money_unit">元/平</span>
+                                }
+                            }
+
+                        }
                     </p>
                     <ul class="house_desc_item_info">
                         <li class="intro_item fl">
                             <span class="title">建筑面积：</span>
-                            <span class="content">4000㎡</span>
+                            <span class="content">@ViewBag.FactoryHouse.HousingArea ㎡</span>
                         </li>
 
-                        <li class="intro_item fl">
-                            <span class="title">状　　态：</span>
-                            <span class="content"></span>
-                        </li>
-
-                        <div class="clear"></div>
+                        
                     </ul>
                     <ul class="house_desc_item_info2">
                         <li class="intro_item">
                             <span class="title">所属区域：</span>
                             <span class="content">
-                                <a href="http://beijing.shangpusou.com/changfangchuzu/areaid-335/" title="丰台厂房出租">丰台</a>
-                                <a href="http://beijing.shangpusou.com/changfangchuzu/areaid-335-streetid-2620/" title="木樨园厂房出租">木樨园</a>
+                                <a href="http://beijing.shangpusou.com/changfangchuzu/areaid-335/" title="丰台厂房出租">@ViewBag.FactoryHouse.CityName</a>
+                                <a href="http://beijing.shangpusou.com/changfangchuzu/areaid-335-streetid-2620/" title="木樨园厂房出租">@ViewBag.FactoryHouse.DistrictName</a>
                             </span>
                         </li>
                         <li class="intro_item">
                             <span class="title">详细地址：</span>
-                            <span class="content">丰台区木樨园 丰台区服务中心后面一栋楼</span>
+                            <span class="content">@ViewBag.FactoryHouse.FullAddress</span>
                         </li>
                         <li class="intro_item">
                             <span class="title">联&nbsp;&nbsp;系&nbsp;&nbsp;人：</span>
-                            <span class="content">周先生<em class="geren">（个人）</em></span>
+                            <span class="content">@ViewBag.FactoryHouse.ContactsName<em class="geren">（@ViewBag.FactoryHouse.ContactsTypeName）</em></span>
                         </li>
                         <div class="clear"></div>
                     </ul>
@@ -341,9 +379,6 @@
                                     <li>QQ：@(ViewBag.FactoryHouseDetials.LianXiRenQq)</li>
                                 }
                             }
-
-
-
                             @*<li><i></i>中央空调</li>*@
                         </ul>
                     </div>
@@ -352,8 +387,15 @@
                     <h3><em></em>图片</h3>
                     <div class="info_box_l_miaoshu_con">
                         <ul class="general-pic-list" style="height: auto;">
-                            <a href="/picture/1636644525hnoc5.jpeg" target="_blank"><img src="/picture/1636644525hnoc5.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租" /></a>
-                            <a href="/picture/1636644525se3pg.jpeg" target="_blank"><img src="/picture/1636644525se3pg.jpeg" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租" /></a>
+                            @{                                 
+                                if (factoryHousePicturesList != null)
+                                {
+                                    foreach (var m in factoryHousePicturesList)
+                                    {
+                                                        <li class="currentt"> <a href="@m.PictureSource" target="_blank"><img src="@m.PictureSource" class="imginfo" title="酒店楼层出租" alt="酒店楼层出租" /></a></li>
+                                    }
+                                }
+                            }                                                       
                         </ul>
                     </div>
                 </div>
@@ -392,42 +434,35 @@
                 </div>
             </div>
             <div class="house_detail_right">
-                <div id="rightRetui">
-                    <div class="con_r_box">
-                        <div class="retuihead">推广优惠</div>
-                        <p>
-                            <b>精选推广</b>价格：<span>30</span>元/天<br />
-                            展示位置：PC端首页、PC端列表页右则、PC端详情页右则、移动端首页、小程序首页<br />
-                            <b>置顶推广</b>价格：<span>20</span>元/天<br />
-                            展示位置：PC端频道页左则、手机端频道页、小程序频道页<br />
-                            享全网最高性价比商业地产流量。<br />PC、H5同步展示，流量提升5-8倍。
-                            <a href="http://my.shangpusou.com/vip/index" target="_blank">立即推广</a>
-                        </p>
-                    </div>
+                <div id="rightRetui">                     
                     <ul class="jg-recommend-list">
-                        <li class="jg-house">
-                            <a href="http://dongguan.shangpusou.com/zhaoxiangguan/f6704216.html" title="东莞市虎门镇广告摄影工作室转让" target="_blank">
-                                <div class="pic-wrap">
-                                    <img src="http://www.shangpusou.com/attachment/information/20220214/pre_1644802785pvsh8.jpeg" style="display: inline;" />
-                                    <div class="cf">
-                                        <span class="name">黄先生</span>
-                                        <span class="phone">13549348875</span>
-                                    </div>
-                                    <em title="精选推广">精选</em>
-                                </div>
-                                <div class="detail-info">
-                                    <h3>东莞市虎门镇广告摄影工作室转让</h3>
-                                    <div class="house-type">
-                                        虎门 <span class="area">200m²</span>
-                                    </div>
-                                    <div class="price">
-                                        <span>租金：2000元/月</span>
-                                        <span>转让费：2万元</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
+                        @{
+                            var factoryHouseList = ViewBag.FactoryHouseList as List<Entity.Models.Cf_FactoryHouse>;
+                            foreach (var m in factoryHouseList)
+                            {
+                                <li class="jg-house">
+                                    <a href="http://dongguan.shangpusou.com/zhaoxiangguan/f6704216.html" title="东莞市虎门镇广告摄影工作室转让" target="_blank">
+                                        <div class="pic-wrap">
+                                            <img src="@m.CoverMap" style="display: inline;" />
+                                            <div class="cf">
+                                                <span class="name">@m.CoverMap</span>
+                                                <span class="phone">@m.CoverMap</span>
+                                            </div>
+                                            <em title="精选推广">精选</em>
+                                        </div>
+                                        <div class="detail-info">
+                                            <h3>@m.CoverMap</h3>
+                                            <div class="house-type">
+                                                虎门 <span class="area">200m²</span>
+                                            </div>
+                                            <div class="price">
+                                                <span>租金：2000元/月</span>                                               
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>

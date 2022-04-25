@@ -36,6 +36,28 @@ namespace JW.Controllers
             Cf_FactoryHouseDetailsService factoryHouseDetailsService = new Cf_FactoryHouseDetailsService();
             var factoryHouseDetials = factoryHouseDetailsService.GetFactoryHouseDetials(factoryHouseId);
             ViewBag.FactoryHouseDetials = factoryHouseDetials;
+            
+
+
+
+
+
+            Cf_FactoryHousePicturesService factoryHousePicturesService = new Cf_FactoryHousePicturesService();
+
+            var factoryHousePicturesList =  factoryHousePicturesService.GetFactoryHousePicturesList(factoryHouse.Id);
+
+            ViewBag.FactoryHousePicturesList = factoryHousePicturesList;
+
+
+           
+
+
+            //厂房出租信息
+            var factoryHouseList = factoryHouseService.GetFactoryHouseList(10, factoryHouse.TransactionModeId.Value);
+            ViewBag.FactoryHouseList = factoryHouseList;
+
+
+
 
 
 

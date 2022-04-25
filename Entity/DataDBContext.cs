@@ -86,5 +86,9 @@ namespace Entity
         public virtual DbSet<Cf_FactoryHouseFeature> Cf_FactoryHouseFeature { get; set; }
         public virtual DbSet<Cf_FactoryHousePictures> Cf_FactoryHousePictures { get; set; }
         public virtual DbSet<Cf_FactoryHouseCategory> Cf_FactoryHouseCategory { get; set; }
+        public virtual DbSet<Cf_FactoryHouseIndustry> Cf_FactoryHouseIndustry { get; set; }
+
+        public virtual DbSet<Cf_StorageHouse> Cf_StorageHouse { get; set; }
+        public virtual DbSet<Cf_StorageHouseDetails> Cf_StorageHouseDetails { get; set; }
     }
 }

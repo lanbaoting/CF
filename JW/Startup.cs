@@ -58,132 +58,176 @@ namespace JW
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("news", "/news{param1}/list_{param2}.html", new
-                {
-                    controller = "NewsClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
-                });
-                endpoints.MapControllerRoute("game", "/game/{param1}.html", new
-                {
-                    controller = "GameDetails",
-                    action = "Index"
-                });
-                endpoints.MapControllerRoute("gamelist", "/game{param1}/{param2}.html", new
-                {
-                    controller = "GameClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
-                });
-
-                endpoints.MapControllerRoute("gamelist", "/game{param1}/", new
-                {
-                    controller = "GameClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+" }
-                });
-
-
-
-
-                endpoints.MapControllerRoute("Topic", "/topic{param1}/", new
-                {
-                    controller = "Topic",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+" }
-                });
-
-                endpoints.MapControllerRoute("TopicList", "/type{param1}/", new
-                {
-                    controller = "TopicList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+" }
-                });
-
-                endpoints.MapControllerRoute("TopicList", "/type{param1}/list_{param2}.html", new
-                {
-                    controller = "TopicList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
-                });
-
-
-                endpoints.MapControllerRoute("news", "/news/{param1}.html", new
-                {
-                    controller = "NewsDetails",
-                    action = "Index",
-                    constraints = new { param1 = @"^\d+" }
-                });
-                endpoints.MapControllerRoute("news", "/news/", new
-                {
-                    controller = "news",
-                    action = "Index"
-                });
-
-
-                endpoints.MapControllerRoute("news", "/news/{param1}/", new
-                {
-                    controller = "news",
-                    action = "Index",
-                    constraints = new { param1 = @"^\d+" }
-                });
-
-
-                //endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/", new
+                //endpoints.MapControllerRoute("news", "/news{param1}/list_{param2}.html", new
                 //{
                 //    controller = "NewsClassList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
+                //});
+                //endpoints.MapControllerRoute("game", "/game/{param1}.html", new
+                //{
+                //    controller = "GameDetails",
+                //    action = "Index"
+                //});
+                //endpoints.MapControllerRoute("gamelist", "/game{param1}/{param2}.html", new
+                //{
+                //    controller = "GameClassList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
+                //});
+
+                //endpoints.MapControllerRoute("gamelist", "/game{param1}/", new
+                //{
+                //    controller = "GameClassList",
                 //    action = "Index",
                 //    constraints = new { param1 = @"^\w+" }
                 //});
 
-                //endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/{param2}.html", new
+
+
+
+                //endpoints.MapControllerRoute("Topic", "/topic{param1}/", new
                 //{
-                //    controller = "NewsClassList",
+                //    controller = "Topic",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+" }
+                //});
+
+                //endpoints.MapControllerRoute("TopicList", "/type{param1}/", new
+                //{
+                //    controller = "TopicList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+" }
+                //});
+
+                //endpoints.MapControllerRoute("TopicList", "/type{param1}/list_{param2}.html", new
+                //{
+                //    controller = "TopicList",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+", param2 = @"\w+" }
+                //});
+
+
+                //endpoints.MapControllerRoute("news", "/news/{param1}.html", new
+                //{
+                //    controller = "NewsDetails",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\d+" }
+                //});
+                //endpoints.MapControllerRoute("news", "/news/", new
+                //{
+                //    controller = "news",
+                //    action = "Index"
+                //});
+
+
+                //endpoints.MapControllerRoute("news", "/news/{param1}/", new
+                //{
+                //    controller = "news",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\d+" }
+                //});
+
+
+                ////endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/", new
+                ////{
+                ////    controller = "NewsClassList",
+                ////    action = "Index",
+                ////    constraints = new { param1 = @"^\w+" }
+                ////});
+
+                ////endpoints.MapControllerRoute("NewsClass", "/newsclass/{param1}/{param2}.html", new
+                ////{
+                ////    controller = "NewsClassList",
+                ////    action = "Index",
+                ////    constraints = new { param1 = @"^\w+", param2 = @"\d+" }
+                ////});
+
+
+
+
+
+                //endpoints.MapControllerRoute("AzGame", "/azgame/", new
+                //{
+                //    controller = "AzGame",
+                //    action = "Index",
+
+                //});
+
+
+                //endpoints.MapControllerRoute("FactoryHouseDetails", "/changfang/{param1}.html", new
+                //{
+                //    controller = "FactoryHouseDetails",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\d+" }
+                //});
+
+                //endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/", new
+                //{
+                //    controller = "FactoryHouseList",
+                //    action = "ChuShou"              
+                //});
+
+                //endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/{param1}/", new
+                //{
+                //    controller = "FactoryHouseList",
+                //    action = "ChuShou",
+                //    constraints = new { param1 = @"\d+" }
+                //});
+                //endpoints.MapControllerRoute("FactoryHouseList", "/changfangchuzu/", new
+                //{
+                //    controller = "FactoryHouseList",
+                //    action = "ChuZu"
+                //});
+
+                //endpoints.MapControllerRoute("FactoryHouseList", "/changfangchuzu/{param1}/", new
+                //{
+                //    controller = "FactoryHouseList",
+                //    action = "ChuZu",
+                //    constraints = new { param1 = @"\d+" }
+                //});
+
+
+                //endpoints.MapControllerRoute("StorageHouseList", "/kufangchuzu/", new
+                //{
+                //    controller = "StorageHouseList",
+                //    action = "ChuZu"
+                //});
+
+                //endpoints.MapControllerRoute("StorageHouseList", "/kufangchuzu/{param1}/", new
+                //{
+                //    controller = "StorageHouseList",
+                //    action = "ChuZu",
+                //    constraints = new { param1 = @"\d+" }
+                //});
+ 
+                //endpoints.MapControllerRoute("AzGameClassList", "/azgmcs/{param1}/{param2}.html", new
+                //{
+                //    controller = "AzGameClassList",
                 //    action = "Index",
                 //    constraints = new { param1 = @"^\w+", param2 = @"\d+" }
                 //});
 
 
+                //endpoints.MapControllerRoute("Route", "/{param1}.html", new
+                //{
+                //    controller = "Route",
+                //    action = "Index",
+                //    constraints = new { param1 = @"^\w+" }
+                //});
 
-
-
-                endpoints.MapControllerRoute("AzGame", "/azgame/", new
+                endpoints.MapControllerRoute("Route", "/{param1}/", new
                 {
-                    controller = "AzGame",
+                    controller = "Route",
                     action = "Index",
-
-                });
-
-
-                endpoints.MapControllerRoute("FactoryHouseDetails", "/changfang/{param1}.html", new
-                {
-                    controller = "FactoryHouseDetails",
-                    action = "Index",
-                    constraints = new { param1 = @"^\d+" }
-                });
-
-                endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/", new
-                {
-                    controller = "FactoryHouseList",
-                    action = "ChuShou"              
-                });
-
-                endpoints.MapControllerRoute("FactoryHouseList", "/changfangchushou/{param1}/", new
-                {
-                    controller = "FactoryHouseList",
-                    action = "ChuShou",
-                    constraints = new { param1 = @"\d+" }
+                    constraints = new { param1 = @"^\w+" }
                 });
 
 
 
-                endpoints.MapControllerRoute("AzGameClassList", "/azgmcs/{param1}/{param2}.html", new
-                {
-                    controller = "AzGameClassList",
-                    action = "Index",
-                    constraints = new { param1 = @"^\w+", param2 = @"\d+" }
-                });
- 
+
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

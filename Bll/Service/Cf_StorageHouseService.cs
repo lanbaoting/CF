@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Bll.Service
 {
-    public class Cf_FactoryHouseService : BaseService
+    public class Cf_StorageHouseService : BaseService
     {
 
 
@@ -101,55 +101,11 @@ namespace Bll.Service
         ///  获取全部文章的分页列表
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Cf_FactoryHouse> GetPageTageFactoryHouse(int? transactionModeId, int cityId, int? districtId, int hangyeDicId)
+        public IQueryable<Cf_StorageHouse> GetPageStorageHouse(int? transactionModeId, int cityId, List<Cf_FactoryHouseDictionary> dics)
         {
             try
             {
-                var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable);
-                var factoryHouseIndustrys = Context.Cf_FactoryHouseIndustry.Where(w => w.FactoryHouseDictionaryId == hangyeDicId);
-
-                if (districtId > 0)
-                {
-                    list = list.Where(w => w.DistrictId == districtId);
-                }
-                else if (cityId > 0)
-                {
-                    list = list.Where(w => w.CityId == cityId);
-                }
-
-                if (transactionModeId != null)
-                {
-                    list = list.Where(w => w.TransactionModeId == transactionModeId);
-                }
-
-
-                list = from m in list
-                       join factoryHouseIndustry in factoryHouseIndustrys on m.Id equals factoryHouseIndustry.FactoryHouseId
-                       select m;
-
-
-                list = list.OrderByDescending(w => w.F_CreateDate);
-
-
-                return list;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-
-
-        /// <summary>       
-        ///  获取全部文章的分页列表
-        /// </summary>
-        /// <returns></returns>
-        public IQueryable<Cf_FactoryHouse> GetPageFactoryHouse(int? transactionModeId, int cityId, List<Cf_FactoryHouseDictionary> dics)
-        {
-            try
-            {
-                var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable);
+                var list = Context.Cf_StorageHouse.Where(w => w.IsEnable == true);
                 if (cityId > 0)
                 {
                     list = list.Where(w => w.CityId == cityId);
@@ -176,14 +132,7 @@ namespace Bll.Service
                     {
                         list = list.Where(w => w.FloorTypeId == dic.Id);
                     }
-                    else if (dic.ParentId == 6)
-                    {
-
-                      var categorys=  Context.Cf_FactoryHouseCategory.Where(w => w.FactoryHouseDictionaryId == dic.Id);
-
-                        list = from  m in list join category in categorys  on m.Id equals category.FactoryHouseId select m ;
-                    }
-                    else  
+                    else
                     {
                         list = list.Where(w => w.DistrictId == dic.Id);
                     }
@@ -328,9 +277,7 @@ namespace Bll.Service
         {
             try
             {
-                var list = Context.Cf_FactoryHouse.Where(w => w.IsEnable == true && w.TransactionModeId == transactionModeId).OrderByDescending(o => o.ReleaseTime).Take(topCount);
-
-                
+                var list = Context.Cf_FactoryHouse.Where(w=>w.IsEnable ==true && w.TransactionModeId == transactionModeId).OrderByDescending(o=>o.ReleaseTime).Take(topCount);
                
                 return list.ToList();
             }
@@ -339,36 +286,6 @@ namespace Bll.Service
                 return null;
             }
         }
-
-        /// <summary>
-        /// 前几条
-        /// </summary>
-        /// <param name="topCount"></param>
-        /// <returns></returns>
-        public List<Cf_FactoryHouse> GetFactoryHouseList(int topCount, Cf_FactoryHouse factoryHouse)
-        {
-            try
-            {
-                var factoryHouseCategoryIds = Context.Cf_FactoryHouseCategory.Where(w => w.FactoryHouseId == factoryHouse.Id).Select(s=>s.FactoryHouseDictionaryId);
-
-                var factoryHouses = Context.Cf_FactoryHouse.Where(w => w.IsEnable == true && w.TransactionModeId == factoryHouse.TransactionModeId);
-                var factoryHouseCategorys = Context.Cf_FactoryHouseCategory.Where(w => factoryHouseCategoryIds .Contains(w.FactoryHouseDictionaryId) );
-
-                var list = from house in factoryHouses
-                           join factoryHouseCategory in factoryHouseCategorys
-                           on house.Id equals factoryHouseCategory.FactoryHouseId
-                           select house;
-
-                return list.OrderByDescending(o=>o.ReleaseTime).Take(topCount).ToList();
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-
-
 
 
 

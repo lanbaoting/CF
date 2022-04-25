@@ -38,7 +38,10 @@ p#back-to-top a span{background:#d1d1d1 url(../images3/upgo.gif) no-repeat 0 0;d
 .vhd .vhd_c img{max-height:78px}
 .mhead .logo img{max-height:78px}
 .fl{float:left}
-.fr{float:right}
+.fr {
+    float: right;
+    margin-right: 75px;
+}
 .con{margin:0 auto}
 .h20{height:20px}
 .w1280{width:1280px;margin:0 auto}
@@ -49,9 +52,8 @@ p#back-to-top a span{background:#d1d1d1 url(../images3/upgo.gif) no-repeat 0 0;d
 
 /*on_page*/
 .on_page {
-    clear: both;
-    height: 52px;
-    line-height: 52px;
+    clear: both; 
+    line-height: 30px;
     color: #999aaa;
 }
 .on_page a{ color: #999aaa;}
@@ -84,7 +86,7 @@ p#back-to-top a span{background:#d1d1d1 url(../images3/upgo.gif) no-repeat 0 0;d
 .list_box{position:absolute;top:40px;left:-1px;background:#fff;width:100%;border:1px solid #ededed;border-top:none;display:none;z-index: 1;}
 .list_box a{padding:0 10px;display:block;margin:0 auto;text-align:center;line-height:35px}
 /*公共头部开始*/
-.header_mind{height:75px;margin:0 auto;padding:10px 0;background:#fff}
+.header_mind{ margin:0 auto;padding:10px 0;background:#fff}
 .logo{display:inline-block;position:relative;top:50%;}
 .logo a{height:42px}
 .logo img{height:42px;width:148px}
@@ -102,8 +104,8 @@ p#back-to-top a span{background:#d1d1d1 url(../images3/upgo.gif) no-repeat 0 0;d
 .search_navurl li a{color:#555}
 .input_content{width:465px}
 .input_content p{height:35px;background:#f5f5f5;color:#555666;line-height:35px;text-align:center;width:98px;font-size:14px;cursor:pointer;border:1px solid #ddd;border-left:0}
-.main_r{display:inline-block;position:relative;top:60%;transform:translateY(-50%)}
-.main_r .fabu_btn{width:100px;text-align:center;display:inline-block;margin-bottom:5px;color:#e6454a;font-size:14px;line-height:40px;height:40px;background:#fde0e0}
+.main_r{display:inline-block;position:relative;top:60%;}
+.main_r .fabu_btn{width:100px;text-align:center;display:inline-block;color:#e6454a;font-size:14px;line-height:40px;height:40px;background:#fde0e0}
 .main_r .fabu_btn img{width:24px;height:24px}
 .main_r .delete{color:#666;display:block;text-align:center}
 .nav_bg{background:#e6454a}

@@ -4,10 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+   
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>【北京门面出租|北京商铺出售|北京门面转让|北京商铺网】-北京商铺搜网</title>
-    <meta name="keywords" content="北京门面出租,北京商铺,北京商铺出售,北京门面转让,北京商铺出租,北京商铺网" />
-    <meta name="description" content="北京商铺搜网为您提供大量北京门面出租、北京商铺出售、北京门面转让、北京商铺出租信息，所有用户均可免费发布商铺、门面出租转让信息，同时对发布的北京商铺出租、出售、转让信息进行严格审核，历经10年成为最受北京人民欢迎的商铺门面网；寻找海量、真实的北京门面出租转让信息，请找北京商铺搜网。" />
+    <title> @ViewBag.Navigation.SeoTitle 【北京门面出租|北京商铺出售|北京门面转让|北京商铺网】-北京商铺搜网</title>
+    <meta name="keywords" content="@ViewBag.Navigation.SeoKey" />
+    <meta name="description" content="@ViewBag.Navigation.SeoDesc" />
+    <meta name="location" content="province=@ViewBag.ParentArea.Name;city=@ViewBag.Area.Name;coord=102.854463,24.848294" />
     <link rel="shortcut icon" href="http://www.shangpusou.com/favicon.ico" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/index.css" />
@@ -16,8 +19,12 @@
 </head>
 <body>
     <script type="text/javascript">var current_domain = "http://www.shangpusou.com"; var current_cityid = "1"; var current_logfile = "mplogin.php";</script>
-
     <div class="header_top">
+        <div class="logo clear fl">
+            <a href="http://beijing.shangpusou.com/" title="北京商铺网" class="fl">
+                <img src="~/img/logo.jpg" alt="商铺搜" width="148" height="42" />
+            </a>
+        </div>
         <div class="top_main w1200 clear">
             <div class="top_l fl">
                 <div class="city fl">
@@ -31,6 +38,9 @@
                         <dt>]</dt>
                     </dl>
                 </div>
+            </div>
+            <div class="main_r fr">
+                <a href="http://www.shangpusou.com/shangpusou-post.php?catid=&cityid=1" class="fabu_btn" target="_blank">免费发布</a>
             </div>
             <div class="top_r fr">
                 <div class="icon_box fl">
@@ -62,37 +72,11 @@
                 </div>
                 <div id="mayilogin" class="login fl"><img src="picture/loading.gif" border="0" align="absmiddle" /></div>
             </div>
+
         </div>
     </div>
-
-    <div id="ad_topbanner" class="clear"></div>
-
-
-    <div class="header_mind w1200 clear">
-        <div class="logo clear fl">
-            <a href="http://beijing.shangpusou.com/" title="北京商铺网" class="fl">
-                <img src="picture/logo.png" alt="商铺搜" width="148" height="42" />
-            </a>
-        </div>
-        <div class="main_r fr">
-            <a href="http://www.shangpusou.com/shangpusou-post.php?catid=&cityid=1" class="fabu_btn" target="_blank">免费发布</a>
-        </div>
-        <div class="search fr">
-            <form method="get" action="http://www.shangpusou.com/search.php?" id="searchForm" target="_blank">
-                <input name="cityid" type="hidden" value="1" />
-                <input type="hidden" id="searchtype" name="mod" value="information" />
-                <div class="input_content clear">
-                    <input type="text" class="fl" value="请输入关键词搜索" name="keywords" id="searchheader" onmouseover="if(this.value==='请输入关键词搜索'){this.value='';}" x-webkit-speech=x-webkit-speech lang="zh-CN" />
-                    <input type="submit" value="搜 索" class="searchheader_submit fl" />
-                </div>
-                <div class="fl search_navurl">
-                    <li><a href="#" style="color:" target="_blank" title="培训学校优转">培训学校优转<sup class=""></sup></a></li>
-                    <li><a href="#" style="color:" target="_blank" title="商铺出租">商铺出租<sup class=""></sup></a></li>
-                    <li><a href="#" style="color:" target="_blank" title="酒店转让">酒店转让<sup class=""></sup></a></li>
-                </div>
-            </form>
-        </div>
-    </div><div class="nav_bg">
+ 
+    <div class="nav_bg">
         <div class="nav_main w1200 clear">
             <ul>
 
@@ -131,23 +115,24 @@
             </ul>
         </div>
     </div>
-
     <div class="w1200 con_1 ">
         <div class="tab tab_l">
             <ul class="title" id="ul_typeregion">
-                <li class="first on">厂房</li>
-                <li class="">写字楼</li>
-            </ul><div class="tab_con" id="div_tab_con">
+                <li class="first on">@(ViewBag.Area.Name)厂房出售</li>
+                <li class="">@(ViewBag.Area.Name)厂房出租</li>         
+            </ul>
+            <div class="tab_con" id="div_tab_con">
                 <div class="icontent active">
                     <ol>
                         <li class="ys1">
                             @{
-                                var areaList = ViewBag.AreaList as List<Entity.Models.Cf_Area>;
+                                string ps = "".PadRight(ViewBag.CitySiteRangeSearchCount, '0').Replace("0", "_0") + "_1";
+                                var areaList = ViewBag.AreaList as List<Entity.Models.Cf_FactoryHouseDictionary>;
                                 if (areaList != null)
                                 {
                                     foreach (var m in areaList)
                                     {
-                                        <a href='/Area@(m.AreaName)/' title="@m.AreaName">@(m.AreaName)厂房</a>
+                                        <a href='@ViewBag.Area.Code/chushou@(ps).html' title="@(m.Name)厂房出售">@(m.Name)厂房出售</a>
                                     }
                                 }
                             }
@@ -159,20 +144,52 @@
                                 {
                                     foreach (var m in teseHousingList)
                                     {
-                                        <a href='/Area@(m.Code)/' title="@m.Name">@(m.Name)厂房 </a>
+                                        if (m.Name.Contains("房"))
+                                        {
+                                            <a href='@ViewBag.Area.Code/tesechushou_@(m.Id)_1.html' title="@m.Name">@(m.Name)出售 </a>
+                                        }
+                                        else
+                                        {
+                                            <a href='@ViewBag.Area.Code/tesechuzu_@(m.Id)_1.html' title="@m.Name">@(m.Name)厂房出售 </a>
+                                        }
                                     }
                                 }
                             }
                         </li>
                     </ol>
                 </div>
-                <div class="icontent ">
-                    <ol>
-                        <li class="ys1"><a href='xiezilou/areaid-330/' title="海淀写字楼">海淀</a><a href='xiezilou/areaid-11371/' title="密云写字楼">密云</a><a href='xiezilou/areaid-346/' title="门头沟写字楼">门头沟</a><a href='xiezilou/areaid-345/' title="平谷写字楼">平谷</a><a href='xiezilou/areaid-343/' title="怀柔写字楼">怀柔</a><a href='xiezilou/areaid-341/' title="昌平写字楼">昌平</a><a href='xiezilou/areaid-340/' title="顺义写字楼">顺义</a><a href='xiezilou/areaid-339/' title="通州写字楼">通州</a><a href='xiezilou/areaid-338/' title="大兴写字楼">大兴</a><a href='xiezilou/areaid-337/' title="房山写字楼">房山</a><a href='xiezilou/areaid-336/' title="石景山写字楼">石景山</a><a href='xiezilou/areaid-335/' title="丰台写字楼">丰台</a><a href='xiezilou/areaid-333/' title="西城写字楼">西城</a><a href='xiezilou/areaid-332/' title="东城写字楼">东城</a><a href='xiezilou/areaid-331/' title="朝阳写字楼">朝阳</a><a href='xiezilou/areaid-11372/' title="延庆写字楼">延庆</a><a href='xiezilou/areaid-512/' title="北京周边写字楼">北京周边</a></li>
-                        <li class="ys2">
-                            <a href="xiezilouchuzu/">写字楼出租</a>
-                            <a href="xiezilouchushou/">写字楼出售</a>
 
+                <div class="icontent">
+                    <ol>
+                        <li class="ys1">
+                            @{
+
+                                if (areaList != null)
+                                {
+                                    foreach (var m in areaList)
+                                    {
+                                        <a href='@ViewBag.Area.Code/chushou@(ps).html' title="@(m.Name)厂房出租">@(m.Name)厂房出租</a>
+                                    }
+                                }
+                            }
+                        </li>
+                        <li class="ys2">
+                            @{
+                                if (teseHousingList != null)
+                                {
+                                    foreach (var m in teseHousingList)
+                                    {
+                                        if (m.Name.Contains("房"))
+                                        {
+                                            <a href='@ViewBag.Area.Code/tesechuzu_@(m.Id)_1.html' title="@m.Name">@(m.Name)出租</a>
+                                        }
+                                        else
+                                        {
+                                            <a href='@ViewBag.Area.Code/tesechuzu_@(m.Id)_1.html' title="@m.Name">@(m.Name)厂房出租 </a>
+                                        }
+                                    }
+                                }
+                            }
                         </li>
                     </ol>
                 </div>
@@ -241,7 +258,7 @@
 
 
     <div class="w1200 con con_5">
-        <div class="con_bt"><h3>北京厂房出售</h3><a class="more" href="/shangpuchuzu/" title="更多北京厂房出售信息">更多&gt;&gt;</a></div>
+        <div class="con_bt"><h3>@(ViewBag.Area.Name)厂房最近出售</h3><a class="more" href="/shangpuchuzu/" title="更多北京厂房出售信息">更多&gt;&gt;</a></div>
         <ul class="pic_list_tel">
             @{
                 var factoryHouseChuShouList = ViewBag.FactoryHouseChuShouList as List<Entity.Models.Cf_FactoryHouse>;
@@ -249,17 +266,17 @@
                 {
                     <li>
                         <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
-                            <img class="lazy" src="m.CoverMap" alt="@m.HousingName" width="226" height="170" />
+                            <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
                         </a>
                         <div class="con_bt_p">
                             <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
                             <div class="con_bt_p_mx">
-                                <div class="fl"> <span>@m.UnitPrice</span> 元/平 </div>
+                                <div class="fl"> <span>@(m.UnitPrice == null ? "面议" : m.UnitPrice.ToString()) </span> 元/平 </div>
                                 <div class="fr">@m.HousingArea 平</div>
                             </div>
                             <div class="con_bt_p_mx">
                                 <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
-                                <div class="fr">570人已浏览</div>
+                                <div class="fr">已浏览 @m.Pageviews</div>
                             </div>
                         </div>
                     </li>
@@ -268,7 +285,7 @@
         </ul>
     </div>
     <div class="w1200 con con_6">
-        <div class="con_bt"><h3>北京商厂房出租</h3><a class="more" href="/shangpuchushou/" title="最新商厂房出租信息">更多&gt;&gt;</a></div>
+        <div class="con_bt"><h3>@(ViewBag.Area.Name)厂房最近出租</h3><a class="more" href="/shangpuchushou/" title="厂房最近出租">厂房最近出租;</a></div>
         <ul class="pic_list_tel">
             @{
                 var factoryHouseChuZuList = ViewBag.FactoryHouseChuZuList as List<Entity.Models.Cf_FactoryHouse>;
@@ -276,17 +293,17 @@
                 {
                     <li>
                         <a href="/changfang/@(m.Id).html" title="@m.HousingName" target="_blank">
-                            <img class="lazy" src="@@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
+                            <img class="lazy" src="@m.CoverMap" alt="@m.HousingName" width="226" height="170" />
                         </a>
                         <div class="con_bt_p">
                             <h4><a href="/changfang/@(m.Id).html" target="_blank" style=" ">@m.HousingName</a></h4>
                             <div class="con_bt_p_mx">
-                                <div class="fl"> <span>@m.HousingRent</span> 元/月 </div>
+                                <div class="fl"> <span>@(m.HousingRent == null ? "面议" : m.HousingRent.ToString()) </span> /月 </div>
                                 <div class="fr">@m.HousingArea 平</div>
                             </div>
                             <div class="con_bt_p_mx">
                                 <div class="fl">@m.F_CreateDate.Value.ToString("yyyy-MM-dd")</div>
-                                <div class="fr">570人已浏览</div>
+                                <div class="fr">已浏览 @m.Pageviews</div>
                             </div>
                         </div>
                     </li>
@@ -298,13 +315,12 @@
 
     <div class="w1200 con con_4">
         <div class="min">
-            <div class="con_bt"><h3>按结类别找厂房</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多北京厂房信息&gt;&gt;</a></div>
+            <div class="con_bt"><h3>按结类别找厂房</h3><a class="more" href="/shangpuzhuanrang/" title="更多北京商铺转让信息" target="_blank">更多@(ViewBag.Area.Name)厂房信息</a></div>
             <div class="tab">
                 <ul class="title" id="ul_typeshopinfo">
                     @{
 
                         var dictionarysJieGous = ViewBag.DictionarysJieGous as List<Entity.Models.Cf_FactoryHouseDictionary>;
-
                         int i = 0;
                         foreach (var m in dictionarysJieGous)
                         {
@@ -318,9 +334,6 @@
                                 <li typeid="@i">@m.Name</li>
                             }
                         }
-
-
-
                     }
                 </ul>
                 <div class="tab_con">
@@ -412,12 +425,8 @@
                     </ul>
                 </div>
             }
-
         }
     </div>
-
-
-
     <div class="footer_links w1200">
         <div class="m_box footer_links_des">
             <span>周边城市：</span>
@@ -433,20 +442,7 @@
                 <a href='http://beijing.shangpusou.com/' title="北京商铺信息" target="_blank">北京商铺</a>
                 <a href='http://tianjin.shangpusou.com/' title="天津商铺信息" target="_blank">天津商铺</a>
                 <a href='http://shijiazhuang.shangpusou.com/' title="石家庄商铺信息" target="_blank">石家庄商铺</a>
-                <a href='http://shanghai.shangpusou.com/' title="上海商铺信息" target="_blank">上海商铺</a>
-                <a href='http://nanjing.shangpusou.com/' title="南京商铺信息" target="_blank">南京商铺</a>
-                <a href='http://hangzhou.shangpusou.com/' title="杭州商铺信息" target="_blank">杭州商铺</a>
-                <a href='http://fuzhou.shangpusou.com/' title="福州商铺信息" target="_blank">福州商铺</a>
-                <a href='http://xiamen.shangpusou.com/' title="厦门商铺信息" target="_blank">厦门商铺</a>
-                <a href='http://nanchang.shangpusou.com/' title="南昌商铺信息" target="_blank">南昌商铺</a>
-                <a href='http://zhengzhou.shangpusou.com/' title="郑州商铺信息" target="_blank">郑州商铺</a>
-                <a href='http://wuhan.shangpusou.com/' title="武汉商铺信息" target="_blank">武汉商铺</a>
-                <a href='http://changsha.shangpusou.com/' title="长沙商铺信息" target="_blank">长沙商铺</a>
-                <a href='http://guangzhou.shangpusou.com/' title="广州商铺信息" target="_blank">广州商铺</a>
-                <a href='http://shenzhen.shangpusou.com/' title="深圳商铺信息" target="_blank">深圳商铺</a>
-                <a href='http://chongqing.shangpusou.com/' title="重庆商铺信息" target="_blank">重庆商铺</a>
-                <a href='http://chengdu.shangpusou.com/' title="成都商铺信息" target="_blank">成都商铺</a>
-                <a href='http://xian.shangpusou.com/' title="西安商铺信息" target="_blank">西安商铺</a>
+                <a href='http://shanghai.shangpusou.com/' title="上海商铺信息" target="_blank">上海商铺</a>          
             </p>
         </div>
         <div class="m_box footer_links_des">

@@ -22,5 +22,34 @@ namespace Bll.Service
         }
 
 
+ 
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="areaId">区域id</param>
+        /// <param name="webTypeId">页面类型</param>
+        /// <returns></returns>
+        public int  GetCitySiteRangeSearchCount(int areaId, int webTypeId,int parentId)
+        {
+            int count = Context.Cf_CitySiteRangeSearch.Where(w => w.IsEnable && w.AreaId == areaId && w.WebTypeId == webTypeId && w.ParentId == parentId).Count();
+            return count;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="areaId">区域id</param>
+        /// <param name="webTypeId">页面类型</param>
+        /// <returns></returns>
+        public List<Cf_CitySiteRangeSearch> GetCitySiteRangeSearchList(int areaId, int webTypeId, int parentId)
+        {
+            var list = Context.Cf_CitySiteRangeSearch.Where(w => w.IsEnable && w.AreaId == areaId && w.WebTypeId == webTypeId && w.ParentId == parentId).OrderBy(s => s.Sort).ToList();
+            return list;
+        }
+
     }
 }

@@ -15,7 +15,9 @@ namespace Entity.Models
         public string EnterpriseName { get; set; }
      
         public double? UnitPrice { get; set; }
-  
+
+        public int? Pageviews { get; set; }
+        
         public double? HousingRent { get; set; }
  
         public double? HousingArea { get; set; }
@@ -44,14 +46,23 @@ namespace Entity.Models
 
     
         public int? HousingtypeId { get; set; }
- 
+
+
+        public string HousingtypeName { get; set; }
+
+        public string HousingStructureName { get; set; }
+
+        public string FloorTypeName { get; set; }
+
+        public string ContactsTypeName { get; set; }
         public int? HousingStructureId { get; set; }
 
 
-    
-        public int? FloorTypeId { get; set; }
+        public string CategoryList { get; set; }
 
-       
+        public string FeatureList { get; set; }
+        public string IndustryList { get; set; }
+        public int? FloorTypeId { get; set; }       
         public string SourceName { get; set; }
  
         public bool IsEnable { get; set; }
